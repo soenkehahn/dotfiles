@@ -105,4 +105,6 @@ set expandtab
 :set makeprg=./geany.sh
 
 :set switchbuf+=usetab,newtab
-inoremap <C-m> <Esc> :w <CR> :silent make <CR> :copen <CR> :wincmd k <CR> :redraw! <CR>
+" can this be converted into a function?
+inoremap <C-m> <Esc> :w <CR> :silent make <CR> :copen <CR> :wincmd L <CR> :wincmd h <CR> :redraw! <CR>
+noremap  <C-m> <Esc> :w <CR> :silent make <CR> :copen <CR> :wincmd L <CR> :wincmd h <CR> :redraw! <CR>
