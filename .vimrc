@@ -106,5 +106,5 @@ set expandtab
 
 :set switchbuf+=usetab,newtab
 " can this be converted into a function?
-inoremap <C-m> <Esc> :w <CR> :silent make <CR> :copen <CR> :wincmd L <CR> :wincmd h <CR> :redraw! <CR>
-noremap  <C-m> <Esc> :w <CR> :silent make <CR> :copen <CR> :wincmd L <CR> :wincmd h <CR> :redraw! <CR>
+inoremap <C-h> <Esc> :w <CR> :silent make <CR> :copen <CR> :wincmd L <CR> :wincmd h <CR> :redraw! <CR>
+noremap  <C-h>       :w <CR> :silent make <CR> :copen <CR> :wincmd L <CR> :wincmd h <CR> :redraw! <CR>
