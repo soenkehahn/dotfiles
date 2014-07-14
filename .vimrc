@@ -108,3 +108,11 @@ set expandtab
 " can this be converted into a function?
 inoremap <C-h> <Esc> :w <CR> :silent make <CR> :copen <CR> :wincmd L <CR> :wincmd h <CR> :redraw! <CR>
 noremap  <C-h>       :w <CR> :silent make <CR> :copen <CR> :wincmd L <CR> :wincmd h <CR> :redraw! <CR>
+
+" highlighting trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
