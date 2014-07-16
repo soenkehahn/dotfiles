@@ -112,6 +112,7 @@ set expandtab
 " can this be converted into a function?
 inoremap <C-h> <Esc> :w <CR> :silent make <CR> :copen <CR> :wincmd L <CR> :wincmd h <CR> :redraw! <CR>
 noremap  <C-h>       :w <CR> :silent make <CR> :copen <CR> :wincmd L <CR> :wincmd h <CR> :redraw! <CR>
+map      <Leader>h   :w <CR> :silent make <CR> :copen <CR> :wincmd L <CR> :wincmd h <CR> :redraw! <CR>
 
 " highlighting trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
