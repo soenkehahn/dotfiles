@@ -124,3 +124,6 @@ autocmd BufWinLeave * call clearmatches()
 
 " shortcut for invoking stylish-haskell
 map <Leader>f :%!stylish-haskell <CR>
+
+" turning off backup files
+set nobackup
