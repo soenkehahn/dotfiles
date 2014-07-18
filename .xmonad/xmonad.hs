@@ -252,15 +252,15 @@ withFocusToRight (Stack focus up (a : r)) = Stack focus (a : up) r
 
 runOrRaiseConfig :: XPConfig
 runOrRaiseConfig = defaultXPConfig {
-    font              = "-terminus-*-*-*-*-12-*-*-*-*-*-*-*",
-    bgColor           = "#000",
-    fgColor           = "#88f",
-    fgHLight          = "#fff",
-    bgHLight          = "#88f",
-    borderColor       = "#88f",
+    font              = "xft:Ubuntu Mono:pixelsize=20,style=regular",
+    bgColor           = "#2c2c2c",
+    fgColor           = "#dcdccc",
+    fgHLight          = "#dd2e2e",
+    bgHLight          = "#444444",
+    borderColor       = "#444444",
     promptBorderWidth = 2,
     position          = Bottom,
-    height            = 18,
+    height            = 26,
     historySize       = 256,
     historyFilter     = nub,
     defaultText       = ""
