@@ -1,0 +1,23 @@
+Config { 
+    font = "-*-Fixed-Bold-R-Normal-*-15-*-*-*-*-*-*-*",
+    bgColor = "#2c2c2c",
+    fgColor = "#dcdccc",
+    position = Bottom,
+    border = TopB,
+    lowerOnStart = True,
+    persistent = False,
+    commands = [
+        Run Battery ["-t", "<left>%, <acstatus><timeleft>", "--", "-o", "left: ", "-O", "charging: "] 600,
+        -- Run Cpu ["-L","3","-H","50","--normal","green","--high","red", "-t", "<total>%"] 20,
+        -- Run Memory ["-t","<usedratio>%"] 20,
+        -- Run Swap ["-t", "<usedratio>%"] 20,
+        Run Date "%a %_d %b %Y - %H:%M" "date" 100,
+        -- Run Wireless "wlan0" ["-t", "<quality>%, <essid>"] 20,
+        Run StdinReader
+      ],
+    sepChar = "%",
+    alignSep = "}{",
+    template = " %StdinReader%}{%battery%         %date% "
+    -- %date% battery: %battery% cpu: %cpu% memory: %memory%, swap: %swap%{wifi: %wlan0wi%"
+-- "%cpu% | %memory% * %swap% | %eth0% }{ %EGPN% | <fc=#ee9a00>%date%</fc>"
+}
