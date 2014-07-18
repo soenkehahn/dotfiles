@@ -138,6 +138,9 @@ noremap  <C-h>       :call Geany()<CR>
 map      <Leader>h   :call Geany()<CR>
 map      <Leader>g   :call GeanyNext()<CR>
 
+map <Leader>c :wincmd ><CR>
+map <Leader>l :wincmd <<CR>
+
 " buffer control
 map <Leader>o :CtrlP .<CR>
 map <Leader>e :CtrlPBuffer<CR>
