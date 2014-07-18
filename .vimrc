@@ -127,7 +127,7 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-map <Leader>f :%!stylish-haskell <CR>
+map <Leader>f :call RestoreCursor('%!stylish-haskell') <CR>
 
 
 " configuring geany like behavior
