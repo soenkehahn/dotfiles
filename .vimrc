@@ -10,10 +10,6 @@
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
 
-" changing the leader to h
-let mapleader = "h"
-
-
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
@@ -101,18 +97,27 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
+" -------------
+" My own config
+" -------------
+
+" changing the leader to h
+let mapleader = "h"
+
+" pathogen
+execute pathogen#infect()
+
+" buffer control (with CtrlP)
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" turning off backup files
+set nobackup
+
+" tabstop behavior
 set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
-
-:set makeprg=./geany.sh
-
-:set switchbuf+=usetab,newtab
-" can this be converted into a function?
-inoremap <C-h> <Esc> :w <CR> :silent make <CR> :copen <CR> :wincmd L <CR> :wincmd h <CR> :redraw! <CR>
-noremap  <C-h>       :w <CR> :silent make <CR> :copen <CR> :wincmd L <CR> :wincmd h <CR> :redraw! <CR>
-map      <Leader>h   :w <CR> :silent make <CR> :copen <CR> :wincmd L <CR> :wincmd h <CR> :redraw! <CR>
 
 " highlighting trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -122,8 +127,16 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-" shortcut for invoking stylish-haskell
 map <Leader>f :%!stylish-haskell <CR>
 
-" turning off backup files
-set nobackup
+
+" configuring geany like behavior
+:set makeprg=./geany.sh
+
+inoremap <C-h> <Esc> :call Geany()<CR>
+noremap  <C-h>       :call Geany()<CR>
+map      <Leader>h   :call Geany()<CR>
+
+" buffer control
+map <Leader>o :CtrlP .<CR>
+map <Leader>e :CtrlPBuffer<CR>
