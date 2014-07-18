@@ -142,5 +142,6 @@ map <Leader>c :wincmd ><CR>
 map <Leader>l :wincmd <<CR>
 
 " buffer control
+let g:ctrlp_switch_buffer = 'E'
 map <Leader>o :CtrlP .<CR>
 map <Leader>e :CtrlPBuffer<CR>
