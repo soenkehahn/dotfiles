@@ -136,6 +136,7 @@ map <Leader>f :%!stylish-haskell <CR>
 inoremap <C-h> <Esc> :call Geany()<CR>
 noremap  <C-h>       :call Geany()<CR>
 map      <Leader>h   :call Geany()<CR>
+map      <Leader>g   :call GeanyNext()<CR>
 
 " buffer control
 map <Leader>o :CtrlP .<CR>

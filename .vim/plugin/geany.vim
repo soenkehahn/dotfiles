@@ -42,6 +42,7 @@ function! SetCursorState(list)
   call cursor(s_line, s_col)
 endfunction
 
+let g:geany_qf_opened = 0
 function! Geany()
   let state = GetCursorState()
 
@@ -56,4 +57,12 @@ function! Geany()
   call SetCursorState(state)
 
   redraw!
+endfunction
+
+function! GeanyNext()
+  if g:geany_qf_opened
+    crewind
+    let g:geany_qf_opened = 0
+  endif
+  cnext
 endfunction
