@@ -107,6 +107,9 @@ let mapleader = "h"
 " pathogen
 execute pathogen#infect()
 
+" turning off backup files
+set nobackup
+
 " buffer control (with CtrlP)
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_switch_buffer = 'E'
@@ -116,15 +119,14 @@ map <Leader>e :CtrlPBuffer<CR>
 let NERDTreeQuitOnOpen = 1
 map <Leader>o :NERDTree<CR>
 
-
-" turning off backup files
-set nobackup
-
 " tabstop behavior
 set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
+" insert line without going to insert mode
+map <Leader>i O<Esc>j
 
 " highlighting trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
