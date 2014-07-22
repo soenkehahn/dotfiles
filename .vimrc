@@ -109,6 +109,13 @@ execute pathogen#infect()
 
 " buffer control (with CtrlP)
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_switch_buffer = 'E'
+map <Leader>e :CtrlPBuffer<CR>
+
+" NERDTree
+let NERDTreeQuitOnOpen = 1
+map <Leader>o :NERDTree<CR>
+
 
 " turning off backup files
 set nobackup
@@ -138,10 +145,5 @@ noremap  <C-h>       :call Geany()<CR>
 map      <Leader>h   :call Geany()<CR>
 map      <Leader>g   :call GeanyNext()<CR>
 
-map <Leader>c :wincmd ><CR>
-map <Leader>l :wincmd <<CR>
-
-" buffer control
-let g:ctrlp_switch_buffer = 'E'
-map <Leader>o :CtrlP .<CR>
-map <Leader>e :CtrlPBuffer<CR>
+map <Leader>c :8wincmd ><CR>
+map <Leader>l :8wincmd <<CR>
