@@ -57,13 +57,13 @@ main = do
     spawn "/home/shahn/neo/asdf"
     let bgi = "~/background.png"
     spawn ("xloadimage -onroot -fullscreen " ++ bgi)
-    xmobar <- spawnPipe "~/.cabal/bin/xmobar"
+    xmobar <- spawnPipe "~/.nix-profile/bin/xmobar"
     xmonad $
         withUrgencyHook NoUrgencyHook $
         myConfig {
             logHook = dynamicLogWithPP $ xmobarPP {
                 ppCurrent = xmobarColor "#dd2e2e" "" . wrap "<" ">",
-                ppVisible = const "visible",
+                ppVisible = \ ws -> xmobarColor "#93e0e3" "" (" " ++ ws ++ " "),
                 ppHidden = \ ws -> " " ++ ws ++ " ",
                 ppWsSep = "",
                 ppUrgent = xmobarColor "magenta" "black" . xmobarStrip,
@@ -256,7 +256,7 @@ runOrRaiseConfig = defaultXPConfig {
     bgColor           = "#2c2c2c",
     fgColor           = "#dcdccc",
     fgHLight          = "#dd2e2e",
-    bgHLight          = "#444444",
+    bgHLight          = "#2c2c2c",
     borderColor       = "#444444",
     promptBorderWidth = 2,
     position          = Bottom,

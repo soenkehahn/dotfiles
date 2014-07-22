@@ -11,7 +11,7 @@ Config {
         Run Cpu ["-L","3","-H","50","--normal","#dcdccc","--high","#dd2e2e", "-t", "<total>%"] 20,
         Run Memory ["-t","<usedratio>%"] 20,
         -- Run Swap ["-t", "<usedratio>%"] 20,
-        Run Date "%H:%M" "date" 100,
+        Run Date "%F %H:%M" "date" 100,
         Run Wireless "wlan0" ["-t", "<quality>% <essid>"] 20,
         Run StdinReader
       ],
