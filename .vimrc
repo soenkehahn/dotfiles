@@ -139,6 +139,11 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+" cursorline
+:hi CursorLine cterm=NONE ctermbg=black ctermfg=NONE
+:set cursorline
+
+" shortcut for stylish-haskell
 map <Leader>f :call RestoreCursor('%!stylish-haskell') <CR>
 
 
