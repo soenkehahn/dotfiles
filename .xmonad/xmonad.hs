@@ -201,8 +201,6 @@ scratchpads =
         (terminal myConfig ++ " --name musicSelection --workdir /home/shahn/musik/beets")
         (appName =? "musicSelection") centerBig :
     NS "pavucontrol" "pavucontrol" (appName =? "pavucontrol") centerBig :
-
-    NS "systray" "trayer" (title =? "panel") centerBig :
     []
   where
     screenRatio = width % height
@@ -215,12 +213,6 @@ scratchpads =
       where
         padding s = 50 % s
         nonPadding s = 1 - 2 * padding s
-
-    centerQuadraticSmall = customFloating $ RationalRect
-        padding padding non non
-      where
-        padding = 3 / 10
-        non = 1 - 2 * padding
 
 
 myHandleEventHook :: Event -> X All
