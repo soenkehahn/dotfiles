@@ -161,6 +161,7 @@ myKeys conf =
     ((modKey, xK_h), namedScratchpadAction scratchpads "htop") :
     ((modKey, xK_g), namedScratchpadAction scratchpads "aqualung") :
     ((modKey, xK_f), namedScratchpadAction scratchpads "musicSelection") :
+    ((modKey, xK_q), namedScratchpadAction scratchpads "pavucontrol") :
 
     -- -------------------
     -- Workspace switching
@@ -199,6 +200,7 @@ scratchpads =
     NS "musicSelection"
         (terminal myConfig ++ " --name musicSelection --workdir /home/shahn/musik/beets")
         (appName =? "musicSelection") centerBig :
+    NS "pavucontrol" "pavucontrol" (appName =? "pavucontrol") centerBig :
 
     NS "systray" "trayer" (title =? "panel") centerBig :
     []
