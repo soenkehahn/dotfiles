@@ -119,7 +119,7 @@ map <Leader>o :CtrlPMixed<CR>
 " changes
 set hidden
 " files to be ignored
-set wildignore+=*.o,*.hi
+set wildignore+=*.o,*.hi,dist/build/autogen/cabal_macros.h
 
 " NERDTree
 let NERDTreeQuitOnOpen = 1
