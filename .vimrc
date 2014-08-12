@@ -114,13 +114,14 @@ set nobackup
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_switch_buffer = 'E'
 map <Leader>e :CtrlPBuffer<CR>
+map <Leader>o :CtrlPMixed<CR>
 " don't split windows when opening another buffer from one with unsaved
 " changes
 set hidden
 
 " NERDTree
 let NERDTreeQuitOnOpen = 1
-map <Leader>o :NERDTree<CR>
+map <Leader>t :NERDTree<CR>
 
 " tabstop behavior
 set smartindent
