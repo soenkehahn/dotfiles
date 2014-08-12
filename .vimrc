@@ -146,6 +146,11 @@ autocmd BufWinLeave * call clearmatches()
 :hi CursorLine cterm=NONE ctermbg=black ctermfg=NONE
 :set cursorline
 
+" highlighting long lines
+:set colorcolumn=81,82
+:hi ColorColumn cterm=NONE ctermbg=black ctermfg=NONE
+
+
 " shortcut for stylish-haskell
 map <Leader>f :call RestoreCursor('%!stylish-haskell') <CR>
 
