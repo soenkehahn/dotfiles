@@ -118,6 +118,8 @@ map <Leader>o :CtrlPMixed<CR>
 " don't split windows when opening another buffer from one with unsaved
 " changes
 set hidden
+" files to be ignored
+set wildignore+=*.o,*.hi
 
 " NERDTree
 let NERDTreeQuitOnOpen = 1
