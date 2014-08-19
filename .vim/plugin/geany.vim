@@ -28,7 +28,7 @@ function! Geany()
   let state = GetCursorState()
 
   wa
-  silent make
+  silent make!
   let g:geany_qf_opened = 1
   if ! IsQuickfixOpen()
     copen
