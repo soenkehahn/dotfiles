@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+
+konsole --workdir $(pwd) -e vim $@
