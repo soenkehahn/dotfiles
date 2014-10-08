@@ -166,6 +166,7 @@ function git-pull-all () {
 };
 
 alias gl='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit --all'
+alias glh='gl | head -n25'
 alias qg='gitk --all \&'
 
 alias vlch='vlc --extraintf=luahttp'
