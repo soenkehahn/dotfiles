@@ -55,12 +55,16 @@ autoload -U promptinit
 promptinit
 autoload -U colors && colors
 
-if [ $IN_NIX_SHELL ] ; then
-    nix_shell_prompt="[[NIX-SHELL: $NIX_SHELL_EXPRESSIONS]]="
+if [ $NIX_CUSTOM_PROFILE ] ; then
+    nix_shell_prompt="[PROFILE: $NIX_CUSTOM_PROFILE]═"
+else
+    if [ $IN_NIX_SHELL ] ; then
+        nix_shell_prompt="[[NIX-SHELL: $NIX_SHELL_EXPRESSIONS]]═"
+    fi
 fi
 
 if [ $NHC_CABAL_FILE ] ; then
-    nhc_cabal_file_prompt="[[NHC: $NHC_CABAL_FILE]]="
+    nhc_cabal_file_prompt="[NHC: $NHC_CABAL_FILE]═"
 fi
 
 setopt prompt_subst
@@ -77,7 +81,7 @@ PROMPT="\
 %{$terminfo[bold]%}%n%{$reset_color%}@\
 %{$fg[blue]$terminfo[bold]%}%m%{$reset_color%}:\
 %{$fg[red]$terminfo[bold]%}%~%{$reset_color%}
-╚═%(?..(%{$fg[red]$terminfo[bold]%}%?%{$reset_color%}%))═$nix_shell_prompt═$nhc_cabal_file_prompt\
+╚═%(?..(%{$fg[red]$terminfo[bold]%}%?%{$reset_color%}%))═$nix_shell_prompt$nhc_cabal_file_prompt\
 %(!.%{$fg[red]$terminfo[bold]%}#%{$reset_color%}.>) "
 
 # RPROMPT (shows up at the end of a line)
