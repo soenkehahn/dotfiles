@@ -6,7 +6,7 @@ let
       doCheck = false;
     };
     src = pkgs.fetchgit {
-      url = "git@github.com:soenkehahn/nhc.git";
+      url = "https://github.com/soenkehahn/nhc";
       rev = "730b9ef127e615105e21c609985b2f802a8338bf";
       sha256 = "1da4eaaca6bbab42c305541f2252ff193924daeb8b896cf1b4dea783e08ea64a";
     };
