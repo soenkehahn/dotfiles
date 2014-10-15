@@ -1,0 +1,5 @@
+.*.swp
+/geany.sh
+/.nhc
+/cabal.sandbox.config
+/.cabal-sandbox/
