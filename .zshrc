@@ -95,6 +95,9 @@ fi
 if [ -d ~/.cabal/bin ] ; then
     PATH=~/.cabal/bin:"${PATH}"
 fi
+if [ -d ~/local/bin ] ; then
+    PATH=~/local/bin:"${PATH}"
+fi
 
 
 # make / a word separator
