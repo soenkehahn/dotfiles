@@ -165,3 +165,7 @@ map      <Leader>g   :call GeanyNext()<CR>
 
 map <Leader>c :8wincmd ><CR>
 map <Leader>l :8wincmd <<CR>
+
+map x :echo "use delete!"<CR>
+
+set undofile
