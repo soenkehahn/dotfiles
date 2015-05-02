@@ -33,6 +33,7 @@ function! Geany()
   if ! IsQuickfixOpen()
     copen
     wincmd L
+    normal G
   endif
 
   call SetCursorState(state)
