@@ -154,10 +154,6 @@ autocmd BufWinLeave * call clearmatches()
 " shortcut for stylish-haskell
 map <Leader>f :call RestoreCursor('%!stylish-haskell') <CR>
 
-
-" configuring geany like behavior
-:set makeprg=./geany.sh
-
 inoremap <C-h> <Esc> :call Geany()<CR>
 noremap  <C-h>       :call Geany()<CR>
 map      <Leader>h   :call Geany()<CR>
