@@ -81,7 +81,7 @@ PROMPT="\
 %{$terminfo[bold]%}%n%{$reset_color%}@\
 %{$fg[blue]$terminfo[bold]%}%m%{$reset_color%}:\
 %{$fg[red]$terminfo[bold]%}%~%{$reset_color%}
-╚═%(?..(%{$fg[red]$terminfo[bold]%}%?%{$reset_color%}%))═$nix_shell_prompt$nhc_cabal_file_prompt\
+|=%(?..(%{$fg[red]$terminfo[bold]%}%?%{$reset_color%}%))=$nix_shell_prompt$nhc_cabal_file_prompt\
 %(!.%{$fg[red]$terminfo[bold]%}#%{$reset_color%}.>) "
 
 # RPROMPT (shows up at the end of a line)
