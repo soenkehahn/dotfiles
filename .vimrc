@@ -151,8 +151,8 @@ autocmd BufWinLeave * call clearmatches()
 :hi ColorColumn cterm=NONE ctermbg=black ctermfg=NONE
 
 
-" shortcut for stylish-haskell
-map <Leader>f :call RestoreCursor('%!stylish-haskell') <CR>
+" shortcut for normalize-imports
+map <Leader>f :call RestoreCursor('%!normalize-imports') <CR>
 
 inoremap <C-h> <Esc> :call Geany()<CR>
 noremap  <C-h>       :call Geany()<CR>
