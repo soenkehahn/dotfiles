@@ -81,7 +81,7 @@ PROMPT="\
 %{$terminfo[bold]%}%n%{$reset_color%}@\
 %{$fg[blue]$terminfo[bold]%}%m%{$reset_color%}:\
 %{$fg[red]$terminfo[bold]%}%~%{$reset_color%}
-|=%(?..(%{$fg[red]$terminfo[bold]%}%?%{$reset_color%}%))=$nix_shell_prompt$nhc_cabal_file_prompt\
+=%(?..(%{$fg[red]$terminfo[bold]%}%?%{$reset_color%}%))=$nix_shell_prompt$nhc_cabal_file_prompt\
 %(!.%{$fg[red]$terminfo[bold]%}#%{$reset_color%}.>) "
 
 # RPROMPT (shows up at the end of a line)
@@ -181,11 +181,3 @@ alias vlch='vlc --extraintf=luahttp'
 alias gpgwho='gpg --no-default-keyring --secret-keyring /dev/null -a --list-only '
 
 alias ack=ack-grep
-
-
-# NIX stuffs
-export NIX_PATH="$HOME/.nix-defexpr:ssh-auth-sock=${SSH_AUTH_SOCK}:ssh-config-file=/home/shahn/.ssh/config"
-export NIX_BUILD_HOOK=/home/shahn/.nix-profile/libexec/nix/build-remote.pl
-mkdir -p /tmp/nix-current-load
-export NIX_CURRENT_LOAD=/tmp/nix-current-load
-# export NIX_REMOTE_SYSTEMS=/home/shahn/zalora/remote-systems.conf
