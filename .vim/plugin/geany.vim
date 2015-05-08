@@ -33,10 +33,14 @@ function! Geany()
   if ! IsQuickfixOpen()
     copen
     wincmd L
-    normal G
   endif
 
   call SetCursorState(state)
+
+  " go to the bottom of the quickfix list
+  wincmd l
+  normal G
+  wincmd h
 
   redraw!
 endfunction
