@@ -40,32 +40,14 @@ HISTFILE=~/.histfile
 HISTSIZE=1000000
 SAVEHIST=1000000
 
-
 setopt histignorespace histignoredups appendhistory listrowsfirst
 unsetopt beep autocd bgnice
-
-# vi oder emacs mode?
-# bindkey -e
-# End of lines configured by zsh-newuser-install
-
 
 # prompt stuff
 
 autoload -U promptinit
 promptinit
 autoload -U colors && colors
-
-if [ $NIX_CUSTOM_PROFILE ] ; then
-    nix_shell_prompt="[PROFILE: $NIX_CUSTOM_PROFILE]═"
-else
-    if [ $IN_NIX_SHELL ] ; then
-        nix_shell_prompt="[[NIX-SHELL: $NIX_SHELL_EXPRESSIONS]]═"
-    fi
-fi
-
-if [ $NHC_CABAL_FILE ] ; then
-    nhc_cabal_file_prompt="[NHC: $NHC_CABAL_FILE]═"
-fi
 
 setopt prompt_subst
 precmd () {
@@ -81,7 +63,7 @@ PROMPT="\
 %{$terminfo[bold]%}%n%{$reset_color%}@\
 %{$fg[blue]$terminfo[bold]%}%m%{$reset_color%}:\
 %{$fg[red]$terminfo[bold]%}%~%{$reset_color%}
-=%(?..(%{$fg[red]$terminfo[bold]%}%?%{$reset_color%}%))=$nix_shell_prompt$nhc_cabal_file_prompt\
+=%(?..(%{$fg[red]$terminfo[bold]%}%?%{$reset_color%}%))=\
 %(!.%{$fg[red]$terminfo[bold]%}#%{$reset_color%}.>) "
 
 # RPROMPT (shows up at the end of a line)
@@ -99,10 +81,8 @@ if [ -d ~/local/bin ] ; then
     PATH=~/local/bin:"${PATH}"
 fi
 
-
 # make / a word separator
 local WORDCHARS=${WORDCHARS//\//}
-
 
 # color stderr
 # exec 2>>(while read line; do
@@ -114,7 +94,6 @@ export DARCS_ALWAYS_COLOR=1
 export DARCS_DO_COLOR_LINES=1
 
 export GPG_TTY=$(tty)
-
 
 ###########
 # ALIASES #
@@ -143,41 +122,20 @@ alias debdepends='apt-cache depends '
 alias debrdepends='apt-cache rdepends '
 alias debpurge='sudo apt-get purge '
 
-
 alias dusch="du -sch *"
 alias isrunning='echo "  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND" ; top -bn1 | grep '
 
-# python stuff
-alias rmpyc='rm **/*.pyc'
-alias pack='ack-grep --python '
-
-# haskell stuff
-alias hack='ack-grep --haskell '
-
 alias -g "\&"="&>/dev/null&|"
 
-alias o='kioclient exec '
 alias am='aqualung -EN0 '
 alias qmv='qmv --options=spaces '
 
 REPORTTIME=60
 
-
-function git-pull-all () {
-    START=$(git branch | grep '\*' | sed 's/^.//');
-    for i in $(git branch | sed 's/^.//'); do
-        git checkout $i;
-        git pull || break;
-    done;
-    git checkout $START;
-};
-
-alias gl='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit --all'
 alias glh='gl | head -n25'
 alias qg='gitk --all \&'
-
-alias vlch='vlc --extraintf=luahttp'
 
 alias gpgwho='gpg --no-default-keyring --secret-keyring /dev/null -a --list-only '
 
 alias ack=ack-grep
+alias hack='ack-grep --haskell '
