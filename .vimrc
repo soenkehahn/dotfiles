@@ -143,8 +143,10 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 " cursorline
-:hi CursorLine cterm=NONE ctermbg=black ctermfg=NONE
-:set cursorline
+" :hi CursorLine cterm=NONE ctermbg=192 ctermfg=NONE
+" :set cursorline
+
+set number
 
 " highlighting long lines
 :set colorcolumn=81,82
