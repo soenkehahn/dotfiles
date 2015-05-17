@@ -1,59 +1,44 @@
-{-# LANGUAGE FlexibleInstances, MultiParamTypeClasses #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
 
 module Main where
 
-
-import           Prelude                     hiding (catch, mapM_)
-
-import           Data.Foldable               (mapM_)
+import           Control.Applicative
+import           Control.Monad
 import           Data.List
 import           Data.Map                    (fromList)
+import           Data.Maybe
 import           Data.Monoid
 import           Data.Ratio
-import           Data.Set                    (member)
-
-import           Text.Printf
-
-import           Control.Applicative         ((<$>))
-import           Control.DeepSeq
-import           Control.Exception
-import           Control.Monad               (filterM, when)
-
-import           System.Directory
+import           Prelude                     hiding (mapM_)
 import           System.Exit
-import           System.FilePath
-import           System.Process
-import           System.Random
-import           System.Time
-
-import           XMonad                      hiding (focus)
-import           XMonad.Layout.Tabbed        (shrinkText, tabbedAlways)
+import           System.IO
+import           XMonad
+import           XMonad.Hooks.DynamicLog
+import           XMonad.Hooks.InsertPosition (Focus (Newer), Position (Above),
+                                              insertPosition)
+import           XMonad.Hooks.ManageDocks    (avoidStruts)
+import           XMonad.Hooks.UrgencyHook
+import           XMonad.Layout.Decoration
+import           XMonad.Layout.Tabbed        (tabbedAlways)
+import           XMonad.Layout.TwoPane
 import           XMonad.Prompt               (XPConfig (..),
                                               XPPosition (Bottom),
                                               defaultXPConfig)
 import           XMonad.Prompt.RunOrRaise    (runOrRaisePrompt)
 import           XMonad.StackSet             (RationalRect (..), Stack (..),
-                                              current, focusDown, greedyView,
+                                              current, greedyView, integrate,
                                               screen, screens, sink, stack,
                                               swapDown, swapUp, view, workspace)
-import           XMonad.Util.Themes          (smallClean, theme)
-
-import           XMonad.Hooks.InsertPosition (Focus (Newer, Older),
-                                              Position (Above, Below),
-                                              insertPosition)
-import           XMonad.Hooks.ManageDocks    (avoidStruts)
-
 import           XMonad.Util.NamedScratchpad
 import           XMonad.Util.Run
-import           XMonad.Util.Scratchpad
+import           XMonad.Util.Themes          (smallClean, theme)
 
-import           System.IO
-import           XMonad.Hooks.DynamicLog
-import           XMonad.Hooks.UrgencyHook
+-- import           TabTree
 
-
+main :: IO ()
 main = do
-    spawn "redshift -l 1.17:103.5 -r"
+    spawn "redshift -l 1.31:103.8 -r"
     spawn "/home/shahn/neo/asdf"
     let bgi = "~/background.png"
     spawn ("xloadimage -onroot -fullscreen " ++ bgi)
@@ -80,10 +65,10 @@ myConfig = defaultConfig {
       -- simple stuff
         terminal           = "konsole",
         borderWidth        = 2,
-        focusedBorderColor = "#444444",
-        normalBorderColor  = "#000000",
+        focusedBorderColor = "#000000",
+        normalBorderColor  = "#444444",
         modMask            = mod4Mask,
-        XMonad.workspaces  = "NSP" : fmap show [1 .. 9],
+        XMonad.workspaces  = "NSP" : fmap show [1 .. 9 :: Int],
         keys               = myKeys,
 
       -- hooks, layouts
@@ -94,9 +79,13 @@ myConfig = defaultConfig {
 
 
 myLayout =
-        avoidStruts defaultTabbed
-    ||| Full
-    ||| avoidStruts (TwoPane 0.03 0.5)
+      avoidStruts defaultTabbed
+  ||| Full
+  ||| avoidStruts (TwoPane 0.03 0.5)
+--  ||| ML
+--  ||| TabTree
+--  ||| tabTree shrinkText defaultTheme
+--  ||| (UninitializedTabTree :: TabTree a)
 defaultTabbed = tabbedAlways shrinkText (theme smallClean)
 
 
@@ -118,6 +107,11 @@ myKeys conf =
     ((modKey, xK_Right), withWindowStack focusToRight) :
     ((modKey .|. controlMask, xK_e), windows swapDown) :
     ((modKey .|. controlMask, xK_Right), windows swapDown) :
+
+    -- ((modKey, xK_Left), sendMessage TabTreeLeft) :
+    -- ((modKey, xK_Right), sendMessage TabTreeRight) :
+--    ((modKey, xK_Up), sendMessage TabTreeUp) :
+--    ((modKey, xK_Down), sendMessage TabTreeDown) :
 
     -- close windows
     ((modKey, xK_x), kill) :
@@ -176,7 +170,7 @@ myKeys conf =
         availableScreens <- fmap screen <$> screens <$> windowset <$> get
         when (currentScreen `elem` availableScreens) $
             case dropWhile (/= currentScreen) (cycle availableScreens) of
-                (_ : next : r) -> do
+                (_ : next : _) -> do
                     ws <- screenWorkspace next
                     whenJust ws (windows . view)
                 _ -> return ()) :
@@ -196,14 +190,13 @@ scratchpads :: [NamedScratchpad]
 scratchpads =
     NS "vim" (terminal myConfig ++ " --name vim") (appName =? "vim") centerBig :
     NS "htop" (terminal myConfig ++ " --name htopTerminal") (appName =? "htopTerminal") centerBig :
-    NS "aqualung" "aqualung" (appName =? "aqualung") centerBig :
+    NS "aqualung" "aqualung -o pulse" (appName =? "aqualung") centerBig :
     NS "musicSelection"
         (terminal myConfig ++ " --name musicSelection --workdir /home/shahn/musik/beets")
         (appName =? "musicSelection") centerBig :
     NS "pavucontrol" "pavucontrol" (appName =? "pavucontrol") centerBig :
     []
   where
-    screenRatio = width % height
     height = 800
     width = 1280
 
@@ -216,31 +209,22 @@ scratchpads =
 
 
 myHandleEventHook :: Event -> X All
-myHandleEventHook e@DestroyWindowEvent{} = do
-    s <- get
-    let isAtLeft = case stack $ workspace $ current $ windowset s of
-            Nothing -> False
-            Just stack_ -> null $ down stack_
+myHandleEventHook DestroyWindowEvent{} = do
     return $ All True
 myHandleEventHook _ = return $ All True
 
-logWindowStack :: X ()
-logWindowStack = do
-    s <- get
-    xlog $ show $ stack $ workspace $ current $ windowset s
-
 -- replace with XMonad.Actions.CycleWindows?
 
-focusToLeft s@(Stack focus [] _) = s
+focusToLeft s@(Stack _focus [] _) = s
 focusToLeft (Stack focus (a : r) down) = Stack a r (focus : down)
 
-withFocusToLeft s@(Stack focus [] _) = s
+withFocusToLeft s@(Stack _focus [] _) = s
 withFocusToLeft (Stack focus (a : r) down) = Stack focus r (a : down)
 
-focusToRight s@(Stack focus _ []) = s
+focusToRight s@(Stack _focus _ []) = s
 focusToRight (Stack focus up (a : r)) = Stack a (focus : up) r
 
-withFocusToRight s@(Stack focus _ []) = s
+withFocusToRight s@(Stack _focus _ []) = s
 withFocusToRight (Stack focus up (a : r)) = Stack focus (a : up) r
 
 
@@ -263,13 +247,6 @@ runOrRaiseConfig = defaultXPConfig {
 
 -- * Utils
 
-xlog msg =
-    io $ appendFile "/tmp/xmonadLog" (msg ++ "\n")
-
-xprint :: Show s => s -> X ()
-xprint = xlog . show
-
-
 withWindowStack :: (Stack Window -> Stack Window) -> X ()
 withWindowStack fun =
     windows $ \ ws ->
@@ -290,45 +267,37 @@ setStack set stack' =
         oldWorkspace = workspace oldCurrent
 
 
-swapProcess :: String -> X ()
-swapProcess cmd = do
-    dir <- getXMonadDir
-    let lockFile = dir </> cmd <.> "lock"
-    exists <- io $ doesFileExist lockFile
-    xprint exists
-    if exists then do
-        spawn ("killall " ++ cmd)
-        io $ removeFile lockFile
-      else do
-        io $ writeFile lockFile "lock!"
-        spawn cmd
+-- * ML
 
-xShowMessage :: String -> X ()
-xShowMessage msg =
-    spawn ("kdialog --msgbox \"" ++ msg ++ "\"")
+data ML a = ML
+  deriving (Show, Read)
 
+instance LayoutClass ML a where
+  description _ = "ML"
+  pureMessage ML _ = Nothing
+  pureLayout _ screenRectangle@(Rectangle _x _y _width _height) stack =
+    zip (integrate stack) (mkGrid screenRectangle (length (integrate stack)))
 
--- * My own version of TwoPane (not used?)
+mkGrid :: Rectangle -> Int -> [Rectangle]
+mkGrid screen n =
+  concat $
+  for [0..pred gridHeight] $ \ gridY ->
+    for [0..pred gridWidth] $ \ gridX ->
+      Rectangle (fromIntegral (gridX * cellWidth)) (fromIntegral (gridY * cellHeight))
+                (fromIntegral cellWidth) (fromIntegral cellHeight)
+ where
+  squareRoot :: Double
+  squareRoot = sqrt (realToFrac n)
+  gridHeight, gridWidth :: Int
+  gridHeight = ceiling (n // gridWidth)
+  gridWidth = ceiling squareRoot
 
-data TwoPane a =
-    TwoPane Rational Rational
-    deriving ( Show, Read )
+  cellWidth, cellHeight :: Int
+  cellWidth = fromIntegral (rect_width screen) `div` gridWidth
+  cellHeight = fromIntegral (rect_height screen) `div` gridHeight
 
-instance LayoutClass TwoPane a where
-    doLayout (TwoPane _ split) r s = return (arrange r s,Nothing)
-        where
-          arrange rect st = case reverse (up st) of
-                              (master:_) -> [(master,left),(focus st,right)]
-                              [] -> case down st of
-                                      (next:_) -> [(focus st,left),(next,right)]
-                                      [] -> [(focus st, rect)]
-              where (left, right) = splitHorizontallyBy split rect
+for :: [a] -> (a -> b) -> [b]
+for = flip map
 
-    handleMessage (TwoPane delta split) x =
-        return $ case fromMessage x of
-                   Just Shrink -> Just (TwoPane delta (split - delta))
-                   Just Expand -> Just (TwoPane delta (split + delta))
-                   _           -> Nothing
-
-    description _ = "TwoPane"
-
+(//) :: Int -> Int -> Double
+a // b = realToFrac a / realToFrac b
