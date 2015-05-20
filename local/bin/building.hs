@@ -8,18 +8,18 @@ import           System.Process
 main :: IO ()
 main = do
   output <- readProcess "ps" ["aux"] ""
-  mapM_ putStrLn (extractPackageIds output)
+  mapM_ putStrLn (extractPackageNames output)
 
-extractPackageIds :: String -> [String]
-extractPackageIds =
+extractPackageNames :: String -> [String]
+extractPackageNames =
   lines >>>
   filter ("ghc" `isInfixOf`) >>>
   map (
     words >>>
-    scanForPackageId) >>>
+    scanForPackageName) >>>
   catMaybes
 
-scanForPackageId :: [String] -> Maybe String
-scanForPackageId ("-package-id" : packageId : r) = Just packageId
-scanForPackageId (a : r) = scanForPackageId r
-scanForPackageId [] = Nothing
+scanForPackageName :: [String] -> Maybe String
+scanForPackageName ("-package-name" : packageName : r) = Just packageName
+scanForPackageName (a : r) = scanForPackageName r
+scanForPackageName [] = Nothing
