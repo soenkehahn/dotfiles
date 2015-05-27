@@ -8,7 +8,10 @@ import           System.Process
 main :: IO ()
 main = do
   output <- readProcess "ps" ["aux"] ""
-  mapM_ putStrLn (extractPackageNames output)
+  let buildingPackages = case extractPackageNames output of
+        [] -> "<nothing>"
+        x -> unwords x
+  putStrLn $ ("cabal is building: " ++ buildingPackages)
 
 extractPackageNames :: String -> [String]
 extractPackageNames =
