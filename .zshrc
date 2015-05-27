@@ -49,6 +49,12 @@ autoload -U promptinit
 promptinit
 autoload -U colors && colors
 
+if [ -z "$CABAL_SANDBOX_CONFIG" ]; then
+  cabal_sandbox_hint=""
+else
+  cabal_sandbox_hint="sandbox: $(basename $(dirname $CABAL_SANDBOX_CONFIG))"
+fi
+
 setopt prompt_subst
 precmd () {
   PROMPT_TIME=$(date +%H:%M:%S)
@@ -63,7 +69,7 @@ PROMPT="\
 %{$terminfo[bold]%}%n%{$reset_color%}@\
 %{$fg[blue]$terminfo[bold]%}%m%{$reset_color%}:\
 %{$fg[red]$terminfo[bold]%}%~%{$reset_color%}
-=%(?..(%{$fg[red]$terminfo[bold]%}%?%{$reset_color%}%))=\
+=%(?..(%{$fg[red]$terminfo[bold]%}%?%{$reset_color%}%))=$cabal_sandbox_hint=\
 %(!.%{$fg[red]$terminfo[bold]%}#%{$reset_color%}.>) "
 
 # RPROMPT (shows up at the end of a line)
