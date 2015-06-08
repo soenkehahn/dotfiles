@@ -24,5 +24,6 @@ extractPackageNames =
 
 scanForPackageName :: [String] -> Maybe String
 scanForPackageName ("-package-name" : packageName : r) = Just packageName
+scanForPackageName ("-this-package-key" : packageName : r) = Just packageName
 scanForPackageName (a : r) = scanForPackageName r
 scanForPackageName [] = Nothing
