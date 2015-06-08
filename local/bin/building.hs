@@ -20,7 +20,8 @@ extractPackageNames =
   map (
     words >>>
     scanForPackageName) >>>
-  catMaybes
+  catMaybes >>>
+  sort
 
 scanForPackageName :: [String] -> Maybe String
 scanForPackageName ("-package-name" : packageName : r) = Just packageName
