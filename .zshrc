@@ -80,9 +80,6 @@ RPROMPT='$PROMPT_GIT_BRANCH  $PROMPT_TIME'
 if [ -d ~/bin ] ; then
     PATH=~/bin:"${PATH}"
 fi
-if [ -d ~/.cabal/bin ] ; then
-    PATH=~/.cabal/bin:"${PATH}"
-fi
 if [ -d ~/local/bin ] ; then
     PATH=~/local/bin:"${PATH}"
 fi
