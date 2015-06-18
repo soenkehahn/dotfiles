@@ -167,3 +167,5 @@ map <Leader>l :8wincmd <<CR>
 map x :echo "use delete!"<CR>
 
 set undofile
+
+set paste
