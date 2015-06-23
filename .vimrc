@@ -100,7 +100,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tomasr/molokai'
-Bundle 'jkarni/sensei-neovim'
+Plugin 'jkarni/sensei-neovim'
+Plugin 'AnsiEsc.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -174,3 +175,6 @@ set undofile
 set paste
 set nowrap
 colorscheme molokai
+
+set errorformat^=%f:%l:%c:
+set errorformat^=%.%.%.%.%.\ \ %f:%l:\ %m

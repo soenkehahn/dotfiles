@@ -32,6 +32,7 @@ function! Geany()
   let g:geany_qf_opened = 1
   if ! IsQuickfixOpen()
     copen
+    AnsiEsc
     wincmd L
   endif
 
@@ -40,6 +41,7 @@ function! Geany()
   " go to the bottom of the quickfix list
   wincmd l
   normal G
+  AnsiEsc!
   wincmd h
 
   redraw!
