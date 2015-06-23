@@ -100,6 +100,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tomasr/molokai'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'jkarni/sensei-neovim'
 Plugin 'AnsiEsc.vim'
 
@@ -174,7 +175,7 @@ set undofile
 
 set paste
 set nowrap
-colorscheme molokai
+colorscheme relaxedgreen
 
 set errorformat^=%f:%l:%c:
 set errorformat^=%.%.%.%.%.\ \ %f:%l:\ %m
