@@ -42,12 +42,6 @@ map Q gq
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-" In many terminal emulators the mouse works just fine, thus enable it.
-" disabled, because I don't want it.
-" if has('mouse')
-"   set mouse=a
-" endif
-
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
@@ -62,7 +56,6 @@ if has("autocmd")
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
   " 'cindent' is on in C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
@@ -100,6 +93,17 @@ endif
 " -------------
 " My own config
 " -------------
+
+" vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'tomasr/molokai'
+Bundle 'jkarni/sensei-neovim'
+
+call vundle#end()
+filetype plugin indent on
 
 " changing the leader to h
 let mapleader = "h"
@@ -150,8 +154,7 @@ set number
 
 " highlighting long lines
 :set colorcolumn=81,82
-:hi ColorColumn cterm=NONE ctermbg=black ctermfg=NONE
-
+:hi ColorColumn cterm=NONE ctermbg=darkblue ctermfg=NONE
 
 " shortcut for normalize-imports
 map <Leader>f :call RestoreCursor('%!normalize-imports') <CR>
@@ -169,3 +172,5 @@ map x :echo "use delete!"<CR>
 set undofile
 
 set paste
+set nowrap
+colorscheme molokai
