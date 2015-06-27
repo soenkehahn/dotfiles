@@ -95,7 +95,7 @@ myKeys conf =
     -- start programs
     ((modKey, xK_n), runOrRaisePrompt runOrRaiseConfig) :
     ((modKey, xK_r), spawn $ terminal conf) :
-    ((modKey, xK_t), spawn "firefox") :
+    ((modKey, xK_t), spawn "surf") :
     ((modKey, xK_d), spawn "dolphin") :
 
     -- switch between programs
