@@ -27,11 +27,6 @@ bindkey '^[[F' end-of-line
 
 TERM=xterm-color
 
-# red stderr
-# exec 2>>(while $IFS='' read line; do
-#  print '\e[91m'${(q)line}'\e[0m' > /dev/tty; print -n $'\0'; done &)
-
-
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
