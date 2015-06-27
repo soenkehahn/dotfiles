@@ -42,7 +42,7 @@ main = do
     spawn "/home/shahn/neo/asdf"
     let bgi = "~/background.png"
     spawn ("xloadimage -onroot -fullscreen " ++ bgi)
-    xmobar <- spawnPipe "~/.nix-profile/bin/xmobar"
+    xmobar <- spawnPipe "~/local/bin/xmobar"
     xmonad $
         withUrgencyHook NoUrgencyHook $
         myConfig {
