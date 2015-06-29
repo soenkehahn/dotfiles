@@ -39,9 +39,9 @@ import           XMonad.Util.Themes          (smallClean, theme)
 main :: IO ()
 main = do
     spawn "redshift -l 1.31:103.8 -r"
-    spawn "/home/shahn/neo/asdf"
     let bgi = "~/background.png"
     spawn ("xloadimage -onroot -fullscreen " ++ bgi)
+    spawn "konsole -e ~/init.sh"
     xmobar <- spawnPipe "~/local/bin/xmobar"
     xmonad $
         withUrgencyHook NoUrgencyHook $
@@ -192,7 +192,7 @@ scratchpads =
     NS "htop" (terminal myConfig ++ " --name htopTerminal") (appName =? "htopTerminal") centerBig :
     NS "aqualung" "aqualung -o pulse" (appName =? "aqualung") centerBig :
     NS "musicSelection"
-        (terminal myConfig ++ " --name musicSelection --workdir /home/shahn/musik/beets")
+        (terminal myConfig ++ " --name musicSelection --workdir ~/musik/beets")
         (appName =? "musicSelection") centerBig :
     NS "pavucontrol" "pavucontrol" (appName =? "pavucontrol") centerBig :
     []
