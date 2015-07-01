@@ -103,7 +103,6 @@ Plugin 'tomasr/molokai'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'jkarni/sensei-neovim'
 Plugin 'AnsiEsc.vim'
-Plugin 'scrooloose/nerdcommenter'
 
 call vundle#end()
 filetype plugin indent on
@@ -180,6 +179,3 @@ colorscheme relaxedgreen
 
 set errorformat^=%f:%l:%c:
 set errorformat^=%.%.%.%.%.\ \ %f:%l:\ %m
-
-" nerdcommenter
-map <Leader>s :call NERDComment(0,"toggle")<CR>
