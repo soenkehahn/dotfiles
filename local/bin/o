@@ -66,7 +66,5 @@ searchEngines :: Map String SearchEngine
 searchEngines = fromList $
   ("we", \ query -> "https://en.wikipedia.org/w/index.php?search=" ++ query ++ "&title=Special%3ASearch&go=Go") :
   ("hack", \ query -> "https://hackage.haskell.org/packages/search?terms=" ++ query) :
+  ("h", \ query -> "https://www.haskell.org/hoogle/?hoogle=" ++ query) :
   []
-
---    ("g" : r) ->
---      surf ("https://www.google.com.sg/search?q=" ++ unwords r)
