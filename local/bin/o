@@ -1,0 +1,53 @@
+#!/usr/bin/env runhaskell
+
+{-# LANGUAGE ViewPatterns #-}
+
+import           Data.List
+import           System.Environment
+import           System.IO
+import           System.Process
+
+main :: IO ()
+main = do
+  args <- getArgs
+  case args of
+    [lookupBookmark -> Just url] -> surf url
+    [url] | isUrl url -> surf url
+    ("we" : r) ->
+      surf ("https://en.wiki:edia.org/w/index.php?search=" ++ unwords r ++ "&title=Special%3ASearch&go=Go")
+--    ("g" : r) ->
+--      surf ("https://www.google.com.sg/search?q=" ++ unwords r)
+    _ ->
+      surf ("https://www.google.com.sg/search?q=" ++ unwords args)
+
+surf :: String -> IO ()
+surf url = do
+  hPutStrLn stderr ("opening " ++ url)
+  callProcess "surf" [url]
+
+isUrl :: String -> Bool
+isUrl s = any (`isSuffixOf` s) $
+  ".com" :
+  ".org" :
+  ".net" :
+  ".de" :
+  ".sg" :
+  []
+
+-- * bookmarks
+
+bookmarks :: Bookmarks
+bookmarks = Bookmarks $
+  ("github", "github.com") :
+  ("telegram", "web.telegram.org") :
+  ("inbox", "inbox.google.com") :
+  ("workflowy", "workflowy.com") :
+  []
+
+newtype Bookmarks = Bookmarks { getBookmarks :: [(String, String)] }
+
+lookupBookmark :: String -> Maybe String
+lookupBookmark arg =
+  case filter (\ bookmark -> arg `isPrefixOf` fst bookmark) (getBookmarks bookmarks) of
+    (bookmark : _) -> Just $ snd bookmark
+    [] -> Nothing
