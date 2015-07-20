@@ -2,15 +2,15 @@
 
 {-# LANGUAGE ViewPatterns #-}
 
+import           Control.Applicative
 import           Data.List
 import           Data.Map as Map hiding (filter)
-import           System.Environment
 import           System.IO
 import           System.Process
 
 main :: IO ()
 main = do
-  args <- getArgs
+  args <- words <$> readProcess "kdialog" (words "--inputbox launcher") ""
   case args of
     [url] | isUrl url -> surf url
     [lookupBookmark -> Just url] -> surf url
@@ -61,6 +61,7 @@ lookupSearchEngine (bookmark : args) =
   case Map.lookup bookmark searchEngines of
     Nothing -> Nothing
     Just engine -> Just $ engine (unwords args)
+lookupSearchEngine [] = Nothing
 
 searchEngines :: Map String SearchEngine
 searchEngines = fromList $

@@ -97,7 +97,7 @@ myKeys conf =
     let modKey = modMask conf
     in fromList $
     -- start programs
-    ((modKey, xK_n), spawn "gmrun") :
+    ((modKey, xK_n), spawn "launcher.hs") :
     ((modKey, xK_r), spawn $ terminal conf) :
     ((modKey, xK_t), spawn "surf") :
     ((modKey, xK_d), spawn "dolphin") :
