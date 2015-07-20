@@ -25,7 +25,6 @@ import           XMonad.Layout.TwoPane
 import           XMonad.Prompt               (XPConfig (..),
                                               XPPosition (Bottom),
                                               defaultXPConfig)
-import           XMonad.Prompt.RunOrRaise    (runOrRaisePrompt)
 import           XMonad.StackSet             (RationalRect (..), Stack (..),
                                               current, greedyView, integrate,
                                               screen, screens, sink, stack,
@@ -34,10 +33,15 @@ import           XMonad.Util.NamedScratchpad
 import           XMonad.Util.Run
 import           XMonad.Util.Themes          (smallClean, theme)
 
+import           System.Environment
+
 -- import           TabTree
 
 main :: IO ()
 main = do
+    path <- getEnv "PATH"
+    setEnv "PATH" ("/home/shahn/local/bin:" ++ path)
+
     spawn "redshift -l 1.31:103.8 -r"
     let bgi = "~/background.png"
     spawn ("xloadimage -onroot -fullscreen " ++ bgi)
@@ -93,7 +97,7 @@ myKeys conf =
     let modKey = modMask conf
     in fromList $
     -- start programs
-    ((modKey, xK_n), runOrRaisePrompt runOrRaiseConfig) :
+    ((modKey, xK_n), spawn "gmrun") :
     ((modKey, xK_r), spawn $ terminal conf) :
     ((modKey, xK_t), spawn "chromium-browser") :
     ((modKey, xK_d), spawn "dolphin") :
