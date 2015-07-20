@@ -99,7 +99,7 @@ myKeys conf =
     -- start programs
     ((modKey, xK_n), spawn "gmrun") :
     ((modKey, xK_r), spawn $ terminal conf) :
-    ((modKey, xK_t), spawn "chromium-browser") :
+    ((modKey, xK_t), spawn "surf") :
     ((modKey, xK_d), spawn "dolphin") :
 
     -- switch between programs
