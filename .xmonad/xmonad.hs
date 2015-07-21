@@ -29,6 +29,7 @@ import           XMonad.StackSet             (RationalRect (..), Stack (..),
                                               current, greedyView, integrate,
                                               screen, screens, sink, stack,
                                               swapDown, swapUp, view, workspace)
+import           XMonad.Prompt.RunOrRaise
 import           XMonad.Util.NamedScratchpad
 import           XMonad.Util.Run
 import           XMonad.Util.Themes          (smallClean, theme)
@@ -97,9 +98,9 @@ myKeys conf =
     let modKey = modMask conf
     in fromList $
     -- start programs
-    ((modKey, xK_n), spawn "launcher.hs") :
+    ((modKey, xK_n), runOrRaisePrompt runOrRaiseConfig) :
     ((modKey, xK_r), spawn $ terminal conf) :
-    ((modKey, xK_t), spawn "surf") :
+    ((modKey, xK_t), spawn "launcher.hs") :
     ((modKey, xK_d), spawn "dolphin") :
 
     -- switch between programs
