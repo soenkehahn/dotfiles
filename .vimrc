@@ -175,8 +175,8 @@ set nowrap
 " colors
 colorscheme relaxedgreen
 " highlighting long lines
-:set colorcolumn=81,82
-:highlight ColorColumn ctermbg=234
+let &colorcolumn=join(range(81,999),",")
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
 
 set errorformat^=%f:%l:%c:

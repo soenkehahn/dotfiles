@@ -25,7 +25,7 @@ bindkey "^[3;5~" delete-char
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
 
-TERM=xterm-color
+TERM=xterm-256color
 
 autoload -Uz compinit
 compinit
