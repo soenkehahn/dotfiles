@@ -154,10 +154,6 @@ autocmd BufWinLeave * call clearmatches()
 
 set number
 
-" highlighting long lines
-:set colorcolumn=81,82
-:hi ColorColumn cterm=NONE ctermbg=darkblue ctermfg=NONE
-
 " shortcut for normalize-imports
 map <Leader>f :call RestoreCursor('%!normalize-imports') <CR>
 
@@ -175,7 +171,13 @@ set undofile
 
 set paste
 set nowrap
+
+" colors
 colorscheme relaxedgreen
+" highlighting long lines
+:set colorcolumn=81,82
+:highlight ColorColumn ctermbg=234
+
 
 set errorformat^=%f:%l:%c:
 set errorformat^=%.%.%.%.%.\ \ %f:%l:\ %m
