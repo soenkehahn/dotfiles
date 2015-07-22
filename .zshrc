@@ -79,6 +79,7 @@ if [ -d ~/local/bin ] ; then
     PATH=~/local/bin:"${PATH}"
 fi
 
+
 # make / a word separator
 local WORDCHARS=${WORDCHARS//\//}
 
