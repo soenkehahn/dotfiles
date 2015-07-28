@@ -70,29 +70,42 @@ myConfig = defaultConfig {
       -- simple stuff
         terminal           = "konsole",
         borderWidth        = 2,
-        focusedBorderColor = "#000000",
-        normalBorderColor  = "#444444",
+        focusedBorderColor = "#ff4444",
+        normalBorderColor  = "#000000",
         modMask            = mod4Mask,
         XMonad.workspaces  = "NSP" : fmap show [1 .. 9 :: Int],
         keys               = myKeys,
 
       -- hooks, layouts
-        layoutHook         = myLayout,
+        layoutHook         = avoidStruts myLayout,
         manageHook         = myManageHook,
         handleEventHook    = myHandleEventHook
     }
 
 
 myLayout =
-      avoidStruts defaultTabbed
-  ||| Full
-  ||| avoidStruts (TwoPane 0.03 0.5)
+      tiled
+  ||| defaultTabbed
+--  ||| Full
+--  ||| avoidStruts (TwoPane 0.03 0.5)
 --  ||| ML
 --  ||| TabTree
 --  ||| tabTree shrinkText defaultTheme
 --  ||| (UninitializedTabTree :: TabTree a)
 defaultTabbed = tabbedAlways shrinkText (theme smallClean)
 
+tiled = Tall nmaster delta ratio
+  where
+    -- The default number of windows in the master pane
+    nmaster = 1
+
+    -- Default proportion of screen occupied by master pane
+    ratio   = 1/2
+
+    -- Percent of screen to increment by when resizing panes
+    delta   = 3/100
+
+-- * shortcuts
 
 myKeys conf =
     let modKey = modMask conf
@@ -129,6 +142,9 @@ myKeys conf =
     ((modKey, xK_c), sendMessage Expand) :
     ((modKey, xK_l), sendMessage Shrink) :
 
+    -- change number of windows in master pane
+    ((modKey, xK_comma), sendMessage (IncMasterN 1)) :
+    ((modKey, xK_period), sendMessage (IncMasterN (- 1))) :
 
     -- --------------
     -- shutdown, etc.
