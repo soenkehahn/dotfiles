@@ -3,38 +3,32 @@
 
 module Main where
 
+import           Prelude hiding (mapM_)
+
 import           Control.Applicative
 import           Control.Monad
 import           Data.List
-import           Data.Map                    (fromList)
+import           Data.Map (fromList)
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Ratio
-import           Prelude                     hiding (mapM_)
+import           System.Environment
 import           System.Exit
 import           System.IO
 import           XMonad
 import           XMonad.Hooks.DynamicLog
-import           XMonad.Hooks.InsertPosition (Focus (Newer), Position (Above),
-                                              insertPosition)
-import           XMonad.Hooks.ManageDocks    (avoidStruts)
+import           XMonad.Hooks.InsertPosition
+import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.UrgencyHook
 import           XMonad.Layout.Decoration
-import           XMonad.Layout.Tabbed        (tabbedAlways)
+import           XMonad.Layout.Tabbed
 import           XMonad.Layout.TwoPane
-import           XMonad.Prompt               (XPConfig (..),
-                                              XPPosition (Bottom),
-                                              defaultXPConfig)
-import           XMonad.StackSet             (RationalRect (..), Stack (..),
-                                              current, greedyView, integrate,
-                                              screen, screens, sink, stack,
-                                              swapDown, swapUp, view, workspace)
+import           XMonad.Prompt
 import           XMonad.Prompt.RunOrRaise
+import           XMonad.StackSet hiding (workspaces)
 import           XMonad.Util.NamedScratchpad
 import           XMonad.Util.Run
-import           XMonad.Util.Themes          (smallClean, theme)
-
-import           System.Environment
+import           XMonad.Util.Themes (smallClean, theme)
 
 -- import           TabTree
 
