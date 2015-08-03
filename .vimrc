@@ -182,4 +182,5 @@ highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
 
 set errorformat^=%f:%l:%c:
-set errorformat^=%.%.%.%.%.\ \ %f:%l:\ %m
+set errorformat^=%.%.%.%.%.\ \ %f:%l:
+set errorformat^=\ \ %f:%l:
