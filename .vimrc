@@ -184,6 +184,9 @@ highlight ColorColumn ctermbg=235 guibg=#2c2d27
 set errorformat=""
 set errorformat+=%.%.%.%.%.\ \ \ \ \ \ \ uncaught\ exception:\ ErrorCall\ (%f:%l:%c:
 set errorformat+=%.%.%.%.%.\ \ %f:%l:
+set errorformat+=\ \ %f:%l:%c:
 set errorformat+=\ \ %f:%l:
-set errorformat+=%f:%l:
 set errorformat+=%f:%l:%c:
+set errorformat+=%f:%l:
+set errorformat+=%f:%l:%c:\ %m
+set errorformat+=%f:%l:\ %m
