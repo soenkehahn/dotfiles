@@ -1,5 +1,5 @@
 #!/usr/bin/env stack
--- stack --resolver nightly-2015-08-03 runghc --package mockery --package setenv
+-- stack --resolver lts-3.0 runghc --package mockery --package setenv
 
 {-# OPTIONS_GHC -Wall -Werror #-}
 
@@ -15,6 +15,7 @@ main :: IO ()
 main = do
   unsetEnv "GHC_PACKAGE_PATH"
   callCommand "cabal clean"
+  callCommand "cabal check"
   callCommand "cabal sdist"
   distDir <- canonicalizePath "./dist"
   tarballs <-
@@ -35,6 +36,7 @@ testInstallation tarball = inTempDirectory $ do
     getDirectoryContents dir
   setCurrentDirectory srcDir
   mapM_ callCommand $
+    "cabal check" :
     "tinc" :
     "cabal build" :
     "cabal test" :
