@@ -1,0 +1,3 @@
+dependencies:
+  - xmonad
+  - xmonad-contrib

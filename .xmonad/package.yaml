@@ -1,8 +1,0 @@
-name: my-xmonad
-
-executables:
-  foo:
-    main: Foo.hs
-    dependencies:
-      - xmonad
-      - xmonad-contrib

@@ -1,15 +1,16 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE PartialTypeSignatures #-}
 
-module Main where
+{-# OPTIONS_GHC -Wall -fno-warn-missing-signatures -fno-warn-name-shadowing #-}
+
+module Main (main) where
 
 import           Prelude hiding (mapM_)
 
-import           Control.Applicative
 import           Control.Monad
 import           Data.List
-import           Data.Map (fromList)
-import           Data.Maybe
+import           Data.Map (Map, fromList)
 import           Data.Monoid
 import           Data.Ratio
 import           System.Environment
@@ -22,7 +23,6 @@ import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.UrgencyHook
 import           XMonad.Layout.Decoration
 import           XMonad.Layout.Tabbed
-import           XMonad.Layout.TwoPane
 import           XMonad.Prompt
 import           XMonad.Prompt.RunOrRaise
 import           XMonad.StackSet hiding (workspaces)
@@ -76,7 +76,6 @@ myConfig = defaultConfig {
         handleEventHook    = myHandleEventHook
     }
 
-
 myLayout =
       tiled
   ||| defaultTabbed
@@ -86,8 +85,10 @@ myLayout =
 --  ||| TabTree
 --  ||| tabTree shrinkText defaultTheme
 --  ||| (UninitializedTabTree :: TabTree a)
+
 defaultTabbed = tabbedAlways shrinkText (theme smallClean)
 
+tiled :: Tall a
 tiled = Tall nmaster delta ratio
   where
     -- The default number of windows in the master pane
@@ -101,6 +102,9 @@ tiled = Tall nmaster delta ratio
 
 -- * shortcuts
 
+type KeyMap = Map (KeyMask, KeySym) (X ())
+
+myKeys :: XConfig l -> KeyMap
 myKeys conf =
     let modKey = modMask conf
     in fromList $
@@ -193,11 +197,13 @@ myKeys conf =
 
     []
 
+myManageHook :: ManageHook
 myManageHook =
     insertPosition Above Newer
     <+> namedScratchpadManageHook scratchpads
     <+> specialManageHooks
 
+specialManageHooks :: ManageHook
 specialManageHooks = composeAll $
     -- (className =? "Gimp" --> doFloat) :
     []
@@ -231,18 +237,13 @@ myHandleEventHook _ = return $ All True
 
 -- replace with XMonad.Actions.CycleWindows?
 
+focusToLeft :: Stack a -> Stack a
 focusToLeft s@(Stack _focus [] _) = s
 focusToLeft (Stack focus (a : r) down) = Stack a r (focus : down)
 
-withFocusToLeft s@(Stack _focus [] _) = s
-withFocusToLeft (Stack focus (a : r) down) = Stack focus r (a : down)
-
+focusToRight :: Stack a -> Stack a
 focusToRight s@(Stack _focus _ []) = s
 focusToRight (Stack focus up (a : r)) = Stack a (focus : up) r
-
-withFocusToRight s@(Stack _focus _ []) = s
-withFocusToRight (Stack focus up (a : r)) = Stack focus (a : up) r
-
 
 runOrRaiseConfig :: XPConfig
 runOrRaiseConfig = defaultXPConfig {
