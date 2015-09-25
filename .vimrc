@@ -140,14 +140,6 @@ set expandtab
 " insert line without going to insert mode
 map <Leader>i O<Esc>j
 
-" highlighting trailing whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
-
 " cursorline
 " :hi CursorLine cterm=NONE ctermbg=192 ctermfg=NONE
 " :set cursorline
@@ -180,6 +172,13 @@ colorscheme relaxedgreen
 let &colorcolumn=join(range(81,999),",")
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
+" highlighting trailing whitespace
+highlight ExtraWhitespace ctermbg=52
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
 set errorformat=""
 set errorformat+=%.%.%.%.%.\ \ \ \ \ \ \ uncaught\ exception:\ ErrorCall\ (%f:%l:%c:
