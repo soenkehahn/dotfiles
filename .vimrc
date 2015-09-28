@@ -170,7 +170,7 @@ set nowrap
 colorscheme relaxedgreen
 " highlighting long lines
 let &colorcolumn=join(range(81,999),",")
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
+highlight colorcolumn ctermbg=235
 
 " highlighting trailing whitespace
 highlight ExtraWhitespace ctermbg=52

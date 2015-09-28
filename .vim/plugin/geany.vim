@@ -36,13 +36,13 @@ function! Geany()
     wincmd L
   endif
 
-  call SetCursorState(state)
-
   " go to the bottom of the quickfix list
   wincmd l
   normal G
   AnsiEsc!
   wincmd h
+
+  call SetCursorState(state)
 
   redraw!
 endfunction
