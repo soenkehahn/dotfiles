@@ -1,6 +1,5 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE PartialTypeSignatures #-}
 
 {-# OPTIONS_GHC -Wall -fno-warn-missing-signatures -fno-warn-name-shadowing #-}
 
@@ -11,7 +10,6 @@ import           Prelude hiding (mapM_)
 import           Control.Monad
 import           Data.List
 import           Data.Map (Map, fromList)
-import           Data.Monoid
 import           Data.Ratio
 import           System.Environment
 import           System.Exit
@@ -199,13 +197,14 @@ myKeys conf =
 
 myManageHook :: ManageHook
 myManageHook =
-    insertPosition Above Newer
+        specialManageHooks
+    <+> insertPosition Above Newer
     <+> namedScratchpadManageHook scratchpads
-    <+> specialManageHooks
 
 specialManageHooks :: ManageHook
 specialManageHooks = composeAll $
     -- (className =? "Gimp" --> doFloat) :
+    (ask >>= doF . sink) :
     []
 
 scratchpads :: [NamedScratchpad]
@@ -229,11 +228,6 @@ scratchpads =
         padding s = 50 % s
         nonPadding s = 1 - 2 * padding s
 
-
-myHandleEventHook :: Event -> X All
-myHandleEventHook DestroyWindowEvent{} = do
-    return $ All True
-myHandleEventHook _ = return $ All True
 
 -- replace with XMonad.Actions.CycleWindows?
 
