@@ -1,6 +1,8 @@
 .*.swp
+.*.swo
+.*.swn
+.*.swm
 .*.un~
-/geany.sh
-/.nhc
+geany
 /cabal.sandbox.config
 /.cabal-sandbox/
