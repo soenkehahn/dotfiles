@@ -72,8 +72,8 @@ PROMPT="\
 RPROMPT='$PROMPT_GIT_BRANCH  $PROMPT_TIME'
 
 # set PATH so it includes user's private bin if it exists
-if [ -d ~/local/bin ] ; then
-    PATH=~/local/bin:"${PATH}"
+if [ -d ~/.local/bin ] ; then
+    PATH=~/.local/bin:"${PATH}"
 fi
 
 
