@@ -24,11 +24,18 @@ main = do
 
 packages :: [String]
 packages =
+  "mhwaveedit" :
+  "gparted" :
+  "jq" :
+  "handbrake" :
+  "sgt-puzzles" :
+  "gimp" :
   "ack-grep" :
-  "aqualung" :
+  -- "aqualung" :
   "arandr" :
   "atool" :
   "build-essential" :
+  "graphviz" :
   "chromium-browser" :
   "cmake" :
   "deborphan" :
@@ -69,7 +76,7 @@ packages =
   "ri-li" :
   "rtorrent" :
   "smplayer" :
-  "steam" :
+  "mplayer2" :
   "tree" :
   "vlc" :
   "wajig" :
