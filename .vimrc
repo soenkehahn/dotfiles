@@ -153,6 +153,7 @@ inoremap <C-h> <Esc> :call Geany()<CR>
 noremap  <C-h>       :call Geany()<CR>
 map      <Leader>h   :call Geany()<CR>
 map      <Leader>g   :call GeanyNext()<CR>
+:set makeprg=make\ -f\ geany
 
 map <Leader>c :8wincmd ><CR>
 map <Leader>l :8wincmd <<CR>
