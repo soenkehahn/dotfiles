@@ -183,7 +183,10 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 set errorformat=""
+set errorformat+=\ %f:(%l%m
 set errorformat+=%.%.%.%.%.\ \ \ \ \ \ \ uncaught\ exception:\ ErrorCall\ (%f:%l:%c:
+set errorformat+=%.%.%.%.%.\ \ \ \ \ \ \ uncaught\ exception:\ NoMethodError\ (%f:%l:%c-%m
+set errorformat+=###\ Failure\ in\ %f:%l:\ %m
 set errorformat+=%.%.%.%.%.\ \ %f:%l:\ 
 set errorformat+=\ \ %f:%l:%c:
 set errorformat+=\ \ %f:%l:
