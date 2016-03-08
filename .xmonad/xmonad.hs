@@ -68,10 +68,10 @@ main = do
               }
           }
 
-myConfig = defaultConfig {
+myConfig = def {
       -- simple stuff
         terminal           = "konsole",
-        borderWidth        = 2,
+        borderWidth        = 0,
         focusedBorderColor = "#ff4444",
         normalBorderColor  = "#444444",
         modMask            = mod4Mask,
@@ -84,9 +84,9 @@ myConfig = defaultConfig {
     }
 
 myLayout =
-      tiled
-  ||| defaultTabbed
---  ||| Full
+      defaultTabbed
+  ||| tiled
+  ||| Full
 --  ||| avoidStruts (TwoPane 0.03 0.5)
 --  ||| ML
 --  ||| TabTree
@@ -178,8 +178,8 @@ myKeys conf =
     -- scratchpads --
     -- ----------- --
 
-    ((modKey, xK_h), namedScratchpadAction scratchpads "terminal1") :
-    ((modKey, xK_s), namedScratchpadAction scratchpads "terminal2") :
+    ((modKey, xK_s), namedScratchpadAction scratchpads "vim") :
+    ((modKey, xK_h), namedScratchpadAction scratchpads "htop") :
     ((modKey, xK_g), namedScratchpadAction scratchpads "aqualung") :
     ((modKey, xK_f), namedScratchpadAction scratchpads "musicSelection") :
     ((modKey, xK_q), namedScratchpadAction scratchpads "pavucontrol") :
@@ -218,8 +218,8 @@ specialManageHooks = composeAll $
 
 scratchpads :: [NamedScratchpad]
 scratchpads =
-    NS "terminal1" (terminal myConfig ++ " --name terminal1") (appName =? "terminal1") centerBig :
-    NS "terminal2" (terminal myConfig ++ " --name terminal2") (appName =? "terminal2") centerBig :
+    NS "vim" (terminal myConfig ++ " --name vim") (appName =? "vim") centerBig :
+    NS "htop" (terminal myConfig ++ " --name htopTerminal") (appName =? "htopTerminal") centerBig :
     NS "aqualung" "aqualung -o pulse" (appName =? "aqualung") centerBig :
     NS "musicSelection"
         (terminal myConfig ++ " --name musicSelection --workdir ~/musik/beets")
@@ -249,7 +249,7 @@ focusToRight s@(Stack _focus _ []) = s
 focusToRight (Stack focus up (a : r)) = Stack a (focus : up) r
 
 runOrRaiseConfig :: XPConfig
-runOrRaiseConfig = defaultXPConfig {
+runOrRaiseConfig = def {
     font              = "xft:Ubuntu Mono:pixelsize=20,style=regular",
     bgColor           = "#2c2c2c",
     fgColor           = "#dcdccc",
