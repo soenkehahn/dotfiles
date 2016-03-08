@@ -26,6 +26,7 @@ packages :: [String]
 packages =
   "mhwaveedit" :
   "gparted" :
+  "xloadimage" :
   "jq" :
   "handbrake" :
   "sgt-puzzles" :

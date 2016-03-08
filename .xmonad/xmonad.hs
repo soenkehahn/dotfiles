@@ -11,6 +11,7 @@ import           Control.Monad
 import           Data.List
 import           Data.Map (Map, fromList)
 import           Data.Ratio
+import           System.Directory
 import           System.Environment
 import           System.Exit
 import           System.IO
@@ -30,16 +31,25 @@ import           XMonad.Util.Themes (smallClean, theme)
 
 -- import           TabTree
 
+initialize :: IO Handle
+initialize = do
+  path <- getEnv "PATH"
+  setEnv "PATH" ("/home/shahn/.local/bin:" ++ path)
+
+  spawn "redshift -l 1.31:103.8 -r" -- Singapore
+
+  let bgi = "/home/shahn/.xmonad/background.png"
+  exists <- doesFileExist bgi
+  when exists $ do
+    spawn ("xloadimage -onroot -fullscreen " ++ bgi)
+
+  spawn "konsole -e ~/neo/asdf"
+
+  spawnPipe "~/local/bin/xmobar"
+
 main :: IO ()
 main = do
-    path <- getEnv "PATH"
-    setEnv "PATH" ("/home/shahn/local/bin:" ++ path)
-
-    spawn "redshift -l 1.31:103.8 -r"
-    let bgi = "~/background.png"
-    spawn ("xloadimage -onroot -fullscreen " ++ bgi)
-    spawn "konsole -e ~/init.sh"
-    xmobar <- spawnPipe "~/local/bin/xmobar"
+    xmobar <- initialize
     xmonad $
         withUrgencyHook NoUrgencyHook $
         myConfig {
@@ -196,9 +206,9 @@ myKeys conf =
 
 myManageHook :: ManageHook
 myManageHook =
-        insertPosition Above Newer
-    <+> namedScratchpadManageHook scratchpads
-    <+> specialManageHooks
+  namedScratchpadManageHook scratchpads <+>
+  specialManageHooks <+>
+  insertPosition Above Newer
 
 specialManageHooks :: ManageHook
 specialManageHooks = composeAll $
