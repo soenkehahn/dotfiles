@@ -11,6 +11,7 @@ import           Control.Monad
 import           Data.List
 import           Data.Map (Map, fromList)
 import           Data.Ratio
+import           XMonad.Hooks.SetWMName
 import           System.Directory
 import           System.Environment
 import           System.Exit
@@ -65,7 +66,8 @@ main = do
                 ppTitle = const "",
                 ppLayout = const ""
                 -- ppSort = return reverse
-              }
+              },
+            startupHook = setWMName "LG3D"
           }
 
 myConfig = def {
