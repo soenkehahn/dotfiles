@@ -47,18 +47,18 @@ main = do
 
 myConfig = withUrgencyHook NoUrgencyHook $ def {
       -- simple stuff
-        terminal           = "konsole",
-        borderWidth        = 0,
+        terminal = "konsole",
+        borderWidth = 0,
         focusedBorderColor = "#ff4444",
-        normalBorderColor  = "#444444",
-        modMask            = mod4Mask,
+        normalBorderColor = "#444444",
+        modMask = mod4Mask,
         XMonad.workspaces  = "NSP" : fmap show [1 .. 9 :: Int],
-        keys               = myKeys,
+        keys = myKeys,
 
       -- hooks, layouts
         startupHook = setWMName "LG3D",
-        layoutHook         = avoidStruts myLayout,
-        manageHook         = myManageHook
+        layoutHook = avoidStruts myLayout,
+        manageHook = myManageHook
     }
 
 myLayout =
