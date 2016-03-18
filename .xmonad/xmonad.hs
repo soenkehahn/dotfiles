@@ -20,6 +20,7 @@ import           XMonad
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.InsertPosition
 import           XMonad.Hooks.ManageDocks
+import           XMonad.Hooks.SetWMName
 import           XMonad.Hooks.UrgencyHook
 import           XMonad.Layout.Decoration
 import           XMonad.Layout.Tabbed
@@ -81,6 +82,7 @@ myConfig = def {
         keys               = myKeys,
 
       -- hooks, layouts
+        startupHook = setWMName "LG3D",
         layoutHook         = avoidStruts myLayout,
         manageHook         = myManageHook
     }
