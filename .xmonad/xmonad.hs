@@ -14,7 +14,6 @@ import           Data.Ratio
 import           System.Directory
 import           System.Exit
 import           XMonad
-import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.InsertPosition
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.SetWMName
@@ -44,13 +43,9 @@ initialize = do
 main :: IO ()
 main = do
     Main.initialize
-    let config = withUrgencyHook NoUrgencyHook myConfig
-    xmonad =<< statusBar "xmobar" XMobar.config toggleStrutsKey config
+    xmonad =<< XMobar.mkConfig myConfig
 
-toggleStrutsKey :: XConfig t -> (KeyMask, KeySym)
-toggleStrutsKey XConfig{modMask = modm} = (modm, xK_b)
-
-myConfig = def {
+myConfig = withUrgencyHook NoUrgencyHook $ def {
       -- simple stuff
         terminal           = "konsole",
         borderWidth        = 0,
