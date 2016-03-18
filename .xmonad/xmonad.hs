@@ -11,11 +11,8 @@ import           Control.Monad
 import           Data.List
 import           Data.Map (Map, fromList)
 import           Data.Ratio
-import           XMonad.Hooks.SetWMName
 import           System.Directory
-import           System.Environment
 import           System.Exit
-import           System.IO
 import           XMonad
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.InsertPosition
@@ -28,16 +25,13 @@ import           XMonad.Prompt
 import           XMonad.Prompt.RunOrRaise
 import           XMonad.StackSet hiding (workspaces)
 import           XMonad.Util.NamedScratchpad
-import           XMonad.Util.Run
 import           XMonad.Util.Themes (smallClean, theme)
 
+import           XMobar
 -- import           TabTree
 
-initialize :: IO Handle
+initialize :: IO ()
 initialize = do
-  path <- getEnv "PATH"
-  setEnv "PATH" ("/home/shahn/.local/bin:" ++ path)
-
   spawn "redshift -l 1.31:103.8 -r" -- Singapore
 
   let bgi = "/home/shahn/.xmonad/background.png"
@@ -47,29 +41,14 @@ initialize = do
 
   spawn "konsole -e ~/neo/asdf"
 
-  spawnPipe "~/local/bin/xmobar"
-
 main :: IO ()
 main = do
-    xmobar <- initialize
-    xmonad $
-        withUrgencyHook NoUrgencyHook $
-        myConfig {
-            logHook = dynamicLogWithPP $ xmobarPP {
-                ppCurrent = xmobarColor "#dd2e2e" "" . wrap "<" ">",
-                ppVisible = \ ws -> xmobarColor "#93e0e3" "" (" " ++ ws ++ " "),
-                ppHidden = \ ws -> " " ++ ws ++ " ",
-                ppWsSep = "",
-                ppUrgent = xmobarColor "magenta" "black" . xmobarStrip,
-                ppOutput = \ string ->
-                    hPutStrLn xmobar $
-                    (if " NSP " `isPrefixOf` string then drop 5 else id) string,
-                ppTitle = const "",
-                ppLayout = const ""
-                -- ppSort = return reverse
-              },
-            startupHook = setWMName "LG3D"
-          }
+    Main.initialize
+    let config = withUrgencyHook NoUrgencyHook myConfig
+    xmonad =<< statusBar "xmobar" XMobar.config toggleStrutsKey config
+
+toggleStrutsKey :: XConfig t -> (KeyMask, KeySym)
+toggleStrutsKey XConfig{modMask = modm} = (modm, xK_b)
 
 myConfig = def {
       -- simple stuff
