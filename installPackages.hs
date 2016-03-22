@@ -15,12 +15,20 @@ import           System.Process
 
 main :: IO ()
 main = do
+  installAptPackages
+  installXMonad
+
+installAptPackages = do
   installedPackages <- getInstalledPackages
   case (packages \\ installedPackages) of
     [] -> return ()
     toBeInstalled -> do
       Log.info ("installing " ++ unwords toBeInstalled)
       unit $ cmd "sudo apt-get install -y" toBeInstalled
+
+installXMonad = do
+  unit $ cmd (Cwd "/home/shahn/.xmonad") "stack install xmobar"
+  unit $ cmd (Cwd "/home/shahn/.xmonad") "make -f geany"
 
 packages :: [String]
 packages =

@@ -12,6 +12,7 @@ import           Data.List
 import           Data.Map (Map, fromList)
 import           Data.Ratio
 import           System.Directory
+import           System.Environment
 import           System.Exit
 import           XMonad
 import           XMonad.Hooks.InsertPosition
@@ -31,6 +32,9 @@ import           XMobar
 
 initialize :: IO ()
 initialize = do
+  path <- getEnv "PATH"
+  setEnv "PATH" ("/home/shahn/.local/bin:" ++ path)
+
   spawn "redshift -l 1.31:103.8 -r" -- Singapore
 
   let bgi = "/home/shahn/.xmonad/background.png"
