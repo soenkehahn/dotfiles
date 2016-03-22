@@ -1,23 +1,31 @@
 #!/usr/bin/env stack
--- stack --resolver lts-3.10 --install-ghc runghc --package logging-facade --package split --package shake --package safe
+{-
+stack runghc
+--resolver lts-3.10 --install-ghc
+  --package logging-facade
+  --package split
+  --package shake
+  --package safe
+-}
+
+{-# OPTIONS_GHC -Wall -Werror #-}
 
 {-# LANGUAGE ViewPatterns #-}
 
 import           Control.Arrow
-import           Control.Monad
 import           Data.List
 import           Data.List.Split
 import           Data.Maybe
 import           Development.Shake
 import           Safe
 import qualified System.Logging.Facade as Log
-import           System.Process
 
 main :: IO ()
 main = do
   installAptPackages
   installXMonad
 
+installAptPackages :: IO ()
 installAptPackages = do
   installedPackages <- getInstalledPackages
   case (packages \\ installedPackages) of
@@ -26,6 +34,7 @@ installAptPackages = do
       Log.info ("installing " ++ unwords toBeInstalled)
       unit $ cmd "sudo apt-get install -y" toBeInstalled
 
+installXMonad :: IO ()
 installXMonad = do
   unit $ cmd (Cwd "/home/shahn/.xmonad") "stack install xmobar"
   unit $ cmd (Cwd "/home/shahn/.xmonad") "make -f geany"
