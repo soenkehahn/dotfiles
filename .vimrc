@@ -160,6 +160,10 @@ map <Leader>l :8wincmd <<CR>
 
 map x :echo "use delete!"<CR>
 
+map <Leader>a :exec("tag ".expand("<cword>"))<CR>
+map <Leader>ä :tnext<CR>
+map <Leader>u :!codex update<CR>
+
 vnoremap // y/<C-R>"<CR>
 
 set undofile
