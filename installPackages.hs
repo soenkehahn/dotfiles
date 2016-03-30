@@ -41,6 +41,7 @@ installXMonad = do
 
 packages :: [String]
 packages =
+  "sloccount" :
   "mhwaveedit" :
   "gparted" :
   "xloadimage" :
