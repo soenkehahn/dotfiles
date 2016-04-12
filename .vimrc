@@ -171,6 +171,7 @@ set undofile
 set paste
 set nowrap
 set mouse=
+set vb
 
 " colors
 colorscheme relaxedgreen
