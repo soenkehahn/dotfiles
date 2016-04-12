@@ -41,6 +41,7 @@ installXMonad = do
 
 packages :: [String]
 packages =
+  "silversearcher-ag" :
   "sloccount" :
   "mhwaveedit" :
   "gparted" :

@@ -133,5 +133,5 @@ alias qg='gitk --all \&'
 
 alias gpgwho='gpg --no-default-keyring --secret-keyring /dev/null -a --list-only '
 
-alias ack=ack-grep
-alias hack='ack-grep --haskell '
+alias hack='ag --haskell '
+alias hag='ag --haskell '
