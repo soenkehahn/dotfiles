@@ -37,6 +37,7 @@ installAptPackages = do
 installXMonad :: IO ()
 installXMonad = do
   unit $ cmd (Cwd "/home/shahn/.xmonad") "stack install xmobar"
+  unit $ cmd (Cwd "/home/shahn/.xmonad") "stack build --only-dependencies"
   unit $ cmd (Cwd "/home/shahn/.xmonad") "make -f geany"
 
 packages :: [String]
