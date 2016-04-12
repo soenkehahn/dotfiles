@@ -135,3 +135,5 @@ alias gpgwho='gpg --no-default-keyring --secret-keyring /dev/null -a --list-only
 
 alias hack='ag --haskell '
 alias hag='ag --haskell '
+
+alias view-dot='dot -Tpdf | okular - \&'
