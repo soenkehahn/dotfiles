@@ -131,12 +131,6 @@ set wildignore+=*.o,*.hi,dist/build/autogen/cabal_macros.h
 let NERDTreeQuitOnOpen = 1
 map <Leader>t :NERDTree<CR>
 
-" tabstop behavior
-set smartindent
-set tabstop=2
-set shiftwidth=2
-set expandtab
-
 " insert line without going to insert mode
 map <Leader>i O<Esc>j
 
@@ -199,3 +193,12 @@ set errorformat+=%f:%l:%c:
 set errorformat+=%f:%l:
 set errorformat+=%f:%l:%c:\ %m
 set errorformat+=%f:%l:%m
+
+" tabstop behavior
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=2
+" when indenting with '>', use 4 spaces width
+set shiftwidth=2
+" On pressing tab, insert 4 spaces
+set expandtab
