@@ -43,24 +43,42 @@ installXMonad = do
 packages :: [String]
 packages =
   "silversearcher-ag" :
+  "xsel" :
   "sloccount" :
+  "inkscape" :
+  "mercurial" :
   "mhwaveedit" :
+  "libtool-bin" :
+  "m4" :
   "gparted" :
   "xloadimage" :
+  "libiw-dev" :
+  "apt-file" :
+  "libxpm-dev" :
   "jq" :
   "handbrake" :
   "sgt-puzzles" :
   "gimp" :
   "ack-grep" :
-  -- "aqualung" :
   "arandr" :
   "atool" :
   "build-essential" :
+  "automake" :
   "graphviz" :
+  "screen" :
+  "stellarium" :
+  "gdebi" :
   "chromium-browser" :
   "cmake" :
+  "ubuntu-gnome-desktop" :
+  "openjdk-8-jdk" :
   "deborphan" :
   "dolphin" :
+  "openvpn" :
+  "tig" :
+  "npm" :
+  "libx11-protocol-other-perl" :
+  "libx11-windowhierarchy-perl" :
   "dosbox" :
   "epiphany-browser" :
   "firefox" :
@@ -97,11 +115,12 @@ packages =
   "ri-li" :
   "rtorrent" :
   "smplayer" :
-  "mplayer2" :
+  "mplayer" :
   "tree" :
   "vlc" :
   "wajig" :
   "xmonad" :
+  "whois" :
   "xtail" :
   "zlib1g-dev" :
   "zsh" :
