@@ -76,6 +76,8 @@ if [ -d ~/.local/bin ] ; then
     PATH=~/.local/bin:"${PATH}"
 fi
 
+PATH=~/src/git-town/src:"${PATH}"
+
 
 # make / a word separator
 local WORDCHARS=${WORDCHARS//\//}
