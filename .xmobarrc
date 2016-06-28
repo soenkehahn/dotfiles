@@ -7,7 +7,7 @@ Config {
     lowerOnStart = True,
     persistent = False,
     commands = [
-        Run Battery ["-t", "<timeleft> <acstatus>", "--", "-o", "battery", "-O", "ac"] 600,
+        Run Battery ["-t", "<timeleft> <acstatus>", "--", "-o", "battery", "-O", "ac"] 20,
         Run Cpu ["-L","3","-H","50","--normal","#dcdccc","--high","#dd2e2e", "-t", "<total>%"] 20,
         Run Memory ["-t","<usedratio>%"] 20,
         Run Date "%F %H:%M" "date" 100,
