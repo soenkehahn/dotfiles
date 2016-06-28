@@ -103,6 +103,8 @@ Plugin 'tomasr/molokai'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'jkarni/sensei-neovim'
 Plugin 'AnsiEsc.vim'
+Plugin 'udalov/kotlin-vim'
+Plugin 'lambdatoast/elm.vim'
 
 call vundle#end()
 filetype plugin indent on
