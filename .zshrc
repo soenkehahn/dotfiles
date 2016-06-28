@@ -78,6 +78,8 @@ fi
 
 PATH=~/src/git-town/src:"${PATH}"
 
+autoload -U +X bashcompinit && bashcompinit
+eval "$(stack --bash-completion-script stack)"
 
 # make / a word separator
 local WORDCHARS=${WORDCHARS//\//}
