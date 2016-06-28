@@ -38,6 +38,7 @@ function! Geany()
 
   " go to the bottom of the quickfix list
   wincmd l
+  normal gg
   normal G
   AnsiEsc!
   wincmd h
