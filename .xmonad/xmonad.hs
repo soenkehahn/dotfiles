@@ -104,6 +104,16 @@ myKeys conf =
     ((modKey, xK_t), spawn "chromium-browser") :
     ((modKey, xK_d), spawn "dolphin") :
 
+    -- ----------- --
+    -- scratchpads --
+    -- ----------- --
+
+    ((modKey, xK_s), namedScratchpadAction scratchpads "vim") :
+    ((modKey, xK_h), namedScratchpadAction scratchpads "htop") :
+    ((modKey, xK_g), namedScratchpadAction scratchpads "aqualung") :
+    ((modKey, xK_f), namedScratchpadAction scratchpads "musicSelection") :
+    ((modKey, xK_q), namedScratchpadAction scratchpads "pavucontrol") :
+
     -- switch between programs
     ((modKey, xK_i), withWindowStack focusToLeft) :
     ((modKey, xK_Left), withWindowStack focusToLeft) :
@@ -114,10 +124,18 @@ myKeys conf =
     ((modKey .|. controlMask, xK_e), windows swapDown) :
     ((modKey .|. controlMask, xK_Right), windows swapDown) :
 
-    -- ((modKey, xK_Left), sendMessage TabTreeLeft) :
-    -- ((modKey, xK_Right), sendMessage TabTreeRight) :
---    ((modKey, xK_Up), sendMessage TabTreeUp) :
---    ((modKey, xK_Down), sendMessage TabTreeDown) :
+    workspaceSwitching conf modKey ++
+
+    -- screen switching
+    ((modKey, xK_m), do
+        currentScreen <- screen <$> current <$> windowset <$> get
+        availableScreens <- fmap screen <$> screens <$> windowset <$> get
+        when (currentScreen `elem` availableScreens) $
+            case dropWhile (/= currentScreen) (cycle availableScreens) of
+                (_ : next : _) -> do
+                    ws <- screenWorkspace next
+                    whenJust ws (windows . view)
+                _ -> return ()) :
 
     -- close windows
     ((modKey, xK_x), kill) :
@@ -152,39 +170,17 @@ myKeys conf =
 
     ((modKey, xK_v), withFocused $ windows . sink) :
 
-    -- debugging
---     ((modKey .|. controlMask, xK_d), logWindowStack) :
-
-
-    -- ----------- --
-    -- scratchpads --
-    -- ----------- --
-
-    ((modKey, xK_s), namedScratchpadAction scratchpads "vim") :
-    ((modKey, xK_h), namedScratchpadAction scratchpads "htop") :
-    ((modKey, xK_g), namedScratchpadAction scratchpads "aqualung") :
-    ((modKey, xK_f), namedScratchpadAction scratchpads "musicSelection") :
-    ((modKey, xK_q), namedScratchpadAction scratchpads "pavucontrol") :
-
-    -- -------------------
-    -- Workspace switching
-    -- -------------------
-    (fmap (\ (workspace, key) ->
-        ((modKey, key), windows (greedyView workspace)))
-        (zip (workspaces conf) [xK_0 .. xK_9])) ++
-
-    -- screen switching
-    ((modKey, xK_m), do
-        currentScreen <- screen <$> current <$> windowset <$> get
-        availableScreens <- fmap screen <$> screens <$> windowset <$> get
-        when (currentScreen `elem` availableScreens) $
-            case dropWhile (/= currentScreen) (cycle availableScreens) of
-                (_ : next : _) -> do
-                    ws <- screenWorkspace next
-                    whenJust ws (windows . view)
-                _ -> return ()) :
-
     []
+
+workspaceSwitching :: XConfig l -> KeyMask
+  -> [((KeyMask, KeySym), X ())]
+workspaceSwitching conf modKey =
+    concat $
+    (flip fmap)
+      (zip (workspaces conf) [xK_0 .. xK_9]) $ \ (workspace, key) ->
+        ((modKey, key), windows (greedyView workspace)) :
+        ((controlMask .|. modKey, key), windows (greedyView workspace . shift workspace)) :
+        []
 
 myManageHook :: ManageHook
 myManageHook =
