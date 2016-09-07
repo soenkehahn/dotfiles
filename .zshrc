@@ -141,6 +141,7 @@ alias hack='ag --haskell '
 alias hag='ag --haskell '
 
 alias view-dot='dot -Tpdf | okular - \&'
+alias vd='dot -Tpdf | okular - \&'
 
 alias g='make -f geany '
 
