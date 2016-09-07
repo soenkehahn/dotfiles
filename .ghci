@@ -49,4 +49,4 @@ changeDotGhciPermissions
 :set -fdefer-typed-holes
 :set -fno-warn-unused-binds
 
-:set prompt "λ>"
+:set prompt "λ> "
