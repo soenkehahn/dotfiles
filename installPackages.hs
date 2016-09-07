@@ -43,6 +43,10 @@ installXMonad = do
 packages :: [String]
 packages =
   "silversearcher-ag" :
+  "docker-compose" :
+  "fatsort" :
+  "sox" :
+  "cups" :
   "xsel" :
   "sloccount" :
   "inkscape" :
@@ -123,6 +127,8 @@ packages =
   "whois" :
   "xtail" :
   "zlib1g-dev" :
+  "vagrant" :
+  "virtualbox" :
   "zsh" :
   []
 
