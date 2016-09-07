@@ -4,8 +4,8 @@
 .*.swm
 .*.un~
 geany
-/cabal.sandbox.config
-/.cabal-sandbox/
+cabal.sandbox.config
+.cabal-sandbox/
 tags
 /.stack-work/
 /dist/
