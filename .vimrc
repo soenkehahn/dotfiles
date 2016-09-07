@@ -170,7 +170,7 @@ set mouse=
 set vb
 
 " colors
-colorscheme relaxedgreen
+colorscheme beauty256
 " highlighting long lines
 let &colorcolumn=join(range(81,999),",")
 highlight colorcolumn ctermbg=235
