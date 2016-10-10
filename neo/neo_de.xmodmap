@@ -75,7 +75,7 @@ keycode 36 = ISO_Group_Shift ISO_Group_Shift ISO_First_Group NoSymbol
 ! Mod4(rechts)+Mod4(links) lässt Mod4 einrasten (Mod4Lock)
 ! das funktioniert nur in dieser Reihenfolge, da Mod4(rechts) (=Qwertz-AltGr) nur 4 Ebenen hat
 ! Der Lock lässt sich durch ein weiteres Mod4 lösen.
-keysym less = ISO_Level3_Shift ISO_Level3_Shift ISO_Group_Shift ISO_Group_Shift ISO_Level3_Lock NoSymbol
+keycode 49 = ISO_Level3_Shift ISO_Level3_Shift ISO_Group_Shift ISO_Group_Shift ISO_Level3_Lock NoSymbol
 keysym ISO_Level3_Shift = ISO_Level3_Shift ISO_Level3_Shift ISO_Group_Shift ISO_Group_Shift ISO_Level3_Lock NoSymbol
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -115,7 +115,7 @@ keycode 51 = Return		Return		Return		Return		KP_Enter	KP_Enter	Return		Return
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !            Ebene1		Ebene2		Ebene3		Ebene5		Ebene4		Ebene4+Sh	Ebene6		Ebene7
 
-keycode 49 = dead_circumflex	dead_caron	U21BB		U02DE		dead_abovedot Pointer_EnableKeys dead_belowdot	NoSymbol
+! keycode 49 = dead_circumflex	dead_caron	U21BB		U02DE		dead_abovedot Pointer_EnableKeys dead_belowdot	NoSymbol
 ! called T1	ˆ		ˇ		↻		˞		˙	     (keypad-mouse mode) .		
 keycode 21 = dead_grave		dead_cedilla	dead_abovering	dead_dasia	dead_diaeresis	NoSymbol	dead_macron	NoSymbol
 ! called T2	`		¸		˚		῾ dasia (asper)	¨				¯		
