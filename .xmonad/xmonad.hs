@@ -20,6 +20,7 @@ import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.SetWMName
 import           XMonad.Hooks.UrgencyHook
 import           XMonad.Layout.Decoration
+import           XMonad.Layout.DragPane
 import           XMonad.Layout.Tabbed
 import           XMonad.Prompt
 import           XMonad.Prompt.RunOrRaise
@@ -69,6 +70,7 @@ myLayout =
       defaultTabbed
   ||| tiled
   ||| Full
+  ||| dragPane Vertical 0.1 0.5
 --  ||| avoidStruts (TwoPane 0.03 0.5)
 --  ||| ML
 --  ||| TabTree
