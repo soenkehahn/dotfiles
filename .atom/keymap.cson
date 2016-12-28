@@ -1,0 +1,4 @@
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  'h e': 'fuzzy-finder:toggle-file-finder'
+  'h h': 'atom-shell-commands:geany'
+  'h g': 'atom-shell-commands-config:error-next'
