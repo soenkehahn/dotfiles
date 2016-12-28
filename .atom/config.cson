@@ -12,12 +12,13 @@
           cwd: "{ProjectDir}"
           save: true
         matchs: [
-          # "^(?<file>[\\/0-9a-zA-Z\\._\\\\:]+):(?<line>\\d+):(?<col>\\d+):"
-          # "^(?<file>[\\/0-9a-zA-Z\\._\\\\:]+):(?<line>\\d+):"
-          # "^(?<file>[\\/0-9a-zA-Z\\._\\\\:]+)\\s*\\((?<line>\\d+)\\)\\s*:*:"
+          # "^(?<file>[a-zA-Z0-9\\/\\.-_]+):(?<line>[0-9]+):(?<col>[0-9]+):"
+          #{ }"^\\s*(?<file>[a-zA-Z0-9\\/\\.-_]+):(?<line>[0-9]+):"
+          "(?<file>[\\/a-zA-Z-\\.]+):(?<line>\\d+):(?<col>\\d+):"
+          "(?<file>[\\/a-zA-Z-\\.]+):(?<line>\\d+):"
+          #{ }"^\\s*uncaught exception: PatternMatchFail \\((?<file>[a-zA-Z0-9\\/\\.-_]+):\\((?<line>\\d+),(?<col>\\d+)\\)-"
           "-- SYNTAX PROBLEM -* (?<file>[\\/0-9a-zA-Z\\._\\\\:]+)"
-          # "-- SYNTAX PROBLEM -* (?<file>[\\.\\/a-zA-Z]+)$((\\n|.)+)^(?<line>[0-9]+)\\|"
-          # "-- SYNTAX PROBLEM -* (?<file>[\\.\\/a-zA-Z]+)(?<rest>((.|\\n)*))(^(?<line>[0-9]+)\\|)"
+          "-- NAMING ERROR -* (?<file>[\\/0-9a-zA-Z\\._\\\\:]+)"
         ]
       }
     ]

@@ -2,3 +2,4 @@
   'h e': 'fuzzy-finder:toggle-file-finder'
   'h h': 'atom-shell-commands:geany'
   'h g': 'atom-shell-commands-config:error-next'
+  'h i': 'editor:newline-above'
