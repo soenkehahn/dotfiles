@@ -1,0 +1,38 @@
+"*":
+  "atom-shell-commands":
+    commands: [
+      {
+        name: "geany"
+        command: "make"
+        arguments: [
+          "-f"
+          "geany"
+        ]
+        options:
+          cwd: "{ProjectDir}"
+          save: true
+        matchs: [
+          # "^(?<file>[\\/0-9a-zA-Z\\._\\\\:]+):(?<line>\\d+):(?<col>\\d+):"
+          # "^(?<file>[\\/0-9a-zA-Z\\._\\\\:]+):(?<line>\\d+):"
+          # "^(?<file>[\\/0-9a-zA-Z\\._\\\\:]+)\\s*\\((?<line>\\d+)\\)\\s*:*:"
+          "-- SYNTAX PROBLEM -* (?<file>[\\/0-9a-zA-Z\\._\\\\:]+)"
+          # "-- SYNTAX PROBLEM -* (?<file>[\\.\\/a-zA-Z]+)$((\\n|.)+)^(?<line>[0-9]+)\\|"
+          # "-- SYNTAX PROBLEM -* (?<file>[\\.\\/a-zA-Z]+)(?<rest>((.|\\n)*))(^(?<line>[0-9]+)\\|)"
+        ]
+      }
+    ]
+  core:
+    audioBeep: false
+    autoHideMenuBar: true
+    excludeVcsIgnoredPaths: false
+    telemetryConsent: "no"
+  editor:
+    autoIndentOnPaste: false
+    scrollPastEnd: true
+    showIndentGuide: true
+    showInvisibles: true
+  "exception-reporting":
+    userId: "475af19e-efeb-b18b-042e-b5a03a88f0ac"
+  "vim-mode-plus":
+    highlightSearch: true
+    useSmartcaseForSearch: true
