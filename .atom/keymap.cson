@@ -1,5 +1,7 @@
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
   'h e': 'fuzzy-finder:toggle-file-finder'
-  'h h': 'atom-shell-commands:geany'
-  'h g': 'atom-shell-commands-config:error-next'
+  'h h': 'build:trigger'
+  'h g': 'build:error-match'
   'h i': 'editor:newline-above'
+  'h q': 'atom-shell-commands-config:toggle'
+  'h a': 'symbols-view:go-to-declaration'

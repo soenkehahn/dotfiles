@@ -22,9 +22,17 @@
         ]
       }
     ]
+  build:
+    matchedErrorFailsBuild: false
+    panelOrientation: "Right"
+    saveOnBuild: true
+    stealFocus: false
   core:
     audioBeep: false
     autoHideMenuBar: true
+    disabledPackages: [
+      "metrics"
+    ]
     excludeVcsIgnoredPaths: false
     telemetryConsent: "no"
   editor:
@@ -34,6 +42,12 @@
     showInvisibles: true
   "exception-reporting":
     userId: "475af19e-efeb-b18b-042e-b5a03a88f0ac"
+  "symbols-view":
+    useEditorGrammarAsCtagsLanguage: false
+  "tree-view":
+    hideVcsIgnoredFiles: true
   "vim-mode-plus":
     highlightSearch: true
     useSmartcaseForSearch: true
+  welcome:
+    showOnStartup: false
