@@ -12,11 +12,8 @@
           cwd: "{ProjectDir}"
           save: true
         matchs: [
-          # "^(?<file>[a-zA-Z0-9\\/\\.-_]+):(?<line>[0-9]+):(?<col>[0-9]+):"
-          #{ }"^\\s*(?<file>[a-zA-Z0-9\\/\\.-_]+):(?<line>[0-9]+):"
           "(?<file>[\\/a-zA-Z-\\.]+):(?<line>\\d+):(?<col>\\d+):"
           "(?<file>[\\/a-zA-Z-\\.]+):(?<line>\\d+):"
-          #{ }"^\\s*uncaught exception: PatternMatchFail \\((?<file>[a-zA-Z0-9\\/\\.-_]+):\\((?<line>\\d+),(?<col>\\d+)\\)-"
           "-- SYNTAX PROBLEM -* (?<file>[\\/0-9a-zA-Z\\._\\\\:]+)"
           "-- NAMING ERROR -* (?<file>[\\/0-9a-zA-Z\\._\\\\:]+)"
         ]
@@ -26,11 +23,14 @@
     matchedErrorFailsBuild: false
     panelOrientation: "Right"
     saveOnBuild: true
+    selectTriggers: false
+    statusBar: "Disable"
     stealFocus: false
   core:
     audioBeep: false
     autoHideMenuBar: true
     disabledPackages: [
+      "atom-shell-commands"
       "metrics"
     ]
     excludeVcsIgnoredPaths: false
@@ -42,12 +42,24 @@
     showInvisibles: true
   "exception-reporting":
     userId: "475af19e-efeb-b18b-042e-b5a03a88f0ac"
+  minimap:
+    absoluteMode: true
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    leftEditorColor: "red"
+    rightEditorColor: "green"
+    syncHorizontalScroll: true
   "symbols-view":
     useEditorGrammarAsCtagsLanguage: false
   "tree-view":
     hideVcsIgnoredFiles: true
   "vim-mode-plus":
     highlightSearch: true
+    incrementalSearch: true
     useSmartcaseForSearch: true
   welcome:
     showOnStartup: false
+  zentabs:
+    neverCloseNew: true
+    neverCloseUnsaved: true
