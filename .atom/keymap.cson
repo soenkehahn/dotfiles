@@ -5,7 +5,7 @@
   'h h': 'build:trigger'
   'h g': 'build:error-match'
   'h i': 'editor:newline-above'
-  'h a': 'symbols-view:go-to-declaration'
+  'h a': 'atom-ctags:go-to-declaration'
 
   'h f': 'git-time-machine:toggle'
   'h q': 'git-diff-details:toggle-git-diff-details'

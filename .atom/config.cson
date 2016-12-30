@@ -1,4 +1,7 @@
 "*":
+  "atom-ctags":
+    disableComplete: true
+    extraTagFiles: "tags"
   "atom-shell-commands":
     commands: [
       {
@@ -32,6 +35,7 @@
     disabledPackages: [
       "atom-shell-commands"
       "metrics"
+      "symbols-view"
     ]
     excludeVcsIgnoredPaths: false
     telemetryConsent: "no"
