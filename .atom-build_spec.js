@@ -4,7 +4,7 @@ const expect = chai.expect;
 const atomBuild = require('./.atom-build');
 
 function expectMatches(output, expected) {
-  result = atomBuild.functionMatchFoo(output);
+  result = atomBuild._functionMatch(output);
   expect(result).to.eql(expected);
 }
 
@@ -33,9 +33,18 @@ describe('.atom-build.js', () => {
       }];
       expectMatches(output, expected);
     });
-    it('matches weird file names');
+    it('matches weird file names', () => {
+      const output = "./File/foo-bar_baz-123.exe:42: message\n";
+      expected = [{
+        file: "./File/foo-bar_baz-123.exe",
+        line: 42
+      }];
+      expectMatches(output, expected);
+
+    });
     it('matches elm error messages', () => {
       const output = [
+        "something",
         "-- TYPE MISMATCH ------------------------------------- src/Operational/Mocks.elm",
         "",
         "The 4th argument to function `simulate` is causing a mismatch.",
