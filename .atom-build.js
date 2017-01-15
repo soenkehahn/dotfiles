@@ -1,4 +1,5 @@
 XRegExp = require('xregexp');
+fs = require('fs');
 
 _functionMatch = function (output) {
   filePattern = '(?<file>[a-zA-Z-_\\d\.\/]+)';
@@ -6,7 +7,7 @@ _functionMatch = function (output) {
     XRegExp('^' + filePattern + ':(?<line>\\d+):((?<col>\\d+):)?'),
     XRegExp('^-- .+ -+ ' + filePattern + '\\n\\n(?<message>.+)\\n\\n( )?(?<line>\\d+)\\|')
   ];
-  const locations = [];
+  var locations = [];
   lines = output.split('\n');
   lines.forEach((line, index) => {
     patterns.forEach(pattern => {
@@ -25,6 +26,10 @@ _functionMatch = function (output) {
         locations.push(loc);
       }
     });
+  });
+  locations.reverse();
+  locations = locations.filter(location => {
+    return fs.existsSync(location.file);
   });
   return locations;
 };
