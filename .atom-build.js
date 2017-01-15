@@ -4,7 +4,7 @@ module.exports = {
   cmd: "make -f geany",
   functionMatchFoo: function (output) {
     patterns = [
-      XRegExp('^(?<file>[a-z\.\/]+):(?<line>\\d+):(?<col>\\d+):'),
+      XRegExp('^(?<file>[a-z\.\/]+):(?<line>\\d+):((?<col>\\d+):)?'),
       XRegExp('^-- .+ -+ (?<file>[a-zA-Z\\/\\.]+)\\n\\n(?<message>.+)\\n\\n( )?(?<line>\\d+)\\|')
     ];
     const locations = [];
