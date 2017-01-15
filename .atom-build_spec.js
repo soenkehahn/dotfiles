@@ -15,6 +15,8 @@ child_process.execSync('touch file/foo');
 child_process.execSync('touch file/foo.txt');
 child_process.execSync('touch file/foo-Bar_baz-123.exe');
 child_process.execSync('touch file/Operational.elm');
+child_process.execSync('mkdir -p tests');
+child_process.execSync('touch tests/test.file');
 
 describe('.atom-build.js', () => {
   describe('functionMatchFoo', () => {
@@ -92,6 +94,15 @@ describe('.atom-build.js', () => {
       const output = "./does-not-exist.file:42:\n"
       expectMatches(output, []);
     });
-    it("also searches in subdirectory 'tests'");
+    it("also searches in subdirectory 'tests'", () => {
+      const output = "./test.file:42:\n";
+      expected = [
+        {
+          file: "tests/test.file",
+          line: 42
+        }
+      ];
+      expectMatches(output, expected);
+    });
   });
 });

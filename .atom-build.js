@@ -1,5 +1,6 @@
 XRegExp = require('xregexp');
 fs = require('fs');
+path = require('path');
 
 _functionMatch = function (output) {
   filePattern = '(?<file>[a-zA-Z-_\\d\.\/]+)';
@@ -29,7 +30,13 @@ _functionMatch = function (output) {
   });
   locations.reverse();
   locations = locations.filter(location => {
-    return fs.existsSync(location.file);
+    if (fs.existsSync(location.file)) {
+      return true;
+    } else if (fs.existsSync('tests/' + location.file)) {
+      location.file = path.normalize("tests/" + location.file);
+      return true;
+    };
+    return false;
   });
   return locations;
 };
