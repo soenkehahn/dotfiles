@@ -13,16 +13,24 @@
       "atom-shell-commands"
       "metrics"
       "symbols-view"
+      "bracket-matcher"
     ]
     excludeVcsIgnoredPaths: false
     telemetryConsent: "no"
   editor:
     autoIndentOnPaste: false
+    fontSize: 13
     scrollPastEnd: true
     showIndentGuide: true
     showInvisibles: true
+  "elm-format":
+    binary: "/home/shahn/.local/bin/elm-format"
   "exception-reporting":
     userId: "475af19e-efeb-b18b-042e-b5a03a88f0ac"
+  "language-elm":
+    autocompleteEnabled: false
+  linter:
+    errorPanelHeight: 45
   minimap:
     absoluteMode: true
   "split-diff":

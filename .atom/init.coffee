@@ -6,7 +6,7 @@ atom.workspace.observeTextEditors (editor) ->
     editor.setSoftTabs(false)
   if path.extname(editor.getPath()) is '.mk'
     editor.setSoftTabs(false)
-  if path.extname(editor.getPath()) is 'geany'
+  if path.basename(editor.getPath()) is 'geany'
     editor.setSoftTabs(false)
 
 atom.commands.add 'atom-text-editor',
