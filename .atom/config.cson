@@ -1,27 +1,4 @@
 "*":
-  "atom-ctags":
-    disableComplete: true
-    extraTagFiles: "tags"
-  "atom-shell-commands":
-    commands: [
-      {
-        name: "geany"
-        command: "make"
-        arguments: [
-          "-f"
-          "geany"
-        ]
-        options:
-          cwd: "{ProjectDir}"
-          save: true
-        matchs: [
-          "(?<file>[\\/a-zA-Z-\\.]+):(?<line>\\d+):(?<col>\\d+):"
-          "(?<file>[\\/a-zA-Z-\\.]+):(?<line>\\d+):"
-          "-- SYNTAX PROBLEM -* (?<file>[\\/0-9a-zA-Z\\._\\\\:]+)"
-          "-- NAMING ERROR -* (?<file>[\\/0-9a-zA-Z\\._\\\\:]+)"
-        ]
-      }
-    ]
   build:
     matchedErrorFailsBuild: false
     panelOrientation: "Right"
