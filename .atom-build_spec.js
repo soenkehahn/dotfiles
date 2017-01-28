@@ -17,6 +17,8 @@ child_process.execSync('touch file/foo-Bar_baz-123.exe');
 child_process.execSync('touch file/Operational.elm');
 child_process.execSync('mkdir -p tests');
 child_process.execSync('touch tests/test.file');
+child_process.execSync('mkdir -p client/tests');
+child_process.execSync('touch client/tests/client-test.file');
 
 describe('.atom-build.js', () => {
   describe('functionMatchFoo', () => {
@@ -99,6 +101,16 @@ describe('.atom-build.js', () => {
       expected = [
         {
           file: "tests/test.file",
+          line: 42
+        }
+      ];
+      expectMatches(output, expected);
+    });
+  it("also searches in subdirectory 'client/tests'", () => {
+      const output = "./client-test.file:42:\n";
+      expected = [
+        {
+          file: "client/tests/client-test.file",
           line: 42
         }
       ];

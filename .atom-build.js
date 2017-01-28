@@ -35,6 +35,9 @@ _functionMatch = function (output) {
     } else if (fs.existsSync('tests/' + location.file)) {
       location.file = path.normalize("tests/" + location.file);
       return true;
+    } else if (fs.existsSync('client/tests/' + location.file)) {
+      location.file = path.normalize("client/tests/" + location.file);
+      return true;
     };
     return false;
   });
