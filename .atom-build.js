@@ -5,7 +5,7 @@ path = require('path');
 _functionMatch = function (output) {
   filePattern = '(?<file>[a-zA-Z-_\\d\.\/]+)';
   patterns = [
-    XRegExp('^' + filePattern + ':(?<line>\\d+):((?<col>\\d+):)?'),
+    XRegExp('^ *' + filePattern + ':(?<line>\\d+):((?<col>\\d+):)?'),
     XRegExp('^-- .+ -+ ' + filePattern + '\\n\\n(?<message>.+)\\n\\n( )?(?<line>\\d+)\\|')
   ];
   var locations = [];

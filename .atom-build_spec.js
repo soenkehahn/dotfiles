@@ -69,6 +69,14 @@ describe('.atom-build.js', () => {
       }];
       expectMatches(output, expected);
     });
+    it('matches (uncolorized) hspec messages', () => {
+      const output = "  file/foo:85:";
+      expected = [{
+        file: "file/foo",
+        line: 85
+      }];
+      expectMatches(output, expected);
+    });
     it('matches earlier messages first (reversed)', () => {
       const output = [
         "something",
