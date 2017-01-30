@@ -7,8 +7,9 @@
   'h i': 'editor:newline-above'
   'h a': 'symbols-view:go-to-declaration'
 
-  'h f': 'git-time-machine:toggle'
-  'h q': 'git-diff-details:toggle-git-diff-details'
+  'h c': 'git-blame:toggle'
+  'h l': 'git-diff-details:toggle-git-diff-details'
+  'h v': 'git-time-machine:toggle'
 
 'body':
   'ctrl-s': 'custom:save-and-exit-insert-mode'

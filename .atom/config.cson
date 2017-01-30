@@ -24,7 +24,7 @@
     showIndentGuide: true
     showInvisibles: true
   "elm-format":
-    binary: "/home/shahn/.local/bin/elm-format"
+    binary: "/home/shahn/.local/bin/elm-format-0.18"
   "exception-reporting":
     userId: "475af19e-efeb-b18b-042e-b5a03a88f0ac"
   "language-elm":
@@ -50,5 +50,6 @@
   welcome:
     showOnStartup: false
   zentabs:
+    maximumOpenedTabs: 4
     neverCloseNew: true
     neverCloseUnsaved: true
