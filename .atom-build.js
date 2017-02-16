@@ -28,7 +28,6 @@ _functionMatch = function (output) {
       }
     });
   });
-  locations.reverse();
   locations = locations.filter(location => {
     if (fs.existsSync(location.file)) {
       return true;

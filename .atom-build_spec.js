@@ -87,28 +87,30 @@ describe('.atom-build.js', () => {
         }];
         expectMatches(output, expected);
       });
-      it('matches earlier messages first (reversed)', () => {
-        const output = [
-          "something",
-          "-- TYPE MISMATCH ------------------------------------- file/Operational.elm",
-          "",
-          "The 4th argument to function `simulate` is causing a mismatch.",
-          "",
-          "73|                         simulate program",
-          "",
-          "./file/foo.txt:42:"
-        ].join('\n');
-        expected = [
-          {
-            file: "./file/foo.txt",
-            line: 42
-          },
-          {
-            file: "file/Operational.elm",
-            line: 73
-          }
-        ];
-        expectMatches(output, expected);
+      describe('message order', () => {
+        it('matches earlier messages first', () => {
+          const output = [
+            "something",
+            "-- TYPE MISMATCH ------------------------------------- file/Operational.elm",
+            "",
+            "The 4th argument to function `simulate` is causing a mismatch.",
+            "",
+            "73|                         simulate program",
+            "",
+            "./file/foo.txt:42:"
+          ].join('\n');
+          expected = [
+            {
+              file: "file/Operational.elm",
+              line: 73
+            },
+            {
+              file: "./file/foo.txt",
+              line: 42
+            },
+          ];
+          expectMatches(output, expected);
+        });
       });
     });
     describe('file locations', () => {
