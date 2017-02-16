@@ -78,6 +78,15 @@ describe('.atom-build.js', () => {
         }];
         expectMatches(output, expected);
       });
+      it('matches mocha test failures', () => {
+        const output = "      at Context.<anonymous> (file/foo:85:23)";
+        expected = [{
+          file: "file/foo",
+          line: 85,
+          col: 23
+        }];
+        expectMatches(output, expected);
+      });
       it('matches earlier messages first (reversed)', () => {
         const output = [
           "something",

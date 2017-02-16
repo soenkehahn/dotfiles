@@ -5,15 +5,15 @@ path = require('path');
 _functionMatch = function (output) {
   filePattern = '(?<file>[a-zA-Z-_\\d\.\/]+)';
   patterns = [
-    XRegExp('^ *' + filePattern + ':(?<line>\\d+):((?<col>\\d+):)?'),
-    XRegExp('^-- .+ -+ ' + filePattern + '\\n\\n(?<message>.+)\\n\\n( )?(?<line>\\d+)\\|')
+    XRegExp(`^ *${filePattern}:(?<line>\\d+):((?<col>\\d+):)?`),
+    XRegExp(`^-- .+ -+ ${filePattern}\\n\\n(?<message>.+)\\n\\n( )?(?<line>\\d+)\\|`),
+    XRegExp(`      at Context\.<anonymous> \\(${filePattern}:(?<line>\\d+):(?<col>\\d+)\\)`),
   ];
   var locations = [];
   lines = output.split('\n');
   lines.forEach((line, index) => {
     patterns.forEach(pattern => {
       section = lines.slice(index, index + 5).join('\n');
-      // console.log(JSON.stringify(section));
       const match = XRegExp.exec(section, pattern);
       if (match) {
         match.line = parseInt(match.line);
