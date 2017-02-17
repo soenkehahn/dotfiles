@@ -80,7 +80,7 @@ describe('.atom-build.js', () => {
         expectMatches(output, expected);
       });
       describe('matches mocha test failures', () => {
-        _.forEach(['      '], (spaces) => {
+        _.forEach(['      ', '    '], (spaces) => {
           it(`with ${spaces.length} leading spaces`, () => {
             const output = spaces + "at Context.<anonymous> (file/foo:85:23)";
             expected = [{

@@ -8,7 +8,7 @@ _functionMatch = function (output) {
   patterns = [
     XRegExp(`^ *${filePattern}:${linePattern}:((?<col>\\d+):)?`),
     XRegExp(`^-- .+ -+ ${filePattern}\\n\\n(?<message>.+)\\n\\n( )?${linePattern}\\|`),
-    XRegExp(`      at Context\.<anonymous> \\(${filePattern}:${linePattern}:(?<col>\\d+)\\)`),
+    XRegExp(`\\sat Context\.<anonymous> \\(${filePattern}:${linePattern}:(?<col>\\d+)\\)`),
     XRegExp(`  ✗ ${filePattern}\\n     ✗ #${linePattern}: `),
   ];
   var locations = [];
