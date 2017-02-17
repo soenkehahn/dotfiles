@@ -5,11 +5,13 @@ path = require('path');
 _functionMatch = function (output) {
   filePattern = '(?<file>[a-zA-Z-_\\d\.\/]+)';
   linePattern = '(?<line>\\d+)';
+  colPattern = '(?<col>\\d+)';
   patterns = [
     XRegExp(`^ *${filePattern}:${linePattern}:((?<col>\\d+):)?`),
     XRegExp(`^-- .+ -+ ${filePattern}\\n\\n(?<message>.+)\\n\\n( )?${linePattern}\\|`),
     XRegExp(`\\sat Context\.<anonymous> \\(${filePattern}:${linePattern}:(?<col>\\d+)\\)`),
     XRegExp(`  ✗ ${filePattern}\\n     ✗ #${linePattern}: `),
+    XRegExp(`      at ${filePattern}:${linePattern}:${colPattern}`),
   ];
   var locations = [];
   lines = output.split('\n');

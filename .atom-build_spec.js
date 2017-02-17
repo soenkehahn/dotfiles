@@ -103,6 +103,15 @@ describe('.atom-build.js', () => {
         }];
         expectMatches(output, expected);
       });
+      it('matches node exceptions', () => {
+        const output = '      at file/foo:26:30';
+        expected = [{
+          file: "file/foo",
+          line: 26,
+          col: 30,
+        }];
+        expectMatches(output, expected);
+      });
       describe('message order', () => {
         it('matches earlier messages first', () => {
           const output = [
