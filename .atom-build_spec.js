@@ -1,6 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 const child_process = require('child_process');
+const _ = require('lodash');
 
 const atomBuild = require('./.atom-build');
 
@@ -78,12 +79,27 @@ describe('.atom-build.js', () => {
         }];
         expectMatches(output, expected);
       });
-      it('matches mocha test failures', () => {
-        const output = "      at Context.<anonymous> (file/foo:85:23)";
+      describe('matches mocha test failures', () => {
+        _.forEach(['      '], (spaces) => {
+          it(`with ${spaces.length} leading spaces`, () => {
+            const output = spaces + "at Context.<anonymous> (file/foo:85:23)";
+            expected = [{
+              file: "file/foo",
+              line: 85,
+              col: 23
+            }];
+            expectMatches(output, expected);
+          });
+        });
+      });
+      it('matches coffeelint errors', () => {
+        const output = [
+          "  ✗ file/foo",
+          "     ✗ #201: Unnecessary double quotes are forbidden.",
+        ].join('\n');
         expected = [{
           file: "file/foo",
-          line: 85,
-          col: 23
+          line: 201,
         }];
         expectMatches(output, expected);
       });
