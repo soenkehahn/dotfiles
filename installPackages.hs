@@ -1,7 +1,7 @@
 #!/usr/bin/env stack
 {-
 stack runghc
---resolver lts-3.10 --install-ghc
+--resolver lts-8.3 --install-ghc
   --package logging-facade
   --package split
   --package shake
