@@ -42,75 +42,69 @@ installXMonad = do
 
 packages :: [String]
 packages =
-  "silversearcher-ag" :
-  "docker-compose" :
-  "fatsort" :
-  "sox" :
-  "cups" :
-  "xsel" :
-  "sloccount" :
-  "inkscape" :
-  "mercurial" :
-  "mhwaveedit" :
-  "libtool-bin" :
-  "m4" :
-  "gparted" :
-  "xloadimage" :
-  "libiw-dev" :
-  "apt-file" :
-  "libxpm-dev" :
-  "jq" :
-  "handbrake" :
-  "sgt-puzzles" :
-  "gimp" :
   "ack-grep" :
+  "apt-file" :
   "arandr" :
   "atool" :
-  "build-essential" :
   "automake" :
-  "graphviz" :
-  "screen" :
-  "stellarium" :
-  "gdebi" :
+  "build-essential" :
   "chromium-browser" :
   "cmake" :
-  "ubuntu-gnome-desktop" :
-  "openjdk-8-jdk" :
+  "cups" :
   "deborphan" :
+  "docker-compose" :
   "dolphin" :
-  "openvpn" :
-  "tig" :
-  "npm" :
-  "libx11-protocol-other-perl" :
-  "libx11-windowhierarchy-perl" :
   "dosbox" :
   "epiphany-browser" :
+  "fatsort" :
   "firefox" :
+  "gdebi" :
   "geeqie" :
+  "gimp" :
   "gist" :
   "git" :
   "git-cola" :
   "gitk" :
   "gnupg-agent" :
+  "gparted" :
+  "graphviz" :
+  "handbrake" :
   "htop" :
   "i3lock" :
+  "inkscape" :
   "inotify-tools" :
   "iotop" :
   "jnettop" :
+  "jq" :
+  "kcolorchooser" :
   "kde-baseapps-bin" :
+  "kig" :
   "konsole" :
+  "ksnapshot" :
+  "libiw-dev" :
+  "libtool-bin" :
   "libx11-dev" :
+  "libx11-protocol-other-perl" :
+  "libx11-windowhierarchy-perl" :
   "libxext-dev" :
   "libxft-dev" :
   "libxinerama-dev" :
+  "libxpm-dev" :
   "libxrandr-dev" :
   "libxss-dev" :
   "lxde" :
+  "m4" :
   "meld" :
+  "mercurial" :
+  "mhwaveedit" :
   "mosh" :
+  "mplayer" :
+  "npm" :
   "numlockx" :
   "okteta" :
   "okular" :
+  "openjdk-8-jdk" :
+  "openvpn" :
   "pavucontrol" :
   "powertop" :
   "pwgen" :
@@ -118,17 +112,26 @@ packages =
   "renameutils" :
   "ri-li" :
   "rtorrent" :
+  "screen" :
+  "sgt-puzzles" :
+  "silversearcher-ag" :
+  "sloccount" :
   "smplayer" :
-  "mplayer" :
+  "sox" :
+  "stellarium" :
+  "tig" :
   "tree" :
-  "vlc" :
-  "wajig" :
-  "xmonad" :
-  "whois" :
-  "xtail" :
-  "zlib1g-dev" :
+  "ubuntu-gnome-desktop" :
   "vagrant" :
   "virtualbox" :
+  "vlc" :
+  "wajig" :
+  "whois" :
+  "xloadimage" :
+  "xmonad" :
+  "xsel" :
+  "xtail" :
+  "zlib1g-dev" :
   "zsh" :
   []
 
