@@ -1,6 +1,8 @@
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
   'h e': 'recent-files-fuzzy-finder:toggle-finder'
   'h o': 'fuzzy-finder:toggle-file-finder'
+  'h n' : 'tree-view:add-file'
+  'h t' : 'tree-view:toggle'
 
   'h h': 'build:trigger'
   'h g': 'build:error-match'
@@ -10,6 +12,7 @@
   'h c': 'git-blame:toggle'
   'h l': 'git-diff-details:toggle-git-diff-details'
   'h v': 'git-time-machine:toggle'
+  'ctrl-w': 'core:close'
 
 'body':
   'ctrl-s': 'custom:save-and-exit-insert-mode'
