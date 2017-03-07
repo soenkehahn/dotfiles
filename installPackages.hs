@@ -36,6 +36,7 @@ installAptPackages = do
 
 installXMonad :: IO ()
 installXMonad = do
+  unit $ cmd (Cwd "/home/shahn/.xmonad") "stack setup"
   unit $ cmd (Cwd "/home/shahn/.xmonad") "stack install xmobar"
   unit $ cmd (Cwd "/home/shahn/.xmonad") "stack build --only-dependencies"
   unit $ cmd (Cwd "/home/shahn/.xmonad") "make -f geany"
@@ -54,6 +55,7 @@ packages =
   "deborphan" :
   "docker-compose" :
   "dolphin" :
+  "dos2unix" :
   "dosbox" :
   "epiphany-browser" :
   "fatsort" :
@@ -80,6 +82,7 @@ packages =
   "kde-baseapps-bin" :
   "kig" :
   "konsole" :
+  "kruler" :
   "ksnapshot" :
   "libiw-dev" :
   "libtool-bin" :
@@ -106,6 +109,9 @@ packages =
   "openjdk-8-jdk" :
   "openvpn" :
   "pavucontrol" :
+  "pdftk" :
+  "postgresql-client-9.5" :
+  "postgresql-client-common" :
   "powertop" :
   "pwgen" :
   "redshift" :
@@ -115,6 +121,7 @@ packages =
   "screen" :
   "sgt-puzzles" :
   "silversearcher-ag" :
+  "sl" :
   "sloccount" :
   "smplayer" :
   "sox" :
@@ -123,6 +130,7 @@ packages =
   "tree" :
   "ubuntu-gnome-desktop" :
   "vagrant" :
+  "vim" :
   "virtualbox" :
   "vlc" :
   "wajig" :
