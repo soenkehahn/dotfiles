@@ -7,7 +7,7 @@ _functionMatch = function (output) {
   linePattern = '(?<line>\\d+)';
   colPattern = '(?<col>\\d+)';
   patterns = [
-    XRegExp(`^ *${filePattern}:${linePattern}:((?<col>\\d+):)?`),
+    XRegExp(`^ *${filePattern}:${linePattern}(:(?<col>\\d+):)?`),
     XRegExp(`^-- .+ -+ ${filePattern}\\n\\n(?<message>.+)\\n\\n( )?${linePattern}\\|`),
     XRegExp(`\\sat Context\.<anonymous> \\(${filePattern}:${linePattern}:(?<col>\\d+)\\)`),
     XRegExp(`  ✗ ${filePattern}\\n     ✗ #${linePattern}: `),

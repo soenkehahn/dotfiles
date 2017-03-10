@@ -112,6 +112,14 @@ describe('.atom-build.js', () => {
         }];
         expectMatches(output, expected);
       });
+      it('matches flow errors', () => {
+        const output = 'file/foo:26';
+        expected = [{
+          file: "file/foo",
+          line: 26,
+        }];
+        expectMatches(output, expected);
+      });
       describe('message order', () => {
         it('matches earlier messages first', () => {
           const output = [
