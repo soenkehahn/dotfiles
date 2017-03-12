@@ -83,7 +83,6 @@ packages =
   "kig" :
   "konsole" :
   "kruler" :
-  "ksnapshot" :
   "libiw-dev" :
   "libtool-bin" :
   "libx11-dev" :
@@ -107,6 +106,7 @@ packages =
   "okteta" :
   "okular" :
   "openjdk-8-jdk" :
+  "openssh-server" :
   "openvpn" :
   "pavucontrol" :
   "pdftk" :
