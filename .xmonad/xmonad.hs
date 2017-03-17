@@ -21,6 +21,7 @@ import           XMonad.Hooks.SetWMName
 import           XMonad.Hooks.UrgencyHook
 import           XMonad.Layout.Decoration
 import           XMonad.Layout.DragPane
+import           XMonad.Layout.Grid
 import           XMonad.Layout.Tabbed
 import           XMonad.Prompt
 import           XMonad.Prompt.RunOrRaise
@@ -68,8 +69,8 @@ myConfig = withUrgencyHook NoUrgencyHook $ def {
 
 myLayout =
       defaultTabbed
-  ||| tiled
   ||| Full
+  ||| Grid
   ||| dragPane Vertical 0.1 0.5
 --  ||| avoidStruts (TwoPane 0.03 0.5)
 --  ||| ML
@@ -78,18 +79,6 @@ myLayout =
 --  ||| (UninitializedTabTree :: TabTree a)
 
 defaultTabbed = tabbedAlways shrinkText (theme smallClean)
-
-tiled :: Tall a
-tiled = Tall nmaster delta ratio
-  where
-    -- The default number of windows in the master pane
-    nmaster = 1
-
-    -- Default proportion of screen occupied by master pane
-    ratio   = 1/2
-
-    -- Percent of screen to increment by when resizing panes
-    delta   = 3/100
 
 -- * shortcuts
 
@@ -216,7 +205,6 @@ scratchpads =
       where
         padding s = 50 % s
         nonPadding s = 1 - 2 * padding s
-
 
 -- replace with XMonad.Actions.CycleWindows?
 
