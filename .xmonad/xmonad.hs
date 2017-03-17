@@ -101,7 +101,7 @@ myKeys conf =
 
     ((modKey, xK_s), namedScratchpadAction scratchpads "vim") :
     ((modKey, xK_h), namedScratchpadAction scratchpads "htop") :
-    ((modKey, xK_g), namedScratchpadAction scratchpads "aqualung") :
+    ((modKey, xK_g), namedScratchpadAction scratchpads "g-scratchpad") :
     ((modKey, xK_f), namedScratchpadAction scratchpads "musicSelection") :
     ((modKey, xK_q), namedScratchpadAction scratchpads "pavucontrol") :
 
@@ -189,7 +189,7 @@ scratchpads :: [NamedScratchpad]
 scratchpads =
     NS "vim" (terminal myConfig ++ " --name vim") (appName =? "vim") centerBig :
     NS "htop" (terminal myConfig ++ " --name htopTerminal") (appName =? "htopTerminal") centerBig :
-    NS "aqualung" "aqualung -o pulse" (appName =? "aqualung") centerBig :
+    NS "g-scratchpad" "kdialog --sorry NYI" (appName =? "foo") nonFloating :
     NS "musicSelection"
         (terminal myConfig ++ " --name musicSelection --workdir ~/musik/beets")
         (appName =? "musicSelection") centerBig :
