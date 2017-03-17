@@ -53,9 +53,9 @@ main = do
 myConfig = withUrgencyHook NoUrgencyHook $ def {
       -- simple stuff
         terminal = "konsole",
-        borderWidth = 0,
-        focusedBorderColor = "#ff4444",
-        normalBorderColor = "#444444",
+        borderWidth = 3,
+        focusedBorderColor = "#8A999E",
+        normalBorderColor = "#363B4B",
         modMask = mod4Mask,
         XMonad.workspaces  = "NSP" : fmap show [1 .. 9 :: Int],
         keys = myKeys,
