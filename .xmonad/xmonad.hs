@@ -36,7 +36,7 @@ initialize = do
   path <- getEnv "PATH"
   setEnv "PATH" ("/home/shahn/.local/bin:" ++ path)
 
-  spawn "redshift -l 40.70:-74.0 -r"
+  spawn "redshift -l 40.7:-74.0 -r" -- New York
 
   let bgi = "/home/shahn/.xmonad/background.png"
   exists <- doesFileExist bgi
