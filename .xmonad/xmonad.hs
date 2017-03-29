@@ -23,6 +23,7 @@ import           XMonad.Layout.Decoration
 import           XMonad.Layout.DragPane
 import           XMonad.Layout.Grid
 import           XMonad.Layout.Tabbed
+import           XMonad.Layout.TwoPane
 import           XMonad.Prompt
 import           XMonad.Prompt.RunOrRaise
 import           XMonad.StackSet hiding (workspaces)
@@ -71,7 +72,7 @@ myLayout =
       defaultTabbed
   ||| Full
   ||| Grid
-  ||| dragPane Vertical 0.1 0.5
+  ||| TwoPane (3/100) (1/2)
 --  ||| avoidStruts (TwoPane 0.03 0.5)
 --  ||| ML
 --  ||| TabTree
