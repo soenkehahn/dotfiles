@@ -146,3 +146,6 @@ alias vd='dot -Tpdf | okular - \&'
 alias g='make -f geany '
 
 alias ge='ghc-env '
+
+
+export N_PREFIX=$HOME/.local
