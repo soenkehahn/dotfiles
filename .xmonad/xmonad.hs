@@ -95,6 +95,7 @@ myKeys conf =
     ((modKey, xK_r), spawn $ terminal conf) :
     ((modKey, xK_t), spawn "chromium-browser") :
     ((modKey, xK_d), spawn "dolphin") :
+    ((modKey, xK_k), spawn "mplayer ~/.xmonad/zelda.mp3") :
 
     -- ----------- --
     -- scratchpads --
