@@ -171,9 +171,6 @@ set vb
 
 " colors
 colorscheme beauty256
-" highlighting long lines
-let &colorcolumn=join(range(81,999),",")
-highlight colorcolumn ctermbg=235
 
 " highlighting trailing whitespace
 highlight ExtraWhitespace ctermbg=52
