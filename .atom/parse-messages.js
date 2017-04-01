@@ -1,12 +1,14 @@
-XRegExp = require('xregexp');
-fs = require('fs');
-path = require('path');
+// @flow
 
-_functionMatch = function (output) {
-  filePattern = '(?<file>[a-zA-Z-_\\d\.\/]+)';
-  linePattern = '(?<line>\\d+)';
-  colPattern = '(?<col>\\d+)';
-  patterns = [
+const XRegExp = require('xregexp');
+const fs = require('fs');
+const path = require('path');
+
+const _functionMatch = function(output /*: string */) {
+  const filePattern = '(?<file>[a-zA-Z-_\\d\.\/]+)';
+  const linePattern = '(?<line>\\d+)';
+  const colPattern = '(?<col>\\d+)';
+  const patterns = [
     XRegExp(`^ *${filePattern}:${linePattern}(:(?<col>\\d+):)?`),
     XRegExp(`^-- .+ -+ ${filePattern}\\n\\n(?<message>.+)\\n\\n( )?${linePattern}\\|`),
     XRegExp(`\\sat Context\.<anonymous> \\(${filePattern}:${linePattern}:(?<col>\\d+)\\)`),
@@ -14,14 +16,14 @@ _functionMatch = function (output) {
     XRegExp(`      at ${filePattern}:${linePattern}:${colPattern}`),
   ];
   var locations = [];
-  lines = output.split('\n');
+  const lines = output.split('\n');
   lines.forEach((line, index) => {
     patterns.forEach(pattern => {
-      section = lines.slice(index, index + 5).join('\n');
+      const section = lines.slice(index, index + 5).join('\n');
       const match = XRegExp.exec(section, pattern);
       if (match) {
         match.line = parseInt(match.line);
-        loc = {
+        const loc /*: any */ = {
           file: match.file,
           line: match.line
         };

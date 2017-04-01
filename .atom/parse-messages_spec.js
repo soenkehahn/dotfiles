@@ -1,12 +1,14 @@
+// @flow
+
 const chai = require('chai');
 const expect = chai.expect;
 const child_process = require('child_process');
 const _ = require('lodash');
 
-const atomBuild = require('./.atom-build');
+const atomBuild = require('./parse-messages');
 
 function expectMatches(output, expected) {
-  result = atomBuild._functionMatch(output);
+  const result = atomBuild._functionMatch(output);
   expect(result).to.eql(expected);
 }
 
@@ -29,7 +31,7 @@ describe('.atom-build.js', () => {
           "./file/foo:13:8: message",
           "something"
         ].join('\n');
-        expected = [{
+        const expected = [{
           file: "./file/foo",
           line: 13,
           col: 8
@@ -41,7 +43,7 @@ describe('.atom-build.js', () => {
           "./file/foo:13: message",
           "something"
         ].join('\n');
-        expected = [{
+        const expected = [{
           file: "./file/foo",
           line: 13
         }];
@@ -49,7 +51,7 @@ describe('.atom-build.js', () => {
       });
       it('matches weird file names', () => {
         const output = "./file/foo-Bar_baz-123.exe:42: message\n";
-        expected = [{
+        const expected = [{
           file: "./file/foo-Bar_baz-123.exe",
           line: 42
         }];
@@ -65,7 +67,7 @@ describe('.atom-build.js', () => {
           "",
           "73|                         simulate program",
         ].join('\n');
-        expected = [{
+        const expected = [{
           file: "file/Operational.elm",
           line: 73
         }];
@@ -73,7 +75,7 @@ describe('.atom-build.js', () => {
       });
       it('matches (uncolorized) hspec messages', () => {
         const output = "  file/foo:85:";
-        expected = [{
+        const expected = [{
           file: "file/foo",
           line: 85
         }];
@@ -83,7 +85,7 @@ describe('.atom-build.js', () => {
         _.forEach(['      ', '    '], (spaces) => {
           it(`with ${spaces.length} leading spaces`, () => {
             const output = spaces + "at Context.<anonymous> (file/foo:85:23)";
-            expected = [{
+            const expected = [{
               file: "file/foo",
               line: 85,
               col: 23
@@ -97,7 +99,7 @@ describe('.atom-build.js', () => {
           "  ✗ file/foo",
           "     ✗ #201: Unnecessary double quotes are forbidden.",
         ].join('\n');
-        expected = [{
+        const expected = [{
           file: "file/foo",
           line: 201,
         }];
@@ -105,7 +107,7 @@ describe('.atom-build.js', () => {
       });
       it('matches node exceptions', () => {
         const output = '      at file/foo:26:30';
-        expected = [{
+        const expected = [{
           file: "file/foo",
           line: 26,
           col: 30,
@@ -114,7 +116,7 @@ describe('.atom-build.js', () => {
       });
       it('matches flow errors', () => {
         const output = 'file/foo:26';
-        expected = [{
+        const expected = [{
           file: "file/foo",
           line: 26,
         }];
@@ -132,7 +134,7 @@ describe('.atom-build.js', () => {
             "",
             "./file/foo.txt:42:"
           ].join('\n');
-          expected = [
+          const expected = [
             {
               file: "file/Operational.elm",
               line: 73
@@ -153,7 +155,7 @@ describe('.atom-build.js', () => {
       });
       it("also searches in subdirectory 'tests'", () => {
         const output = "./test.file:42:\n";
-        expected = [
+        const expected = [
           {
             file: "tests/test.file",
             line: 42
@@ -163,7 +165,7 @@ describe('.atom-build.js', () => {
       });
       it("also searches in subdirectory 'client/tests'", () => {
         const output = "./client-test.file:42:\n";
-        expected = [
+        const expected = [
           {
             file: "client/tests/client-test.file",
             line: 42
