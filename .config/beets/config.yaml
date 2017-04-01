@@ -1,0 +1,36 @@
+directory: ~/musik/beets
+library: ~/musik/beetslibrary.blb
+paths:
+  default: $albumartist/$album%aunique{}/$track $title
+  singleton: _singles/$artist - $title
+  comp: $album%aunique{}/$track $title
+import:
+  move: yes
+plugins: rewrite
+rewrite:
+  artist Игорь Фёдорович Стравинский; Leonard Bernstein.*: Bernstein Conducts Stravinsky
+  artist Björk Guðmundsdóttir: Björk
+  artist Helge Schneider und seine kleine Band Hardcore: Helge Schneider
+  artist Helge Schneider und meine kleine Band Hardcore: Helge Schneider
+  artist Jan Delay & Disko No.1: Jan Delay
+  artist John Coltrane Quartet: John Coltrane
+  artist Miles Davis & John Coltrane: John Coltrane
+  artist Thelonious Monk & John Coltrane: John Coltrane
+  artist Bernard Herrmann; Los Angeles Philharmonic, Esa-Pekka Salonen: Bernard Herrmann
+  artist Johannes Brahms; Magyar Rádió Szimfonikus Zenekara, István Bogár: Johannes Brahms
+  artist John Scofield Band: John Scofield
+  artist John McLaughlin & The Free Spirits: John McLaughlin
+  artist Maria Schneider Jazz Orchestra: Maria Schneider
+  artist Maria Schneider Orchestra: Maria Schneider
+  artist Michael Z. Land: Monkey Island
+  artist Pat Metheny Group: Pat Metheny
+  artist Pat Metheny Trio: Pat Metheny
+  artist Steve Reich; London Symphony Orchestra, Steve Reich and Musicians, Michael Tilson Thomas: Steve Reich
+  artist Sting & Gil Evans: Sting
+  artist The Dave Brubeck Quartet: Dave Brubeck
+  artist The Mothers of Invention: Frank Zappa
+  artist The Wailers: Bob Marley & The Wailers
+  artist The Zawinul Syndicate: Joe Zawinul
+  artist Antonín Dvořák, Bedřich Smetana; Wiener Philharmoniker, Herbert von Karajan: Antonín Dvořák, Bedřich Smetana
+  artist George Bruns, Terry Gilkyson, Richard M. Sherman & Robert B. Sherman: The Jungle Book
+  artist Robert Lopez & Jeff Marx: Avenue Q
