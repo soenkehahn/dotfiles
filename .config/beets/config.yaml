@@ -8,29 +8,30 @@ import:
   move: yes
 plugins: rewrite
 rewrite:
-  artist Игорь Фёдорович Стравинский; Leonard Bernstein.*: Bernstein Conducts Stravinsky
-  artist Björk Guðmundsdóttir: Björk
-  artist Helge Schneider und seine kleine Band Hardcore: Helge Schneider
-  artist Helge Schneider und meine kleine Band Hardcore: Helge Schneider
-  artist Jan Delay & Disko No.1: Jan Delay
-  artist John Coltrane Quartet: John Coltrane
-  artist Miles Davis & John Coltrane: John Coltrane
-  artist Thelonious Monk & John Coltrane: John Coltrane
+  artist Antonín Dvořák, Bedřich Smetana; Wiener Philharmoniker, Herbert von Karajan: Antonín Dvořák, Bedřich Smetana
   artist Bernard Herrmann; Los Angeles Philharmonic, Esa-Pekka Salonen: Bernard Herrmann
+  artist Björk Guðmundsdóttir: Björk
+  artist George Bruns, Terry Gilkyson, Richard M. Sherman & Robert B. Sherman: The Jungle Book
+  artist Helge Schneider und meine kleine Band Hardcore: Helge Schneider
+  artist Helge Schneider und seine kleine Band Hardcore: Helge Schneider
+  artist Jan Delay & Disko No.1: Jan Delay
   artist Johannes Brahms; Magyar Rádió Szimfonikus Zenekara, István Bogár: Johannes Brahms
-  artist John Scofield Band: John Scofield
+  artist John Coltrane Quartet: John Coltrane
   artist John McLaughlin & The Free Spirits: John McLaughlin
+  artist John Scofield Band: John Scofield
+  artist Ludwig van Beethoven; Orchestre Révolutionnaire et Romantique, Sir John Eliot Gardiner: Sir John Eliot Gardiner
   artist Maria Schneider Jazz Orchestra: Maria Schneider
   artist Maria Schneider Orchestra: Maria Schneider
   artist Michael Z. Land: Monkey Island
+  artist Miles Davis & John Coltrane: John Coltrane
   artist Pat Metheny Group: Pat Metheny
   artist Pat Metheny Trio: Pat Metheny
+  artist Robert Lopez & Jeff Marx: Avenue Q
   artist Steve Reich; London Symphony Orchestra, Steve Reich and Musicians, Michael Tilson Thomas: Steve Reich
   artist Sting & Gil Evans: Sting
   artist The Dave Brubeck Quartet: Dave Brubeck
+  artist Thelonious Monk & John Coltrane: John Coltrane
   artist The Mothers of Invention: Frank Zappa
   artist The Wailers: Bob Marley & The Wailers
   artist The Zawinul Syndicate: Joe Zawinul
-  artist Antonín Dvořák, Bedřich Smetana; Wiener Philharmoniker, Herbert von Karajan: Antonín Dvořák, Bedřich Smetana
-  artist George Bruns, Terry Gilkyson, Richard M. Sherman & Robert B. Sherman: The Jungle Book
-  artist Robert Lopez & Jeff Marx: Avenue Q
+  artist Игорь Фёдорович Стравинский; Leonard Bernstein.*: Bernstein Conducts Stravinsky
