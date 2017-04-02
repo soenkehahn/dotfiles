@@ -71,11 +71,7 @@ PROMPT="\
 # RPROMPT="\$(date)"
 RPROMPT='$PROMPT_GIT_BRANCH  $PROMPT_TIME'
 
-# set PATH so it includes user's private bin if it exists
-if [ -d ~/.local/bin ] ; then
-    PATH=~/.local/bin:"${PATH}"
-fi
-
+PATH=~/.local/bin:"${PATH}"
 PATH=~/src/git-town/src:"${PATH}"
 
 autoload -U +X bashcompinit && bashcompinit
