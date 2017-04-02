@@ -4,8 +4,9 @@
   'h n' : 'tree-view:add-file'
   'h t' : 'tree-view:toggle'
 
-  'h h': 'build:trigger'
-  'h g': 'build:error-match'
+  'h h': 'core:save'
+  'h g': 'custom:next-gean'
+  'h f': 'custom:read-gean'
   'h i': 'editor:newline-above'
   'h a': 'symbols-view:go-to-declaration'
 

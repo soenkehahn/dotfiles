@@ -50,6 +50,6 @@
   welcome:
     showOnStartup: false
   zentabs:
-    maximumOpenedTabs: 4
+    maximumOpenedTabs: 6
     neverCloseNew: true
     neverCloseUnsaved: true

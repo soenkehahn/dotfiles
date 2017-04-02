@@ -9,3 +9,5 @@ cabal.sandbox.config
 tags
 /.stack-work/
 /dist/
+/tertestrial.yml
+gean

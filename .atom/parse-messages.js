@@ -4,7 +4,22 @@ const XRegExp = require('xregexp');
 const fs = require('fs');
 const path = require('path');
 
-const _functionMatch = function(output /*: string */) {
+/*::
+
+declare var atom: {|
+  project: {
+    getPaths: () => Array<string>
+  },
+|}
+
+type Loc = {|
+  file: string,
+  line: number,
+  col?: number,
+|}
+*/
+
+const parseMessages = function(output /*: string */) /*: Array<Loc> */ {
   const filePattern = '(?<file>[a-zA-Z-_\\d\.\/]+)';
   const linePattern = '(?<line>\\d+)';
   const colPattern = '(?<col>\\d+)';
@@ -23,9 +38,9 @@ const _functionMatch = function(output /*: string */) {
       const match = XRegExp.exec(section, pattern);
       if (match) {
         match.line = parseInt(match.line);
-        const loc /*: any */ = {
+        const loc /*: Loc */ = {
           file: match.file,
-          line: match.line
+          line: match.line,
         };
         if (typeof match.col !== "undefined"){
           loc.col = parseInt(match.col);
@@ -35,22 +50,22 @@ const _functionMatch = function(output /*: string */) {
     });
   });
   locations = locations.filter(location => {
-    if (fs.existsSync(location.file)) {
+    const projectDir = atom.project.getPaths()[0]
+    if (fs.existsSync(projectDir + '/' + location.file)) {
       return true;
-    } else if (fs.existsSync('tests/' + location.file)) {
-      location.file = path.normalize("tests/" + location.file);
+    } else if (fs.existsSync(projectDir + '/tests/' + location.file)) {
+      location.file = path.normalize(projectDir + '/tests/' + location.file);
       return true;
-    } else if (fs.existsSync('client/tests/' + location.file)) {
-      location.file = path.normalize("client/tests/" + location.file);
+    } else if (fs.existsSync(projectDir + '/client/tests/' + location.file)) {
+      location.file = path.normalize(projectDir + "/client/tests/" + location.file);
       return true;
     };
+    console.log('does not exist: ' + location.file);
     return false;
   });
   return locations;
 };
 
 module.exports = {
-  cmd: "make -f geany",
-  functionMatch: _functionMatch,
-  _functionMatch: _functionMatch
+  parseMessages
 };

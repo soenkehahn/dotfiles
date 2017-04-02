@@ -8,8 +8,14 @@ const _ = require('lodash');
 const atomBuild = require('./parse-messages');
 
 function expectMatches(output, expected) {
-  const result = atomBuild._functionMatch(output);
+  const result = atomBuild.parseMessages(output);
   expect(result).to.eql(expected);
+}
+
+global.atom = {
+  project: {
+    getPaths: () => ['./.']
+  }
 }
 
 process.chdir('/tmp');
@@ -23,8 +29,8 @@ child_process.execSync('touch tests/test.file');
 child_process.execSync('mkdir -p client/tests');
 child_process.execSync('touch client/tests/client-test.file');
 
-describe('.atom-build.js', () => {
-  describe('functionMatchFoo', () => {
+describe('parse-messages.js', () => {
+  describe('parseMessages', () => {
     describe('error matching', () => {
       it('matches gcc style messages', () => {
         const output = [
