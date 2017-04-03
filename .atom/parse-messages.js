@@ -19,6 +19,16 @@ type Loc = {|
 |}
 */
 
+function combinePaths(...snippets /*: Array<string> */) /*: string */ {
+  let result = snippets.pop()
+  snippets.forEach(snippet => {
+    if (! path.isAbsolute(result)) {
+      result = snippet + '/' + result
+    }
+  })
+  return path.normalize(result)
+}
+
 const parseMessages = function(output /*: string */) /*: Array<Loc> */ {
   const filePattern = '(?<file>[a-zA-Z-_\\d\.\/]+)';
   const linePattern = '(?<line>\\d+)';
@@ -50,18 +60,23 @@ const parseMessages = function(output /*: string */) /*: Array<Loc> */ {
     });
   });
   locations = locations.filter(location => {
+    const candidates = [
+      location.file,
+      combinePaths('tests', location.file),
+      combinePaths('client/tests', location.file),
+    ]
     const projectDir = atom.project.getPaths()[0]
-    if (fs.existsSync(projectDir + '/' + location.file)) {
-      return true;
-    } else if (fs.existsSync(projectDir + '/tests/' + location.file)) {
-      location.file = path.normalize(projectDir + '/tests/' + location.file);
-      return true;
-    } else if (fs.existsSync(projectDir + '/client/tests/' + location.file)) {
-      location.file = path.normalize(projectDir + "/client/tests/" + location.file);
-      return true;
-    };
-    console.log('does not exist: ' + location.file);
-    return false;
+    let exists = false
+    candidates.forEach(candidate => {
+      if (fs.existsSync(combinePaths(projectDir, candidate))) {
+        location.file = candidate
+        exists = true
+      }
+    })
+    if (!exists) {
+      console.log('does not exist: ' + location.file);
+    }
+    return exists;
   });
   return locations;
 };

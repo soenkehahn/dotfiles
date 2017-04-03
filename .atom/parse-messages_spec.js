@@ -159,6 +159,17 @@ describe('parse-messages.js', () => {
         const output = "./does-not-exist.file:42:\n"
         expectMatches(output, []);
       });
+      it('works for absolute files', () => {
+        const cwd = process.cwd()
+        const output = cwd + "/file/foo.txt:42:\n";
+        const expected = [
+          {
+            file: cwd + "/file/foo.txt",
+            line: 42
+          }
+        ];
+        expectMatches(output, expected);
+      })
       it("also searches in subdirectory 'tests'", () => {
         const output = "./test.file:42:\n";
         const expected = [
