@@ -123,30 +123,23 @@ alias isrunning='echo "  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIM
 
 alias -g "\&"="&>/dev/null&|"
 
-alias am='aqualung -EN0 '
 alias qmv='qmv --options=spaces '
 
-REPORTTIME=60
-
-alias glh='gl | head -n25'
 alias qg='gitk --all \&'
 
 alias gpgwho='gpg --no-default-keyring --secret-keyring /dev/null -a --list-only '
-
-alias hack='ag --haskell '
-alias hag='ag --haskell '
 
 alias view-dot='dot -Tpdf | okular - \&'
 alias vd='dot -Tpdf | okular - \&'
 
 alias g='make -f geany '
 
-alias ge='ghc-env '
-
 alias ga='git add -p'
 alias gm='git commit'
 alias gs='git status'
 alias gp='git push'
 
+alias lp='nice -n 19'
 
 export N_PREFIX=$HOME/.local
+REPORTTIME=60
