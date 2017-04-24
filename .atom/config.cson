@@ -17,6 +17,10 @@
     ]
     excludeVcsIgnoredPaths: false
     telemetryConsent: "no"
+    themes: [
+      "one-light-ui"
+      "one-light-syntax"
+    ]
   editor:
     autoIndentOnPaste: false
     fontSize: 12
