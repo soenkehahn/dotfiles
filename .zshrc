@@ -143,5 +143,10 @@ alias g='make -f geany '
 
 alias ge='ghc-env '
 
+alias ga='git add -p'
+alias gm='git commit'
+alias gs='git status'
+alias gp='git push'
+
 
 export N_PREFIX=$HOME/.local
