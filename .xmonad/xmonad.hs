@@ -70,9 +70,9 @@ myConfig = withUrgencyHook NoUrgencyHook $ def {
 
 myLayout =
       defaultTabbed
-  ||| Full
-  ||| Grid
   ||| TwoPane (3/100) (1/2)
+--  ||| Full
+--  ||| Grid
 --  ||| avoidStruts (TwoPane 0.03 0.5)
 --  ||| ML
 --  ||| TabTree
