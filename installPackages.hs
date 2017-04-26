@@ -45,6 +45,7 @@ packages :: [String]
 packages =
   "ack-grep" :
   "apt-file" :
+  "krita" :
   "arandr" :
   "nethogs" :
   "atool" :
