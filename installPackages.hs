@@ -46,6 +46,7 @@ packages =
   "ack-grep" :
   "apt-file" :
   "arandr" :
+  "nethogs" :
   "atool" :
   "automake" :
   "build-essential" :
