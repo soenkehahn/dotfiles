@@ -122,6 +122,7 @@ alias dusch="du -sch *"
 alias isrunning='echo "  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND" ; top -bn1 | grep '
 
 alias -g "\&"="&>/dev/null&|"
+alias -g "<>"="2>&1 | tee gean"
 
 alias qmv='qmv --options=spaces '
 
