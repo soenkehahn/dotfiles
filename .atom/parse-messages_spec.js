@@ -2,6 +2,9 @@
 
 const chai = require('chai');
 const expect = chai.expect;
+const mocha = require('mocha');
+const describe = mocha.describe;
+const it = mocha.it;
 const child_process = require('child_process');
 const _ = require('lodash');
 
