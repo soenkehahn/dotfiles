@@ -47,6 +47,7 @@
     useEditorGrammarAsCtagsLanguage: false
   "tree-view":
     hideVcsIgnoredFiles: true
+    squashDirectoryNames: true
   "vim-mode-plus":
     highlightSearch: true
     incrementalSearch: true
