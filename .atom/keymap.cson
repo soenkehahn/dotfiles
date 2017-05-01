@@ -5,6 +5,7 @@
   'h t' : 'tree-view:toggle'
 
   'h h': 'core:save'
+  'h a': 'window:save-all'
   'h g': 'custom:next-gean'
   'h f': 'custom:read-gean'
   'h i': 'editor:newline-above'
