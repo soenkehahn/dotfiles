@@ -118,6 +118,7 @@ packages =
   "pwgen" :
   "redshift" :
   "pm-utils" :
+  "krusader" :
   "renameutils" :
   "ri-li" :
   "rtorrent" :
