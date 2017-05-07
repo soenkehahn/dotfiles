@@ -117,6 +117,7 @@ packages =
   "powertop" :
   "pwgen" :
   "redshift" :
+  "pm-utils" :
   "renameutils" :
   "ri-li" :
   "rtorrent" :
