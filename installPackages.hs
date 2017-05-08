@@ -84,6 +84,7 @@ packages =
   "kde-baseapps-bin" :
   "kig" :
   "konsole" :
+  "mkvtoolnix" :
   "kruler" :
   "libiw-dev" :
   "libtool-bin" :
