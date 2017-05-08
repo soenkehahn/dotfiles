@@ -136,9 +136,12 @@ alias vd='dot -Tpdf | okular - \&'
 alias g='make -f geany '
 
 alias ga='git add -p'
+alias gc='git checkout -p'
+alias gd='git diff'
+alias gma='git commit --amend'
 alias gm='git commit'
-alias gs='git status'
 alias gp='git push'
+alias gs='git status'
 
 alias lp='nice -n 19'
 
