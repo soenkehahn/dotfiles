@@ -9,9 +9,9 @@
   'h g': 'custom:next-gean'
   'h f': 'custom:read-gean'
   'h i': 'editor:newline-above'
+  'h c': 'pane:show-next-item'
+  'h l': 'pane:show-previous-item'
 
-  'h c': 'git-blame:toggle'
-  'h l': 'git-diff-details:toggle-git-diff-details'
   'h v': 'git-time-machine:toggle'
   'ctrl-w': 'core:close'
 
