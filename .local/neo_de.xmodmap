@@ -59,13 +59,13 @@ keycode 62 = Shift_R Shift_Lock
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! Mod3
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-! 66=left 51=right
+! 66=left 36=right
 ! Make CapsLock an modifier called Mod3 (similar to AltGr) (Mode_switch or ISO_Group_Shift is for 3rd and 4th level)
 ! Make former CapsLock and qwertz-# to Mode_switch or ISO_Group_Shift
 ! Mod3(links) (=Qwertz-Caps) erlaubt nur 4 Ebenen
 ! Ohne einen Eintrag in der zweiten Gruppe (=Ebene 3) ergäbe Mod3+Mod3=Group_Shift+Group_Shift=Gruppe 3=Ebene 6. Das ist nicht gewünscht.
 keycode 66 = ISO_Group_Shift ISO_Group_Shift ISO_First_Group NoSymbol
-keycode 51 = ISO_Group_Shift ISO_Group_Shift ISO_First_Group NoSymbol
+keycode 36 = ISO_Group_Shift ISO_Group_Shift ISO_First_Group NoSymbol
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! Mod4
@@ -75,7 +75,7 @@ keycode 51 = ISO_Group_Shift ISO_Group_Shift ISO_First_Group NoSymbol
 ! Mod4(rechts)+Mod4(links) lässt Mod4 einrasten (Mod4Lock)
 ! das funktioniert nur in dieser Reihenfolge, da Mod4(rechts) (=Qwertz-AltGr) nur 4 Ebenen hat
 ! Der Lock lässt sich durch ein weiteres Mod4 lösen.
-keysym less = ISO_Level3_Shift ISO_Level3_Shift ISO_Group_Shift ISO_Group_Shift ISO_Level3_Lock NoSymbol
+keycode 49 = ISO_Level3_Shift ISO_Level3_Shift ISO_Group_Shift ISO_Group_Shift ISO_Level3_Lock NoSymbol
 keysym ISO_Level3_Shift = ISO_Level3_Shift ISO_Level3_Shift ISO_Group_Shift ISO_Group_Shift ISO_Level3_Lock NoSymbol
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -108,14 +108,14 @@ keycode 23 = Tab  ISO_Left_Tab  Multi_key  ISO_Level3_Lock
 ! Space and Return key
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 keycode 65 = space		space		space		nobreakspace	KP_0		KP_0		U202F		NoSymbol
-keycode 36 = Return		Return		Return		Return		KP_Enter	KP_Enter	Return		Return
+keycode 51 = Return		Return		Return		Return		KP_Enter	KP_Enter	Return		Return
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! dead keys
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !            Ebene1		Ebene2		Ebene3		Ebene5		Ebene4		Ebene4+Sh	Ebene6		Ebene7
 
-keycode 49 = dead_circumflex	dead_caron	U21BB		U02DE		dead_abovedot Pointer_EnableKeys dead_belowdot	NoSymbol
+! keycode 49 = dead_circumflex	dead_caron	U21BB		U02DE		dead_abovedot Pointer_EnableKeys dead_belowdot	NoSymbol
 ! called T1	ˆ		ˇ		↻		˞		˙	     (keypad-mouse mode) .		
 keycode 21 = dead_grave		dead_cedilla	dead_abovering	dead_dasia	dead_diaeresis	NoSymbol	dead_macron	NoSymbol
 ! called T2	`		¸		˚		῾ dasia (asper)	¨				¯		
@@ -326,3 +326,7 @@ add Mod5 = ISO_Level3_Shift
 !     Hierzu wird mittels Shift+Mod4+T1 dieser Betriebsmodus ein- und später wieder ausgeschaltet.
 !     Die Steuerung des Cursors kann über den Ziffernblock (Ebene 4, eventuell mit
 !     eingerastetem Mod4) erfolgen.
+
+! custom
+! PrtSc is windows key
+keycode 107 = Super_R
