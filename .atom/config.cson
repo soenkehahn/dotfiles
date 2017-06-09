@@ -46,6 +46,7 @@
   "symbols-view":
     useEditorGrammarAsCtagsLanguage: false
   "tree-view":
+    autoReveal: true
     hideVcsIgnoredFiles: true
     squashDirectoryNames: true
   "vim-mode-plus":
