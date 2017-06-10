@@ -7,7 +7,5 @@ geany
 cabal.sandbox.config
 .cabal-sandbox/
 tags
-/.stack-work/
-/dist/
 /tertestrial.yml
 gean
