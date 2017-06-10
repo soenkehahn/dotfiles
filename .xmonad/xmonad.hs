@@ -45,8 +45,6 @@ initialize = do
   when exists $ do
     spawn ("xloadimage -onroot -fullscreen " ++ bgi)
 
-  spawn "konsole -e ~/.xmonad/start.sh"
-
 main :: IO ()
 main = do
     Main.initialize
