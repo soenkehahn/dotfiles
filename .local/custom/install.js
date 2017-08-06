@@ -22,7 +22,7 @@ function install(dir: string) {
   const tarball = `${dir}/result.tar.gz`;
   console.error("installing this into /usr/local:");
   run(`als ${tarball}`);
-  run(`sudo aunpack -X /usr/local ${tarball}`);
+  run(`aunpack -X ~/.local ${tarball}`);
 }
 install("entr");
 install("terraform");
