@@ -10,7 +10,7 @@ function run(command) {
   execSync(command, { stdio: "inherit" });
 }
 
-function main(dir: string) {
+function install(dir: string) {
   const imageName = uuidv4();
   const containerName = uuidv4();
 
@@ -24,4 +24,5 @@ function main(dir: string) {
   run(`als ${tarball}`);
   run(`sudo aunpack -X /usr/local ${tarball}`);
 }
-main("entr");
+install("entr");
+install("terraform");
