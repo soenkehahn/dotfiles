@@ -10,6 +10,8 @@ function run(command) {
   execSync(command, { stdio: "inherit" });
 }
 
+run("flow");
+
 function install(dir: string) {
   const imageName = uuidv4();
   const containerName = uuidv4();
@@ -28,3 +30,4 @@ install("entr");
 install("terraform");
 install("node");
 install("el");
+install("sl");
