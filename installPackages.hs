@@ -127,7 +127,6 @@ packages =
   "screen" :
   "sgt-puzzles" :
   "silversearcher-ag" :
-  "sl" :
   "sloccount" :
   "smplayer" :
   "sox" :
