@@ -27,3 +27,4 @@ function install(dir: string) {
 install("entr");
 install("terraform");
 install("node");
+install("el");
