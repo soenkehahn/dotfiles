@@ -1,7 +1,7 @@
 FROM ubuntu:17.04
 RUN apt-get update && apt-get install --yes atool wget
 
-ENV VERSION 1.19.5
+ENV VERSION 1.20.0
 
 WORKDIR /root
 RUN wget https://github.com/atom/atom/releases/download/v$VERSION/atom-amd64.tar.gz
