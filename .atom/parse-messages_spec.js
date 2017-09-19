@@ -24,6 +24,7 @@ global.atom = {
 process.chdir('/tmp');
 child_process.execSync('mkdir -p file');
 child_process.execSync('touch file/foo');
+child_process.execSync('touch file/foo.js');
 child_process.execSync('touch file/foo.txt');
 child_process.execSync('touch file/foo-Bar_baz-123.exe');
 child_process.execSync('touch file/Operational.elm');
@@ -90,6 +91,7 @@ describe('parse-messages.js', () => {
         }];
         expectMatches(output, expected);
       });
+
       describe('matches mocha test failures', () => {
         _.forEach(['      ', '    '], (spaces) => {
           it(`with ${spaces.length} leading spaces`, () => {
@@ -103,6 +105,7 @@ describe('parse-messages.js', () => {
           });
         });
       });
+
       it('matches coffeelint errors', () => {
         const output = [
           "  ✗ file/foo",
@@ -114,6 +117,7 @@ describe('parse-messages.js', () => {
         }];
         expectMatches(output, expected);
       });
+
       it('matches node exceptions', () => {
         const output = '      at file/foo:26:30';
         const expected = [{
@@ -123,14 +127,16 @@ describe('parse-messages.js', () => {
         }];
         expectMatches(output, expected);
       });
+
       it('matches flow errors', () => {
-        const output = 'file/foo:26';
+        const output = 'Error: file/foo.js:47';
         const expected = [{
-          file: "file/foo",
-          line: 26,
+          file: "file/foo.js",
+          line: 47,
         }];
         expectMatches(output, expected);
       });
+
       describe('message order', () => {
         it('matches earlier messages first', () => {
           const output = [
