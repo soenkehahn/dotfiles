@@ -26,10 +26,9 @@ function install(dir: string) {
   run(`als ${tarball}`);
   run(`aunpack -X ~/.local ${tarball}`);
 }
-install("atom");
-install("el");
-install("entr");
-install("fzf");
-install("node");
-install("sl");
-install("terraform");
+
+const packages = ["atom", "el", "entr", "fzf", "node", "sl", "terraform"];
+
+for (const dir of packages) {
+  install(dir);
+}
