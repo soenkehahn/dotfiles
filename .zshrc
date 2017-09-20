@@ -144,5 +144,11 @@ alias gs='git status'
 
 alias lp='nice -n 19'
 
+alias tf='terraform'
+alias zc='vim ~/.zshrc'
+alias reload='. ~/.zshrc'
+
+alias a='atom . -n \&'
+
 export N_PREFIX=$HOME/.local
 REPORTTIME=60
