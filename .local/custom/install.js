@@ -26,10 +26,10 @@ function install(dir: string) {
   run(`als ${tarball}`);
   run(`aunpack -X ~/.local ${tarball}`);
 }
-install("entr");
-install("terraform");
-install("node");
-install("el");
-install("sl");
 install("atom");
+install("el");
+install("entr");
 install("fzf");
+install("node");
+install("sl");
+install("terraform");
