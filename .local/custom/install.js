@@ -32,3 +32,4 @@ install("node");
 install("el");
 install("sl");
 install("atom");
+install("fzf");
