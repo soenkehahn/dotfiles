@@ -29,6 +29,7 @@ main = do
 
 upgradeStack :: IO ()
 upgradeStack = do
+  unit $ cmd "stack upgrade"
   unit $ cmd "stack upgrade --binary-version 1.5.1"
 
 installAptPackages :: IO ()
