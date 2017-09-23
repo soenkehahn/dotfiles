@@ -47,6 +47,7 @@ describe("parse-messages.js", () => {
         ];
         expectMatches(output, expected);
       });
+
       it("matches gcc style messages without column", () => {
         const output = ["./file/foo:13: message", "something"].join("\n");
         const expected = [
@@ -57,6 +58,7 @@ describe("parse-messages.js", () => {
         ];
         expectMatches(output, expected);
       });
+
       it("matches weird file names", () => {
         const output = "./file/foo-Bar_baz-123.exe:42: message\n";
         const expected = [
@@ -67,6 +69,7 @@ describe("parse-messages.js", () => {
         ];
         expectMatches(output, expected);
       });
+
       it("matches elm error messages", () => {
         const output = [
           "something",
@@ -84,6 +87,7 @@ describe("parse-messages.js", () => {
         ];
         expectMatches(output, expected);
       });
+
       it("matches (uncolorized) hspec messages", () => {
         const output = "  file/foo:85:";
         const expected = [
@@ -174,11 +178,13 @@ describe("parse-messages.js", () => {
         });
       });
     });
+
     describe("file locations", () => {
       it("removes file locations of non-existing files", () => {
         const output = "./does-not-exist.file:42:\n";
         expectMatches(output, []);
       });
+
       it("works for absolute files", () => {
         const cwd = process.cwd();
         const output = cwd + "/file/foo.txt:42:\n";
@@ -190,6 +196,7 @@ describe("parse-messages.js", () => {
         ];
         expectMatches(output, expected);
       });
+
       it("also searches in subdirectory 'tests'", () => {
         const output = "./test.file:42:\n";
         const expected = [
@@ -200,6 +207,7 @@ describe("parse-messages.js", () => {
         ];
         expectMatches(output, expected);
       });
+
       it("also searches in subdirectory 'client/tests'", () => {
         const output = "./client-test.file:42:\n";
         const expected = [
