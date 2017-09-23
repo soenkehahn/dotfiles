@@ -45,6 +45,7 @@ installXMonad = do
 packages :: [String]
 packages =
   "apt-file" :
+  "docker" :
   "pv" :
   "krita" :
   "arandr" :
