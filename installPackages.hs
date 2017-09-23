@@ -22,9 +22,14 @@ import qualified System.Logging.Facade as Log
 
 main :: IO ()
 main = do
+  upgradeStack
   installAptPackages
   installXMonad
   installCustom
+
+upgradeStack :: IO ()
+upgradeStack = do
+  unit $ cmd "stack upgrade --binary-version 1.5.1"
 
 installAptPackages :: IO ()
 installAptPackages = do
