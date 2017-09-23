@@ -31,8 +31,7 @@ function install(dir: string) {
   run(`docker rm ${containerName}`);
 
   const tarball = `${dir}/result.tar.gz`;
-  run(`als ${tarball}`);
-  run(`aunpack -X ~/.local ${tarball}`);
+  run(`aunpack --quiet -X ~/.local ${tarball}`);
 }
 
 const packages = [
