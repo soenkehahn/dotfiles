@@ -2,17 +2,26 @@
 
 // @flow
 
-import { execSync } from "child_process";
 import uuidv4 from "uuid/v4";
 
-function run(command) {
-  console.log(command);
-  execSync(command, { stdio: "inherit" });
+function run(command): void {
+  process.stdout.write(`${command}\n`);
 }
 
-run("flow");
+run("#!/bin/bash");
+run("");
+run("set -o errexit");
+run("set -o xtrace");
 
 function install(dir: string) {
+  run("");
+  run("");
+  run(`true`);
+  run(`true ====================================`);
+  run(`true installing ${dir}`);
+  run(`true ====================================`);
+  run(`true`);
+  run("");
   const imageName = uuidv4();
   const containerName = uuidv4();
 
@@ -22,7 +31,6 @@ function install(dir: string) {
   run(`docker rm ${containerName}`);
 
   const tarball = `${dir}/result.tar.gz`;
-  console.error("installing this into /usr/local:");
   run(`als ${tarball}`);
   run(`aunpack -X ~/.local ${tarball}`);
 }
