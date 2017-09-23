@@ -163,8 +163,4 @@ getInstalledPackages = do
 
 installCustom :: IO ()
 installCustom = do
-  let cwd = Cwd "/home/shahn/.local/custom"
-  unit $ cmd cwd "yarn"
-  unit $ cmd cwd
-    (AddPath ["./node_modules/.bin"] [])
-    "./install.js"
+  unit $ cmd (Cwd "/home/shahn/.local/custom") "./install.sh"
