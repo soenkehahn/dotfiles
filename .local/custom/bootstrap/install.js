@@ -36,6 +36,7 @@ function install(dir: string) {
 
 const packages = [
   "atom",
+  "blackbox",
   "el",
   "entr",
   "fzf",
