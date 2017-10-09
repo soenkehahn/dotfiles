@@ -150,6 +150,8 @@ alias reload='. ~/.zshrc'
 
 alias a='atom . -n \&'
 
+alias yell="kdialog --msgbox 'YELL!!!'"
+
 export N_PREFIX=$HOME/.local
 REPORTTIME=60
 
