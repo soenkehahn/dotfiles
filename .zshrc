@@ -102,6 +102,7 @@ alias l="ls -lh"
 alias ll="ls -l"
 alias la="ls -lha"
 alias rtl="ls -rtlh"
+alias lr="/bin/ls"
 
 # deb stuff
 alias debhavei="dpkg -l | grep -i "
