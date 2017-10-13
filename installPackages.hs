@@ -7,20 +7,18 @@ stack runghc
   --package shake
   --package safe
 -}
-
 {-# OPTIONS_GHC -Wall -Werror #-}
-
 {-# LANGUAGE ViewPatterns #-}
 
-import           Control.Arrow
-import           Control.Monad
-import           Data.List
-import           Data.List.Split
-import           Data.Maybe
-import           Development.Shake hiding (doesFileExist)
-import           Safe
-import           System.Directory
-import           System.FilePath
+import Control.Arrow
+import Control.Monad
+import Data.List
+import Data.List.Split
+import Data.Maybe
+import Development.Shake hiding (doesFileExist)
+import Safe
+import System.Directory
+import System.FilePath
 import qualified System.Logging.Facade as Log
 
 main :: IO ()
@@ -41,9 +39,13 @@ installSlack = do
   let debFile = "slack-desktop-2.8.1-amd64.deb"
   exists <- doesFileExist ("/home/shahn/.local" </> debFile)
   when (not exists) $ do
-    unit $ cmd [ Cwd "/home/shahn/.local" ] "wget" "https://downloads.slack-edge.com/linux_releases/slack-desktop-2.8.1-amd64.deb"
-  unit $ cmd [ Cwd "/home/shahn/.local" ] "ls"
-  unit $ cmd [ Cwd "/home/shahn/.local" ] "sudo gdebi --non-interactive" debFile
+    unit $
+      cmd
+        [Cwd "/home/shahn/.local"]
+        "wget"
+        "https://downloads.slack-edge.com/linux_releases/slack-desktop-2.8.1-amd64.deb"
+  unit $ cmd [Cwd "/home/shahn/.local"] "ls"
+  unit $ cmd [Cwd "/home/shahn/.local"] "sudo gdebi --non-interactive" debFile
 
 installAptPackages :: IO ()
 installAptPackages = do
@@ -160,13 +162,7 @@ packages =
   "vlc" :
   "wajig" :
   "whois" :
-  "xloadimage" :
-  "xmonad" :
-  "xsel" :
-  "xtail" :
-  "zlib1g-dev" :
-  "zsh" :
-  []
+  "xloadimage" : "xmonad" : "xsel" : "xtail" : "zlib1g-dev" : "zsh" : []
 
 getInstalledPackages :: IO [String]
 getInstalledPackages = do
@@ -175,12 +171,12 @@ getInstalledPackages = do
   where
     parse =
       lines >>>
-      map (stripPrefix "ii  ") >>> catMaybes >>>
-      map (splitOneOf " :" >>> headMay) >>> catMaybes
+      map (stripPrefix "ii  ") >>>
+      catMaybes >>> map (splitOneOf " :" >>> headMay) >>> catMaybes
+
 -- nvim commits:
 --   - e38cbb93670272d0da15c60222a123b88ec55002
 --   - c8d830e896e5db94ede78143866198c92645b2ba
-
 installCustom :: IO ()
 installCustom = do
   unit $ cmd (Cwd "/home/shahn/.local/custom") "./install.sh"
