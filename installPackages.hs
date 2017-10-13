@@ -13,11 +13,14 @@ stack runghc
 {-# LANGUAGE ViewPatterns #-}
 
 import           Control.Arrow
+import           Control.Monad
 import           Data.List
 import           Data.List.Split
 import           Data.Maybe
-import           Development.Shake
+import           Development.Shake hiding (doesFileExist)
 import           Safe
+import           System.Directory
+import           System.FilePath
 import qualified System.Logging.Facade as Log
 
 main :: IO ()
@@ -26,11 +29,21 @@ main = do
   installAptPackages
   installXMonad
   installCustom
+  installSlack
 
 upgradeStack :: IO ()
 upgradeStack = do
   unit $ cmd "stack upgrade"
   unit $ cmd "stack upgrade --binary-version 1.5.1"
+
+installSlack :: IO ()
+installSlack = do
+  let debFile = "slack-desktop-2.8.1-amd64.deb"
+  exists <- doesFileExist ("/home/shahn/.local" </> debFile)
+  when (not exists) $ do
+    unit $ cmd [ Cwd "/home/shahn/.local" ] "wget" "https://downloads.slack-edge.com/linux_releases/slack-desktop-2.8.1-amd64.deb"
+  unit $ cmd [ Cwd "/home/shahn/.local" ] "ls"
+  unit $ cmd [ Cwd "/home/shahn/.local" ] "sudo gdebi --non-interactive" debFile
 
 installAptPackages :: IO ()
 installAptPackages = do
