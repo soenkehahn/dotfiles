@@ -174,9 +174,6 @@ getInstalledPackages = do
       map (stripPrefix "ii  ") >>>
       catMaybes >>> map (splitOneOf " :" >>> headMay) >>> catMaybes
 
--- nvim commits:
---   - e38cbb93670272d0da15c60222a123b88ec55002
---   - c8d830e896e5db94ede78143866198c92645b2ba
 installCustom :: IO ()
 installCustom = do
   unit $ cmd (Cwd "/home/shahn/.local/custom") "./install.sh"
