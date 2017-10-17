@@ -11,11 +11,12 @@ stack runghc
 {-# LANGUAGE ViewPatterns #-}
 
 import Control.Arrow
+import System.Environment
 import Control.Monad
 import Data.List
 import Data.List.Split
 import Data.Maybe
-import Development.Shake hiding (doesFileExist)
+import Development.Shake hiding (doesFileExist, getEnv)
 import Safe
 import System.Directory
 import System.FilePath
@@ -23,6 +24,8 @@ import qualified System.Logging.Facade as Log
 
 main :: IO ()
 main = do
+  homeDir <- getEnv "HOME"
+  setCurrentDirectory homeDir
   upgradeStack
   installAptPackages
   installXMonad
@@ -37,15 +40,15 @@ upgradeStack = do
 installSlack :: IO ()
 installSlack = do
   let debFile = "slack-desktop-2.8.1-amd64.deb"
-  exists <- doesFileExist ("/home/shahn/.local" </> debFile)
+  exists <- doesFileExist (".local" </> debFile)
   when (not exists) $ do
     unit $
       cmd
-        [Cwd "/home/shahn/.local"]
+        [Cwd ".local"]
         "wget"
         "https://downloads.slack-edge.com/linux_releases/slack-desktop-2.8.1-amd64.deb"
-  unit $ cmd [Cwd "/home/shahn/.local"] "ls"
-  unit $ cmd [Cwd "/home/shahn/.local"] "sudo gdebi --non-interactive" debFile
+  unit $ cmd [Cwd ".local"] "ls"
+  unit $ cmd [Cwd ".local"] "sudo gdebi --non-interactive" debFile
 
 installAptPackages :: IO ()
 installAptPackages = do
@@ -58,10 +61,10 @@ installAptPackages = do
 
 installXMonad :: IO ()
 installXMonad = do
-  unit $ cmd (Cwd "/home/shahn/.xmonad") "stack setup"
-  unit $ cmd (Cwd "/home/shahn/.xmonad") "stack install xmobar"
-  unit $ cmd (Cwd "/home/shahn/.xmonad") "stack build --only-dependencies"
-  unit $ cmd (Cwd "/home/shahn/.xmonad") "make -f geany"
+  unit $ cmd (Cwd ".xmonad") "stack setup"
+  unit $ cmd (Cwd ".xmonad") "stack install xmobar"
+  unit $ cmd (Cwd ".xmonad") "stack build --only-dependencies"
+  unit $ cmd (Cwd ".xmonad") "make -f geany"
 
 packages :: [String]
 packages =
@@ -176,4 +179,4 @@ getInstalledPackages = do
 
 installCustom :: IO ()
 installCustom = do
-  unit $ cmd (Cwd "/home/shahn/.local/custom") "./install.sh"
+  unit $ cmd (Cwd ".local/custom") "./install.sh"

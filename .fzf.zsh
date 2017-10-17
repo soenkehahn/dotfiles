@@ -4,4 +4,4 @@
 
 # Key bindings
 # ------------
-source "/home/shahn/.local/lib/fzf/key-bindings.zsh"
+source "$HOME/.local/lib/fzf/key-bindings.zsh"
