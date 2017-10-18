@@ -50,19 +50,19 @@ installSlack = do
         Stdout (strip -> currentVersion) <- cmd "slack --version"
         return $
           case currentVersion of
-            "2.8.1" -> True
+            "2.8.2" -> True
             _ -> False
   when (not isUpToDate) $ do
     unit $
       cmd
         [Cwd "/tmp"]
         "wget"
-        "https://downloads.slack-edge.com/linux_releases/slack-desktop-2.8.1-amd64.deb"
+        "https://downloads.slack-edge.com/linux_releases/slack-desktop-2.8.2-amd64.deb"
     unit $
       cmd
         [Cwd "/tmp"]
         "sudo gdebi --non-interactive"
-        "slack-desktop-2.8.1-amd64.deb"
+        "slack-desktop-2.8.2-amd64.deb"
 
 installAptPackages :: IO ()
 installAptPackages = do
