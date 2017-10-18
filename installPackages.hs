@@ -6,20 +6,23 @@ stack runghc
   --package split
   --package shake
   --package safe
+  --package MissingH
 -}
 {-# OPTIONS_GHC -Wall -Werror #-}
 {-# LANGUAGE ViewPatterns #-}
+{-# LANGUAGE ScopedTypeVariables #-}
 
 import Control.Arrow
-import System.Environment
 import Control.Monad
 import Data.List
 import Data.List.Split
 import Data.Maybe
+import Data.String.Utils
 import Development.Shake hiding (doesFileExist, getEnv)
 import Safe
 import System.Directory
-import System.FilePath
+import System.Environment
+import System.Exit
 import qualified System.Logging.Facade as Log
 
 main :: IO ()
@@ -39,16 +42,27 @@ upgradeStack = do
 
 installSlack :: IO ()
 installSlack = do
-  let debFile = "slack-desktop-2.8.1-amd64.deb"
-  exists <- doesFileExist (".local" </> debFile)
-  when (not exists) $ do
+  (Exit ec, Stdout (_ :: String)) <- cmd "which slack"
+  isUpToDate <-
+    case ec of
+      ExitFailure _ -> return False
+      ExitSuccess -> do
+        Stdout (strip -> currentVersion) <- cmd "slack --version"
+        return $
+          case currentVersion of
+            "2.8.1" -> True
+            _ -> False
+  when (not isUpToDate) $ do
     unit $
       cmd
-        [Cwd ".local"]
+        [Cwd "/tmp"]
         "wget"
         "https://downloads.slack-edge.com/linux_releases/slack-desktop-2.8.1-amd64.deb"
-  unit $ cmd [Cwd ".local"] "ls"
-  unit $ cmd [Cwd ".local"] "sudo gdebi --non-interactive" debFile
+    unit $
+      cmd
+        [Cwd "/tmp"]
+        "sudo gdebi --non-interactive"
+        "slack-desktop-2.8.1-amd64.deb"
 
 installAptPackages :: IO ()
 installAptPackages = do
