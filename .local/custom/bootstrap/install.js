@@ -40,6 +40,7 @@ const packages = [
   "el",
   "entr",
   "fzf",
+  "ngrok",
   "node",
   "sl",
   "terraform",
