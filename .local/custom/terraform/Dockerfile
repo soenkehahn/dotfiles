@@ -2,7 +2,7 @@ FROM golang:1.9.1-stretch
 
 RUN apt-get update && apt-get install --yes atool
 
-ENV TAG v0.9.11
+ENV TAG v0.10.7
 RUN go get -v -d github.com/hashicorp/terraform
 WORKDIR /go/src/github.com/hashicorp/terraform
 RUN git checkout $TAG

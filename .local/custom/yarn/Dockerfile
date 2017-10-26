@@ -1,7 +1,7 @@
 FROM node:8.2.1
 RUN apt-get update && apt-get install --yes atool
 
-ENV TAG v0.27.5
+ENV TAG v1.2.1
 WORKDIR /root
 RUN git clone https://github.com/yarnpkg/yarn.git
 WORKDIR yarn
