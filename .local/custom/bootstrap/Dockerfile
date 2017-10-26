@@ -5,5 +5,6 @@ ADD package.json yarn.lock ./
 RUN yarn
 ADD .babelrc .flowconfig install.js ./
 RUN ./node_modules/.bin/flow
+ADD argv.generated ./
 
-CMD ["./node_modules/.bin/babel-node", "install.js"]
+CMD ["bash", "-c", "cat argv.generated | xargs ./node_modules/.bin/babel-node install.js"]

@@ -34,7 +34,7 @@ function install(dir: string) {
   run(`aunpack --quiet -X ~/.local ${tarball}`);
 }
 
-const packages = [
+const availablePackages = [
   "atom",
   "blackbox",
   "el",
@@ -47,6 +47,29 @@ const packages = [
   "yarn"
 ];
 
-for (const dir of packages) {
+const wantedPackages = (() => {
+  const args = process.argv.slice(2);
+  if (args.length === 0) {
+    return availablePackages;
+  } else {
+    const result = [];
+    for (const wantedPackage of args) {
+      if (availablePackages.includes(wantedPackage)) {
+        result.push(wantedPackage);
+      } else {
+        const message = [`package not found: ${wantedPackage}`];
+        message.push("available packages:");
+        for (const availablePackage of availablePackages) {
+          message.push(`  ${availablePackage}`);
+        }
+        console.error(message.join("\n"));
+        process.exit(1);
+      }
+    }
+    return result;
+  }
+})();
+
+for (const dir of wantedPackages) {
   install(dir);
 }
