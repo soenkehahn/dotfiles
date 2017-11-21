@@ -50,7 +50,7 @@ installSlack = do
         Stdout (strip -> currentVersion) <- cmd "slack --version"
         return $
           case currentVersion of
-            "2.8.2" -> True
+            "2.9.0" -> True
             _ -> False
   when (not isUpToDate) $ do
     unit $
