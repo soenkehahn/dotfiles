@@ -83,19 +83,18 @@ installXMonad = do
 packages :: [String]
 packages =
   "apt-file" :
-  "docker" :
   "pv" :
   "krita" :
   "arandr" :
   "nethogs" :
   "atool" :
+  "docker-compose" :
   "automake" :
   "build-essential" :
   "chromium-browser" :
   "cmake" :
   "cups" :
   "deborphan" :
-  "docker-compose" :
   "dolphin" :
   "dos2unix" :
   "dosbox" :
