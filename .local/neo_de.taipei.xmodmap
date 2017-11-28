@@ -86,7 +86,6 @@ keysym ISO_Level3_Shift = ISO_Level3_Shift ISO_Level3_Shift ISO_Group_Shift ISO_
 ! keycode 116 = Super_R
 ! keysym Super_R = Multi_key Multi_key
 ! add Mod4 = Super_L
-keycode 65 = Super_L
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! general Lock
@@ -109,7 +108,7 @@ keycode 23 = Tab  ISO_Left_Tab  Multi_key  ISO_Level3_Lock
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! Space and Return key
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-! keycode 65 = space		space		space		nobreakspace	KP_0		KP_0		U202F		NoSymbol
+keycode 65 = space		space		space		nobreakspace	KP_0		KP_0		U202F		NoSymbol
 keycode 51 = Return		Return		Return		Return		KP_Enter	KP_Enter	Return		Return
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -222,7 +221,7 @@ keycode 52 = udiaeresis		Udiaeresis	numbersign	NoSymbol	Escape		Escape		union		N
 !		ü		Ü		#								∪
 keycode 53 = odiaeresis		Odiaeresis	dollar		U03F5		Tab		ISO_Left_Tab	intersection	NoSymbol
 !		ö		Ö		$		ϵ						∩
-keycode 54 = adiaeresis		Adiaeresis	bar		Greek_eta	space		space		U2135		NoSymbol
+keycode 54 = adiaeresis		Adiaeresis	bar		Greek_eta	Insert		Insert		U2135		NoSymbol
 !		ä		Ä		|		η						ℵ
 keycode 55 = 	p		P		asciitilde	Greek_pi	Return		Return		Greek_PI	Greek_PI
 !						~		π						Π		Π
