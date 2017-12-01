@@ -1,5 +1,5 @@
 FROM fpco/stack-build:lts-5.9
-RUN apt-get update && apt-get install --yes tree atool
+RUN apt-get update && apt-get install --yes atool
 
 WORKDIR /root
 RUN git clone https://github.com/soenkehahn/el.git

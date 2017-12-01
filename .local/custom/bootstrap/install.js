@@ -42,6 +42,7 @@ const availablePackages = [
   "fzf",
   "ngrok",
   "node",
+  "sensei",
   "sl",
   "terraform",
   "yarn"
