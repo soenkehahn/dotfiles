@@ -106,7 +106,7 @@ alias lr="/bin/ls"
 
 # deb stuff
 alias debhavei="dpkg -l | grep -i "
-alias debinstall="sudo apt-get install "
+alias debinstall="sudo apt install "
 alias debsearch='apt-cache search '
 alias debfilessearch='apt-file search '
 alias debremove='sudo apt-get remove '
