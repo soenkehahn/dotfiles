@@ -171,7 +171,6 @@ packages =
   "stellarium" :
   "tig" :
   "tree" :
-  "ubuntu-gnome-desktop" :
   "vagrant" :
   "vim" :
   "virtualbox" :
