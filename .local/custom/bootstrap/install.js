@@ -40,6 +40,7 @@ const availablePackages = [
   "el",
   "entr",
   "fzf",
+  "hindent",
   "ngrok",
   "node",
   "sensei",
