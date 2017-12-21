@@ -153,7 +153,7 @@ packages =
   "openvpn" :
   "pavucontrol" :
   "pdftk" :
-  "postgresql-client-9.5" :
+  "postgresql-client-9.6" :
   "postgresql-client-common" :
   "powertop" :
   "pwgen" :
