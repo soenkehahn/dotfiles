@@ -9,7 +9,7 @@ RUN git checkout $TAG
 RUN git submodule init
 RUN git submodule update
 
-RUN stack init --ignore-subdirs
+RUN stack init --ignore-subdirs --resolver=lts-9.12
 RUN stack setup
 RUN stack test
 RUN mkdir bin
