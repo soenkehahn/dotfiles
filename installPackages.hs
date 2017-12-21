@@ -42,6 +42,7 @@ upgradeStack = do
 
 installSlack :: IO ()
 installSlack = do
+  let version = "3.0.2"
   (Exit ec, Stdout (_ :: String)) <- cmd "which slack"
   isUpToDate <-
     case ec of
@@ -50,19 +51,19 @@ installSlack = do
         Stdout (strip -> currentVersion) <- cmd "slack --version"
         return $
           case currentVersion of
-            "2.9.0" -> True
+            v | v == version -> True
             _ -> False
   when (not isUpToDate) $ do
     unit $
       cmd
         [Cwd "/tmp"]
         "wget"
-        "https://downloads.slack-edge.com/linux_releases/slack-desktop-2.8.2-amd64.deb"
+        ("https://downloads.slack-edge.com/linux_releases/slack-desktop-" ++ version ++ "-amd64.deb")
     unit $
       cmd
         [Cwd "/tmp"]
         "sudo gdebi --non-interactive"
-        "slack-desktop-2.8.2-amd64.deb"
+        ("slack-desktop-" ++ version ++ "-amd64.deb")
 
 installAptPackages :: IO ()
 installAptPackages = do
