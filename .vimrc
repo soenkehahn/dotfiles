@@ -94,19 +94,6 @@ endif
 " My own config
 " -------------
 
-" vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-
-Plugin 'tomasr/molokai'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'jkarni/sensei-neovim'
-Plugin 'AnsiEsc.vim'
-Plugin 'udalov/kotlin-vim'
-Plugin 'lambdatoast/elm.vim'
-
-call vundle#end()
 filetype plugin indent on
 
 " changing the leader to h
@@ -168,9 +155,6 @@ set paste
 set nowrap
 set mouse=
 set vb
-
-" colors
-colorscheme beauty256
 
 " highlighting trailing whitespace
 highlight ExtraWhitespace ctermbg=52
