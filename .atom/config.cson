@@ -37,6 +37,10 @@
     errorPanelHeight: 45
   minimap:
     absoluteMode: true
+  "prettier-atom":
+    formatOnSaveOptions:
+      enabled: true
+    useEditorConfig: false
   "split-diff":
     diffWords: true
     ignoreWhitespace: true
