@@ -172,6 +172,7 @@ packages =
   "stellarium" :
   "tig" :
   "tree" :
+  "unison-gtk" :
   "vagrant" :
   "vim" :
   "virtualbox" :
