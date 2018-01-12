@@ -32,6 +32,7 @@ function install(dir: string) {
 
   const tarball = `${dir}/result.tar.gz`;
   run(`aunpack --quiet -X ~/.local ${tarball}`);
+  run(`rm ${tarball}`);
 }
 
 const availablePackages = [
