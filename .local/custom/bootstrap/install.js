@@ -39,7 +39,6 @@ const availablePackages = [
   "atom",
   "blackbox",
   "el",
-  "entr",
   "fzf",
   "hindent",
   "ngrok",

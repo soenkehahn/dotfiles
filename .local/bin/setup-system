@@ -99,6 +99,7 @@ packages =
   "dolphin" :
   "dos2unix" :
   "dosbox" :
+  "entr" :
   "epiphany-browser" :
   "fatsort" :
   "firefox" :
