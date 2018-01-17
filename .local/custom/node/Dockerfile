@@ -1,7 +1,7 @@
 FROM ubuntu:17.04
 RUN apt-get update && apt-get install --yes atool wget xz-utils
 
-ENV version 8.8.1
+ENV version 9.4.0
 
 WORKDIR /root
 RUN wget https://nodejs.org/dist/v${version}/node-v${version}-linux-x64.tar.xz
