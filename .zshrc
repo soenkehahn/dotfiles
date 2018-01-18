@@ -149,7 +149,7 @@ alias tf='terraform'
 alias zc='vim ~/.zshrc'
 alias reload='. ~/.zshrc'
 
-alias a='atom . -n \&'
+alias a='apm update && atom . -n \&'
 
 alias yell="kdialog --msgbox 'YELL!!!'"
 
