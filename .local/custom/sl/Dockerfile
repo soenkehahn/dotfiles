@@ -1,4 +1,5 @@
-FROM ubuntu:17.04
+FROM ubuntu:17.10
+RUN bark
 RUN apt-get update && apt-get install --yes atool build-essential git libncurses5-dev
 
 WORKDIR /root
