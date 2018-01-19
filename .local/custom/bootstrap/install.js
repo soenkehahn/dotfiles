@@ -38,6 +38,7 @@ function install(dir: string) {
 const availablePackages = [
   "atom",
   "blackbox",
+  "docker-compose",
   "el",
   "fzf",
   "hindent",

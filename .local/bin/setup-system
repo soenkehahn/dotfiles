@@ -89,7 +89,6 @@ packages =
   "arandr" :
   "nethogs" :
   "atool" :
-  "docker-compose" :
   "automake" :
   "build-essential" :
   "chromium-browser" :
