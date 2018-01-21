@@ -9,6 +9,7 @@
 import Development.Shake
 import qualified System.Logging.Facade as Log
 import WithCli
+import Data.Char
 
 data Args = Args
   { host :: String
@@ -17,16 +18,23 @@ data Args = Args
 instance HasArguments Args
 
 main :: IO ()
-main =
-  withCli $ \(Args host) -> do
-    mapM_ (syncDir host) (dirs host)
+main = do
+  withCli $ \(Args targetHost) -> do
+    sourceHost <- getHostName
+    mapM_ (syncDir targetHost) (dirs sourceHost targetHost)
     return () :: IO ()
 
-dirs :: String -> [FilePath]
-dirs host =
+getHostName :: IO String
+getHostName = do
+  Stdout output <- cmd "hostname"
+  return $ trim output
+
+dirs :: String -> String -> [FilePath]
+dirs source target =
   ["important", "passwords"] ++
-  case host of
-    "taipei" -> []
+  case (source, target) of
+    ("taipei", _) -> []
+    (_, "taipei") -> []
     _ -> ["musik/beets"]
 
 syncDir :: String -> FilePath -> IO ()
@@ -37,3 +45,6 @@ syncDir host path = do
       Shell
       ("unison-gtk ssh://" ++
        host ++ "//home/shahn/" ++ path ++ "/ ~/" ++ path ++ "/")
+
+trim :: String -> String
+trim = reverse . dropWhile isSpace . reverse . dropWhile isSpace
