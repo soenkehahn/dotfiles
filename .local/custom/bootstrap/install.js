@@ -36,6 +36,7 @@ function install(dir: string) {
 }
 
 const availablePackages = [
+  "ag",
   "atom",
   "blackbox",
   "docker-compose",
