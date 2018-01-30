@@ -42,6 +42,7 @@ const availablePackages = [
   "el",
   "fzf",
   "hindent",
+  "ipfs",
   "ngrok",
   "node",
   "sensei",
