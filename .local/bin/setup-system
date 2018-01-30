@@ -144,6 +144,7 @@ packages =
   "mhwaveedit" :
   "mosh" :
   "mplayer" :
+  "net-tools" :
   "npm" :
   "numlockx" :
   "okteta" :
