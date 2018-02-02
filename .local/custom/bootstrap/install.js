@@ -12,6 +12,8 @@ run("#!/bin/bash");
 run("");
 run("set -o errexit");
 run("set -o xtrace");
+run("");
+run("docker build --tag custom-ubuntu-base custom-ubuntu-base");
 
 function install(dir: string) {
   run("");

@@ -1,6 +1,4 @@
-FROM ubuntu:17.10
-
-RUN apt-get update && apt-get install --yes wget atool
+FROM custom-ubuntu-base
 
 WORKDIR /root
 RUN wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip

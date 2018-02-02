@@ -1,5 +1,4 @@
-FROM ubuntu:17.10
-RUN apt-get update && apt-get install --yes atool git
+FROM custom-ubuntu-base
 
 ENV TAG v1.20170611
 

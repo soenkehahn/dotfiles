@@ -1,5 +1,4 @@
-FROM ubuntu:17.10
-RUN apt-get update && apt-get install --yes wget atool tree
+FROM custom-ubuntu-base
 
 WORKDIR /root
 RUN wget https://dist.ipfs.io/go-ipfs/v0.4.13/go-ipfs_v0.4.13_linux-amd64.tar.gz

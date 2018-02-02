@@ -1,5 +1,4 @@
-FROM ubuntu:17.10
-RUN apt-get update && apt-get install --yes atool git haskell-stack zlib1g-dev
+FROM custom-ubuntu-base
 
 WORKDIR /root
 ENV TAG 0.3.0

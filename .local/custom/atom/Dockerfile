@@ -1,5 +1,4 @@
-FROM ubuntu:17.10
-RUN apt-get update && apt-get install --yes atool wget
+FROM custom-ubuntu-base
 
 ENV VERSION 1.23.3
 

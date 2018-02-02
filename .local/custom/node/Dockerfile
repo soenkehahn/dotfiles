@@ -1,5 +1,4 @@
-FROM ubuntu:17.10
-RUN apt-get update && apt-get install --yes atool wget xz-utils
+FROM custom-ubuntu-base
 
 ENV version 9.4.0
 
