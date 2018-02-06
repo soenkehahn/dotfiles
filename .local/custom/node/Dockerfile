@@ -1,6 +1,6 @@
 FROM custom-ubuntu-base
 
-ENV version 9.4.0
+ENV version 9.5.0
 
 WORKDIR /root
 RUN wget https://nodejs.org/dist/v${version}/node-v${version}-linux-x64.tar.xz
