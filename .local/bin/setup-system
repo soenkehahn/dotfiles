@@ -84,10 +84,7 @@ installXMonad = do
 packages :: [String]
 packages =
   "apt-file" :
-  "pv" :
-  "krita" :
   "arandr" :
-  "nethogs" :
   "atool" :
   "automake" :
   "build-essential" :
@@ -124,8 +121,9 @@ packages =
   "kde-baseapps-bin" :
   "kig" :
   "konsole" :
-  "mkvtoolnix" :
+  "krita" :
   "kruler" :
+  "krusader" :
   "libiw-dev" :
   "libtool-bin" :
   "libx11-dev" :
@@ -142,8 +140,10 @@ packages =
   "meld" :
   "mercurial" :
   "mhwaveedit" :
+  "mkvtoolnix" :
   "mosh" :
   "mplayer" :
+  "nethogs" :
   "net-tools" :
   "npm" :
   "numlockx" :
@@ -154,13 +154,13 @@ packages =
   "openvpn" :
   "pavucontrol" :
   "pdftk" :
+  "pm-utils" :
   "postgresql-client-9.6" :
   "postgresql-client-common" :
   "powertop" :
+  "pv" :
   "pwgen" :
   "redshift" :
-  "pm-utils" :
-  "krusader" :
   "renameutils" :
   "ri-li" :
   "rtorrent" :
@@ -180,7 +180,13 @@ packages =
   "vlc" :
   "wajig" :
   "whois" :
-  "xloadimage" : "xmonad" : "xsel" : "xtail" : "zlib1g-dev" : "zsh" : []
+  "xloadimage" :
+  "xmonad" :
+  "xsel" :
+  "xtail" :
+  "zlib1g-dev" :
+  "zsh" :
+  []
 
 getInstalledPackages :: IO [String]
 getInstalledPackages = do
