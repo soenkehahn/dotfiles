@@ -169,6 +169,7 @@ packages =
   "silversearcher-ag" :
   "sloccount" :
   "smplayer" :
+  "sonata" :
   "sox" :
   "stellarium" :
   "tig" :
