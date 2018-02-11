@@ -173,6 +173,7 @@ packages =
   "sox" :
   "stellarium" :
   "tig" :
+  "tmux" :
   "tree" :
   "unison-gtk" :
   "vagrant" :
