@@ -34,17 +34,14 @@ const parseMessages = function(messages /*: string */) /*: Array<Loc> */ {
   const linePattern = "(?<line>\\d+)";
   const colPattern = "(?<col>\\d+)";
   const patterns = [
-    XRegExp(`^ *${filePattern}:${linePattern}(:${colPattern}:)?`),
-    XRegExp(`^Error: ${filePattern}:${linePattern}`),
-    XRegExp(
-      `^-- .+ -+ ${filePattern}\\n\\n(?<message>.+)\\n\\n( )?${linePattern}\\|`
-    ),
-    XRegExp(
-      `\\sat Context\.<anonymous> \\(${filePattern}:${linePattern}:(?<col>\\d+)\\)`
-    ),
-    XRegExp(`  ✗ ${filePattern}\\n     ✗ #${linePattern}: `),
-    XRegExp(`      at ${filePattern}:${linePattern}:${colPattern}`)
-  ];
+    `^\u001B[^ ]* *${filePattern}:${linePattern}: `,
+    `^ *${filePattern}:${linePattern}(:${colPattern}:)?`,
+    `^Error: ${filePattern}:${linePattern}`,
+    `^-- .+ -+ ${filePattern}\\n\\n(?<message>.+)\\n\\n( )?${linePattern}\\|`,
+    `\\sat Context\.<anonymous> \\(${filePattern}:${linePattern}:(?<col>\\d+)\\)`,
+    `  ✗ ${filePattern}\\n     ✗ #${linePattern}: `,
+    `      at ${filePattern}:${linePattern}:${colPattern}`
+  ].map(pattern => new XRegExp(pattern));
   var locations = [];
   const lines = messages.split("\n");
   lines.forEach((line, index) => {

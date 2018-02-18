@@ -99,6 +99,17 @@ describe("parse-messages.js", () => {
         expectMatches(output, expected);
       });
 
+      it("matches colorized hspec messages", () => {
+        const output = "\n\u001b[36m  file/foo:30: \n";
+        const expected = [
+          {
+            file: "file/foo",
+            line: 30
+          }
+        ];
+        expectMatches(output, expected);
+      });
+
       describe("matches mocha test failures", () => {
         _.forEach(["      ", "    "], spaces => {
           it(`with ${spaces.length} leading spaces`, () => {
