@@ -153,6 +153,8 @@ alias a='atom . -n \&'
 
 alias yell="kdialog --msgbox 'YELL!!!'"
 
+alias isrunning='pgrep -a'
+
 export N_PREFIX=$HOME/.local
 REPORTTIME=60
 
