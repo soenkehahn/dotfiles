@@ -37,6 +37,7 @@ const parseMessages = function(messages /*: string */) /*: Array<Loc> */ {
     `^\u001B[^ ]* *${filePattern}:${linePattern}: `,
     `^ *${filePattern}:${linePattern}(:${colPattern}:)?`,
     `^Error: ${filePattern}:${linePattern}`,
+    `^(Error|Warning) -* ${filePattern}:${linePattern}:${colPattern}`,
     `^-- .+ -+ ${filePattern}\\n\\n(?<message>.+)\\n\\n( )?${linePattern}\\|`,
     `\\sat Context\.<anonymous> \\(${filePattern}:${linePattern}:(?<col>\\d+)\\)`,
     `  ✗ ${filePattern}\\n     ✗ #${linePattern}: `,

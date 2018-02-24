@@ -152,15 +152,41 @@ describe("parse-messages.js", () => {
         expectMatches(output, expected);
       });
 
-      it("matches flow errors", () => {
-        const output = "Error: file/foo.js:47";
-        const expected = [
-          {
-            file: "file/foo.js",
-            line: 47
-          }
-        ];
-        expectMatches(output, expected);
+      describe("flow error messages", () => {
+        it("matches old flow errors", () => {
+          const output = "Error: file/foo.js:47";
+          const expected = [
+            {
+              file: "file/foo.js",
+              line: 47
+            }
+          ];
+          expectMatches(output, expected);
+        });
+        it("matches version 0.66 flow errors", () => {
+          const output =
+            "Error -------------------------------------------------------------------------------------------- file/foo.js:3:10\n";
+          const expected = [
+            {
+              file: "file/foo.js",
+              line: 3,
+              col: 10
+            }
+          ];
+          expectMatches(output, expected);
+        });
+        it("matches version 0.66 flow errors", () => {
+          const output =
+            "Warning -------------------------------------------------------------------------------------------- file/foo.js:3:10\n";
+          const expected = [
+            {
+              file: "file/foo.js",
+              line: 3,
+              col: 10
+            }
+          ];
+          expectMatches(output, expected);
+        });
       });
 
       describe("message order", () => {
