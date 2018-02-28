@@ -159,6 +159,7 @@ packages =
   "powertop" :
   "pv" :
   "pwgen" :
+  "python-pip" :
   "redshift" :
   "renameutils" :
   "ri-li" :
