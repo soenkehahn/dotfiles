@@ -106,6 +106,7 @@ packages =
   "git-cola" :
   "gitk" :
   "gnupg-agent" :
+  "golang" :
   "gparted" :
   "graphviz" :
   "handbrake" :
