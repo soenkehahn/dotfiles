@@ -1,6 +1,6 @@
 FROM golang:1.9.1-stretch
 
-RUN apt-get update && apt-get install --yes atool
+RUN apt-get update && apt-get install --yes atool tree
 
 ENV TAG v0.10.8
 RUN go get -v -d github.com/hashicorp/terraform
