@@ -177,6 +177,7 @@ packages =
   "tmux" :
   "tree" :
   "unison-gtk" :
+  "upx-ucl" :
   "vagrant" :
   "vim" :
   "virtualbox" :
