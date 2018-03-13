@@ -172,6 +172,7 @@ packages =
   "smplayer" :
   "sonata" :
   "sox" :
+  "sshfs" :
   "stellarium" :
   "tig" :
   "tmux" :
