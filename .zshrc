@@ -140,7 +140,6 @@ alias ga='git add -p'
 alias gc='git checkout -p'
 alias gd='git diff'
 alias gma='git commit --amend'
-alias gm='git commit'
 alias gp='git push'
 alias gs='git status'
 

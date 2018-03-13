@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -o errexit
+
+if [ -n "$1" ]; then
+  git commit --message "$1"
+else
+  git commit "$@"
+fi
