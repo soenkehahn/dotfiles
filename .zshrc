@@ -74,6 +74,7 @@ RPROMPT='$PROMPT_GIT_BRANCH  $PROMPT_TIME'
 PATH=~/.local/bin:"${PATH}"
 PATH=~/src/git-town/src:"${PATH}"
 PATH=./node_modules/.bin:"${PATH}"
+PATH=~/.cargo/bin:"${PATH}"
 
 autoload -U +X bashcompinit && bashcompinit
 eval "$(stack --bash-completion-script stack)"
