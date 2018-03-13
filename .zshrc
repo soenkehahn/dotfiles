@@ -142,6 +142,7 @@ alias gd='git diff'
 alias gma='git commit --amend'
 alias gp='git push'
 alias gs='git status'
+alias gl='git log'
 
 alias lp='nice -n 19'
 
