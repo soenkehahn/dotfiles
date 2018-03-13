@@ -134,7 +134,7 @@ alias gpgwho='gpg --no-default-keyring --secret-keyring /dev/null -a --list-only
 alias view-dot='dot -Tpdf | okular - \&'
 alias vd='dot -Tpdf | okular - \&'
 
-alias g='make -f geany '
+alias xcopy='xclip -selection clipboard'
 
 alias ga='git add -p'
 alias gc='git checkout -p'
