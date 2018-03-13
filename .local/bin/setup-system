@@ -32,8 +32,8 @@ main = do
   upgradeStack
   installAptPackages
   installXMonad
-  installCustom
   installSlack
+  installCustom
 
 upgradeStack :: IO ()
 upgradeStack = do
@@ -41,7 +41,7 @@ upgradeStack = do
 
 installSlack :: IO ()
 installSlack = do
-  let version = "3.0.5"
+  let version = "3.1.0"
   (Exit ec, Stdout (_ :: String)) <- cmd "which slack"
   isUpToDate <-
     case ec of
