@@ -42,7 +42,7 @@ describe("parse-messages.js", () => {
           {
             file: "./file/foo",
             line: 13,
-            col: 8
+            col: 7
           }
         ];
         expectMatches(output, expected);
@@ -118,7 +118,7 @@ describe("parse-messages.js", () => {
               {
                 file: "file/foo",
                 line: 85,
-                col: 23
+                col: 22
               }
             ];
             expectMatches(output, expected);
@@ -146,7 +146,7 @@ describe("parse-messages.js", () => {
           {
             file: "file/foo",
             line: 26,
-            col: 30
+            col: 29
           }
         ];
         expectMatches(output, expected);
@@ -170,7 +170,7 @@ describe("parse-messages.js", () => {
             {
               file: "file/foo.js",
               line: 3,
-              col: 10
+              col: 9
             }
           ];
           expectMatches(output, expected);
@@ -182,7 +182,7 @@ describe("parse-messages.js", () => {
             {
               file: "file/foo.js",
               line: 3,
-              col: 10
+              col: 9
             }
           ];
           expectMatches(output, expected);

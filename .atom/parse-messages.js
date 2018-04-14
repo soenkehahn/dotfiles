@@ -56,7 +56,7 @@ const parseMessages = function(messages /*: string */) /*: Array<Loc> */ {
           line: match.line
         };
         if (typeof match.col !== "undefined") {
-          loc.col = parseInt(match.col);
+          loc.col = parseInt(match.col) - 1;
         }
         locations.push(loc);
       }
