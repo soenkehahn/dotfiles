@@ -120,6 +120,7 @@ packages =
   "kcolorchooser" :
   "kde-baseapps-bin" :
   "kig" :
+  "kmag" :
   "konsole" :
   "krita" :
   "kruler" :
