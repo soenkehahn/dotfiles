@@ -175,7 +175,7 @@ describe("parse-messages.js", () => {
           ];
           expectMatches(output, expected);
         });
-        it("matches version 0.66 flow errors", () => {
+        it("matches version 0.66 flow warnings", () => {
           const output =
             "Warning -------------------------------------------------------------------------------------------- file/foo.js:3:10\n";
           const expected = [
@@ -183,6 +183,38 @@ describe("parse-messages.js", () => {
               file: "file/foo.js",
               line: 3,
               col: 9
+            }
+          ];
+          expectMatches(output, expected);
+        });
+      });
+
+      describe("eslint messages", () => {
+        it("matches eslint errors", () => {
+          const output = [
+            "file/foo.js",
+            "  47:8  error  'result' is assigned a value but never used  no-unused-vars"
+          ].join("\n");
+          const expected = [
+            {
+              file: "file/foo.js",
+              line: 47,
+              col: 7
+            }
+          ];
+          expectMatches(output, expected);
+        });
+
+        it("matches eslint errors with single digit line numbers", () => {
+          const output = [
+            "file/foo.js",
+            "   7:8  error  'result' is assigned a value but never used  no-unused-vars"
+          ].join("\n");
+          const expected = [
+            {
+              file: "file/foo.js",
+              line: 7,
+              col: 7
             }
           ];
           expectMatches(output, expected);
