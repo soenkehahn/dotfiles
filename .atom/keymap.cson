@@ -10,6 +10,9 @@
   'h g': 'custom:next-gean'
   'h f': 'custom:read-gean'
 
+  'h p': 'editor:fold-all'
+  'h z': 'editor:unfold-all'
+
   'h i': 'editor:newline-above'
   'h c': 'pane:show-next-item'
   'h l': 'pane:show-previous-item'
