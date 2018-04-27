@@ -143,6 +143,7 @@ alias gma='git commit --amend'
 alias gp='git push'
 alias gs='git status'
 alias gl='git log'
+alias gn='git checkout -b'
 
 alias lp='nice -n 19'
 
