@@ -1,6 +1,5 @@
 // @flow
 
-const child_process = require("child_process");
 const fs = require("fs");
 const { parseMessages } = require("./parse-messages");
 
@@ -23,35 +22,12 @@ declare var atom: {|
 |}
 */
 
-const path = require("path");
-
-atom.workspace.observeTextEditors(editor => {
-  if (path.basename(editor.getPath()) === "Makefile") {
-    editor.setSoftTabs(false);
-  }
-  if (path.extname(editor.getPath()) === ".mk") {
-    editor.setSoftTabs(false);
-  }
-  if (path.basename(editor.getPath()) === "geany") {
-    editor.setSoftTabs(false);
-  }
-});
-
 atom.commands.add("atom-text-editor", {
   "custom:save-and-exit-insert-mode": event => {
     const editor = atom.workspace.getActiveTextEditor();
     editor.save();
     const editorView = atom.views.getView(editor);
     atom.commands.dispatch(editorView, "vim-mode-plus:activate-normal-mode");
-  }
-});
-
-atom.commands.add("atom-text-editor", {
-  "custom:save-and-test": event => {
-    const editor = atom.workspace.getActiveTextEditor();
-    editor.save();
-    const editorView = atom.views.getView(editor);
-    atom.commands.dispatch(editorView, "tertestrial:test-file");
   }
 });
 
