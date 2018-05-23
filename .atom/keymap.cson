@@ -17,6 +17,7 @@
   'h c': 'pane:show-next-item'
   'h l': 'pane:show-previous-item'
   'h k': 'editor:toggle-line-comments'
+  'h m': 'custom:edit-occurrence'
 
   'h v': 'git-time-machine:toggle'
   'ctrl-w': 'core:close'

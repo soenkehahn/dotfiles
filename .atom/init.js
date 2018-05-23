@@ -31,6 +31,18 @@ atom.commands.add("atom-text-editor", {
   }
 });
 
+atom.commands.add("atom-text-editor", {
+  "custom:edit-occurrence": event => {
+    const editor = atom.workspace.getActiveTextEditor();
+    const editorView = atom.views.getView(editor);
+    atom.commands.dispatch(
+      editorView,
+      "vim-mode-plus:insert-at-start-of-occurrence"
+    );
+    atom.commands.dispatch(editorView, "vim-mode-plus:inner-entire");
+  }
+});
+
 // * geany
 
 /*::
