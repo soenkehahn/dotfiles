@@ -107,17 +107,10 @@ alias lr="/bin/ls"
 
 # deb stuff
 alias debhavei="dpkg -l | grep -i "
-alias debinstall="sudo apt install "
-alias debsearch='apt-cache search '
-alias debfilessearch='apt-file search '
-alias debremove='sudo apt-get remove '
 alias debclean='wajig remove-orphans && sudo apt-get autoclean && sudo apt-get clean && sudo apt-get autoremove'
 alias debdailyupgrade='sudo apt-get update && sudo apt-get dist-upgrade && debclean'
-alias debupdate='sudo apt-get update'
-alias debupgrade='sudo apt-get upgrade'
 alias debdepends='apt-cache depends '
 alias debrdepends='apt-cache rdepends '
-alias debpurge='sudo apt-get purge '
 
 alias dusch="du -sch *"
 # alias isrunning='echo "  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND" ; top -bn1 | grep '
