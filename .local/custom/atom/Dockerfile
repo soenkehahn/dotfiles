@@ -1,6 +1,6 @@
 FROM custom-ubuntu-base
 
-ENV VERSION 1.25.1
+ENV VERSION 1.27.2
 
 WORKDIR /root
 RUN wget https://github.com/atom/atom/releases/download/v$VERSION/atom-amd64.tar.gz
