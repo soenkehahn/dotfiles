@@ -120,7 +120,7 @@ alias -g "<>"="2>&1 | tee gean"
 
 alias qmv='qmv --options=spaces '
 
-alias qg='gitk --all \&'
+alias qg='gitg --all \&'
 
 alias gpgwho='gpg --no-default-keyring --secret-keyring /dev/null -a --list-only '
 
