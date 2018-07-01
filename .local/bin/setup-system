@@ -104,6 +104,7 @@ packages =
   "gist" :
   "git" :
   "git-cola" :
+  "gitg" :
   "gitk" :
   "gnupg-agent" :
   "golang" :
