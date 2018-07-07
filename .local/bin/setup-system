@@ -91,7 +91,6 @@ packages =
   "cmake" :
   "cups" :
   "deborphan" :
-  "dolphin" :
   "dos2unix" :
   "dosbox" :
   "entr" :
