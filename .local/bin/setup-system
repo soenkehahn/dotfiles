@@ -154,7 +154,6 @@ packages =
   "openssh-server" :
   "openvpn" :
   "pavucontrol" :
-  "pdftk" :
   "pm-utils" :
   "postgresql-client-9.6" :
   "postgresql-client-common" :
