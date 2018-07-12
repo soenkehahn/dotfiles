@@ -42,6 +42,7 @@ const availablePackages = [
   "blackbox",
   "docker-compose",
   "el",
+  "fd",
   "fzf",
   "hindent",
   "ipfs",
