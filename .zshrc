@@ -122,8 +122,6 @@ alias qmv='qmv --options=spaces '
 
 alias qg='gitg --all \&'
 
-alias gpgwho='gpg --no-default-keyring --secret-keyring /dev/null -a --list-only '
-
 alias view-dot='dot -Tpdf | okular - \&'
 alias vd='dot -Tpdf | okular - \&'
 
