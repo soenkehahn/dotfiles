@@ -51,6 +51,7 @@ const availablePackages = [
   "sensei",
   "sl",
   "terraform",
+  "tyler",
   "yarn"
 ];
 
