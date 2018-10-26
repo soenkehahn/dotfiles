@@ -1,5 +1,7 @@
 [ignore]
 .*/packages/.*
+.*/node_modules/chalk/.*
+.*/recovery/.*
 
 [include]
 
