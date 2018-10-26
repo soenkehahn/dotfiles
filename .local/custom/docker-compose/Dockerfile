@@ -1,6 +1,6 @@
 FROM custom-ubuntu-base
 
-ENV VERSION 1.18.0
+ENV VERSION 1.21.2
 WORKDIR /root
 RUN wget https://github.com/docker/compose/releases/download/$VERSION/docker-compose-Linux-x86_64
 RUN chmod +x docker-compose-Linux-x86_64
