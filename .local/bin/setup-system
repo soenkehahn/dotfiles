@@ -86,6 +86,7 @@ packages =
   "arandr" :
   "atool" :
   "automake" :
+  "beets" :
   "build-essential" :
   "chromium-browser" :
   "cmake" :
