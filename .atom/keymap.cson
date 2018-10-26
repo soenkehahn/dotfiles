@@ -21,7 +21,7 @@
   'h m': 'custom:edit-occurrence'
 
   'h v': 'git-time-machine:toggle'
-  'ctrl-w': 'core:close'
+  'h w': 'core:close'
 
 'body':
   'ctrl-s': 'custom:save-and-exit-insert-mode'
