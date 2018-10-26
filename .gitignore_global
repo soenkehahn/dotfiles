@@ -3,9 +3,7 @@
 .*.swn
 .*.swm
 .*.un~
-geany
-cabal.sandbox.config
-.cabal-sandbox/
+geany.*
 tags
-/tertestrial.yml
+.ignore
 gean
