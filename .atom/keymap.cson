@@ -4,11 +4,12 @@
   'h n' : 'tree-view:add-file'
   'h t' : 'tree-view:toggle'
 
-  'h h': 'core:save'
   'h a': 'window:save-all'
 
-  'h g': 'custom:next-gean'
   'h f': 'custom:read-gean'
+  'h g': 'custom:next-gean'
+  # 'h h': 'linter-ui-default:next'
+  'h h': 'diagnostics:go-to-next-diagnostic'
 
   'h p': 'editor:fold-all'
   'h z': 'editor:unfold-all'
