@@ -249,9 +249,8 @@ describe("parse-messages.js", () => {
 
       describe("rustc", () => {
         it("matches rustc error messages", () => {
-          const output = [
-            "\u001b[0m \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m--> \u001b[0m\u001b[0mfile/foo.js:8:5\u001b[0m"
-          ].join("\n");
+          const output =
+            "\u001b[0m \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m--> \u001b[0m\u001b[0mfile/foo.js:8:5\u001b[0m";
           const expected = [
             {
               file: "file/foo.js",
@@ -262,10 +261,22 @@ describe("parse-messages.js", () => {
           expectMatches(output, expected);
         });
 
-        it("matches rustc error messages with 2 spaces", () => {
-          const output = [
-            "\u001b[0m  \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m--> \u001b[0m\u001b[0mfile/foo.js:8:5\u001b[0m"
-          ].join("\n");
+        it("matches rustc error messages with multiple spaces", () => {
+          const output =
+            "\u001b[0m   \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m--> \u001b[0m\u001b[0mfile/foo.js:8:5\u001b[0m";
+          const expected = [
+            {
+              file: "file/foo.js",
+              line: 8,
+              col: 4
+            }
+          ];
+          expectMatches(output, expected);
+        });
+
+        it("matches errors with newlines at the end", () => {
+          const output =
+            "\u001b[0m   \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m--> \u001b[0m\u001b[0mfile/foo.js:8:5\u001b[0m\n";
           const expected = [
             {
               file: "file/foo.js",
