@@ -13,16 +13,13 @@ stack runghc
 {-# LANGUAGE ScopedTypeVariables #-}
 
 import Control.Arrow
-import Control.Monad
 import Data.List
 import Data.List.Split
 import Data.Maybe
-import Data.String.Utils
 import Development.Shake hiding (doesFileExist, getEnv)
 import Safe
 import System.Directory
 import System.Environment
-import System.Exit
 import qualified System.Logging.Facade as Log
 
 main :: IO ()
@@ -32,37 +29,11 @@ main = do
   upgradeStack
   installAptPackages
   installXMonad
-  installSlack
   installCustom
 
 upgradeStack :: IO ()
 upgradeStack = do
   unit $ cmd "stack upgrade"
-
-installSlack :: IO ()
-installSlack = do
-  let version = "3.3.3"
-  (Exit ec, Stdout (_ :: String)) <- cmd "which slack"
-  isUpToDate <-
-    case ec of
-      ExitFailure _ -> return False
-      ExitSuccess -> do
-        Stdout (strip -> currentVersion) <- cmd "slack --version"
-        return $
-          case currentVersion of
-            v | v == version -> True
-            _ -> False
-  when (not isUpToDate) $ do
-    unit $
-      cmd
-        [Cwd "/tmp"]
-        "wget"
-        ("https://downloads.slack-edge.com/linux_releases/slack-desktop-" ++ version ++ "-amd64.deb")
-    unit $
-      cmd
-        [Cwd "/tmp"]
-        "sudo gdebi --non-interactive"
-        ("slack-desktop-" ++ version ++ "-amd64.deb")
 
 installAptPackages :: IO ()
 installAptPackages = do
