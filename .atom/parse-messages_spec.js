@@ -287,6 +287,34 @@ describe("parse-messages.js", () => {
           expectMatches(output, expected);
         });
       });
+
+      describe("makam", () => {
+        it("matches errors with character ranges", () => {
+          const output =
+            "!! Error in file ./file/foo.js, line 8, characters 5-7:";
+          const expected = [
+            {
+              file: "./file/foo.js",
+              line: 8,
+              col: 4
+            }
+          ];
+          expectMatches(output, expected);
+        });
+
+        it("matches errors with one character position", () => {
+          const output =
+            "!! Error in file ./file/foo.js, line 14, character 5:";
+          const expected = [
+            {
+              file: "./file/foo.js",
+              line: 14,
+              col: 4
+            }
+          ];
+          expectMatches(output, expected);
+        });
+      });
     });
 
     describe("file locations", () => {

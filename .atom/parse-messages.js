@@ -43,7 +43,8 @@ const parseMessages = function(messages /*: string */) /*: Array<Loc> */ {
     `  ✗ ${filePattern}\\n     ✗ #${linePattern}: `,
     `      at ${filePattern}:${linePattern}:${colPattern}`,
     `${filePattern}\\n  ( )?${linePattern}:${colPattern}  `,
-    `\u001b\\[0m +\u001b\\[0m\u001b\\[0m\u001b\\[1m\u001b\\[38;5;12m--> \u001b\\[0m\u001b\\[0m${filePattern}:${linePattern}:${colPattern}\u001b\\[0m`
+    `\u001b\\[0m +\u001b\\[0m\u001b\\[0m\u001b\\[1m\u001b\\[38;5;12m--> \u001b\\[0m\u001b\\[0m${filePattern}:${linePattern}:${colPattern}\u001b\\[0m`,
+    `^\!\! Error in file ${filePattern}, line ${linePattern}, character(s)? ${colPattern}`
   ].map(pattern => new XRegExp(pattern));
   var locations = [];
   const lines = messages.split("\n");
