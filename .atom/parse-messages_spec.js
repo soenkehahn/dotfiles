@@ -315,6 +315,21 @@ describe("parse-messages.js", () => {
           expectMatches(output, expected);
         });
       });
+
+      describe("tslint messages", () => {
+        it("matches tslint errors", () => {
+          const output =
+            "ERROR: ./file/foo.js[36, 17]: expected call-signature: 'foo' to have a typedef";
+          const expected = [
+            {
+              file: "./file/foo.js",
+              line: 36,
+              col: 16
+            }
+          ];
+          expectMatches(output, expected);
+        });
+      });
     });
 
     describe("file locations", () => {
