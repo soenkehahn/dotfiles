@@ -135,6 +135,7 @@ alias gp='git push'
 alias gs='git status'
 alias gl='git log'
 alias gn='git checkout -b'
+alias gtree='git log --oneline --graph --decorate --remotes --branches'
 
 alias lp='nice -n 19'
 
