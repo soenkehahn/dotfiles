@@ -1,5 +1,5 @@
-directory: ~/musik/beets
-library: ~/musik/beetslibrary.blb
+directory: ~/Sachen/musik/
+library: ~/Sachen/beetslibrary.blb
 paths:
   default: $albumartist/$album%aunique{}/$track $title
   singleton: _singles/$artist - $title
