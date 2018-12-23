@@ -31,13 +31,7 @@ getHostName = do
 
 dirs :: String -> String -> [FilePath]
 dirs source target =
-  ["important", "passwords"] ++
-  if any excludeMusic [source, target]
-    then []
-    else ["musik/beets"]
-  where
-    excludeMusic "taipei" = True
-    excludeMusic _ = False
+  ["important", "passwords"]
 
 syncDir :: String -> FilePath -> IO ()
 syncDir host path = do
