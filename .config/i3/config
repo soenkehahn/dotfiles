@@ -21,7 +21,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+r exec i3-sensible-terminal
+bindsym $mod+r exec konsole
 bindsym $mod+t exec firefox
 
 # kill focused window
@@ -39,6 +39,8 @@ bindsym $mod+i focus left
 # bindsym $mod+r focus down
 # bindsym $mod+t focus up
 bindsym $mod+e focus right
+
+focus_wrapping no
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
