@@ -24,20 +24,20 @@ floating_modifier $mod
 bindsym $mod+r exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+X kill
+bindsym $mod+x kill
 
 # start dmenu (a program launcher)
-bindsym $mod+a exec dmenu_run
+bindsym $mod+n exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+n focus left
+bindsym $mod+i focus left
 # bindsym $mod+r focus down
-bindsym $mod+t focus up
-bindsym $mod+d focus right
+# bindsym $mod+t focus up
+bindsym $mod+e focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -64,10 +64,10 @@ bindsym $mod+s split h
 bindsym $mod+p split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+e fullscreen toggle
+# bindsym $mod+e fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+i layout stacking
+# bindsym $mod+i layout stacking
 bindsym $mod+v layout tabbed
 bindsym $mod+l layout toggle split
 
