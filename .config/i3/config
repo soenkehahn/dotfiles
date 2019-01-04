@@ -74,6 +74,8 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+h layout tabbed
 bindsym $mod+g layout toggle split
 
+workspace_layout tabbed
+
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
