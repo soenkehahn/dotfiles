@@ -57,17 +57,14 @@ bindsym $mod+Ctrl+Up move up
 bindsym $mod+Ctrl+Right move right
 
 ## containers
-# bindsym $mod+l focus parent
-# bindsym $mod+a focus child
+bindsym $mod+w focus parent
+bindsym $mod+o focus child
 
 ## layout
-bindsym $mod+s split h
-bindsym $mod+p split v
+bindsym $mod+s split toggle
 bindsym $mod+f fullscreen toggle
-workspace_layout tabbed
 bindsym $mod+h layout toggle tabbed splitv splith
-# bindsym $mod+i layout stacking
-# bindsym $mod+h layout tabbed
+workspace_layout tabbed
 
 ## floating
 bindsym $mod+Shift+space floating toggle
