@@ -133,10 +133,10 @@ mode "resize" {
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
-        # bindsym $mod+c mode "default"
+        bindsym $mod+p mode "default"
 }
 
-# bindsym $mod+c mode "resize"
+bindsym $mod+p mode "resize"
 
 bar {
         status_command i3status
