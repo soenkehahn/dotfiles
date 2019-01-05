@@ -113,7 +113,7 @@ bindsym $mod+Shift+L exec "i3-nagbar -t warning -m 'really?' -b 'yes' 'i3-msg ex
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        set $delta 10
+        set $delta 4
 
         bindsym i resize shrink width $delta px or $delta ppt
         bindsym r resize grow height $delta px or $delta ppt
