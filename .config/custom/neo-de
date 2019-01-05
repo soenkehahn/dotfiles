@@ -1118,8 +1118,8 @@ xkb_symbols "neo_qwertz" {
     include "shift(both_capslock)"
     include "level3(caps_switch)"
     include "level3(bksl_switch)"
-    // include "level5(lsgt_switch_lock)"
-    // include "level5(ralt_switch_lock)"
+    include "level5(lsgt_switch_lock)"
+    include "level5(ralt_switch_lock)"
 };
 
 partial alphanumeric_keys

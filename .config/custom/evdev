@@ -94,6 +94,8 @@ default xkb_keycodes "evdev" {
 	<FK11> = 95;
 	<FK12> = 96;
 
+	// switching to RWIN
+	// <PRSC> = 107;
 	<RWIN> = 107;
 	// <SYRQ> = 107;
 	<SCLK> = 78;
