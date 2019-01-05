@@ -1,6 +1,5 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-
 ## appearance
 
 # font pango:monospace 8
@@ -82,6 +81,9 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+bindsym $mod+c workspace next_on_output
+bindsym $mod+v workspace prev_on_output
+
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -131,10 +133,10 @@ mode "resize" {
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
-        bindsym $mod+c mode "default"
+        # bindsym $mod+c mode "default"
 }
 
-bindsym $mod+c mode "resize"
+# bindsym $mod+c mode "resize"
 
 bar {
         status_command i3status
