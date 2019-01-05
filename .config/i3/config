@@ -1,11 +1,17 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+
+## appearance
 
 # font pango:monospace 8
 # font pango:DejaVu Sans Mono 8
 # font -misc-fixed-medium-r-normal--14-120-75-75-C-70-iso10646-1
 font pango:Ubuntu Mono 12
+# title_align center
+
+## shortcuts
+
+set $mod Mod4
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -24,42 +30,40 @@ bindsym $mod+n exec dmenu_run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-# change focus
-bindsym $mod+i focus left
-# bindsym $mod+r focus down
-# bindsym $mod+t focus up
-bindsym $mod+e focus right
+## focus
 
 focus_wrapping no
 
-# alternatively, you can use the cursor keys:
+### moving focus
+bindsym $mod+i focus left
+bindsym $mod+a focus down
+bindsym $mod+l focus up
+bindsym $mod+e focus right
+
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
+### moving windows
 bindsym $mod+Ctrl+i move left
 # bindsym $mod+Shift+R move down
 # bindsym $mod+Shift+T move up
 bindsym $mod+Ctrl+e move right
 
-# alternatively, you can use the cursor keys:
 bindsym $mod+Ctrl+Left move left
 bindsym $mod+Ctrl+Down move down
 bindsym $mod+Ctrl+Up move up
 bindsym $mod+Ctrl+Right move right
 
-# split in horizontal orientation
-bindsym $mod+s split h
-
-# split in vertical orientation
-bindsym $mod+p split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+## containers
+# bindsym $mod+l focus parent
+# bindsym $mod+a focus child
 
 ## layout
+bindsym $mod+s split h
+bindsym $mod+p split v
+bindsym $mod+f fullscreen toggle
 workspace_layout tabbed
 bindsym $mod+h layout toggle tabbed splitv splith
 # bindsym $mod+i layout stacking
@@ -68,12 +72,6 @@ bindsym $mod+h layout toggle tabbed splitv splith
 ## floating
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+u focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
 
 ## Workspaces
 set $ws1 "1"
