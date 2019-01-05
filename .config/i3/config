@@ -1,5 +1,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+exec redshift
+
 set $mod Mod4
 
 # font pango:monospace 8
