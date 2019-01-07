@@ -2,12 +2,17 @@
 
 exec redshift
 
-set $mod Mod4
+## appearance
 
 # font pango:monospace 8
 # font pango:DejaVu Sans Mono 8
 # font -misc-fixed-medium-r-normal--14-120-75-75-C-70-iso10646-1
 font pango:Ubuntu Mono 12
+# title_align center
+
+## shortcuts
+
+set $mod Mod4
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -26,56 +31,45 @@ bindsym $mod+n exec dmenu_run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-# change focus
-bindsym $mod+i focus left
-# bindsym $mod+r focus down
-# bindsym $mod+t focus up
-bindsym $mod+e focus right
+## focus
 
 focus_wrapping no
 
-# alternatively, you can use the cursor keys:
+### moving focus
+bindsym $mod+i focus left
+bindsym $mod+a focus down
+bindsym $mod+l focus up
+bindsym $mod+e focus right
+
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
+### moving windows
 bindsym $mod+Ctrl+i move left
 # bindsym $mod+Shift+R move down
 # bindsym $mod+Shift+T move up
 bindsym $mod+Ctrl+e move right
 
-# alternatively, you can use the cursor keys:
 bindsym $mod+Ctrl+Left move left
 bindsym $mod+Ctrl+Down move down
 bindsym $mod+Ctrl+Up move up
 bindsym $mod+Ctrl+Right move right
 
-# split in horizontal orientation
-bindsym $mod+s split h
-
-# split in vertical orientation
-bindsym $mod+p split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+## containers
+bindsym $mod+w focus parent
+bindsym $mod+o focus child
 
 ## layout
-workspace_layout tabbed
+bindsym $mod+s split toggle
+bindsym $mod+f fullscreen toggle
 bindsym $mod+h layout toggle tabbed splitv splith
-# bindsym $mod+i layout stacking
-# bindsym $mod+h layout tabbed
+workspace_layout tabbed
 
 ## floating
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+u focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
 
 ## Workspaces
 set $ws1 "1"
@@ -89,6 +83,9 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+bindsym $mod+c workspace next_on_output
+bindsym $mod+v workspace prev_on_output
+
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -100,16 +97,16 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Ctrl+1 move container to workspace $ws1 ; workspace $ws1
+bindsym $mod+Ctrl+2 move container to workspace $ws2 ; workspace $ws2
+bindsym $mod+Ctrl+3 move container to workspace $ws3 ; workspace $ws3
+bindsym $mod+Ctrl+4 move container to workspace $ws4 ; workspace $ws4
+bindsym $mod+Ctrl+5 move container to workspace $ws5 ; workspace $ws5
+bindsym $mod+Ctrl+6 move container to workspace $ws6 ; workspace $ws6
+bindsym $mod+Ctrl+7 move container to workspace $ws7 ; workspace $ws7
+bindsym $mod+Ctrl+8 move container to workspace $ws8 ; workspace $ws8
+bindsym $mod+Ctrl+9 move container to workspace $ws9 ; workspace $ws9
+bindsym $mod+Ctrl+0 move container to workspace $ws10 ; workspace $ws10
 
 ## Logging out and reloading
 bindsym $mod+Shift+adiaeresis reload
@@ -118,30 +115,25 @@ bindsym $mod+Shift+L exec "i3-nagbar -t warning -m 'really?' -b 'yes' 'i3-msg ex
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+        set $delta 4
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym i resize shrink width 10 px or 10 ppt
-        bindsym r resize grow height 10 px or 10 ppt
-        bindsym t resize shrink height 10 px or 10 ppt
-        bindsym e resize grow width 10 px or 10 ppt
+        bindsym i resize shrink width $delta px or $delta ppt
+        bindsym r resize grow height $delta px or $delta ppt
+        bindsym t resize shrink height $delta px or $delta ppt
+        bindsym e resize grow width $delta px or $delta ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width $delta px or $delta ppt
+        bindsym Down resize grow height $delta px or $delta ppt
+        bindsym Up resize shrink height $delta px or $delta ppt
+        bindsym Right resize grow width $delta px or $delta ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
-        bindsym $mod+c mode "default"
+        bindsym $mod+p mode "default"
 }
 
-bindsym $mod+c mode "resize"
+bindsym $mod+p mode "resize"
 
 bar {
         status_command i3status
