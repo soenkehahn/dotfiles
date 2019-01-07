@@ -8,16 +8,18 @@ import Development.Shake
 import System.Directory
 import System.FilePath
 
-main :: IO ()
-main = do
+inHomeDir :: IO () -> IO ()
+inHomeDir action = do
   homeDir <- getHomeDirectory
-  shakeArgs shakeOptions $ do
+  setCurrentDirectory homeDir
+  action
 
-    (homeDir </> ".local/bin/parcel") %>> do
-      cmd "yarn global add parcel-bundler --prefix"
-        (homeDir </> ".local")
+main :: IO ()
+main = inHomeDir $ shakeArgs shakeOptions $ do
+    ".local/bin/parcel" %>> do
+      cmd "yarn global add parcel-bundler --prefix" ".local"
 
-    (homeDir </> ".cargo/bin/rustup") %>> do
+    ".cargo/bin/rustup" %>> do
       cmd Shell
         "curl https://sh.rustup.rs -sSf | sh -s -- --no-modify-path -y"
 
