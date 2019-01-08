@@ -136,6 +136,7 @@ alias gs='git status'
 alias gl='git log'
 alias gn='git checkout -b'
 alias gtree='git log --oneline --graph --decorate --remotes --branches'
+alias gprune-missing-on-remote="git branch -vv | ag gone | tr -s ' ' | cut -d' ' -f2 | xargs -n 1 -p git branch -D"
 
 alias lp='nice -n 19'
 
