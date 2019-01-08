@@ -38,3 +38,7 @@ main = inHomeDir $ shakeArgs shakeOptions $ do
     ".shake/git-repos/i3-lock-and-suspend/Cargo.toml" %> \ _ -> do
       cmd (Cwd ".shake/git-repos")
         "git clone https://github.com/soenkehahn/i3-lock-and-suspend"
+
+    ".cargo/bin/fd" %>> do
+      need [".cargo/bin/cargo"]
+      cmd Shell "cargo install fd-find --version 7.2.0 --force"
