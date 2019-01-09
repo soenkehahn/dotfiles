@@ -28,7 +28,6 @@ main = do
   setCurrentDirectory homeDir
   upgradeStack
   installAptPackages
-  installXMonad
   installCustom
 
 upgradeStack :: IO ()
@@ -43,13 +42,6 @@ installAptPackages = do
     toBeInstalled -> do
       Log.info ("installing " ++ unwords toBeInstalled)
       unit $ cmd "sudo apt-get install -y" toBeInstalled
-
-installXMonad :: IO ()
-installXMonad = do
-  unit $ cmd (Cwd ".xmonad") "stack setup"
-  unit $ cmd (Cwd ".xmonad") "stack install xmobar"
-  unit $ cmd (Cwd ".xmonad") "stack build --only-dependencies"
-  unit $ cmd (Cwd ".xmonad") "make -f geany"
 
 packages :: [String]
 packages =

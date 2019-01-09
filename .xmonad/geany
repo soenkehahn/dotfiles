@@ -1,3 +1,0 @@
-all:
-	stack exec ghc -- xmonad.hs -Wall -fno-warn-name-shadowing -outputdir build -o xmonad-x86_64-linux -ilib
-	! ag --haskell undefined
