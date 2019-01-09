@@ -1,6 +1,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 exec redshift
+exec setxkbmap de neo -option
 
 ## appearance
 
