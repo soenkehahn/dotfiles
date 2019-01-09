@@ -77,8 +77,10 @@ default xkb_keycodes "evdev" {
 	// Microsoft keyboard extra keys
 	<LWIN> = 133;
 	<RWIN> = 134;
-	<COMP> = 135;
-	alias <MENU> = <COMP>;
+	// switch to RWIN (e.g. on wittduen)
+	// <COMP> = 135;
+	<RWIN> = 135;
+	// alias <MENU> = <COMP>;
 
 	<ESC> = 9;
 	<FK01> = 67;
@@ -94,7 +96,7 @@ default xkb_keycodes "evdev" {
 	<FK11> = 95;
 	<FK12> = 96;
 
-	// switching to RWIN
+	// switching to RWIN (on e.g. oldenburg)
 	// <PRSC> = 107;
 	<RWIN> = 107;
 	// <SYRQ> = 107;
