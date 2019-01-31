@@ -2,6 +2,7 @@
 
 exec redshift
 exec setxkbmap de neo -option
+exec nm-applet
 
 ## appearance
 
