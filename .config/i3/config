@@ -62,6 +62,7 @@ bindsym $mod+Ctrl+Right move right
 ## containers
 bindsym $mod+w focus parent
 bindsym $mod+o focus child
+bindsym $mod+m exec "/home/shahn/.cargo/bin/i3-pretty-tree | dot -Tpdf | okular -"
 
 ## layout
 bindsym $mod+s split toggle
