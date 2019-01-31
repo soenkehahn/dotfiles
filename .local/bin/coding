@@ -1,5 +1,4 @@
 #!/usr/bin/env run-cargo-script
-// cargo-deps: regex="1.1.0"
 
 use std::process::Command;
 use std::thread::sleep;
@@ -19,12 +18,10 @@ where
     Ok(())
 }
 
-fn wait_for_change<F>(action: F) -> R<()>
-where
-    F: Fn() -> R<()>,
-{
+fn wait_for_change(i3_command: &str) -> R<()> {
     let old = get_active_window()?;
-    action()?;
+    i3_msg(i3_command)?;
+    println!("waiting for {}...", i3_command);
     wait_for(|| {
         let new = get_active_window()?;
         Ok(new != old)
@@ -56,28 +53,25 @@ fn main() -> R<()> {
     let pwd = run("pwd", vec![])?;
 
     i3_msg("layout tabbed")?;
-    wait_for_change(|| i3_msg("exec firefox"))?;
+    wait_for_change("exec firefox")?;
     i3_msg("move left")?;
     i3_msg("split toggle")?;
     i3_msg("layout tabbed")?;
     i3_msg("focus right")?;
     i3_msg("split toggle")?;
     i3_msg("layout splith")?;
-    wait_for_change(|| i3_msg(&format!("exec atom -n {}", pwd)))?;
+    wait_for_change(&format!("exec atom -n {}", pwd))?;
     i3_msg("move left")?;
-    i3_msg("resize set 70 ppt 0")?;
+    i3_msg("resize set 60 ppt 0")?;
     i3_msg("focus right")?;
     i3_msg("split toggle")?;
     i3_msg("layout splitv")?;
-    wait_for_change(|| {
-        i3_msg(&format!("exec konsole --workdir {}", pwd))?;
-        Ok(())
-    })?;
+    wait_for_change(&format!("exec konsole --workdir {}", pwd))?;
     i3_msg("focus up")?;
     i3_msg("focus parent")?;
     i3_msg("focus parent")?;
     i3_msg("layout tabbed")?;
-    wait_for_change(|| i3_msg(&format!("exec konsole --workdir {}", pwd)))?;
+    wait_for_change(&format!("exec konsole --workdir {}", pwd))?;
     i3_msg("focus left")?;
     i3_msg("focus left")?;
     Ok(())
