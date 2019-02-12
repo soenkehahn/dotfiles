@@ -62,7 +62,7 @@ bindsym $mod+Ctrl+Right move right
 ## containers
 bindsym $mod+w focus parent
 bindsym $mod+o focus child
-bindsym $mod+m exec "/home/shahn/.cargo/bin/i3-pretty-tree | dot -Tpdf | okular -"
+bindsym $mod+m exec "i3-pretty-tree | dot -Tpdf | okular -"
 
 ## layout
 bindsym $mod+s split toggle
@@ -113,8 +113,9 @@ bindsym $mod+Ctrl+0 move container to workspace $ws10 ; workspace $ws10
 
 ## Logging out and reloading
 bindsym $mod+Shift+adiaeresis reload
-bindsym $mod+Shift+C restart
-bindsym $mod+Shift+L exec "i3-nagbar -t warning -m 'really?' -b 'yes' 'i3-msg exit'"
+bindsym $mod+Shift+c restart
+bindsym $mod+Shift+x exec "i3-nagbar -t warning -m 'really?' -b 'yes' 'i3-msg exit'"
+bindsym $mod+Shift+l exec i3-lock-and-suspend
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

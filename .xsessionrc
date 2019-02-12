@@ -1,0 +1,2 @@
+PATH=~/.local/bin:"${PATH}"
+PATH=~/.cargo/bin:"${PATH}"
