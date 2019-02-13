@@ -74,6 +74,10 @@ workspace_layout tabbed
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
+## scratchpad
+bindsym $mod+z move scratchpad
+bindsym $mod+b scratchpad show
+
 ## Workspaces
 set $ws1 "1"
 set $ws2 "2"
