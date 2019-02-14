@@ -67,12 +67,10 @@ fn main() -> R<()> {
     i3_msg("split toggle")?;
     i3_msg("layout splitv")?;
     wait_for_change(&format!("exec konsole --workdir {}", pwd))?;
-    i3_msg("focus up")?;
-    i3_msg("focus parent")?;
-    i3_msg("focus parent")?;
-    i3_msg("layout tabbed")?;
+    i3_msg("focus left")?;
+    i3_msg("split toggle")?;
+    i3_msg("layout stacked")?;
     wait_for_change(&format!("exec konsole --workdir {}", pwd))?;
-    i3_msg("focus left")?;
-    i3_msg("focus left")?;
+    i3_msg("focus up")?;
     Ok(())
 }
