@@ -58,6 +58,18 @@ fn main() -> R<()> {
     i3_msg("split toggle")?;
     i3_msg("layout tabbed")?;
     i3_msg("focus right")?;
+    wait_for_change(&format!("exec konsole --workdir {}", pwd))?;
+    i3_msg("split toggle")?;
+    i3_msg("layout splith")?;
+    wait_for_change(&format!("exec konsole --workdir {} -e 'watch --color git -c color.ui=always log --oneline --graph --decorate --remotes --branches'", pwd))?;
+    i3_msg("split toggle")?;
+    i3_msg("layout splitv")?;
+    wait_for_change(&format!(
+        "exec konsole --workdir {} -e 'watch --color git -c color.ui=always status'",
+        pwd
+    ))?;
+    i3_msg("focus left")?;
+    i3_msg("focus left")?;
     i3_msg("split toggle")?;
     i3_msg("layout splith")?;
     wait_for_change(&format!("exec atom -n {}", pwd))?;
