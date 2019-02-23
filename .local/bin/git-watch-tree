@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+fd . .git/ | ag -v '^.git/objects/' | \
+  entr -rcs 'git -c color.ui=always log --oneline --graph --decorate --remotes --branches | head -n $(expr $(tput lines) - 2)'

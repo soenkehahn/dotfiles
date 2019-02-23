@@ -61,7 +61,7 @@ fn main() -> R<()> {
     wait_for_change(&format!("exec konsole --workdir {}", pwd))?;
     i3_msg("split toggle")?;
     i3_msg("layout splith")?;
-    wait_for_change(&format!("exec konsole --workdir {} -e 'watch --color git -c color.ui=always log --oneline --graph --decorate --remotes --branches'", pwd))?;
+    wait_for_change(&format!("exec konsole --workdir {} -e git-watch-tree", pwd))?;
     i3_msg("split toggle")?;
     i3_msg("layout splitv")?;
     wait_for_change(&format!(
@@ -85,5 +85,7 @@ fn main() -> R<()> {
     wait_for_change(&format!("exec konsole --workdir {}", pwd))?;
     i3_msg("move up")?;
     i3_msg("focus down")?;
+    // to make git-watch-tree rerender in resized terminal window
+    run("touch", vec![".git/HEAD"])?;
     Ok(())
 }
