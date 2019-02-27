@@ -1,0 +1,11 @@
+protocol:
+  - command: git merge-base HEAD origin/master
+    stdout: "merge_base_commit\n"
+  - command: git log merge_base_commit..HEAD --pretty=format:%h
+    stdout: "third\nsecond\nfirst\n"
+  - git reset --hard first
+  - git push --force-with-lease
+  - git reset --hard second
+  - git push --force-with-lease
+  - git reset --hard third
+  - git push --force-with-lease

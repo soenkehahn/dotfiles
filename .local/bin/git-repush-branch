@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+
+def run(command):
+  import subprocess
+
+  process = subprocess.Popen(
+    command.split(' '),
+    stdout=subprocess.PIPE
+  )
+  (stdout, _) = process.communicate()
+  return stdout.decode("utf-8")
+
+mergeBase = run("git merge-base HEAD origin/master").strip()
+commits = run(f'git log {mergeBase}..HEAD --pretty=format:%h')
+commits = commits.strip().split("\n")
+commits.reverse()
+for commit in commits:
+  run(f"git reset --hard {commit}")
+  run("git push --force-with-lease")
