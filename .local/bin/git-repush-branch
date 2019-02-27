@@ -14,6 +14,11 @@ mergeBase = run("git merge-base HEAD origin/master").strip()
 commits = run(f'git log {mergeBase}..HEAD --pretty=format:%h')
 commits = commits.strip().split("\n")
 commits.reverse()
+first = True
 for commit in commits:
+  if first:
+    first = False
+  else:
+    run("sleep 1")
   run(f"git reset --hard {commit}")
   run("git push --force-with-lease")

@@ -5,7 +5,9 @@ protocol:
     stdout: "third\nsecond\nfirst\n"
   - git reset --hard first
   - git push --force-with-lease
+  - sleep 1
   - git reset --hard second
   - git push --force-with-lease
+  - sleep 1
   - git reset --hard third
   - git push --force-with-lease
