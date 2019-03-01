@@ -1,0 +1,6 @@
+- arguments: user/repo
+  protocol:
+    - "/usr/bin/curl https://api.github.com/repos/user/repo/issues -H \"Accept: application/vnd.github.squirrel-girl-preview\""
+    - "/usr/bin/jq -r \"sort_by(-.reactions[\\\"+1\\\"]) | .[] | {title, votes: .reactions[\\\"+1\\\"]} | \\\"\\\\(.votes)\\\\t\\\\(.title)\\\"\""
+# don't do anything when no arguments given
+- protocol: []
