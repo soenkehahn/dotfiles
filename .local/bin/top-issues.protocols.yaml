@@ -4,3 +4,4 @@
     - "/usr/bin/jq -r \"sort_by(-.reactions[\\\"+1\\\"]) | .[] | {title, votes: .reactions[\\\"+1\\\"]} | \\\"\\\\(.votes)\\\\t\\\\(.title)\\\"\""
 # don't do anything when no arguments given
 - protocol: []
+  exitcode: 1
