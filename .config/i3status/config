@@ -1,0 +1,30 @@
+general {
+        colors = false
+        interval = 5
+}
+
+order += "cpu_usage"
+order += "wireless _first_"
+order += "battery all"
+order += "tztime local"
+
+wireless _first_ {
+        format_up = "W: %ip"
+        format_down = "W: down"
+}
+
+battery all {
+        format = "%status %percentage"
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M"
+}
+
+cpu_usage {
+        format = "cpu: %usage"
+}
+
+disk "/" {
+        format = "%avail"
+}
