@@ -27,7 +27,7 @@ bindsym $mod+t exec firefox
 bindsym $mod+x kill
 
 # start dmenu (a program launcher)
-bindsym $mod+n exec dmenu_run
+bindsym $mod+n exec rofi -show run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.

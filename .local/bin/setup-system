@@ -127,6 +127,7 @@ packages =
   "redshift" :
   "renameutils" :
   "ri-li" :
+  "rofi" :
   "rtorrent" :
   "screen" :
   "sgt-puzzles" :
