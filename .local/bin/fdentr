@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 while true ; do
-  fd | entr -crds "$@"
+  fd | entr -crds "echo '' | $@"
 done
