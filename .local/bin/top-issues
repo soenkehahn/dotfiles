@@ -3,7 +3,7 @@
 repoPath=$1
 
 if [[ -n $1 ]] ; then
-  curl https://api.github.com/repos/$1/issues -H 'Accept: application/vnd.github.squirrel-girl-preview' | jq -r 'sort_by(-.reactions["+1"]) | .[] | {title, votes: .reactions["+1"]} | "\(.votes)\t\(.title)"'
+  curl -s https://api.github.com/repos/$1/issues -H 'Accept: application/vnd.github.squirrel-girl-preview' | jq -r 'sort_by(-.reactions["+1"]) | .[] | {title, votes: .reactions["+1"]} | "\(.votes)\t\(.title)"'
 else
   echo please pass in a user/repo argument 1>&2
   exit 1

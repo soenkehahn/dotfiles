@@ -1,7 +1,7 @@
 protocols:
   - arguments: user/repo
     protocol:
-      - "/usr/bin/curl https://api.github.com/repos/user/repo/issues -H \"Accept: application/vnd.github.squirrel-girl-preview\""
+      - "/usr/bin/curl -s https://api.github.com/repos/user/repo/issues -H \"Accept: application/vnd.github.squirrel-girl-preview\""
   # don't do anything when no arguments given
   - arguments: ""
     protocol: []
