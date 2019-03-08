@@ -9,6 +9,7 @@ RUN git checkout $TAG
 RUN go get -v
 RUN mkdir -p /go/lib/fzf
 RUN cp shell/*.zsh /go/lib/fzf/
+RUN cp bin/fzf-tmux /go/bin
 WORKDIR /go
 
 RUN apack /root/result.tar.gz bin lib
