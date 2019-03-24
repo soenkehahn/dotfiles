@@ -6,9 +6,9 @@ default xkb_keycodes "evdev" {
 	minimum = 8;
 	maximum = 255;
 
-  # swap TLDE to LSGT
-  # (Added for pc105 compatibility)
-  <LSGT> = 49;
+	# swap TLDE to LSGT
+	# (Added for pc105 compatibility)
+	<LSGT> = 49;
 	<TLDE> = 94;
 
 	<AE01> = 10;
