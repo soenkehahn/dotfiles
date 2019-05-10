@@ -1,6 +1,6 @@
 FROM custom-ubuntu-base
 
-ENV version=0.4.18
+ENV version=0.4.20
 WORKDIR /root
 RUN wget https://dist.ipfs.io/go-ipfs/v$version/go-ipfs_v${version}_linux-amd64.tar.gz
 RUN aunpack go-ipfs_v${version}_linux-amd64.tar.gz
