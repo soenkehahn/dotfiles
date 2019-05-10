@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:19.04
 RUN apt-get update && apt-get install --yes atool git haskell-stack zlib1g-dev build-essential upx-ucl
 
 WORKDIR /root

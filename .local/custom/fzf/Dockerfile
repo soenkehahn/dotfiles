@@ -1,4 +1,4 @@
-FROM golang:1.8.3-jessie
+FROM golang:1.8.3-stretch
 RUN apt-get update && apt-get install --yes atool
 
 ENV TAG 0.17.0-2

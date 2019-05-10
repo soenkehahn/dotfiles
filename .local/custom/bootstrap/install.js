@@ -38,7 +38,6 @@ function install(dir: string) {
 }
 
 const availablePackages = [
-  "ag",
   "blackbox",
   "docker-compose",
   "el",
@@ -50,8 +49,7 @@ const availablePackages = [
   "sensei",
   "sl",
   "terraform",
-  "tyler",
-  "yarn"
+  "tyler"
 ];
 
 const wantedPackages = (() => {
