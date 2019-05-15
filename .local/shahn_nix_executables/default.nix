@@ -11,7 +11,9 @@ in packages.buildEnv {
     fd
     nodejs
     nodePackages.parcel-bundler
+    rustup
     yarn
+
     (callPackage ./i3-lock-and-suspend.nix {})
   ]);
 }
