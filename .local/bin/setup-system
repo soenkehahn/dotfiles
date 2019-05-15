@@ -21,14 +21,22 @@ import Safe
 import System.Directory
 import System.Environment
 import qualified System.Logging.Facade as Log
+import System.FilePath
 
 main :: IO ()
 main = do
   homeDir <- getEnv "HOME"
   setCurrentDirectory homeDir
+  buildNixExecutables homeDir
   upgradeStack
   installAptPackages
   installCustom
+
+buildNixExecutables :: FilePath -> IO ()
+buildNixExecutables homeDir = do
+  unit $ cmd
+    (Cwd (homeDir </> ".local/shahn_nix_executables"))
+    "./build.sh"
 
 upgradeStack :: IO ()
 upgradeStack = do
@@ -109,7 +117,6 @@ packages =
   "mplayer" :
   "nethogs" :
   "net-tools" :
-  "npm" :
   "numlockx" :
   "okteta" :
   "okular" :
@@ -131,7 +138,6 @@ packages =
   "rtorrent" :
   "screen" :
   "sgt-puzzles" :
-  "silversearcher-ag" :
   "sloccount" :
   "smplayer" :
   "sonata" :

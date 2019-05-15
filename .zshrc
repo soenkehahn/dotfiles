@@ -71,10 +71,11 @@ PROMPT="\
 # RPROMPT="\$(date)"
 RPROMPT='$PROMPT_GIT_BRANCH  $PROMPT_TIME'
 
-PATH=~/.local/bin:"${PATH}"
 PATH=~/src/git-town/src:"${PATH}"
 PATH=./node_modules/.bin:"${PATH}"
 PATH=~/.cargo/bin:"${PATH}"
+PATH=~/.local/bin:"${PATH}"
+PATH=~/.local/shahn_nix_executables/result/bin:"${PATH}"
 
 autoload -U +X bashcompinit && bashcompinit
 eval "$(stack --bash-completion-script stack)"
