@@ -1,5 +1,5 @@
 let
-  pkgs = import ./nixpkgsUnstable.nix;
+  pkgs = (import ./nixpkgs.nix).unstable;
 in
 
 pkgs.rustPlatform.buildRustPackage {
