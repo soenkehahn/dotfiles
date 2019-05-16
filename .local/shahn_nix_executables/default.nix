@@ -15,5 +15,6 @@ in packages.buildEnv {
     yarn
 
     (callPackage ./i3-lock-and-suspend.nix {})
+    (import ./just.nix)
   ]);
 }
