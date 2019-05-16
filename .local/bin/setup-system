@@ -124,6 +124,7 @@ packages =
   "openssh-server" :
   "openvpn" :
   "pavucontrol" :
+  "php-cli" :
   "pm-utils" :
   "postgresql-client-9.6" :
   "postgresql-client-common" :
