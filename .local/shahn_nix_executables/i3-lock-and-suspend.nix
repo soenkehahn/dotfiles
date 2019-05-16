@@ -1,10 +1,8 @@
-let
-  pkgs = (import ./nixpkgs.nix).stable;
-in
+with (import ./nixpkgs.nix).stable;
 
-pkgs.rustPlatform.buildRustPackage {
+rustPlatform.buildRustPackage {
   name = "i3-lock-and-suspend";
-  src = pkgs.fetchFromGitHub {
+  src = fetchFromGitHub {
     owner = "soenkehahn";
     repo = "i3-lock-and-suspend";
     rev = "e0466a3961da0e7396588d81bb8ffc63158b9955";

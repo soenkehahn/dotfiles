@@ -7,10 +7,10 @@ in pkgs.buildEnv {
     fd
     nodejs
     nodePackages.parcel-bundler
-    rustup
     yarn
 
     (import ./i3-lock-and-suspend.nix)
     (import ./just.nix)
+    (import ./rustup.nix)
   ]);
 }

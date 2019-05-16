@@ -1,10 +1,8 @@
-let
-  pkgs = (import ./nixpkgs.nix).unstable;
-in
+with (import ./nixpkgs.nix).unstable;
 
-pkgs.rustPlatform.buildRustPackage {
+rustPlatform.buildRustPackage {
   name = "just";
-  src = pkgs.fetchFromGitHub {
+  src = fetchFromGitHub {
     owner = "casey";
     repo = "just";
     rev = "d46e6d8";
