@@ -45,9 +45,7 @@ const availablePackages = [
   "hindent",
   "ipfs",
   "ngrok",
-  "node",
   "sensei",
-  "sl",
   "terraform",
   "tyler"
 ];

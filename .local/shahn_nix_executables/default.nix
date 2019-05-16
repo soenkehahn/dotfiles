@@ -12,5 +12,6 @@ in pkgs.buildEnv {
     (import ./i3-lock-and-suspend.nix)
     (import ./just.nix)
     (import ./rustup.nix)
+    (import ./sl.nix)
   ]);
 }
