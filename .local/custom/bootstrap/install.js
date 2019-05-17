@@ -47,7 +47,6 @@ const availablePackages = [
   "ngrok",
   "sensei",
   "terraform",
-  "tyler"
 ];
 
 const wantedPackages = (() => {
