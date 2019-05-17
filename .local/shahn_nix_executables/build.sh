@@ -4,4 +4,4 @@ echo building nix executables...
 
 . ~/.nix-profile/etc/profile.d/nix.sh
 NIX_PATH=
-nix-build -j4
+nice -n 19 nix-build -j4
