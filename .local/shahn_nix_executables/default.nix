@@ -4,16 +4,16 @@ in pkgs.buildEnv {
   name = "shahn_nix_executables";
   paths = (with pkgs; [
     ag
-    atom
     fd
     nodejs
     nodePackages.parcel-bundler
     yarn
 
+    (import ./atom.nix)
+    (import ./cargo-script.nix)
     (import ./i3-lock-and-suspend.nix)
     (import ./just.nix)
     (import ./rustup.nix)
     (import ./sl.nix)
-    (import ./cargo-script.nix)
   ]);
 }
