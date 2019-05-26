@@ -4,6 +4,7 @@ in pkgs.buildEnv {
   name = "shahn_nix_executables";
   paths = (with pkgs; [
     ag
+    blackbox
     fd
     nodejs
     nodePackages.parcel-bundler

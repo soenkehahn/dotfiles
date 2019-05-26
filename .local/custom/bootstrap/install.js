@@ -38,7 +38,6 @@ function install(dir: string) {
 }
 
 const availablePackages = [
-  "blackbox",
   "docker-compose",
   "el",
   "fzf",
