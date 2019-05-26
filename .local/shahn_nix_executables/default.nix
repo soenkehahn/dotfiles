@@ -17,5 +17,6 @@ in pkgs.buildEnv {
     (import ./just.nix)
     (import ./rustup.nix)
     (import ./sl.nix)
+    (import ./toast.nix)
   ]);
 }
