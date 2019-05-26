@@ -9,6 +9,7 @@ in pkgs.buildEnv {
     nodejs
     nodePackages.parcel-bundler
     yarn
+    docker-compose
 
     (import ./atom.nix)
     (import ./cargo-script.nix)

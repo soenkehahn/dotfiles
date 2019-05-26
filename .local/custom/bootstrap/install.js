@@ -38,7 +38,6 @@ function install(dir: string) {
 }
 
 const availablePackages = [
-  "docker-compose",
   "el",
   "fzf",
   "hindent",
