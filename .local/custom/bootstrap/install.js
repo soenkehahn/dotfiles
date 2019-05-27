@@ -40,7 +40,6 @@ function install(dir: string) {
 const availablePackages = [
   "el",
   "ipfs",
-  "ngrok",
   "sensei",
 ];
 
