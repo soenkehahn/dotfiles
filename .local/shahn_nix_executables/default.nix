@@ -5,12 +5,13 @@ in pkgs.buildEnv {
   paths = (with pkgs; [
     ag
     blackbox
+    docker-compose
     fd
+    fzf
     nodejs
     nodePackages.parcel-bundler
+    terraform
     yarn
-    docker-compose
-    fzf
 
     (import ./atom.nix)
     (import ./cargo-script.nix)

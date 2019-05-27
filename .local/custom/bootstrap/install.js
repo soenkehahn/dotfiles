@@ -42,7 +42,6 @@ const availablePackages = [
   "ipfs",
   "ngrok",
   "sensei",
-  "terraform",
 ];
 
 const wantedPackages = (() => {
