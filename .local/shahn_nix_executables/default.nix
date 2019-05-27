@@ -8,6 +8,7 @@ in pkgs.buildEnv {
     docker-compose
     fd
     fzf
+    ipfs
     ngrok
     nodejs
     nodePackages.parcel-bundler
