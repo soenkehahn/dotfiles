@@ -20,6 +20,7 @@ in pkgs.buildEnv {
     (import ./i3-lock-and-suspend.nix)
     (import ./just.nix)
     (import ./rustup.nix)
+    (import ./sensei.nix)
     (import ./sl.nix)
     (import ./toast.nix)
   ]);
