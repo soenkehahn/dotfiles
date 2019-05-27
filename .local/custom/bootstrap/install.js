@@ -39,7 +39,6 @@ function install(dir: string) {
 
 const availablePackages = [
   "el",
-  "fzf",
   "hindent",
   "ipfs",
   "ngrok",

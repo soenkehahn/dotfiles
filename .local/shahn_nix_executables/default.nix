@@ -10,6 +10,7 @@ in pkgs.buildEnv {
     nodePackages.parcel-bundler
     yarn
     docker-compose
+    fzf
 
     (import ./atom.nix)
     (import ./cargo-script.nix)
