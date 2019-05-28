@@ -89,7 +89,6 @@ packages =
   "jnettop" :
   "jq" :
   "kcolorchooser" :
-  "kde-baseapps-bin" :
   "kig" :
   "kmag" :
   "konsole" :
