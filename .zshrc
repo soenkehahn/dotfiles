@@ -154,3 +154,4 @@ export N_PREFIX=$HOME/.local
 REPORTTIME=60
 
 source ~/.fzf.zsh
+source ~/.xsessionrc
