@@ -1,14 +1,14 @@
 with (import ./nixpkgs.nix).stable;
 
-rustPlatform.buildRustPackage {
-  name = "rustup";
-  src = fetchFromGitHub {
-    owner = "rust-lang";
-    repo = "rustup.rs";
-    rev = "c67a740";
-    sha256 = "sha256:0sm08xvfmk9m6j7fhr39gcp3r47pky431i8fk3g6pdk6mssnwl7i";
+let
+  src = fetchurl {
+    url = "https://sh.rustup.rs";
+    sha256 = "sha256:0rqgnpw2hxfh1m2lz6z7vn3b5dhvkh712161gr1zppq2x6ab44lh";
+    executable = true;
   };
-  cargoSha256 = "sha256:02gv34asqnj36w4l6p4dpxlg14bmcbv8qns11bi8sxchdvvl2z31";
-  buildInputs = [ pkgconfig openssl ];
-  doCheck = false;
-}
+in
+
+runCommand "rustup.sh" {} ''
+  mkdir -p $out/bin
+  ln -s ${src} $out/bin/rustup.sh
+''
