@@ -1,5 +1,6 @@
 let
-  pkgs = (import ./nixpkgs.nix).stable;
+  allPkgs = (import ./nixpkgs.nix);
+  pkgs = allPkgs.stable;
 in pkgs.buildEnv {
   name = "shahn_nix_executables";
   paths = (with pkgs; [
@@ -15,10 +16,11 @@ in pkgs.buildEnv {
     terraform
     yarn
 
+    allPkgs.unstable.just
+
     (import ./atom.nix)
     (import ./cargo-script.nix)
     (import ./i3-lock-and-suspend.nix)
-    (import ./just.nix)
     (import ./rustup.nix)
     (import ./sensei.nix)
     (import ./sl.nix)
