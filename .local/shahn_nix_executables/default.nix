@@ -13,6 +13,7 @@ in pkgs.buildEnv {
     ngrok
     nodejs
     nodePackages.parcel-bundler
+    nodePackages.prettier
     terraform
     yarn
 
