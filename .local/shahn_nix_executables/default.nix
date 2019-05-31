@@ -14,6 +14,7 @@ in pkgs.buildEnv {
     nodejs
     nodePackages.parcel-bundler
     nodePackages.prettier
+    pandoc
     terraform
     yarn
 
