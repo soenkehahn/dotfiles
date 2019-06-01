@@ -22,6 +22,7 @@ in pkgs.buildEnv {
 
     (import ./atom.nix)
     (import ./cargo-script.nix)
+    (import ./cargo-bump.nix)
     (import ./i3-lock-and-suspend.nix)
     (import ./rustup.nix)
     (import ./sensei.nix)
