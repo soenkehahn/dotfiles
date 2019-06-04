@@ -26,12 +26,8 @@ bindsym $mod+t exec firefox
 # kill focused window
 bindsym $mod+x kill
 
-# start dmenu (a program launcher)
 bindsym $mod+n exec rofi -show run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+k exec rofi -show window
 
 ## focus
 
