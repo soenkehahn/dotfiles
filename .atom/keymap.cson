@@ -23,5 +23,7 @@
   'h v': 'git-time-machine:toggle'
   'h w': 'core:close'
 
+  'h y': 'hard-wrap:reflow-selection'
+
 'body':
   'ctrl-s': 'custom:save-and-exit-insert-mode'
