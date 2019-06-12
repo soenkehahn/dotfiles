@@ -24,6 +24,7 @@ in pkgs.buildEnv {
     (import ./cargo-script.nix)
     (import ./cargo-bump.nix)
     (import ./i3-lock-and-suspend.nix)
+    (import ./i3-pretty-tree.nix)
     (import ./rustup.nix)
     (import ./sensei.nix)
     (import ./sl.nix)
