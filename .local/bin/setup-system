@@ -30,7 +30,6 @@ main = do
   buildNixExecutables homeDir
   upgradeStack
   installAptPackages
-  installCustom
 
 buildNixExecutables :: FilePath -> IO ()
 buildNixExecutables homeDir = do
@@ -173,7 +172,3 @@ getInstalledPackages = do
       lines >>>
       map (stripPrefix "ii  ") >>>
       catMaybes >>> map (splitOneOf " :" >>> headMay) >>> catMaybes
-
-installCustom :: IO ()
-installCustom = do
-  unit $ cmd (Cwd ".local/custom") "./install.sh"
