@@ -6,6 +6,7 @@ in pkgs.buildEnv {
   paths = (with pkgs; [
     ag
     blackbox
+    cabal2nix
     docker-compose
     fd
     fzf
@@ -21,8 +22,9 @@ in pkgs.buildEnv {
     allPkgs.unstable.just
 
     (import ./atom.nix)
-    (import ./cargo-script.nix)
     (import ./cargo-bump.nix)
+    (import ./cargo-script.nix)
+    (import ./el.nix)
     (import ./i3-lock-and-suspend.nix)
     (import ./i3-pretty-tree.nix)
     (import ./rustup.nix)
