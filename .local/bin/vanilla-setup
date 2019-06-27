@@ -54,4 +54,4 @@ setup name = do
 runTestWatch :: String -> IO ()
 runTestWatch name = do
   forM_ repos $ \ repo -> do
-    unit $ cmd (Cwd (name </> repo)) "just watch"
+    unit $ cmd (Cwd (name </> repo)) ["konsole", "-e", "just watch"]
