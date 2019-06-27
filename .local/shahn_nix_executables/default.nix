@@ -10,7 +10,6 @@ in pkgs.buildEnv {
     docker-compose
     fd
     fzf
-    haskellPackages.ghcid
     ipfs
     ngrok
     nodejs
