@@ -1,0 +1,57 @@
+#!/usr/bin/env stack
+{-
+stack script
+--resolver lts-13.26 --install-ghc
+--package base
+--package getopt-generics
+--package directory
+--package shake
+--package filepath
+-}
+
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE DeriveAnyClass #-}
+{-# LANGUAGE DeriveGeneric #-}
+
+
+import Control.Monad
+import WithCli
+import System.Directory
+import System.Environment
+import Development.Shake hiding (doesDirectoryExist)
+import System.FilePath
+
+data Args = Args {
+  testWatch :: Bool
+} deriving (Generic, HasArguments)
+
+main :: IO ()
+main = withCli run
+
+run :: String -> Args -> IO ()
+run name args =
+  if testWatch args
+    then runTestWatch name
+    else setup name
+
+repos :: [String]
+repos =
+  "vanilla-haskell" :
+  "vanilla-typescript" :
+  []
+
+setup :: String -> IO ()
+setup name = do
+  exists <- doesDirectoryExist name
+  when exists $ do
+    error (name ++ " does exist")
+  createDirectory name
+  forM_ repos $ \ repo -> do
+    unit $ cmd (Cwd name)
+      ("git clone git@github.com:soenkehahn/" ++ repo)
+    unit $ cmd (Cwd (name </> repo)) "just"
+
+runTestWatch :: String -> IO ()
+runTestWatch name = do
+  forM_ repos $ \ repo -> do
+    unit $ cmd (Cwd (name </> repo)) "just watch"
