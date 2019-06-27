@@ -13,7 +13,7 @@ stack script
 {-# LANGUAGE DeriveAnyClass #-}
 {-# LANGUAGE DeriveGeneric #-}
 
-
+import Data.Maybe
 import Control.Monad
 import WithCli
 import System.Directory
@@ -34,11 +34,17 @@ run name args =
     then runTestWatch name
     else setup name
 
-repos :: [String]
+repos :: [(String, Maybe String)]
 repos =
-  "vanilla-haskell" :
-  "vanilla-typescript" :
+  ("vanilla-haskell", Nothing) :
+  ("vanilla-typescript", Just "node") :
+  ("vanilla-typescript", Just "node-koa") :
   []
+
+mkDirName :: (String, Maybe String) -> String
+mkDirName (repo, branch) = case branch of
+  Nothing -> repo
+  Just branch -> repo ++ "-" ++ branch
 
 setup :: String -> IO ()
 setup name = do
@@ -46,12 +52,16 @@ setup name = do
   when exists $ do
     error (name ++ " does exist")
   createDirectory name
-  forM_ repos $ \ repo -> do
+  forM_ repos $ \ (repo, branch) -> do
     unit $ cmd (Cwd name)
-      ("git clone git@github.com:soenkehahn/" ++ repo)
-    unit $ cmd (Cwd (name </> repo)) "just"
+      "git clone"
+        ("git@github.com:soenkehahn/" ++ repo)
+        "--branch" (fromMaybe "master" branch)
+        (mkDirName (repo, branch))
+    unit $ cmd (Cwd (name </> mkDirName (repo, branch))) "just"
 
 runTestWatch :: String -> IO ()
 runTestWatch name = do
-  forM_ repos $ \ repo -> do
-    unit $ cmd (Cwd (name </> repo)) ["konsole", "-e", "just watch"]
+  forM_ repos $ \ (repo, branch) -> do
+    unit $ cmd (Cwd (name </> mkDirName (repo, branch)))
+      ["konsole", "-e", "just watch"]
