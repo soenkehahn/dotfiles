@@ -39,6 +39,7 @@ repos =
   ("vanilla-haskell", Nothing) :
   ("vanilla-typescript", Just "node") :
   ("vanilla-typescript", Just "node-koa") :
+  ("vanilla-typescript", Just "react") :
   []
 
 mkDirName :: (String, Maybe String) -> String
