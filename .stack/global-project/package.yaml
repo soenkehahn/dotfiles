@@ -1,0 +1,36 @@
+name: global-project
+
+dependencies:
+  - base
+  - aeson
+  - basement
+  - cassava
+  - conduit
+  - containers
+  - diagrams
+  - foundation
+  - generics-eot
+  - getopt-generics
+  - graph-wrapper
+  - http-client
+  - interpolate
+  - lens
+  - optparse-applicative
+  - pipes
+  - rio
+  - servant
+  - servant-client
+  - servant-server
+  - shake
+  - string-conversions
+  - text
+  - unordered-containers
+  - vector
+  - wai
+  - warp
+  - yaml
+  - yesod
+
+executables:
+  dummy:
+    main: dummy.hs
