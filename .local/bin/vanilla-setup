@@ -36,7 +36,8 @@ run name args =
 
 repos :: [(String, Maybe String)]
 repos =
-  ("vanilla-haskell", Nothing) :
+  ("vanilla-haskell", Just "executable") :
+  ("vanilla-haskell", Just "servant") :
   ("vanilla-typescript", Just "node") :
   ("vanilla-typescript", Just "node-koa") :
   ("vanilla-typescript", Just "react") :
