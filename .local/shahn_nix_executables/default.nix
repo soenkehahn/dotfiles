@@ -11,8 +11,6 @@ stable.buildEnv {
       fzf
       ipfs
       ngrok
-      nodejs
-      nodePackages.parcel-bundler
       pandoc
       terraform
       yarn
@@ -21,6 +19,8 @@ stable.buildEnv {
       unstable.just
     ] ++
     (with (np "e3190b2f9ec" "0x39sb1rrl5knzhn65558y28315sg77725hw09xn5lxil63b6mgl"); [
+      nodejs
+      nodePackages.parcel-bundler
       nodePackages.prettier
     ]) ++
     [
