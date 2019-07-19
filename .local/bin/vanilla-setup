@@ -38,10 +38,11 @@ repos :: [(String, Maybe String)]
 repos =
   ("vanilla-haskell", Just "executable") :
   ("vanilla-haskell", Just "servant") :
+  ("vanilla-python", Nothing) :
+  ("vanilla-rust", Just "executable") :
   ("vanilla-typescript", Just "node") :
   ("vanilla-typescript", Just "node-koa") :
   ("vanilla-typescript", Just "react") :
-  ("vanilla-rust", Just "executable") :
   []
 
 mkDirName :: (String, Maybe String) -> String
