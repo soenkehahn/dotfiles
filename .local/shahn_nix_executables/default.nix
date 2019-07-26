@@ -21,10 +21,10 @@ stable.buildEnv {
       nodePackages.prettier
     ]) ++
     (with (np "fd2b2b5cd56" "0jgy1dplp007la5waknrijzxh6ql88lbigyr7q8n9m7n92x736l9"); [
-      atom
       just
     ]) ++
     [
+      (import ./atom.nix)
       (import ./cargo-bump.nix)
       (import ./cargo-script.nix)
       (import ./el.nix)
