@@ -15,16 +15,18 @@ stable.buildEnv {
       terraform
       yarn
     ]) ++
-    [
-      unstable.just
-    ] ++
+    (with unstable; [
+      just
+    ]) ++
     (with (np "e3190b2f9ec" "0x39sb1rrl5knzhn65558y28315sg77725hw09xn5lxil63b6mgl"); [
       nodejs
       nodePackages.parcel-bundler
       nodePackages.prettier
     ]) ++
+    (with (np "fd2b2b5cd56" "0jgy1dplp007la5waknrijzxh6ql88lbigyr7q8n9m7n92x736l9"); [
+      atom
+    ]) ++
     [
-      (import ./atom.nix)
       (import ./cargo-bump.nix)
       (import ./cargo-script.nix)
       (import ./el.nix)
