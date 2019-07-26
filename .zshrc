@@ -35,8 +35,8 @@ HISTFILE=~/.histfile
 HISTSIZE=1000000
 SAVEHIST=1000000
 
-setopt histignorespace histignoredups appendhistory listrowsfirst
-unsetopt beep autocd bgnice
+setopt HIST_IGNORE_SPACE HIST_IGNORE_ALL_DUPS APPEND_HISTORY
+unsetopt BEEP AUTOCD BGNICE
 
 # prompt stuff
 
