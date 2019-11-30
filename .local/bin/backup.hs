@@ -1,5 +1,5 @@
 #!/usr/bin/env stack
-{- stack runghc --resolver lts-10.0
+{- stack script --resolver lts-13.29
   --package shake
   --package getopt-generics
   --package logging-facade

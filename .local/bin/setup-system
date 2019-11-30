@@ -1,12 +1,14 @@
 #!/usr/bin/env stack
 {-
-stack runghc
---resolver lts-8.3 --install-ghc
+stack script
+--resolver lts-13.29 --install-ghc
+  --package directory
+  --package filepath
   --package logging-facade
-  --package split
-  --package shake
-  --package safe
   --package MissingH
+  --package safe
+  --package shake
+  --package split
 -}
 {-# OPTIONS_GHC -Wall -Werror #-}
 {-# LANGUAGE ViewPatterns #-}
