@@ -26,6 +26,9 @@ stable.buildEnv {
     (with (np "d8a57e3614c" "03nakvzsg9flmd0dlixff87bl9grk95nwa6pj6n69qadapk14y3s"); [
       just
     ]) ++
+    (with (np "5c8c62902" "1y81iizb2y57x3h02y8sr0dcqqx5sc3411b8xwx0czlc9kswimm3"); [
+      signal-desktop
+    ]) ++
     [
       (import ./atom.nix)
       (import ./cargo-bump.nix)
