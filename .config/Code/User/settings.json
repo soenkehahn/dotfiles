@@ -3,6 +3,8 @@
     "telemetry.enableTelemetry": false,
     "reason.path.ocamlmerlin": "./node_modules/.bin/ocamlmerlin",
     "editor.formatOnSave": true,
+    "editor.autoClosingBrackets": "never",
+    "editor.autoClosingQuotes": "never",
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
