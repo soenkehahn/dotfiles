@@ -4,7 +4,7 @@ use std::process::Command;
 use std::thread::sleep;
 use std::time::Duration;
 
-type R<A> = Result<A, Box<std::error::Error>>;
+type R<A> = Result<A, Box<dyn std::error::Error>>;
 
 fn wait_for<F>(f: F) -> R<()>
 where
