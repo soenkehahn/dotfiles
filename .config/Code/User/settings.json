@@ -1,23 +1,85 @@
 {
-    "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false,
-    "reason.path.ocamlmerlin": "./node_modules/.bin/ocamlmerlin",
-    "editor.formatOnSave": true,
+    "breadcrumbs.enabled": true,
     "editor.autoClosingBrackets": "never",
+    "editor.autoClosingOvertype": "never",
     "editor.autoClosingQuotes": "never",
-    "files.trimTrailingWhitespace": true,
+    "editor.fontSize": 14,
+    "editor.cursorBlinking": "solid",
+    "editor.formatOnSave": true,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
-    "vim.useSystemClipboard": true,
+    "files.trimTrailingWhitespace": true,
+    "git.ignoreMissingGitWarning": true,
+    "reason.path.ocamlmerlin": "./node_modules/.bin/ocamlmerlin",
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
     "vim.leader": "h",
+    "vim.useSystemClipboard": true,
+    "window.menuBarVisibility": "toggle",
+    "workbench.colorTheme": "Sorcerer",
+    "workbench.editor.enablePreview": false,
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
                 "<leader>",
-                "o"
+                "k"
             ],
             "commands": [
-                "workbench.action.quickOpen"
+                "editor.action.commentLine"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "h"
+            ],
+            "commands": [
+                "editor.action.marker.nextInFiles"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g"
+            ],
+            "commands": [
+                "editor.action.revealDefinition"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "n"
+            ],
+            "commands": [
+                "explorer.newFile"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "a"
+            ],
+            "commands": [
+                "workbench.action.files.saveFiles"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "v"
+            ],
+            "commands": [
+                "workbench.action.navigateBack"
             ]
         },
         {
@@ -41,64 +103,10 @@
         {
             "before": [
                 "<leader>",
-                "h"
+                "o"
             ],
             "commands": [
-                "editor.action.marker.nextInFiles"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "k"
-            ],
-            "commands": [
-                "editor.action.commentLine"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "a"
-            ],
-            "commands": [
-                "workbench.action.files.saveFiles"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "w"
-            ],
-            "commands": [
-                "workbench.action.closeActiveEditor"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "g"
-            ],
-            "commands": [
-                "editor.action.revealDefinition"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "v"
-            ],
-            "commands": [
-                "workbench.action.navigateBack"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "n"
-            ],
-            "commands": [
-                "explorer.newFile"
+                "workbench.action.quickOpen"
             ]
         },
         {
@@ -120,15 +128,6 @@
             "commands": [
                 "editor.action.commentLine"
             ]
-        },
-    ],
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "git.ignoreMissingGitWarning": true,
-    "workbench.editor.enablePreview": false,
-    "workbench.colorTheme": "Sorcerer",
-    "editor.cursorBlinking": "solid",
-    "window.menuBarVisibility": "toggle",
-    "editor.autoClosingOvertype": "never"
+        }
+    ]
 }
