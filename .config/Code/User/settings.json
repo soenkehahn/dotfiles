@@ -22,6 +22,24 @@
         {
             "before": [
                 "<leader>",
+                "."
+            ],
+            "commands": [
+                "breadcrumbs.focusAndSelect"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                ","
+            ],
+            "commands": [
+                "breadcrumbs.focus"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
                 "k"
             ],
             "commands": [
@@ -117,7 +135,7 @@
             "commands": [
                 "workbench.action.showCommands"
             ]
-        }
+        },
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         {
