@@ -146,6 +146,15 @@
             "commands": [
                 "editor.action.commentLine"
             ]
-        }
+        },
+        {
+            "before": [
+                "<leader>",
+                "p"
+            ],
+            "commands": [
+                "workbench.action.showCommands"
+            ]
+        },
     ]
 }
