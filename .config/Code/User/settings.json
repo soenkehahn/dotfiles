@@ -150,6 +150,15 @@
         {
             "before": [
                 "<leader>",
+                "h"
+            ],
+            "commands": [
+                "editor.action.marker.nextInFiles"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
                 "p"
             ],
             "commands": [
