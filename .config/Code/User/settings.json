@@ -10,6 +10,7 @@
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
     "git.ignoreMissingGitWarning": true,
+    "keyboard.dispatch": "keyCode",
     "reason.path.ocamlmerlin": "./node_modules/.bin/ocamlmerlin",
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
