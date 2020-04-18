@@ -117,6 +117,11 @@ bindsym $mod+Shift+c restart
 bindsym $mod+Shift+x exec "i3-nagbar -t warning -m 'really?' -b 'yes' 'i3-msg exit'"
 bindsym $mod+Shift+l exec i3-lock-and-suspend
 
+## Function keys
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         set $delta 4
