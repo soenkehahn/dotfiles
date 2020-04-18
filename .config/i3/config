@@ -117,6 +117,10 @@ bindsym $mod+Shift+c restart
 bindsym $mod+Shift+x exec "i3-nagbar -t warning -m 'really?' -b 'yes' 'i3-msg exit'"
 bindsym $mod+Shift+l exec i3-lock-and-suspend
 
+## special applications
+
+for_window [class="zoom"] floating enable
+
 ## Function keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
