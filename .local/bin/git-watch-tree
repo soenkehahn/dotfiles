@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 
+set -eu
+
+cd $(git rev-parse --show-toplevel)
+
 tput rmam
 
 while true ; do
+  export lines=$(tput lines)
   find .git/ | ag -v '^.git/objects/' | \
-    entr -rcds 'git -c color.ui=always log --oneline --graph --decorate --remotes --branches | head -n $(expr $LINES - 1)'
+    entr -rcds 'git -c color.ui=always log --oneline --graph --decorate --remotes --branches | head -n $(expr $lines - 1)'
 done
