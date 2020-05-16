@@ -2,12 +2,19 @@
 
 set -eu
 
-cd $(git rev-parse --show-toplevel)
+if git rev-parse --show-toplevel
+then
+  cd $(git rev-parse --show-toplevel)
 
-tput rmam
+  tput rmam
 
-while true ; do
-  export lines=$(tput lines)
-  find .git/ | ag -v '^.git/objects/' | \
-    entr -rcds 'git -c color.ui=always log --oneline --graph --decorate --remotes --branches | head -n $(expr $lines - 1)'
-done
+  while true ; do
+    export lines=$(tput lines)
+    find .git/ | ag -v '^.git/objects/' | \
+      entr -rcds 'git -c color.ui=always log --oneline --graph --decorate --remotes --branches | head -n $(expr $lines - 1)'
+  done
+else
+  while true ; do
+    sleep 100
+  done
+fi
