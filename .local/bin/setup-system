@@ -83,6 +83,7 @@ packages =
   "graphviz" :
   "handbrake" :
   "htop" :
+  "i3" :
   "i3lock" :
   "inkscape" :
   "inotify-tools" :
@@ -97,6 +98,7 @@ packages =
   "kruler" :
   "krusader" :
   "libiw-dev" :
+  "librsvg2-bin" :
   "libtool-bin" :
   "libx11-dev" :
   "libx11-protocol-other-perl" :
@@ -126,12 +128,11 @@ packages =
   "pavucontrol" :
   "php-cli" :
   "pm-utils" :
-  "postgresql-client-9.6" :
-  "postgresql-client-common" :
+  "postgresql-client" :
   "powertop" :
   "pv" :
   "pwgen" :
-  "python-pip" :
+  "python3-pip" :
   "redshift" :
   "renameutils" :
   "ri-li" :
