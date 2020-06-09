@@ -151,3 +151,16 @@ bindsym $mod+p mode "resize"
 bar {
         status_command i3status
 }
+
+# colors
+# class                 border  bground text    indicator child_border
+client.focused          #f10064 #0e141a #f10064 #2e9ef4   #0e141a
+client.unfocused        #ffffff #0e141a #ffffff #292d2e   #222222
+client.focused_inactive #ffffff #0e141a #ffffff #292d2e   #222222
+title_align center
+hide_edge_borders smart
+
+# default_border pixel 20
+# client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
+# client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+# client.background       #FFFFFF
