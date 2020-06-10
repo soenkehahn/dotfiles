@@ -67,7 +67,7 @@ bindsym $mod+h layout toggle tabbed splitv splith
 workspace_layout tabbed
 
 ## floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+q floating toggle
 bindsym $mod+space focus mode_toggle
 
 ## scratchpad
