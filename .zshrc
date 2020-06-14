@@ -107,9 +107,6 @@ alias debdailyupgrade='sudo apt-get update && sudo apt-get dist-upgrade && debcl
 alias debdepends='apt-cache depends '
 alias debrdepends='apt-cache rdepends '
 
-# https://www.atlassian.com/git/tutorials/dotfiles
-alias dotfiles='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
-
 alias dusch="du -sch *"
 # alias isrunning='echo "  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND" ; top -bn1 | grep '
 

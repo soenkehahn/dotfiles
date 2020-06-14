@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# https://www.atlassian.com/git/tutorials/dotfiles
+git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME "$@"
