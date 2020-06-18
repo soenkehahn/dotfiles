@@ -5,6 +5,8 @@ dependencies:
   - aeson
   - basement
   - cassava
+  - Chart
+  - Chart-diagrams
   - conduit
   - containers
   - diagrams
