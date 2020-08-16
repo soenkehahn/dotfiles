@@ -22,6 +22,7 @@ type ProcessPool = String -> [String] -> IO ()
 setupProcessPool :: IO ProcessPool
 setupProcessPool = do
   children <- newMVar []
+  mainThread <- myThreadId
   let terminateChildren = do
         modifyMVar_ children $ \ children -> do
           forM_ children $ \ (name, child) -> do
@@ -29,7 +30,7 @@ setupProcessPool = do
             terminateProcess child
             waitForProcess child
           return []
-        exitWith ExitSuccess
+        killThread mainThread
   installHandler sigINT (CatchOnce terminateChildren) Nothing
   return $ \ command args -> do
     (_, _, _, handle) <- createProcess (proc command args)
