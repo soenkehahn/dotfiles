@@ -1,21 +1,23 @@
 #!/usr/bin/env stack
 {- stack script --resolver nightly-2020-08-01
+  --package getopt-generics
   --package process
   --package shake
   --package unix
 -}
 
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DeriveAnyClass #-}
 {-# OPTIONS_GHC -Wall -Wno-name-shadowing #-}
 
 import Control.Concurrent
 import Control.Monad
 import Data.List
 import Development.Shake
-import System.Environment
-import System.Exit
 import System.Posix.Signals
 import System.Process
+import WithCli
 
 data ProcessPool = ProcessPool {
   spawn :: String -> [String] -> IO (),
@@ -50,11 +52,17 @@ setupProcessPool = do
       readMVar waiter
   }
 
+data Args
+  = Args {
+    selfCheck :: Bool
+  }
+  deriving (Show, Generic, HasArguments)
+
 main :: IO ()
-main = do
-  args <- getArgs
-  case args of
-    [] -> do
+main = withCli $ \ args -> do
+  if selfCheck args
+    then putStrLn "checked!"
+    else do
       pool <- setupProcessPool
       activateMonitor
       startJack pool
@@ -64,9 +72,6 @@ main = do
       wait 5
       connectPorts
       waitUntilExit pool
-    args -> do
-      putStrLn ("unknown args: " ++ show args)
-      exitWith $ ExitFailure 1
 
 activateMonitor :: IO ()
 activateMonitor = do
