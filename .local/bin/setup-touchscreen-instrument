@@ -1,8 +1,11 @@
 #!/usr/bin/env stack
 {- stack script --resolver nightly-2020-08-01
+  --package explicit-exception
   --package getopt-generics
+  --package jack
   --package process
   --package shake
+  --package transformers
   --package unix
 -}
 
@@ -13,14 +16,19 @@
 
 import Control.Concurrent
 import Control.Monad
+import Control.Monad.Exception.Synchronous
 import Data.List
 import Development.Shake
+import Sound.JACK
+import Sound.JACK.Exception
 import System.Posix.Signals
 import System.Process
 import WithCli
+import Control.Monad.Trans.Class (lift)
 
 data ProcessPool = ProcessPool {
   spawn :: String -> [String] -> IO (),
+  exit :: IO (),
   waitUntilExit :: IO ()
 }
 
@@ -48,6 +56,7 @@ setupProcessPool = do
         putStrLn (command ++ " is done")
         terminateChildren
       return (),
+    exit = terminateChildren,
     waitUntilExit = do
       readMVar waiter
   }
@@ -70,7 +79,7 @@ main = withCli $ \ args -> do
       spawn pool "touchscreen-instrument" []
       spawn pool "guitarix" []
       wait 5
-      connectPorts
+      connectPorts pool
       waitUntilExit pool
 
 activateMonitor :: IO ()
@@ -85,30 +94,47 @@ startJack pool = do
   putStrLn "done!"
   wait 0.1
 
-connectPorts :: IO ()
-connectPorts = do
+connectPorts :: ProcessPool -> IO ()
+connectPorts pool = do
+  _ <- forkIO $ do
+    result <- runExceptionalT $
+      withClientDefault "setup-touchscreen-instrument" $ \ client -> lift $ do
+        makeConnections client
+        let loop :: [String] -> IO ()
+            loop previousPorts = do
+              ports <- getPorts client
+              when (previousPorts /= ports) $ do
+                print "port change detected"
+                makeConnections client
+              wait 1
+              loop ports
+        loop =<< getPorts client
+    case result of
+      Success () -> return ()
+      Exception (e :: All) -> do
+        putStrLn $ toStringWithHead e
+        exit pool
+  return ()
+
+makeConnections :: Client -> IO ()
+makeConnections client = do
   let midiControllerPort port =
         "a2j:WORLDE easy control [" `isPrefixOf` port &&
         "] (capture): WORLDE easy control MIDI 1" `isSuffixOf` port
       expressionPedalPort port =
         "a2j:beat bars adapter [" `isPrefixOf` port &&
         "] (capture): beat bars adapter MIDI 1" `isSuffixOf` port
-      ports =
+      connections =
         ((== "touchscreen-instrument:left-output"), "gx_head_amp:in_0") :
         (midiControllerPort, "touchscreen-instrument:controller") :
         (expressionPedalPort, "touchscreen-instrument:controller") :
         []
-  forM_ ports $ \ (from, to) -> do
-    tryConnect from to
+  forM_ connections $ \ (from, to) -> do
+    tryConnect client from to
 
-getPorts :: IO [String]
-getPorts = do
-  Stdout output <- cmd "jack_lsp"
-  return $ lines output
-
-tryConnect :: (String -> Bool) -> String -> IO ()
-tryConnect from to = do
-  ports <- getPorts
+tryConnect :: Client -> (String -> Bool) -> String -> IO ()
+tryConnect client from to = do
+  ports <- getPorts client
   case filter from ports of
     [from] -> do
       Exit _ <- cmd "jack_connect" [from, to]
