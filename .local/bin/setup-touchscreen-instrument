@@ -6,68 +6,95 @@
 -}
 
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# OPTIONS_GHC -Wall -Wno-name-shadowing #-}
 
-import Development.Shake
 import Control.Concurrent
-import Control.Exception
-import System.Process
-import System.Posix.Signals
-import System.Exit
 import Control.Monad
-import Data.Void
 import Data.List
+import Development.Shake
+import System.Environment
+import System.Exit
+import System.Posix.Signals
+import System.Process
 
-type ProcessPool = String -> [String] -> IO ()
+data ProcessPool = ProcessPool {
+  spawn :: String -> [String] -> IO (),
+  waitUntilExit :: IO ()
+}
 
 setupProcessPool :: IO ProcessPool
 setupProcessPool = do
   children <- newMVar []
-  mainThread <- myThreadId
+  waiter <- newEmptyMVar
   let terminateChildren = do
         modifyMVar_ children $ \ children -> do
           forM_ children $ \ (name, child) -> do
             putStrLn ("terminating: " ++ name)
             terminateProcess child
-            waitForProcess child
+            putStrLn ("waiting for: " ++ name)
+            _ <- waitForProcess child
+            putStrLn ("done waiting for: " ++ name)
           return []
-        killThread mainThread
-  installHandler sigINT (CatchOnce terminateChildren) Nothing
-  return $ \ command args -> do
-    (_, _, _, handle) <- createProcess (proc command args)
-    modifyMVar_ children $ \ children -> return ((command, handle) : children)
+        putMVar waiter ()
+  _ <- installHandler sigINT (CatchOnce terminateChildren) Nothing
+  return $ ProcessPool {
+    spawn = \ command args -> do
+      (_, _, _, handle) <- createProcess (proc command args)
+      modifyMVar_ children $ \ children -> return ((command, handle) : children)
+      _ <- forkIO $ do
+        _ <- waitForProcess handle
+        putStrLn (command ++ " is done")
+        terminateChildren
+      return (),
+    waitUntilExit = do
+      readMVar waiter
+  }
 
-main :: IO Void
+main :: IO ()
 main = do
-  spawn <- setupProcessPool
-  activateMonitor
-  startJack spawn
-  spawn "a2jmidid" ["-e"]
-  spawn "touchscreen-instrument" []
-  spawn "guitarix" []
-  connectPorts $
-    ((== "touchscreen-instrument:left-output"), "gx_head_amp:in_0") :
-    (midiControllerPort, "touchscreen-instrument:controller") :
-    (expressionPedalPort, "touchscreen-instrument:controller") :
-    []
+  args <- getArgs
+  case args of
+    [] -> do
+      pool <- setupProcessPool
+      activateMonitor
+      startJack pool
+      spawn pool "a2jmidid" ["-e"]
+      spawn pool "touchscreen-instrument" []
+      spawn pool "guitarix" []
+      wait 5
+      connectPorts
+      waitUntilExit pool
+    args -> do
+      putStrLn ("unknown args: " ++ show args)
+      exitWith $ ExitFailure 1
 
 activateMonitor :: IO ()
 activateMonitor = do
   cmd_ "xrandr --output eDP-1 --mode 2560x1440 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --primary --mode 1920x1080 --pos 2560x360 --rotate normal --output DP-2 --off"
 
-startJack spawn = do
-  spawn "jackd" $ words "--sync --realtime -d alsa --rate 48000 --period 256"
+startJack :: ProcessPool -> IO ()
+startJack pool = do
+  spawn pool "jackd" $ words "--sync --realtime -d alsa --rate 48000 --period 256"
   putStrLn "waiting..."
   cmd_ "jack_wait -w"
   putStrLn "done!"
-  threadDelay 100000
+  wait 0.1
 
-midiControllerPort port =
-  "a2j:WORLDE easy control [" `isPrefixOf` port &&
-  "] (capture): WORLDE easy control MIDI 1" `isSuffixOf` port
-
-expressionPedalPort port =
-  "a2j:beat bars adapter [" `isPrefixOf` port &&
-  "] (capture): beat bars adapter MIDI 1" `isSuffixOf` port
+connectPorts :: IO ()
+connectPorts = do
+  let midiControllerPort port =
+        "a2j:WORLDE easy control [" `isPrefixOf` port &&
+        "] (capture): WORLDE easy control MIDI 1" `isSuffixOf` port
+      expressionPedalPort port =
+        "a2j:beat bars adapter [" `isPrefixOf` port &&
+        "] (capture): beat bars adapter MIDI 1" `isSuffixOf` port
+      ports =
+        ((== "touchscreen-instrument:left-output"), "gx_head_amp:in_0") :
+        (midiControllerPort, "touchscreen-instrument:controller") :
+        (expressionPedalPort, "touchscreen-instrument:controller") :
+        []
+  forM_ ports $ \ (from, to) -> do
+    tryConnect from to
 
 getPorts :: IO [String]
 getPorts = do
@@ -83,14 +110,5 @@ tryConnect from to = do
       return ()
     _ -> return ()
 
-connectPorts :: [(String -> Bool, String)] -> IO Void
-connectPorts ports = do
-  threadDelay 5000000
-  forM_ ports $ \ (from, to) -> do
-    tryConnect from to
-  waitForever
-
-waitForever :: IO Void
-waitForever = do
-  threadDelay 1000000000
-  waitForever
+wait :: Double -> IO ()
+wait seconds = threadDelay $ round (seconds * 1000000)
