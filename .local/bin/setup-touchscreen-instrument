@@ -1,30 +1,36 @@
 #!/usr/bin/env stack
 {- stack script --resolver nightly-2020-08-01
+  --package aeson
   --package explicit-exception
   --package getopt-generics
   --package jack
   --package process
   --package shake
   --package transformers
+  --package uniplate
   --package unix
 -}
 
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveAnyClass #-}
 {-# OPTIONS_GHC -Wall -Wno-name-shadowing #-}
 
-import Control.Concurrent
-import Control.Monad
-import Control.Monad.Exception.Synchronous
-import Data.List
-import Development.Shake
-import Sound.JACK
-import Sound.JACK.Exception
-import System.Posix.Signals
-import System.Process
-import WithCli
-import Control.Monad.Trans.Class (lift)
+import           Control.Concurrent
+import           Control.Monad
+import           Control.Monad.Exception.Synchronous
+import           Control.Monad.Trans.Class (lift)
+import qualified Data.Aeson as Aeson
+import           Data.Data
+import           Data.Generics.Uniplate.Data
+import           Data.List
+import           Development.Shake
+import           Sound.JACK
+import           Sound.JACK.Exception
+import           System.Posix.Signals
+import           System.Process
+import           WithCli
 
 data ProcessPool = ProcessPool {
   spawn :: String -> [String] -> IO (),
@@ -76,7 +82,7 @@ main = withCli $ \ args -> do
       activateMonitor
       startJack pool
       spawn pool "a2jmidid" ["-e"]
-      spawn pool "touchscreen-instrument" []
+      startInstrument pool
       spawn pool "guitarix" []
       wait 5
       connectPorts pool
@@ -88,11 +94,68 @@ activateMonitor = do
 
 startJack :: ProcessPool -> IO ()
 startJack pool = do
-  spawn pool "jackd" $ words "--sync --realtime -d alsa --rate 48000 --period 256"
+  spawn pool "jackd" $ words "--sync --realtime -d alsa --rate 48000 --period 256 --nperiod 4"
   putStrLn "waiting..."
   cmd_ "jack_wait -w"
   putStrLn "done!"
   wait 0.1
+
+startInstrument :: ProcessPool -> IO ()
+startInstrument pool = do
+  spawn pool "touchscreen-instrument" []
+  waitForWindow
+  moveToTouchscreen
+  setFullscreen
+
+waitForWindow :: IO ()
+waitForWindow = do
+  waitFor 100 doesWindowExist
+  where
+    doesWindowExist = do
+      tree :: Tree <- cmdToJson "i3-msg -t get_tree"
+      let windows :: [WindowProperties] = universeBi tree
+      return $ any (\ window -> title window == "touchscreen-instrument") windows
+
+cmdToJson :: (Aeson.FromJSON a) => String -> IO a
+cmdToJson command = do
+  Stdout json <- cmd command
+  let Just result = Aeson.decode json
+  return result
+
+data Tree = Tree {
+  nodes :: [Tree],
+  window_properties :: Maybe WindowProperties
+} deriving (Show, Generic, Aeson.FromJSON, Data)
+
+data WindowProperties = WindowProperties {
+  title :: String
+} deriving (Show, Generic, Aeson.FromJSON, Data)
+
+moveToTouchscreen :: IO ()
+moveToTouchscreen = do
+  touchscreenWorkspace <- getTouchscreenWorkspace
+  cmd "i3-msg"
+    ["[class=\"touchscreen-instrument\"] move workspace" ++
+    name touchscreenWorkspace]
+  where
+    getTouchscreenWorkspace = do
+      workspaces :: [Workspace] <- cmdToJson "i3-msg -t get_workspaces"
+      return $ case filter isTouchscreenWorkspace workspaces of
+        a : _ -> a
+        [] -> error "moveToTouchscreen: workspace not found"
+    isTouchscreenWorkspace workspace =
+      output workspace == "HDMI-1" &&
+      visible workspace
+
+data Workspace = Workspace {
+  name :: String,
+  visible :: Bool,
+  output :: String
+} deriving (Show, Generic, Aeson.FromJSON, Data)
+
+setFullscreen :: IO ()
+setFullscreen = do
+  cmd "i3-msg" ["[class=\"touchscreen-instrument\"] fullscreen toggle"]
 
 connectPorts :: ProcessPool -> IO ()
 connectPorts pool = do
@@ -143,3 +206,12 @@ tryConnect client from to = do
 
 wait :: Double -> IO ()
 wait seconds = threadDelay $ round (seconds * 1000000)
+
+waitFor :: Int -> IO Bool -> IO ()
+waitFor n predicate = case n of
+  0 -> error "waitFor: waited too often"
+  n -> do
+    done <- predicate
+    when (not done) $ do
+      wait 0.1
+      waitFor (n - 1) predicate
