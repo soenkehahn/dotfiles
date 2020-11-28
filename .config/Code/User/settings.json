@@ -168,6 +168,24 @@
                 "workbench.action.showCommands"
             ]
         },
+        {
+            "before": [
+                "<leader>",
+                "c"
+            ],
+            "commands": [
+                "workbench.action.nextEditor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "l"
+            ],
+            "commands": [
+                "workbench.action.previousEditor"
+            ]
+        },
     ],
     "window.zoomLevel": 0,
     "python.formatting.provider": "black",
