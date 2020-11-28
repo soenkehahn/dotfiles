@@ -74,8 +74,8 @@ packages =
   "geeqie" :
   "gimp" :
   "gist" :
-  "git" :
   "git-cola" :
+  "git" :
   "gitg" :
   "gitk" :
   "golang" :
@@ -117,8 +117,8 @@ packages =
   "mkvtoolnix" :
   "mosh" :
   "mplayer" :
-  "nethogs" :
   "net-tools" :
+  "nethogs" :
   "numlockx" :
   "okteta" :
   "okular" :
@@ -126,6 +126,7 @@ packages =
   "openssh-server" :
   "openvpn" :
   "pavucontrol" :
+  "pdftk" :
   "php-cli" :
   "pm-utils" :
   "postgresql-client" :
