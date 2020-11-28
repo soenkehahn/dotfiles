@@ -2,8 +2,15 @@ with (import ./nixpkgs.nix);
 stable.buildEnv {
   name = "shahn_nix_executables";
   paths = (
-    (with stable; [
+    (with (np "1cafe467b1b" "04qwnvx31x3d8mibyvjvj5n2y1cw367r3hyw5pdak0r91gzf1185"); [
+      # node 8
+    ]) ++
+    (with (np "1ac2c6b054a257ed7c849b7dea7ebcb7045e1f59" "1jz3vvl1fvkjgyhr4r22mglp5zld3zfnvmlxb2xgprgixz3pw6g9"); [
+      # node 10
+    ]) ++
+    (with (np "fccf069" "0if0n2gy0s46q078qg4xrzyq3fz1an888plgdp1hhs1bz7c8mh9x"); [
       ag
+      age
       blackbox
       cabal2nix
       docker-compose
@@ -11,22 +18,13 @@ stable.buildEnv {
       fzf
       ipfs
       ngrok
-      pandoc
-      terraform
-      unison
-    ]) ++
-    (with (np "fd2b2b5cd56" "0jgy1dplp007la5waknrijzxh6ql88lbigyr7q8n9m7n92x736l9"); [
-      bat
-      broot
-    ]) ++
-    (with (np "d8a57e3614c" "03nakvzsg9flmd0dlixff87bl9grk95nwa6pj6n69qadapk14y3s"); [
-      just
-    ]) ++
-    (with (np "5c8c62902" "1y81iizb2y57x3h02y8sr0dcqqx5sc3411b8xwx0czlc9kswimm3"); [
       nodejs
       nodePackages.parcel-bundler
       nodePackages.prettier
-      signal-desktop
+      ormolu
+      pandoc
+      terraform
+      unison
       yarn
     ]) ++
     [
@@ -36,10 +34,8 @@ stable.buildEnv {
       (import ./el.nix)
       (import ./i3-lock-and-suspend.nix)
       (import ./i3-pretty-tree.nix)
-      (import ./rustup.nix)
       (import ./sensei.nix)
       (import ./sl.nix)
-      (import ./toast.nix)
     ]
   );
 }
