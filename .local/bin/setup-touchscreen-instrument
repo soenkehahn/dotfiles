@@ -1,6 +1,7 @@
 #!/usr/bin/env stack
 {- stack script --resolver nightly-2020-08-01
   --package aeson
+  --package directory
   --package explicit-exception
   --package getopt-generics
   --package jack
@@ -30,6 +31,7 @@ import           Sound.JACK
 import           Sound.JACK.Exception
 import           System.Posix.Signals
 import           System.Process
+import           System.Directory
 import           WithCli
 
 data ProcessPool = ProcessPool {
@@ -76,10 +78,12 @@ data Args
 main :: IO ()
 main = withCli $ \ args -> do
   if selfCheck args
-    then putStrLn "checked!"
+    then do
+      putStrLn "checked!"
     else do
       pool <- setupProcessPool
       activateMonitor
+      checkTouchdevicePermissions
       startJack pool
       spawn pool "a2jmidid" ["-e"]
       startInstrument pool
@@ -87,6 +91,17 @@ main = withCli $ \ args -> do
       wait 5
       connectPorts pool
       waitUntilExit pool
+
+checkTouchdevicePermissions :: IO ()
+checkTouchdevicePermissions = do
+  let path = "/dev/input/by-id/usb-ILITEK_Multi-Touch-V5100-event-if00"
+  exists <- System.Directory.doesFileExist path
+  when (not exists) $ do
+    error (path ++ " does not exist")
+  permissions <- getPermissions path
+  when (not (readable permissions)) $ do
+    error $ path ++ " is not readable. Please run:\n" ++
+      "sudo chmod o+r /dev/input/by-id/usb-ILITEK_Multi-Touch-V5100-event-if00"
 
 activateMonitor :: IO ()
 activateMonitor = do
