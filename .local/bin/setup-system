@@ -74,8 +74,8 @@ packages =
   "geeqie" :
   "gimp" :
   "gist" :
-  "git-cola" :
   "git" :
+  "git-cola" :
   "gitg" :
   "gitk" :
   "golang" :
@@ -117,8 +117,8 @@ packages =
   "mkvtoolnix" :
   "mosh" :
   "mplayer" :
-  "net-tools" :
   "nethogs" :
+  "net-tools" :
   "numlockx" :
   "okteta" :
   "okular" :
@@ -134,6 +134,7 @@ packages =
   "pv" :
   "pwgen" :
   "python3-pip" :
+  "rar" :
   "redshift" :
   "renameutils" :
   "ri-li" :
