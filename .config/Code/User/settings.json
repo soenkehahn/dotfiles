@@ -1,165 +1,164 @@
 {
-    "[haskell]": {
-        "editor.defaultFormatter": "haskell.haskell"
+  "[haskell]": {
+    "editor.defaultFormatter": "haskell.haskell"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "breadcrumbs.enabled": true,
+  "editor.autoClosingBrackets": "never",
+  "editor.autoClosingOvertype": "never",
+  "editor.autoClosingQuotes": "never",
+  "editor.cursorBlinking": "solid",
+  "editor.fontSize": 11,
+  "editor.formatOnSave": true,
+  "editor.highlightActiveIndentGuide": false,
+  "editor.hover.enabled": false,
+  "editor.lightbulb.enabled": false,
+  "editor.minimap.enabled": false,
+  "editor.occurrencesHighlight": false,
+  "editor.parameterHints.enabled": false,
+  "editor.renderLineHighlight": "none",
+  "editor.renderWhitespace": "boundary",
+  "editor.selectionHighlight": false,
+  "editor.suggest.showTypeParameters": false,
+  "editor.tabSize": 2,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.watcherExclude": {
+    "**/.ammonite": true,
+    "**/.bloop": true,
+    "**/.metals": true
+  },
+  "git.ignoreMissingGitWarning": true,
+  "haskell.hlintOn": false,
+  "keyboard.dispatch": "keyCode",
+  "python.formatting.blackPath": "/usr/bin/black",
+  "python.formatting.provider": "black",
+  "python.pythonPath": "/usr/bin/python3",
+  "rust-analyzer.cargo.allFeatures": true,
+  "rust-analyzer.cargoRunner": "foo",
+  "rust-analyzer.completion.addCallArgumentSnippets": false,
+  "rust-analyzer.completion.addCallParenthesis": false,
+  "rust-analyzer.completion.autoimport.enable": false,
+  "rust-analyzer.completion.postfix.enable": false,
+  "rust-analyzer.hoverActions.debug": false,
+  "rust-analyzer.hoverActions.enable": false,
+  "rust-analyzer.hoverActions.gotoTypeDef": false,
+  "rust-analyzer.hoverActions.implementations": false,
+  "rust-analyzer.hoverActions.linksInHover": false,
+  "rust-analyzer.hoverActions.run": false,
+  "rust-analyzer.inlayHints.chainingHints": false,
+  "rust-analyzer.inlayHints.enable": false,
+  "rust-analyzer.inlayHints.parameterHints": false,
+  "rust-analyzer.inlayHints.typeHints": false,
+  "rust-analyzer.lens.debug": false,
+  "rust-analyzer.lens.enable": false,
+  "rust-analyzer.lens.implementations": false,
+  "rust-analyzer.lens.run": false,
+  "rust-analyzer.server.extraEnv": {
+    "CARGO_TARGET_DIR": "target/rust-analyzer"
+  },
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "terminal.integrated.fontSize": 10,
+  "vim.leader": "h",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "."],
+      "commands": ["breadcrumbs.focusAndSelect"]
     },
-    "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
+    {
+      "before": ["<leader>", ","],
+      "commands": ["breadcrumbs.focus"]
     },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    {
+      "before": ["<leader>", "k"],
+      "commands": ["editor.action.commentLine"]
     },
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    {
+      "before": ["<leader>", "h"],
+      "commands": ["editor.action.marker.nextInFiles"]
     },
-    "[jsonc]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    {
+      "before": ["<leader>", "g"],
+      "commands": ["editor.action.revealDefinition"]
     },
-    "breadcrumbs.enabled": true,
-    "editor.autoClosingBrackets": "never",
-    "editor.autoClosingOvertype": "never",
-    "editor.autoClosingQuotes": "never",
-    "editor.cursorBlinking": "solid",
-    "editor.fontSize": 11,
-    "editor.formatOnSave": true,
-    "editor.highlightActiveIndentGuide": false,
-    "editor.hover.enabled": false,
-    "editor.lightbulb.enabled": false,
-    "editor.minimap.enabled": false,
-    "editor.occurrencesHighlight": false,
-    "editor.parameterHints.enabled": false,
-    "editor.renderLineHighlight": "none",
-    "editor.renderWhitespace": "boundary",
-    "editor.selectionHighlight": false,
-    "editor.suggest.showTypeParameters": false,
-    "editor.tabSize": 2,
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "files.trimTrailingWhitespace": true,
-    "files.watcherExclude": {
-        "**/.ammonite": true,
-        "**/.bloop": true,
-        "**/.metals": true
+    {
+      "before": ["<leader>", "n"],
+      "commands": ["explorer.newFile"]
     },
-    "git.ignoreMissingGitWarning": true,
-    "haskell.hlintOn": false,
-    "keyboard.dispatch": "keyCode",
-    "prettier.tabWidth": 4,
-    "python.formatting.blackPath": "/usr/bin/black",
-    "python.formatting.provider": "black",
-    "python.pythonPath": "/usr/bin/python3",
-    "rust-analyzer.cargo.allFeatures": true,
-    "rust-analyzer.cargoRunner": "foo",
-    "rust-analyzer.completion.addCallArgumentSnippets": false,
-    "rust-analyzer.completion.addCallParenthesis": false,
-    "rust-analyzer.completion.autoimport.enable": false,
-    "rust-analyzer.completion.postfix.enable": false,
-    "rust-analyzer.hoverActions.debug": false,
-    "rust-analyzer.hoverActions.enable": false,
-    "rust-analyzer.hoverActions.gotoTypeDef": false,
-    "rust-analyzer.hoverActions.implementations": false,
-    "rust-analyzer.hoverActions.linksInHover": false,
-    "rust-analyzer.hoverActions.run": false,
-    "rust-analyzer.inlayHints.chainingHints": false,
-    "rust-analyzer.inlayHints.enable": false,
-    "rust-analyzer.inlayHints.parameterHints": false,
-    "rust-analyzer.inlayHints.typeHints": false,
-    "rust-analyzer.lens.debug": false,
-    "rust-analyzer.lens.enable": false,
-    "rust-analyzer.lens.implementations": false,
-    "rust-analyzer.lens.run": false,
-    "rust-analyzer.server.extraEnv": {
-        "CARGO_TARGET_DIR": "target/rust-analyzer"
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.closeActiveEditor"]
     },
-    "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false,
-    "terminal.integrated.fontSize": 10,
-    "vim.leader": "h",
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": ["<leader>", "."],
-            "commands": ["breadcrumbs.focusAndSelect"]
-        },
-        {
-            "before": ["<leader>", ","],
-            "commands": ["breadcrumbs.focus"]
-        },
-        {
-            "before": ["<leader>", "k"],
-            "commands": ["editor.action.commentLine"]
-        },
-        {
-            "before": ["<leader>", "h"],
-            "commands": ["editor.action.marker.nextInFiles"]
-        },
-        {
-            "before": ["<leader>", "g"],
-            "commands": ["editor.action.revealDefinition"]
-        },
-        {
-            "before": ["<leader>", "n"],
-            "commands": ["explorer.newFile"]
-        },
-        {
-            "before": ["<leader>", "w"],
-            "commands": ["workbench.action.closeActiveEditor"]
-        },
-        {
-            "before": ["<leader>", "a"],
-            "commands": ["workbench.action.files.saveFiles"]
-        },
-        {
-            "before": ["<leader>", "v"],
-            "commands": ["workbench.action.navigateBack"]
-        },
-        {
-            "before": ["<leader>", "c"],
-            "commands": ["workbench.action.nextEditor"]
-        },
-        {
-            "before": ["<leader>", "l"],
-            "commands": ["workbench.action.previousEditor"]
-        },
-        {
-            "before": ["<leader>", "o"],
-            "commands": ["workbench.action.quickOpen"]
-        },
-        {
-            "before": ["<leader>", "p"],
-            "commands": ["workbench.action.showCommands"]
-        }
-    ],
-    "vim.useSystemClipboard": true,
-    "vim.visualModeKeyBindingsNonRecursive": [
-        {
-            "before": ["<leader>", "k"],
-            "commands": ["editor.action.commentLine"]
-        },
-        {
-            "before": ["<leader>", "h"],
-            "commands": ["editor.action.marker.nextInFiles"]
-        },
-        {
-            "before": ["<leader>", "p"],
-            "commands": ["workbench.action.showCommands"]
-        },
-        {
-            "before": ["<leader>", "c"],
-            "commands": ["workbench.action.nextEditor"]
-        },
-        {
-            "before": ["<leader>", "l"],
-            "commands": ["workbench.action.previousEditor"]
-        }
-    ],
-    "window.menuBarVisibility": "toggle",
-    "window.zoomLevel": 0,
-    "workbench.colorTheme": "Sorcerer",
-    "workbench.editor.enablePreview": false,
-    "workbench.editorAssociations": [
-        {
-            "filenamePattern": "*.ipynb",
-            "viewType": "jupyter.notebook.ipynb"
-        }
-    ],
-    "workbench.startupEditor": "newUntitledFile"
+    {
+      "before": ["<leader>", "a"],
+      "commands": ["workbench.action.files.saveFiles"]
+    },
+    {
+      "before": ["<leader>", "v"],
+      "commands": ["workbench.action.navigateBack"]
+    },
+    {
+      "before": ["<leader>", "c"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["<leader>", "o"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "p"],
+      "commands": ["workbench.action.showCommands"]
+    }
+  ],
+  "vim.useSystemClipboard": true,
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "k"],
+      "commands": ["editor.action.commentLine"]
+    },
+    {
+      "before": ["<leader>", "h"],
+      "commands": ["editor.action.marker.nextInFiles"]
+    },
+    {
+      "before": ["<leader>", "p"],
+      "commands": ["workbench.action.showCommands"]
+    },
+    {
+      "before": ["<leader>", "c"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "commands": ["workbench.action.previousEditor"]
+    }
+  ],
+  "window.menuBarVisibility": "toggle",
+  "window.zoomLevel": 0,
+  "workbench.colorTheme": "Sorcerer",
+  "workbench.editor.enablePreview": false,
+  "workbench.editorAssociations": [
+    {
+      "filenamePattern": "*.ipynb",
+      "viewType": "jupyter.notebook.ipynb"
+    }
+  ],
+  "workbench.startupEditor": "newUntitledFile"
 }
