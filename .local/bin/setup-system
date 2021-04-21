@@ -126,7 +126,7 @@ packages =
   "openssh-server" :
   "openvpn" :
   "pavucontrol" :
-  "pdftk" :
+  "pdftk-java" :
   "php-cli" :
   "pm-utils" :
   "postgresql-client" :

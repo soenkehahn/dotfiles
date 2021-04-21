@@ -9,6 +9,8 @@ stable.buildEnv {
       # node 10
     ]) ++
     (with (np "fccf069" "0if0n2gy0s46q078qg4xrzyq3fz1an888plgdp1hhs1bz7c8mh9x"); [
+    ]) ++
+    (with (np "42aad3948cd" "1kml10ri1ka9z7n5z8i694l04ym2rczyg25avvn51y2yfcxjh85v"); [
       ag
       age
       blackbox
@@ -24,7 +26,6 @@ stable.buildEnv {
       ormolu
       pandoc
       terraform
-      unison
       yarn
     ]) ++
     [
