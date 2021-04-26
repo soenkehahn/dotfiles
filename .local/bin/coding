@@ -76,16 +76,15 @@ fn run() -> R<()> {
     i3_msg("split toggle")?;
     i3_msg("layout tabbed")?;
     i3_msg("focus right")?;
-    wait_for_change(&format!("exec konsole --workdir {}", pwd))?;
+    wait_for_change(&i3_terminal_command(None)?)?;
     i3_msg("split toggle")?;
     i3_msg("layout splith")?;
-    wait_for_change(&format!("exec konsole --workdir {} -e git-watch-tree", pwd))?;
+    wait_for_change(&i3_terminal_command(Some("git-watch-tree"))?)?;
     i3_msg("split toggle")?;
     i3_msg("layout splitv")?;
-    wait_for_change(&format!(
-        "exec konsole --workdir {} -e 'watch --color git -c color.ui=always status'",
-        pwd
-    ))?;
+    wait_for_change(&i3_terminal_command(Some(
+        "watch --color git -c color.ui=always status",
+    ))?)?;
     i3_msg("focus left")?;
     i3_msg("focus left")?;
     i3_msg("split toggle")?;
@@ -96,14 +95,25 @@ fn run() -> R<()> {
     i3_msg("focus right")?;
     i3_msg("split toggle")?;
     i3_msg("layout splitv")?;
-    wait_for_change(&format!("exec konsole --workdir {}", pwd))?;
+    wait_for_change(&i3_terminal_command(None)?)?;
     i3_msg("focus left")?;
     i3_msg("split toggle")?;
     i3_msg("layout stacked")?;
-    wait_for_change(&format!("exec konsole --workdir {}", pwd))?;
+    wait_for_change(&i3_terminal_command(None)?)?;
     i3_msg("move up")?;
     i3_msg("focus down")?;
     // to make git-watch-tree rerender in resized terminal window
     run_command("touch", vec![".git/HEAD"])?;
     Ok(())
+}
+
+const TERMINAL_COMMAND: &str = "gnome-terminal";
+
+fn i3_terminal_command(command: Option<&str>) -> R<String> {
+    let pwd = run_command("pwd", vec![])?;
+    let mut result = format!("exec {} --working-directory {}", TERMINAL_COMMAND, pwd);
+    if let Some(command) = command {
+        result.push_str(&format!(" -e '{}'", command));
+    }
+    Ok(result)
 }

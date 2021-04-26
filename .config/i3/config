@@ -20,7 +20,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+r exec konsole
+bindsym $mod+r exec gnome-terminal
 bindsym $mod+t exec firefox
 
 # kill focused window

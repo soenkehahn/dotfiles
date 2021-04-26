@@ -78,6 +78,7 @@ packages =
   "git-cola" :
   "gitg" :
   "gitk" :
+  "gnome-terminal" :
   "golang" :
   "gparted" :
   "graphviz" :
@@ -93,7 +94,6 @@ packages =
   "kcolorchooser" :
   "kig" :
   "kmag" :
-  "konsole" :
   "krita" :
   "kruler" :
   "krusader" :
