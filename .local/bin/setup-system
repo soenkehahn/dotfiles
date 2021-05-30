@@ -1,4 +1,5 @@
 #!/usr/bin/env stack
+
 {-
 stack script
 --resolver lts-13.29 --install-ghc
@@ -10,9 +11,9 @@ stack script
   --package shake
   --package split
 -}
-{-# OPTIONS_GHC -Wall -Werror #-}
-{-# LANGUAGE ViewPatterns #-}
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE ViewPatterns #-}
+{-# OPTIONS_GHC -Wall -Werror #-}
 
 import Control.Arrow
 import Data.List
@@ -22,8 +23,8 @@ import Development.Shake hiding (doesFileExist, getEnv)
 import Safe
 import System.Directory
 import System.Environment
-import qualified System.Logging.Facade as Log
 import System.FilePath
+import qualified System.Logging.Facade as Log
 
 main :: IO ()
 main = do
@@ -35,9 +36,10 @@ main = do
 
 buildNixExecutables :: FilePath -> IO ()
 buildNixExecutables homeDir = do
-  unit $ cmd
-    (Cwd (homeDir </> ".local/shahn_nix_executables"))
-    "./build.sh"
+  unit $
+    cmd
+      (Cwd (homeDir </> ".local/shahn_nix_executables"))
+      "./build.sh"
 
 upgradeStack :: IO ()
 upgradeStack = do
@@ -174,6 +176,8 @@ getInstalledPackages = do
   return $ parse output
   where
     parse =
-      lines >>>
-      map (stripPrefix "ii  ") >>>
-      catMaybes >>> map (splitOneOf " :" >>> headMay) >>> catMaybes
+      lines
+        >>> map (stripPrefix "ii  ")
+        >>> catMaybes
+        >>> map (splitOneOf " :" >>> headMay)
+        >>> catMaybes
