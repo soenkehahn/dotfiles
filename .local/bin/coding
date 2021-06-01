@@ -1,55 +1,48 @@
 #!/usr/bin/env rust-script
+//! ```cargo
+//! [dependencies]
+//! cradle = "=0.0.0"
+//! ```
 
-use std::process::Command;
+use cradle::*;
 use std::thread::sleep;
 use std::time::Duration;
 
-type R<A> = Result<A, Box<dyn std::error::Error>>;
-
-fn wait_for<F>(f: F) -> R<()>
+fn wait_for<F>(f: F)
 where
-    F: Fn() -> R<bool>,
+    F: Fn() -> bool,
 {
     let mut done = false;
     while !done {
-        done = f()?;
-        sleep(Duration::from_millis(50));
+        done = f();
+        sleep(Duration::from_secs_f32(0.05));
     }
-    Ok(())
 }
 
-fn wait_for_change(i3_command: &str) -> R<()> {
-    let old = get_active_window()?;
-    i3_msg(i3_command)?;
+fn wait_for_change(i3_command: &str) {
+    let old = get_active_window();
+    i3_msg(i3_command);
     println!("waiting for {}...", i3_command);
     wait_for(|| {
-        let new = get_active_window()?;
-        Ok(new != old)
-    })?;
-    Ok(())
+        let new = get_active_window();
+        new != old
+    });
+    sleep(Duration::from_secs_f32(0.1));
 }
 
-fn get_active_window() -> R<String> {
-    run_command("xdotool", vec!["getactivewindow"])
+fn get_active_window() -> String {
+    let StdoutTrimmed(window) = cmd!("xdotool getactivewindow");
+    window
 }
 
-fn run_command(command: &str, args: Vec<&str>) -> R<String> {
-    Ok(
-        String::from_utf8(Command::new(command).args(args).output()?.stdout)?
-            .trim()
-            .to_string(),
-    )
-}
-
-fn i3_msg(command: &str) -> R<()> {
-    let result = run_command("i3-msg", vec![command])?;
+fn i3_msg(command: &str) {
+    let StdoutTrimmed(result) = cmd!("i3-msg", vec![command]);
     if result != "[{\"success\":true}]" {
         panic!("{:#?}", result);
     }
-    Ok(())
 }
 
-fn check_args() -> R<()> {
+fn check_args() -> Result<(), String> {
     let mut args = std::env::args();
     args.next();
     let args: Vec<String> = args.collect();
@@ -60,60 +53,59 @@ fn check_args() -> R<()> {
 }
 
 fn main() {
-    if let Err(error) = run() {
+    if let Err(error) = check_args() {
         eprintln!("{}", error);
         std::process::exit(1);
     }
+    run()
 }
 
-fn run() -> R<()> {
-    check_args()?;
-    let pwd = run_command("pwd", vec![])?;
+fn run() {
+    let StdoutTrimmed(pwd) = cmd!("pwd");
 
-    i3_msg("layout tabbed")?;
-    wait_for_change("exec firefox")?;
-    i3_msg("move left")?;
-    i3_msg("split toggle")?;
-    i3_msg("layout tabbed")?;
-    i3_msg("focus right")?;
-    wait_for_change(&i3_terminal_command(None)?)?;
-    i3_msg("split toggle")?;
-    i3_msg("layout splith")?;
-    wait_for_change(&i3_terminal_command(Some("git-watch-tree"))?)?;
-    i3_msg("split toggle")?;
-    i3_msg("layout splitv")?;
+    i3_msg("layout tabbed");
+    wait_for_change("exec firefox");
+    i3_msg("move left");
+    i3_msg("split toggle");
+    i3_msg("layout tabbed");
+    i3_msg("focus right");
+    wait_for_change(&i3_terminal_command(None));
+    i3_msg("split toggle");
+    i3_msg("layout splith");
+    wait_for_change(&i3_terminal_command(Some("git-watch-tree")));
+    i3_msg("split toggle");
+    i3_msg("layout splitv");
     wait_for_change(&i3_terminal_command(Some(
         "watch --color git -c color.ui=always status",
-    ))?)?;
-    i3_msg("focus left")?;
-    i3_msg("focus left")?;
-    i3_msg("split toggle")?;
-    i3_msg("layout splith")?;
-    wait_for_change(&format!("exec code -n {}", pwd))?;
-    i3_msg("move left")?;
-    i3_msg("resize set 60 ppt 0")?;
-    i3_msg("focus right")?;
-    i3_msg("split toggle")?;
-    i3_msg("layout splitv")?;
-    wait_for_change(&i3_terminal_command(None)?)?;
-    i3_msg("focus left")?;
-    i3_msg("split toggle")?;
-    i3_msg("layout stacked")?;
-    wait_for_change(&i3_terminal_command(None)?)?;
-    i3_msg("move up")?;
-    i3_msg("focus down")?;
+    )));
+    i3_msg("focus left");
+    i3_msg("focus left");
+    i3_msg("split toggle");
+    i3_msg("layout splith");
+    wait_for_change(&format!("exec code -n {}", pwd));
+    i3_msg("move left");
+    i3_msg("resize set 60 ppt 0");
+    i3_msg("focus right");
+    i3_msg("split toggle");
+    i3_msg("layout splitv");
+    wait_for_change(&i3_terminal_command(None));
+    i3_msg("focus left");
+    i3_msg("split toggle");
+    i3_msg("layout stacked");
+    wait_for_change(&i3_terminal_command(None));
+    i3_msg("move up");
+    i3_msg("focus down");
     // to make git-watch-tree rerender in resized terminal window
-    run_command("touch", vec![".git/HEAD"])?;
-    Ok(())
+    cmd_unit!("touch .git/HEAD");
 }
 
 const TERMINAL_COMMAND: &str = "gnome-terminal";
 
-fn i3_terminal_command(command: Option<&str>) -> R<String> {
-    let pwd = run_command("pwd", vec![])?;
+fn i3_terminal_command(command: Option<&str>) -> String {
+    let StdoutTrimmed(pwd) = cmd!("pwd");
     let mut result = format!("exec {} --working-directory {}", TERMINAL_COMMAND, pwd);
     if let Some(command) = command {
         result.push_str(&format!(" -e '{}'", command));
     }
-    Ok(result)
+    result
 }
