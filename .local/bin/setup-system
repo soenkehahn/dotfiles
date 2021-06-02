@@ -1,5 +1,4 @@
 #!/usr/bin/env stack
-
 {-
 stack script
 --resolver lts-13.29 --install-ghc
@@ -16,12 +15,13 @@ stack script
 {-# OPTIONS_GHC -Wall -Werror #-}
 
 import Control.Arrow
+import Data.Foldable
 import Data.List
 import Data.List.Split
 import Data.Maybe
 import Development.Shake hiding (doesFileExist, getEnv)
 import Safe
-import System.Directory
+import System.Directory (setCurrentDirectory)
 import System.Environment
 import System.FilePath
 import qualified System.Logging.Facade as Log
@@ -33,6 +33,7 @@ main = do
   buildNixExecutables homeDir
   upgradeStack
   installAptPackages
+  installRustExecutables
 
 buildNixExecutables :: FilePath -> IO ()
 buildNixExecutables homeDir = do
@@ -181,3 +182,31 @@ getInstalledPackages = do
         >>> catMaybes
         >>> map (splitOneOf " :" >>> headMay)
         >>> catMaybes
+
+installRustExecutables :: IO ()
+installRustExecutables = do
+  forM_ rustExecutables $ \(executable, features) -> do
+    unit $ cmd "cargo install" executable (toFeatureFlags features)
+  where
+    toFeatureFlags featureMaybe = case featureMaybe of
+      Nothing -> ""
+      Just feature -> "--features " ++ feature
+
+rustExecutables :: [(String, Maybe String)]
+rustExecutables =
+  map (\ crate -> (crate, Nothing)) withoutFeatures ++
+  ("nu", Just "extra") :
+  []
+  where
+    withoutFeatures =
+      "cargo-audit" :
+      "cargo-edit" :
+      "cargo-expand" :
+      "cargo-lichking" :
+      "cargo-outdated" :
+      "cargo-release" :
+      "cargo-watch" :
+      "cargo-whatfeatures" :
+      "just" :
+      "tracetree" :
+      []
