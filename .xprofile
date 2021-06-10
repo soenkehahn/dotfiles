@@ -1,4 +1,4 @@
 # gnome keyring daemon
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
-xsetroot -solid '#f10064'
+xsetroot -solid '#222222'
