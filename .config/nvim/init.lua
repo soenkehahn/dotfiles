@@ -7,6 +7,7 @@ local opt = vim.opt -- to set options
 cmd('packadd paq-nvim')
 require "paq" {
   "savq/paq-nvim";
+  "cespare/vim-toml";
   "akinsho/nvim-bufferline.lua";
   "junegunn/fzf";
   "junegunn/fzf.vim";
