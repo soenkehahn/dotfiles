@@ -3,7 +3,7 @@ local fn = vim.fn -- to call Vim functions e.g. fn.bufnr()
 local g = vim.g -- a table to access global variables
 local opt = vim.opt -- to set options
 
-g["mapleader"] = "h"
+g.mapleader = "h"
 local function map(mode, lhs, rhs, opts)
   local options = {noremap = true}
   if opts then options = vim.tbl_extend('force', options, opts) end
@@ -16,6 +16,8 @@ require "paq" {
   "tiagovla/tokyodark.nvim";
   "kyazdani42/nvim-web-devicons";
   "akinsho/nvim-bufferline.lua";
+  "junegunn/fzf";
+  "junegunn/fzf.vim";
 }
 cmd('PaqSync')
 
@@ -32,6 +34,9 @@ require("bufferline").setup{
 map("", "<leader>l", ":BufferLineCyclePrev<CR>")
 map("", "<leader>c", ":BufferLineCycleNext<CR>")
 map("", "<leader>w", ":bd<CR>")
+
+-- opening files
+map("", "<leader>o", ":GFiles<CR>")
 
 -- other stuff
 opt.expandtab = true
