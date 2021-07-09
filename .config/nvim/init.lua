@@ -14,7 +14,6 @@ require "paq" {
   "tiagovla/tokyodark.nvim";
   "bogado/file-line";
 }
-cmd('PaqSync')
 
 -- leader
 g.mapleader = "h"
