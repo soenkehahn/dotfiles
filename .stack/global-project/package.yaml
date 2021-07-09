@@ -6,10 +6,8 @@ dependencies:
   - basement
   - cassava
   - Chart
-  - Chart-diagrams
   - conduit
   - containers
-  - diagrams
   - foundation
   - generics-eot
   - getopt-generics
@@ -34,5 +32,5 @@ dependencies:
   - yesod
 
 executables:
-  dummy:
-    main: dummy.hs
+  main:
+    main: main.hs
