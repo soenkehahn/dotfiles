@@ -3,23 +3,26 @@ local fn = vim.fn -- to call Vim functions e.g. fn.bufnr()
 local g = vim.g -- a table to access global variables
 local opt = vim.opt -- to set options
 
+-- plugins
+cmd 'packadd paq-nvim' -- load the package manager
+require "paq" {
+  "savq/paq-nvim"; -- Let Paq manage itself
+  "akinsho/nvim-bufferline.lua";
+  "junegunn/fzf";
+  "junegunn/fzf.vim";
+  "kyazdani42/nvim-web-devicons";
+  "tiagovla/tokyodark.nvim";
+  "bogado/file-line";
+}
+cmd('PaqSync')
+
+-- leader
 g.mapleader = "h"
 local function map(mode, lhs, rhs, opts)
   local options = {noremap = true}
   if opts then options = vim.tbl_extend('force', options, opts) end
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
-
-cmd 'packadd paq-nvim' -- load the package manager
-require "paq" {
-  "savq/paq-nvim"; -- Let Paq manage itself
-  "tiagovla/tokyodark.nvim";
-  "kyazdani42/nvim-web-devicons";
-  "akinsho/nvim-bufferline.lua";
-  "junegunn/fzf";
-  "junegunn/fzf.vim";
-}
-cmd('PaqSync')
 
 -- style
 cmd('colorscheme tokyodark')
@@ -43,3 +46,4 @@ opt.expandtab = true
 opt.shiftwidth = 2
 opt.list = true
 opt.termguicolors = true
+opt.hidden = true
