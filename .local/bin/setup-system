@@ -200,13 +200,18 @@ rustExecutables =
   where
     withoutFeatures =
       "cargo-audit" :
+      "cargo-deps" :
       "cargo-edit" :
       "cargo-expand" :
+      "cargo-geiger" :
       "cargo-lichking" :
       "cargo-outdated" :
       "cargo-release" :
+      "cargo-udeps" :
       "cargo-watch" :
       "cargo-whatfeatures" :
+      "clog-cli" :
       "just" :
+      "lsd" :
       "tracetree" :
       []
