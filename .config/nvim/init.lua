@@ -3,6 +3,15 @@ local fn = vim.fn -- to call Vim functions e.g. fn.bufnr()
 local g = vim.g -- a table to access global variables
 local opt = vim.opt -- to set options
 
+-- options
+opt.expandtab = true
+opt.shiftwidth = 2
+opt.list = true
+opt.termguicolors = true
+opt.hidden = true
+opt.ignorecase = true
+opt.smartcase = true
+
 -- plugins
 cmd('packadd paq-nvim')
 require "paq" {
@@ -14,6 +23,7 @@ require "paq" {
   "Yagua/nebulous.nvim";
   "bogado/file-line";
   "vim-autoformat/vim-autoformat";
+  "preservim/nerdcommenter";
 }
 
 -- leader
@@ -47,9 +57,7 @@ cmd("autocmd BufWrite * :Autoformat")
 -- command palette
 map("", "<leader>p", ":Commands<CR>")
 
--- other stuff
-opt.expandtab = true
-opt.shiftwidth = 2
-opt.list = true
-opt.termguicolors = true
-opt.hidden = true
+-- commenting
+cmd("filetype plugin on")
+g.NERDCreateDefaultMappings = 0
+map("", "<leader>k", ":call NERDComment('n', 'Toggle')<CR>")
