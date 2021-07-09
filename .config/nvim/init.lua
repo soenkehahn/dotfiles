@@ -56,6 +56,7 @@ cmd("autocmd BufWrite * :Autoformat")
 
 -- command palette
 map("", "<leader>p", ":Commands<CR>")
+map("", "<leader>r", ":History:<CR>")
 
 -- commenting
 cmd("filetype plugin on")
