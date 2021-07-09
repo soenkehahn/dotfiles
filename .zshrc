@@ -146,9 +146,27 @@ alias a='atom . -n \&'
 alias yell="kdialog --msgbox 'YELL!!!'"
 
 alias isrunning='pgrep -a'
+alias mp='mplayer -af scaletempo -ao jack -volume 80'
+inkscape() {
+  /usr/bin/inkscape $@ \&
+}
+okular() {
+  /usr/bin/okular $@ \&
+}
 
 export N_PREFIX=$HOME/.local
 REPORTTIME=60
 
 source ~/.fzf.zsh
 source ~/.xsessionrc
+
+function htop-pgrep {
+  local pattern="$1"
+  local pids="$(pgrep -f "$pattern" | tr '\n' ',' | sed 's/.$//')"
+  if [[ -n "$pids" ]]; then
+    htop -p "$pids"
+  else
+    echo no process matching: "$pattern"
+    return 1
+  fi
+}
