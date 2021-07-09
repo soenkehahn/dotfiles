@@ -81,7 +81,7 @@ local WORDCHARS=${WORDCHARS//\//}
 # exec 2>>(while read line; do
 #   print '\e[91m'${(q)line}'\e[0m' > /dev/tty; done &)
 
-export EDITOR=$(which vim)
+export EDITOR=$(which nvim)
 
 export DARCS_ALWAYS_COLOR=1
 export DARCS_DO_COLOR_LINES=1
