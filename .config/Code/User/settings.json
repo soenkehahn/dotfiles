@@ -14,16 +14,27 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[rust]": {
+    "editor.defaultFormatter": "matklad.rust-analyzer"
+  },
   "breadcrumbs.enabled": true,
   "editor.autoClosingBrackets": "never",
   "editor.autoClosingOvertype": "never",
   "editor.autoClosingQuotes": "never",
   "editor.cursorBlinking": "solid",
-  "editor.fontSize": 11,
+  "editor.cursorStyle": "line",
+  "editor.fontFamily": "'Ubuntu Mono Regular', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.fontSize": 12,
   "editor.formatOnSave": true,
   "editor.highlightActiveIndentGuide": false,
   "editor.hover.enabled": false,
+  "editor.hover.sticky": false,
+  "editor.insertSpaces": false,
   "editor.lightbulb.enabled": false,
+  "editor.lineNumbers": "on",
   "editor.minimap.enabled": false,
   "editor.occurrencesHighlight": false,
   "editor.parameterHints.enabled": false,
@@ -31,17 +42,22 @@
   "editor.renderWhitespace": "boundary",
   "editor.selectionHighlight": false,
   "editor.suggest.showTypeParameters": false,
-  "editor.tabSize": 2,
+  "editor.tabSize": 8,
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off",
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "files.watcherExclude": {
     "**/.ammonite": true,
     "**/.bloop": true,
-    "**/.metals": true
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/.metals": true,
+    "**/target/**": true
   },
   "git.ignoreMissingGitWarning": true,
-  "haskell.hlintOn": false,
+  "haskell.plugin.hlint.globalOn": false,
   "keyboard.dispatch": "keyCode",
   "python.formatting.blackPath": "/usr/bin/black",
   "python.formatting.provider": "black",
@@ -67,7 +83,7 @@
   "rust-analyzer.lens.implementations": false,
   "rust-analyzer.lens.run": false,
   "rust-analyzer.server.extraEnv": {
-    "CARGO_TARGET_DIR": "target/rust-analyzer"
+    "CARGO_TARGET_DIR": "rust-analyzer"
   },
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
@@ -151,14 +167,10 @@
     }
   ],
   "window.menuBarVisibility": "toggle",
-  "window.zoomLevel": 0,
   "workbench.colorTheme": "Sorcerer",
   "workbench.editor.enablePreview": false,
-  "workbench.editorAssociations": [
-    {
-      "filenamePattern": "*.ipynb",
-      "viewType": "jupyter.notebook.ipynb"
-    }
-  ],
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
   "workbench.startupEditor": "newUntitledFile"
 }
