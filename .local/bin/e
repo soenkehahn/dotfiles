@@ -1,3 +1,42 @@
-#!/usr/bin/zsh
+#!/usr/bin/env rust-script
+//! ```cargo
+//! [dependencies]
+//! cradle = "=0.0.9"
+//! ```
 
-vim "$@"
+use cradle::*;
+use std::{path::PathBuf, process::Command};
+
+fn main() {
+    let nvim_listen_address = nvim_listen_address();
+
+    if !nvim_listen_address.exists() {
+        Command::new("nvim")
+            .env("NVIM_LISTEN_ADDRESS", nvim_listen_address)
+            .args(std::env::args().skip(1).collect::<Vec<_>>())
+            .spawn()
+            .unwrap()
+            .wait()
+            .unwrap();
+    } else {
+        eprintln!("opening in existing nvim...");
+        Command::new("nvr")
+            .env("NVIM_LISTEN_ADDRESS", nvim_listen_address)
+            .arg("--remote")
+            .args(std::env::args().skip(1).collect::<Vec<_>>())
+            .spawn()
+            .unwrap()
+            .wait()
+            .unwrap();
+    }
+}
+
+fn nvim_listen_address() -> PathBuf {
+    let StdoutTrimmed(mut guarded_pwd) = cmd!("pwd");
+    for char in unsafe { guarded_pwd.as_bytes_mut() }.iter_mut() {
+        if *char == b'/' {
+            *char = b'%';
+        }
+    }
+    PathBuf::from("/tmp").join(format!("nvim_listen_address_{}", guarded_pwd))
+}
