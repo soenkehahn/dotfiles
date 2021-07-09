@@ -44,6 +44,9 @@ map("", "<leader>o", ":GFiles<CR>")
 -- autoformatting
 cmd("autocmd BufWrite * :Autoformat")
 
+-- command palette
+map("", "<leader>p", ":Commands<CR>")
+
 -- other stuff
 opt.expandtab = true
 opt.shiftwidth = 2
