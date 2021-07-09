@@ -26,7 +26,7 @@ bindsym $mod+t exec firefox
 # kill focused window
 bindsym $mod+x kill
 
-bindsym $mod+n exec rofi -show run
+bindsym $mod+n exec rofi -show drun
 bindsym $mod+k exec rofi -show window
 
 ## focus
