@@ -4,14 +4,13 @@ local g = vim.g -- a table to access global variables
 local opt = vim.opt -- to set options
 
 -- plugins
-cmd 'packadd paq-nvim' -- load the package manager
+cmd('packadd paq-nvim')
 require "paq" {
-  "savq/paq-nvim"; -- Let Paq manage itself
+  "savq/paq-nvim";
   "akinsho/nvim-bufferline.lua";
   "junegunn/fzf";
   "junegunn/fzf.vim";
-  "kyazdani42/nvim-web-devicons";
-  "tiagovla/tokyodark.nvim";
+  "Yagua/nebulous.nvim";
   "bogado/file-line";
 }
 
@@ -24,7 +23,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- style
-cmd('colorscheme tokyodark')
+cmd('colorscheme nebulous')
 
 -- tabs
 require("bufferline").setup{
