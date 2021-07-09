@@ -61,8 +61,6 @@ fn main() {
 }
 
 fn run() {
-    let StdoutTrimmed(pwd) = cmd!("pwd");
-
     i3_msg("layout tabbed");
     wait_for_change("exec firefox");
     i3_msg("move left");
@@ -82,9 +80,7 @@ fn run() {
     i3_msg("focus left");
     i3_msg("split toggle");
     i3_msg("layout splith");
-    wait_for_change(&i3_terminal_command(Some(
-        "e .",
-    )));
+    wait_for_change(&i3_terminal_command(Some("e")));
     i3_msg("move left");
     i3_msg("resize set 60 ppt 0");
     i3_msg("focus right");
