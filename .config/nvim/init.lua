@@ -12,6 +12,7 @@ require "paq" {
   "junegunn/fzf.vim";
   "Yagua/nebulous.nvim";
   "bogado/file-line";
+  "vim-autoformat/vim-autoformat";
 }
 
 -- leader
@@ -38,6 +39,9 @@ map("", "<leader>w", ":bd<CR>")
 
 -- opening files
 map("", "<leader>o", ":GFiles<CR>")
+
+-- autoformatting
+cmd("autocmd BufWrite * :Autoformat")
 
 -- other stuff
 opt.expandtab = true
