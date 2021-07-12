@@ -4,13 +4,16 @@ local g = vim.g -- a table to access global variables
 local opt = vim.opt -- to set options
 
 -- options
+opt.cursorline = true
 opt.expandtab = true
-opt.shiftwidth = 2
-opt.list = true
-opt.termguicolors = true
 opt.hidden = true
 opt.ignorecase = true
+opt.list = true
+opt.number = true
+opt.scrolloff = 10
+opt.shiftwidth = 2
 opt.smartcase = true
+opt.termguicolors = true
 
 -- plugins
 cmd('packadd paq-nvim')
@@ -61,4 +64,6 @@ map("", "<leader>r", ":History:<CR>")
 -- commenting
 cmd("filetype plugin on")
 g.NERDCreateDefaultMappings = 0
+g.NERDSpaceDelims = 1
+g.NERDDefaultAlign = false
 map("", "<leader>k", ":call NERDComment('n', 'Toggle')<CR>")
