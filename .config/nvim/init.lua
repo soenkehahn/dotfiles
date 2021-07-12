@@ -18,15 +18,15 @@ opt.termguicolors = true
 -- plugins
 cmd('packadd paq-nvim')
 require "paq" {
-  "savq/paq-nvim";
-  "cespare/vim-toml";
   "akinsho/nvim-bufferline.lua";
+  "bogado/file-line";
+  "cespare/vim-toml";
   "junegunn/fzf";
   "junegunn/fzf.vim";
-  "Yagua/nebulous.nvim";
-  "bogado/file-line";
-  "vim-autoformat/vim-autoformat";
   "preservim/nerdcommenter";
+  "savq/paq-nvim";
+  "vim-autoformat/vim-autoformat";
+  "Yagua/nebulous.nvim";
 }
 
 -- leader
