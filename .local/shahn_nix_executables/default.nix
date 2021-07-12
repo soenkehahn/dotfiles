@@ -18,7 +18,6 @@ stable.buildEnv {
       docker-compose
       fd
       fzf
-      ipfs
       ngrok
       nodejs
       nodePackages.parcel-bundler
@@ -27,6 +26,9 @@ stable.buildEnv {
       pandoc
       terraform
       yarn
+    ]) ++
+    (with (np "15ddd8316a81c32b55b318ea69c97505d27e793b" "1xn8j4gidxalm5ycasjvkhxvvdmx6343pjfyhprp85rw68h8lvix"); [
+      ipfs
     ]) ++
     [
       (import ./atom.nix)
