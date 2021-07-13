@@ -40,7 +40,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- style
-cmd('colorscheme nebulous')
+cmd('colorscheme default')
 
 -- tabs
 require("bufferline").setup{
