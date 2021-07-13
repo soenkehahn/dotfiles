@@ -3,18 +3,6 @@ local fn = vim.fn -- to call Vim functions e.g. fn.bufnr()
 local g = vim.g -- a table to access global variables
 local opt = vim.opt -- to set options
 
--- options
-opt.cursorline = true
-opt.expandtab = true
-opt.hidden = true
-opt.ignorecase = true
-opt.list = true
-opt.number = true
-opt.scrolloff = 10
-opt.shiftwidth = 2
-opt.smartcase = true
-opt.termguicolors = true
-
 -- plugins
 cmd('packadd paq-nvim')
 require "paq" {
@@ -29,6 +17,19 @@ require "paq" {
   "vim-autoformat/vim-autoformat";
   "Yagua/nebulous.nvim";
 }
+
+-- options
+opt.cursorline = true
+opt.expandtab = true
+opt.hidden = true
+opt.ignorecase = true
+opt.list = true
+opt.number = true
+opt.scrolloff = 10
+opt.shiftwidth = 2
+opt.smartcase = true
+opt.termguicolors = true
+g.rust_recommended_style = false
 
 -- leader
 g.mapleader = "h"
@@ -56,7 +57,8 @@ map("", "<leader>w", ":bd<CR>")
 map("", "<leader>o", ":GFiles<CR>")
 
 -- autoformatting
-cmd("autocmd BufWrite * :Autoformat")
+cmd("autocmd BufWritePre * :Autoformat")
+cmd("autocmd FileType conf let b:autoformat_autoindent=0")
 
 -- command palette
 map("", "<leader>p", ":Commands<CR>")
