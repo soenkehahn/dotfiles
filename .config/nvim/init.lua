@@ -23,6 +23,7 @@ require "paq" {
   "cespare/vim-toml";
   "junegunn/fzf";
   "junegunn/fzf.vim";
+  "NoahTheDuke/vim-just";
   "preservim/nerdcommenter";
   "savq/paq-nvim";
   "vim-autoformat/vim-autoformat";
