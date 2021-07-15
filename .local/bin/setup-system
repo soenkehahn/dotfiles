@@ -199,6 +199,7 @@ rustExecutables =
   []
   where
     withoutFeatures =
+      "alacritty" :
       "cargo-audit" :
       "cargo-deps" :
       "cargo-edit" :

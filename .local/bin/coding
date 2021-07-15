@@ -97,13 +97,13 @@ fn run() {
     cmd_unit!(%"touch .git/HEAD");
 }
 
-const TERMINAL_COMMAND: &str = "gnome-terminal";
+const TERMINAL_COMMAND: &str = "alacritty";
 
 fn i3_terminal_command(command: Option<&str>) -> String {
     let StdoutTrimmed(pwd) = cmd!("pwd");
     let mut result = format!("exec {} --working-directory {}", TERMINAL_COMMAND, pwd);
     if let Some(command) = command {
-        result.push_str(&format!(" -e '{}'", command));
+        result.push_str(&format!(" -e {}", command));
     }
     result
 }
