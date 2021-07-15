@@ -59,7 +59,7 @@ map("", "<leader>o", ":GFiles<CR>")
 
 -- autoformatting
 cmd("autocmd BufWritePre * :Autoformat")
-cmd("autocmd FileType conf let b:autoformat_autoindent=0")
+g.autoformat_autoindent = false
 
 -- command palette
 map("", "<leader>p", ":Commands<CR>")
