@@ -214,6 +214,7 @@ rustExecutables =
       "clog-cli" :
       "just" :
       "lsd" :
+      "rust-script" :
       "sd" :
       "tracetree" :
       []
