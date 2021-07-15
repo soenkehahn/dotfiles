@@ -1,0 +1,26 @@
+#!/usr/bin/env rust-script
+//! ```cargo
+//! [dependencies]
+//! cradle = "=0.0.11"
+//! serde_yaml = "=0.8.17"
+//! ```
+
+use cradle::*;
+
+fn main() {
+    let colorscheme = std::env::args().skip(1).next().unwrap();
+    let StdoutUntrimmed(json) = cmd!(
+    %"curl --fail",
+    format!(
+      "https://raw.githubusercontent.com/aarowill/base16-alacritty/master/colors/base16-{}.yml",
+      colorscheme
+      )
+    );
+    let alacritty_config: serde_yaml::Value = serde_yaml::from_str(&json).unwrap();
+    let background_color = alacritty_config["colors"]["primary"]["background"]
+        .as_str()
+        .unwrap()
+        .strip_prefix("0x")
+        .unwrap();
+    cmd_unit!(%"xsetroot -solid", format!("#{}", background_color));
+}

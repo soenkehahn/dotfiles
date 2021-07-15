@@ -9,6 +9,7 @@ require "paq" {
   "akinsho/nvim-bufferline.lua";
   "bogado/file-line";
   "cespare/vim-toml";
+  "chriskempson/base16-vim";
   "junegunn/fzf";
   "junegunn/fzf.vim";
   "NoahTheDuke/vim-just";
@@ -40,7 +41,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- style
-cmd('colorscheme default')
+require("colors")
 
 -- tabs
 require("bufferline").setup{

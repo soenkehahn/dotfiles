@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -eu
+
+numlockx off
+setxkbmap de neo -option
+xmodmap -e "keycode 107 = Super_L"
+xmodmap -e "keycode 36 = ISO_Level3_Shift"
+xmodmap -e "keycode 51 = Return"
+
+# for umlauts on the moonlander
+xmodmap -e "keycode 138 = Multi_key"

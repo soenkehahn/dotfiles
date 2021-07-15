@@ -1,0 +1,25 @@
+#!/usr/bin/env rust-script
+//! ```cargo
+//! [dependencies]
+//! cradle = "=0.0.11"
+//! dirs = "=3.0.2"
+//! ```
+
+use cradle::*;
+use std::fs;
+
+fn main() {
+    let dir = dirs::home_dir().unwrap().join(".config/i3");
+    let colorscheme = std::env::args().skip(1).next().unwrap();
+    let StdoutUntrimmed(colors) = cmd!(
+        %"curl --fail",
+        format!(
+            "https://raw.githubusercontent.com/khamer/base16-i3/master/colors/base16-{}.config",
+            colorscheme
+        )
+    );
+    fs::write(dir.join("colors"), colors).unwrap();
+    let StdoutUntrimmed(config) = cmd!(CurrentDir(&dir), %"php config.php");
+    fs::write(dir.join("config"), config).unwrap();
+    cmd_unit!(%"i3-msg restart");
+}
