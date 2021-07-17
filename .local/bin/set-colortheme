@@ -1,4 +1,4 @@
-#!/usr/bin/env rust-script
+#!/usr/bin/env -S rust-script --cargo-output --
 //! ```cargo
 //! [dependencies]
 //! cradle = "=0.0.11"
@@ -9,7 +9,7 @@ use cradle::*;
 
 fn main() {
     let colortheme = std::env::args().skip(1).next().unwrap();
-    for i in ["alacritty", "i3", "desktop-background", "nvim"] {
+    for i in ["alacritty", "i3", "desktop-background", "nvim", "rofi"] {
         cmd_unit!(
             LogCommand,
             CurrentDir(dirs::home_dir().unwrap()),

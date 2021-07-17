@@ -9,15 +9,14 @@ use cradle::*;
 use std::fs;
 
 fn main() {
-    let dir = dirs::home_dir().unwrap().join(".config/alacritty");
+    let dir = dirs::home_dir().unwrap().join(".config/rofi");
     let colorscheme = std::env::args().skip(1).next().unwrap();
     let StdoutUntrimmed(colors) = cmd!(
         %"curl --fail",
         format!(
-            "https://raw.githubusercontent.com/aarowill/base16-alacritty/master/colors/base16-{}.yml",
+            "https://gitlab.com/jordiorlando/base16-rofi/-/raw/master/themes/base16-{}.config?inline=false",
             colorscheme
         )
     );
-    fs::write(dir.join("colors.yml"), colors).unwrap();
-    cmd_unit!(CurrentDir(dir), %"touch alacritty.yml");
+    fs::write(dir.join("config"), colors).unwrap();
 }
