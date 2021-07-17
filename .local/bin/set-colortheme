@@ -9,7 +9,15 @@ use cradle::*;
 
 fn main() {
     let colortheme = std::env::args().skip(1).next().unwrap();
-    for i in ["alacritty", "i3", "desktop-background", "nvim", "rofi"] {
+    let apps = &[
+        "alacritty",
+        "i3",
+        "desktop-background",
+        "nvim",
+        "rofi",
+        "firefox",
+    ];
+    for i in apps {
         cmd_unit!(
             LogCommand,
             CurrentDir(dirs::home_dir().unwrap()),
