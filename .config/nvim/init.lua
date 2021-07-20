@@ -58,8 +58,17 @@ map("", "<leader>w", ":bd<CR>")
 map("", "<leader>o", ":GFiles<CR>")
 
 -- autoformatting
-cmd("autocmd BufWritePre * :Autoformat")
 g.autoformat_autoindent = false
+cmd([[
+autocmd BufWritePre * :Autoformat"
+function! TrimEndLines()
+    let save_cursor = getpos(".")
+    silent! %s#\($\n\s*\)\+\%$##
+    call setpos('.', save_cursor)
+endfunction
+autocmd BufWritePre * call TrimEndLines()
+]])
+
 
 -- command palette
 map("", "<leader>p", ":Commands<CR>")
