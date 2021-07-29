@@ -213,6 +213,7 @@ rustExecutables =
       "cargo-watch" :
       "cargo-whatfeatures" :
       "clog-cli" :
+      "du-dust":
       "just" :
       "lsd" :
       "rust-script" :
