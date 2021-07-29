@@ -38,39 +38,6 @@ SAVEHIST=1000000
 setopt HIST_IGNORE_SPACE HIST_IGNORE_ALL_DUPS APPEND_HISTORY
 unsetopt BEEP AUTO_REMOVE_SLASH
 
-# prompt stuff
-
-autoload -U promptinit
-promptinit
-autoload -U colors && colors
-
-if [ -z "$CABAL_SANDBOX_CONFIG" ]; then
-  cabal_sandbox_hint=""
-else
-  cabal_sandbox_hint="sandbox: $(basename $(dirname $CABAL_SANDBOX_CONFIG))="
-fi
-
-setopt prompt_subst
-precmd () {
-  PROMPT_TIME=$(date +%H:%M:%S)
-  PROMPT_GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
-  PROMPT_GIT_BRANCH="$PROMPT_GIT_BRANCH $(git rev-parse --short HEAD 2> /dev/null)"
-}
-
-# PROMPT explanation:
-# %n: username, %m: hostname
-# %(!.#.$): if (su_priv) then # else $
-PROMPT="\
-%{$terminfo[bold]%}%n%{$reset_color%}@\
-%{$fg[blue]$terminfo[bold]%}%m%{$reset_color%}:\
-%{$fg[red]$terminfo[bold]%}%~%{$reset_color%}
-=%(?..(%{$fg[red]$terminfo[bold]%}%?%{$reset_color%}%))=$cabal_sandbox_hint\
-%(!.%{$fg[red]$terminfo[bold]%}#%{$reset_color%}.>) "
-
-# RPROMPT (shows up at the end of a line)
-# RPROMPT="\$(date)"
-RPROMPT='$PROMPT_GIT_BRANCH  $PROMPT_TIME'
-
 autoload -U +X bashcompinit && bashcompinit
 eval "$(stack --bash-completion-script stack)"
 
@@ -167,3 +134,5 @@ function htop-pgrep {
     return 1
   fi
 }
+
+eval "$(starship init zsh)"

@@ -15,7 +15,7 @@ stack script
 {-# OPTIONS_GHC -Wall -Werror #-}
 
 import Control.Arrow
-import Data.Foldable
+import Control.Monad
 import Data.List
 import Data.List.Split
 import Data.Maybe
@@ -23,6 +23,7 @@ import Development.Shake hiding (doesFileExist, getEnv)
 import Safe
 import System.Directory (setCurrentDirectory)
 import System.Environment
+import System.Exit
 import System.FilePath
 import qualified System.Logging.Facade as Log
 
@@ -35,6 +36,7 @@ main = do
   installAptPackages
   installRustExecutables
   installPythonExecutables
+  installStarship
 
 buildNixExecutables :: FilePath -> IO ()
 buildNixExecutables homeDir = do
@@ -233,3 +235,10 @@ installPythonExecutables = do
       "neovim-remote" :
       "yq" :
       []
+
+installStarship :: IO ()
+installStarship = do
+  Exit exitCode <- cmd "which starship"
+  when (exitCode /= ExitSuccess) $ do
+    Stdout(script) <- cmd "curl -fsSL https://starship.rs/install.sh"
+    cmd "sh -s -- --yes" (Stdin script)
