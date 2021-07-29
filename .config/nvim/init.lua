@@ -15,7 +15,7 @@ require "paq" {
   "NoahTheDuke/vim-just";
   "preservim/nerdcommenter";
   "savq/paq-nvim";
-  "vim-autoformat/vim-autoformat";
+  "sbdchd/neoformat";
   "Yagua/nebulous.nvim";
 }
 
@@ -60,15 +60,11 @@ map("", "<leader>o", ":GFiles<CR>")
 -- autoformatting
 g.autoformat_autoindent = false
 cmd([[
-autocmd BufWritePre * :Autoformat"
-function! TrimEndLines()
-    let save_cursor = getpos(".")
-    silent! %s#\($\n\s*\)\+\%$##
-    call setpos('.', save_cursor)
-endfunction
-autocmd BufWritePre * call TrimEndLines()
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * Neoformat
+augroup END
 ]])
-
 
 -- command palette
 map("", "<leader>p", ":Commands<CR>")

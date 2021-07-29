@@ -20,6 +20,7 @@ stable.buildEnv {
       fzf
       ngrok
       nodejs
+      nodePackages.js-beautify
       nodePackages.parcel-bundler
       nodePackages.prettier
       ormolu
