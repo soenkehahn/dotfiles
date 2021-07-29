@@ -32,7 +32,6 @@ stable.buildEnv {
       ipfs
     ]) ++
     [
-      (import ./atom.nix)
       (import ./cargo-bump.nix)
       (import ./cargo-script.nix)
       (import ./el.nix)
