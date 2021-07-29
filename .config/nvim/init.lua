@@ -81,3 +81,6 @@ map("", "<leader>k", ":call NERDComment('n', 'Toggle')<CR>")
 -- filetypes
 cmd("autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby")
 cmd("autocmd BufRead,BufNewFile *.justfile set filetype=just")
+
+-- remove search highlighting
+map("", "<leader>i", ":noh<CR>")
