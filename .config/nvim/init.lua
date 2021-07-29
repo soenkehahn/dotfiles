@@ -80,3 +80,4 @@ map("", "<leader>k", ":call NERDComment('n', 'Toggle')<CR>")
 
 -- filetypes
 cmd("autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby")
+cmd("autocmd BufRead,BufNewFile *.justfile set filetype=just")
