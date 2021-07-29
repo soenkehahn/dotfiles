@@ -20,6 +20,7 @@ require "paq" {
 }
 
 -- options
+opt.clipboard = "unnamedplus"
 opt.cursorline = true
 opt.expandtab = true
 opt.hidden = true
