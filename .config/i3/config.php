@@ -169,6 +169,6 @@ bar {
     separator  $base0D
     focused_workspace  $base08 $base00 $base08
     inactive_workspace $base0D $base00 $base0D
-    active_workspace   $base0D $base00 $base0D
+    active_workspace   $base0D $base00 $base08
   }
 }
