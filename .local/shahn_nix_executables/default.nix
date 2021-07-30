@@ -17,7 +17,6 @@ stable.buildEnv {
       cabal2nix
       docker-compose
       fd
-      fzf
       ngrok
       nodejs
       nodePackages.js-beautify

@@ -121,8 +121,8 @@ okular() {
 export N_PREFIX=$HOME/.local
 REPORTTIME=60
 
-source ~/.fzf.zsh
 source ~/.xsessionrc
+source /usr/share/doc/fzf/examples/key-bindings.zsh
 
 function htop-pgrep {
   local pattern="$1"

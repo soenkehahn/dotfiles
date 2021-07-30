@@ -76,6 +76,7 @@ installAptPackages = do
       "epiphany-browser" :
       "fatsort" :
       "firefox" :
+      "fzf" :
       "gdebi" :
       "geeqie" :
       "gimp" :
