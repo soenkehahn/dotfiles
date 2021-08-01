@@ -58,11 +58,6 @@ $env_var\
 $status\
 $character"""
 
-[git_commit]
-only_detached = false
-tag_disabled = false
-commit_hash_length = 8
-
 [character]
 format = ' $symbol '
 success_symbol = '[\$](bold green)'
@@ -75,10 +70,15 @@ truncate_to_repo = false
 [env_var.HOSTNAME]
 format = "[HOSTNAME=$env_value](bold red)"
 
-[status]
-disabled = false
-format = '[\($status\)](bold red)'
+[git_commit]
+only_detached = false
+tag_disabled = false
+commit_hash_length = 8
 
 [shell]
 disabled = false
 format = '\($indicator\) '
+
+[status]
+disabled = false
+format = '[\($status\)](bold red)'
