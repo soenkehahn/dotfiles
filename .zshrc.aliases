@@ -1,5 +1,10 @@
 alias ls="ls --color -F"
 
+# apt stuff
+alias debhavei="apt list --installed | ag "
+alias debclean='wajig remove-orphans && sudo apt autoclean && sudo apt clean && sudo apt autoremove'
+alias debdailyupgrade='sudo apt update && sudo apt dist-upgrade && debclean'
+
 # git
 alias gs='git status'
 alias gc='git checkout -p'

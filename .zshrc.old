@@ -52,13 +52,6 @@ alias la="ls -lha"
 alias rtl="ls -rtlh"
 alias lr="/bin/ls"
 
-# deb stuff
-alias debhavei="dpkg -l | grep -i "
-alias debclean='wajig remove-orphans && sudo apt-get autoclean && sudo apt-get clean && sudo apt-get autoremove'
-alias debdailyupgrade='sudo apt-get update && sudo apt-get dist-upgrade && debclean'
-alias debdepends='apt-cache depends '
-alias debrdepends='apt-cache rdepends '
-
 alias -g "\&"="&>/dev/null&|"
 alias -g "<>"="2>&1 | tee gean"
 
