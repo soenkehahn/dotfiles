@@ -37,6 +37,7 @@ main = do
   installRustExecutables
   installPythonExecutables
   installStarship
+  updateFlatpak
 
 buildNixExecutables :: FilePath -> IO ()
 buildNixExecutables homeDir = do
@@ -243,3 +244,7 @@ installStarship = do
   when (exitCode /= ExitSuccess) $ do
     Stdout(script) <- cmd "curl -fsSL https://starship.rs/install.sh"
     cmd "sh -s -- --yes" (Stdin script)
+
+updateFlatpak :: IO ()
+updateFlatpak = do
+  cmd_ "flatpak update"
