@@ -26,11 +26,6 @@ TERM=xterm-256color
 autoload -Uz compinit
 compinit
 
-# history
-HISTFILE=~/.histfile
-HISTSIZE=1000000
-SAVEHIST=1000000
-setopt HIST_IGNORE_SPACE HIST_IGNORE_ALL_DUPS APPEND_HISTORY
 unsetopt BEEP AUTO_REMOVE_SLASH
 
 autoload -U +X bashcompinit && bashcompinit
@@ -50,7 +45,6 @@ export GPG_TTY=$(tty)
 # ALIASES #
 ###########
 
-# ls colors
 alias ls="ls --color -F"
 alias l="ls -lh"
 alias ll="ls -l"
@@ -78,13 +72,11 @@ alias vd='dot -Tpdf | okular - \&'
 alias xcopy='xclip -selection clipboard'
 
 alias ga='git add -p'
-alias gc='git checkout -p'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gma='git commit --amend'
 alias gmas='git commit --amend --reuse-message HEAD'
 alias gp='git push'
-alias gs='git status'
 alias gl='git log'
 alias gn='git checkout -b'
 alias gtree='git log --oneline --graph --decorate --remotes --branches'
@@ -113,7 +105,6 @@ export N_PREFIX=$HOME/.local
 REPORTTIME=60
 
 source ~/.xsessionrc
-source /usr/share/doc/fzf/examples/key-bindings.zsh
 
 function htop-pgrep {
   local pattern="$1"
@@ -125,5 +116,3 @@ function htop-pgrep {
     return 1
   fi
 }
-
-eval "$(starship init zsh)"

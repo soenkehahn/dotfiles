@@ -1,2 +1,5 @@
 alias ls="ls --color -F"
+
+# git
 alias gs='git status'
+alias gc='git checkout -p'
