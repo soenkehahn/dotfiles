@@ -6,6 +6,7 @@ stack script
   --package filepath
   --package logging-facade
   --package MissingH
+  --package mockery
   --package safe
   --package shake
   --package split
@@ -26,6 +27,7 @@ import System.Environment
 import System.Exit
 import System.FilePath
 import qualified System.Logging.Facade as Log
+import Test.Mockery.Directory
 
 main :: IO ()
 main = do
@@ -37,6 +39,7 @@ main = do
   installRustExecutables
   installPythonExecutables
   installStarship
+  installAsTree
   updateFlatpak
 
 buildNixExecutables :: FilePath -> IO ()
@@ -244,6 +247,15 @@ installStarship = do
   when (exitCode /= ExitSuccess) $ do
     Stdout(script) <- cmd "curl -fsSL https://starship.rs/install.sh"
     cmd "sh -s -- --yes" (Stdin script)
+
+installAsTree :: IO ()
+installAsTree = do
+  Exit status <- cmd "which as-tree"
+  when (status /= ExitSuccess) $ do
+    inTempDirectory $ do
+      cmd_ "wget" "https://github.com/jez/as-tree/releases/download/0.12.0/as-tree-0.12.0-linux.zip"
+      cmd_ "aunpack" "as-tree-0.12.0-linux.zip"
+      cmd_ "cp as-tree ~/.local/bin/as-tree" Shell
 
 updateFlatpak :: IO ()
 updateFlatpak = do
