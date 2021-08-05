@@ -77,7 +77,7 @@ cmd("filetype plugin on")
 g.NERDCreateDefaultMappings = 0
 g.NERDSpaceDelims = 1
 g.NERDDefaultAlign = false
-map("", "<leader>k", ":call NERDComment('n', 'Toggle')<CR>")
+map("", "<leader>k", ":call nerdcommenter#Comment('n', 'Toggle')<CR>")
 
 -- filetypes
 cmd("autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby")
