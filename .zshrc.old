@@ -55,8 +55,6 @@ alias lr="/bin/ls"
 alias -g "\&"="&>/dev/null&|"
 alias -g "<>"="2>&1 | tee gean"
 
-alias qmv='qmv --options=spaces '
-
 alias qg='gitg --all \&'
 
 alias view-dot='dot -Tpdf | okular - \&'
@@ -77,9 +75,7 @@ alias gprune-missing-on-remote="git branch -vv | ag gone | tr -s ' ' | cut -d' '
 
 alias lp='nice -n 19'
 
-alias tf='terraform'
 alias zc='vim ~/.zshrc'
-alias reload='. ~/.zshrc'
 
 alias a='atom . -n \&'
 

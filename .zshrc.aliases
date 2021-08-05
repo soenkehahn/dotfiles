@@ -1,10 +1,11 @@
 alias ls="ls --color -F"
+alias qmv='qmv --options=spaces '
 
 # apt stuff
-alias debhavei="apt list --installed | ag "
 alias debclean='wajig remove-orphans && sudo apt autoclean && sudo apt clean && sudo apt autoremove'
 alias debdailyupgrade='sudo apt update && sudo apt dist-upgrade && debclean'
+alias debhavei="apt list --installed | ag "
 
 # git
-alias gs='git status'
 alias gc='git checkout -p'
+alias gs='git status'
