@@ -57,6 +57,7 @@ map("", "<leader>w", ":bd<CR>")
 
 -- opening files
 map("", "<leader>o", ":GFiles<CR>")
+map("", "<leader>z", ":Ag<CR>")
 
 -- autoformatting
 g.autoformat_autoindent = false
