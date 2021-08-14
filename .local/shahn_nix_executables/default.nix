@@ -27,7 +27,7 @@ stable.buildEnv {
       terraform
       yarn
     ]) ++
-    (with (np "15ddd8316a81c32b55b318ea69c97505d27e793b" "1xn8j4gidxalm5ycasjvkhxvvdmx6343pjfyhprp85rw68h8lvix"); [
+    (with (np "34b37ad5" "09hsmbpiycyffjq7k49g8qav4fwlj6nrp9nzxpk5rm1rws8h9z61"); [
       ipfs
     ]) ++
     [
