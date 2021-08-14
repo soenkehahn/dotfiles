@@ -7,5 +7,13 @@ alias debdailyupgrade='sudo apt update && sudo apt dist-upgrade && debclean'
 alias debhavei="apt list --installed | ag "
 
 # git
+alias ga='git add -p'
 alias gc='git checkout -p'
+alias gp='git push'
 alias gs='git status'
+
+# local aliases
+if [[ -f .zshrc.aliases.local ]]
+then
+  source .zshrc.aliases.local
+fi
