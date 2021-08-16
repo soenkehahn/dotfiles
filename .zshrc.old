@@ -47,8 +47,6 @@ export GPG_TTY=$(tty)
 alias ls="ls --color -F"
 alias l="ls -lh"
 alias ll="ls -l"
-alias la="ls -lha"
-alias rtl="ls -rtlh"
 alias lr="/bin/ls"
 
 alias -g "\&"="&>/dev/null&|"
@@ -61,12 +59,10 @@ alias vd='dot -Tpdf | okular - \&'
 
 alias xcopy='xclip -selection clipboard'
 
-alias gd='git diff'
 alias gdc='git diff --cached'
 alias gma='git commit --amend'
 alias gmas='git commit --amend --reuse-message HEAD'
 alias gl='git log'
-alias gn='git checkout -b'
 alias gtree='git log --oneline --graph --decorate --remotes --branches'
 alias gprune-missing-on-remote="git branch -vv | ag gone | tr -s ' ' | cut -d' ' -f2 | xargs -n 1 -p git branch -D"
 

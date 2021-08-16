@@ -1,4 +1,6 @@
 alias ls="ls --color -F"
+alias la="ls -lha"
+alias rtl="ls -rtlh"
 alias qmv='qmv --options=spaces '
 
 # apt stuff
@@ -9,6 +11,8 @@ alias debhavei="apt list --installed | ag "
 # git
 alias ga='git add -p'
 alias gc='git checkout -p'
+alias gd='git diff'
+alias gn='git checkout -b'
 alias gp='git push'
 alias gs='git status'
 
