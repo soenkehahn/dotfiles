@@ -1,5 +1,8 @@
 source ~/.zshrc.old
 
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' '+r:|[._-]=* r:|=*' '+l:|=* r:|=*'
+zstyle ':completion:*' special-dirs true
+
 source ~/.zshrc.aliases
 
 # history

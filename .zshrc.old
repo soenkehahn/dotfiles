@@ -4,7 +4,6 @@ zstyle ':completion:*' file-sort name
 zstyle ':completion:*' glob unset
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-prompt '%SAt %p: Hit TAB for more, or the character to insert%s'
-zstyle ':completion:*' matcher-list '' 'r:|[._-]=** r:|=**' 'm:{a-z}={A-Z}' 'l:|=* r:|=*'
 zstyle ':completion:*' max-errors 2
 zstyle ':completion:*' menu select=long
 zstyle ':completion:*' preserve-prefix '//[^/]##/'
