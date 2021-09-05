@@ -6,6 +6,7 @@
 //! ```
 
 use cradle::*;
+use std::thread;
 
 fn main() {
     let colortheme = std::env::args().skip(1).next().unwrap();
@@ -17,12 +18,19 @@ fn main() {
         "rofi",
         "firefox",
     ];
+    let mut threads = Vec::new();
     for i in apps {
-        cmd_unit!(
-            LogCommand,
-            CurrentDir(dirs::home_dir().unwrap()),
-            format!("./.config/{}/set-colortheme", i),
-            &colortheme
-        );
+        let colortheme_clone = colortheme.clone();
+        threads.push(thread::spawn(move || {
+            cmd_unit!(
+                LogCommand,
+                CurrentDir(dirs::home_dir().unwrap()),
+                format!("./.config/{}/set-colortheme", i),
+                colortheme_clone,
+            )
+        }));
+    }
+    for thread in threads {
+        thread.join().unwrap();
     }
 }

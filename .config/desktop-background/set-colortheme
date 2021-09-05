@@ -10,7 +10,7 @@ use cradle::*;
 fn main() {
     let colorscheme = std::env::args().skip(1).next().unwrap();
     let StdoutUntrimmed(json) = cmd!(
-    %"curl --fail",
+    %"curl --fail --silent",
     format!(
       "https://raw.githubusercontent.com/aarowill/base16-alacritty/master/colors/base16-{}.yml",
       colorscheme

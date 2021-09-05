@@ -12,7 +12,7 @@ fn main() {
     let dir = dirs::home_dir().unwrap().join(".config/rofi");
     let colorscheme = std::env::args().skip(1).next().unwrap();
     let StdoutUntrimmed(colors) = cmd!(
-        %"curl --fail",
+        %"curl --fail --silent",
         format!(
             "https://gitlab.com/jordiorlando/base16-rofi/-/raw/master/themes/base16-{}.config?inline=false",
             colorscheme

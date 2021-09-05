@@ -9,7 +9,7 @@ use cradle::*;
 fn main() {
     let colorscheme = std::env::args().skip(1).next().unwrap();
     let StdoutUntrimmed(readme) = cmd!(
-        %"curl --fail",
+        %"curl --fail --silent",
         "https://raw.githubusercontent.com/TeddyDD/firefox-base16/b7cf12bd491ebcc2f3fd212c08e32b5c92d41975/README.md"
     );
     let prefix = format!("- [{}](", colorscheme);
