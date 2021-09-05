@@ -16,7 +16,6 @@ require "paq" {
   "preservim/nerdcommenter";
   "savq/paq-nvim";
   "sbdchd/neoformat";
-  "Yagua/nebulous.nvim";
 }
 
 -- options
@@ -43,6 +42,12 @@ end
 
 -- style
 require("colors")
+cmd([[
+augroup on_change_colorschema
+  autocmd!
+  autocmd ColorScheme * highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
+augroup END
+]])
 
 -- tabs
 require("bufferline").setup{
