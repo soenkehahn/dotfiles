@@ -1,10 +1,10 @@
 #!/usr/bin/env -S rust-script --toolchain-version stable --
 //! ```cargo
 //! [dependencies]
-//! cradle = "=0.0.9"
+//! cradle = "=0.1.0"
 //! ```
 
-use cradle::*;
+use cradle::prelude::*;
 use std::thread::sleep;
 use std::time::Duration;
 
@@ -31,12 +31,12 @@ fn wait_for_change(i3_command: &str) {
 }
 
 fn get_active_window() -> String {
-    let StdoutTrimmed(window) = cmd!(%"xdotool getactivewindow");
+    let StdoutTrimmed(window) = run_output!(%"xdotool getactivewindow");
     window
 }
 
 fn i3_msg(command: &str) {
-    let StdoutTrimmed(result) = cmd!("i3-msg", command);
+    let StdoutTrimmed(result) = run_output!("i3-msg", command);
     if result != "[{\"success\":true}]" {
         panic!("{:#?}", result);
     }
@@ -94,13 +94,13 @@ fn run() {
     i3_msg("move up");
     i3_msg("focus down");
     // to make git-watch-tree rerender in resized terminal window
-    cmd_unit!(%"touch .git/HEAD");
+    run!(%"touch .git/HEAD");
 }
 
 const TERMINAL_COMMAND: &str = "alacritty";
 
 fn i3_terminal_command(command: Option<&str>) -> String {
-    let StdoutTrimmed(pwd) = cmd!("pwd");
+    let StdoutTrimmed(pwd) = run_output!("pwd");
     let mut result = format!("exec {} --working-directory {}", TERMINAL_COMMAND, pwd);
     if let Some(command) = command {
         result.push_str(&format!(" -e {}", command));
