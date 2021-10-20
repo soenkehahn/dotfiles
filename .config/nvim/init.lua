@@ -13,7 +13,7 @@ require "paq" {
   "junegunn/fzf";
   "junegunn/fzf.vim";
   "NoahTheDuke/vim-just";
-  "preservim/nerdcommenter";
+  "tpope/vim-commentary";
   "savq/paq-nvim";
   "sbdchd/neoformat";
 }
@@ -79,10 +79,7 @@ map("", "<leader>r", ":History:<CR>")
 
 -- commenting
 cmd("filetype plugin on")
-g.NERDCreateDefaultMappings = 0
-g.NERDSpaceDelims = 1
-g.NERDDefaultAlign = false
-map("", "<leader>k", ":call nerdcommenter#Comment('n', 'Toggle')<CR>")
+map("", "<leader>k", ":Commentary<CR>")
 
 -- filetypes
 cmd("autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby")
