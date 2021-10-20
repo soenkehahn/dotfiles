@@ -61,13 +61,13 @@ bindsym $mod+o focus child
 bindsym $mod+m exec "i3-pretty-tree | dot -Tpdf | okular -"
 
 ## layout
+bindsym $mod+h layout toggle tabbed splitv splith
 bindsym $mod+g split toggle
 bindsym $mod+f fullscreen toggle
-bindsym $mod+h layout toggle tabbed splitv splith
+bindsym $mod+q floating toggle
 workspace_layout tabbed
 
 ## floating
-bindsym $mod+q floating toggle
 bindsym $mod+space focus mode_toggle
 
 ## scratchpad
