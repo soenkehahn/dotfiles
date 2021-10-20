@@ -74,7 +74,7 @@ fn run() {
     i3_msg("split toggle");
     i3_msg("layout splitv");
     wait_for_change(&i3_terminal_command(Some(
-        "watch --color git -c color.ui=always status",
+        "/usr/bin/watch --color git -c color.ui=always status",
     )));
     i3_msg("focus left");
     i3_msg("focus left");
