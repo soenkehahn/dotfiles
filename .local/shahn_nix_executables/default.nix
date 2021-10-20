@@ -30,6 +30,9 @@ stable.buildEnv {
     (with (np "34b37ad5" "09hsmbpiycyffjq7k49g8qav4fwlj6nrp9nzxpk5rm1rws8h9z61"); [
       ipfs
     ]) ++
+    (with (np "ef64a9a4" "0bj4nz6x04wc75rajyi29j64l6b88q2y5a1vlprrxlpyikklq68g"); [
+      nix-query-tree-viewer
+    ]) ++
     [
       (import ./cargo-bump.nix)
       (import ./cargo-script.nix)
