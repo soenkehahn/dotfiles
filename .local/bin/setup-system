@@ -194,6 +194,7 @@ getInstalledPackages = do
 installRustExecutables :: IO ()
 installRustExecutables = do
   forM_ rustExecutables $ \(executable, features) -> do
+    putStrLn ("installing " ++ executable ++ "...")
     unit $ cmd "cargo install" executable (toFeatureFlags features)
   where
     toFeatureFlags featureMaybe = case featureMaybe of
@@ -216,10 +217,10 @@ rustExecutables =
       "cargo-geiger" :
       "cargo-lichking" :
       "cargo-outdated" :
-      "cargo-release" :
       "cargo-udeps" :
       "cargo-watch" :
       "cargo-whatfeatures" :
+      "choose" :
       "clog-cli" :
       "du-dust":
       "just" :
