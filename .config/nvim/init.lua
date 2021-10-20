@@ -59,6 +59,7 @@ require("bufferline").setup{
 map("", "<leader>l", ":BufferLineCyclePrev<CR>")
 map("", "<leader>c", ":BufferLineCycleNext<CR>")
 map("", "<leader>w", ":bd<CR>")
+map("", "<leader>h", ":w<CR>")
 
 -- opening files
 map("", "<leader>o", ":GFiles<CR>")
