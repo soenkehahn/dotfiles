@@ -86,8 +86,6 @@ okular() {
 export N_PREFIX=$HOME/.local
 REPORTTIME=60
 
-source ~/.xsessionrc
-
 function htop-pgrep {
   local pattern="$1"
   local pids="$(pgrep -f "$pattern" | tr '\n' ',' | sed 's/.$//')"
