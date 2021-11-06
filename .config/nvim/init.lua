@@ -60,6 +60,8 @@ map("", "<leader>l", ":BufferLineCyclePrev<CR>")
 map("", "<leader>c", ":BufferLineCycleNext<CR>")
 map("", "<leader>w", ":bd<CR>")
 map("", "<leader>h", ":w<CR>")
+map("", "<leader>a", ":wa<CR>")
+map("", "<C-S>", ":w<CR>")
 
 -- opening files
 map("", "<leader>o", ":GFiles<CR>")
