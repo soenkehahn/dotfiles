@@ -1,0 +1,8 @@
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+  include "de(neo)"
+  name[Group1] = "neo layout for shahn";
+  key <PRSC> { [ Super_L ] };
+  key <RTRN> { [ ISO_Level3_Shift ] };
+  key <BKSL> { [ Return ] };
+};

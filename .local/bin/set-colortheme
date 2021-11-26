@@ -12,11 +12,11 @@ fn main() {
     let colortheme = std::env::args().skip(1).next().unwrap();
     let apps = &[
         "alacritty",
-        "i3",
         "desktop-background",
+        "firefox",
         "nvim",
         "rofi",
-        "firefox",
+        "sway",
     ];
     let mut threads = Vec::new();
     for i in apps {

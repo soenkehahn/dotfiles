@@ -1,3 +1,7 @@
+if [[ -z "${SSH_AGENT_PID}" ]]; then
+  eval $(ssh-agent)
+fi
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     if [ -f "$HOME/.bashrc" ]; then
