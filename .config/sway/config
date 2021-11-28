@@ -120,6 +120,7 @@ client.focused          $base08 $base00 $base08 $base0C   $base00
 client.unfocused        $base0D $base00 $base0D $base00   $base00
 client.focused_inactive $base0D $base00 $base0D $base00   $base00
 
+# bar
 bar {
   status_command i3status
   tray_output primary
@@ -132,3 +133,7 @@ bar {
     active_workspace   $base0D $base00 $base08
   }
 }
+
+# brightness
+bindsym XF86MonBrightnessDown exec sudo brightnessctl set 20%-
+bindsym XF86MonBrightnessUp exec sudo brightnessctl set 20%+
