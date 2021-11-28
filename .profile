@@ -9,8 +9,12 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-for dir in .local/shahn_nix_executables/result/bin .local/bin .cargo/bin .ghcup/bin; do
+for dir in .local/shahn_nix_executables/result/bin .local/bin .cargo/bin .ghcup/bin go/bin; do
   if [[ -d "$HOME/$dir" ]]; then
     PATH="$HOME/$dir:$PATH"
   fi
 done
+
+if [[ -d /usr/local/go/bin ]]; then
+  PATH="/usr/local/go/bin:$PATH"
+fi
