@@ -1,12 +1,14 @@
 #!/usr/bin/env -S rust-script --toolchain-version stable --
 //! ```cargo
 //! [dependencies]
-//! cradle = "=0.1.0"
+//! cradle = "=0.2.0"
+//! structopt = "=0.3.25"
 //! ```
 
 use cradle::prelude::*;
 use std::thread::sleep;
 use std::time::Duration;
+use structopt::StructOpt;
 
 fn wait_for<F>(f: F)
 where
@@ -42,25 +44,18 @@ fn i3_msg(command: &str) {
     }
 }
 
-fn check_args() -> Result<(), String> {
-    let mut args = std::env::args();
-    args.next();
-    let args: Vec<String> = args.collect();
-    if args.len() > 0 {
-        Err(format!("invalid arguments: {}", args.join(", ")))?;
-    }
-    Ok(())
+#[derive(StructOpt)]
+struct Args {
+    #[structopt(long)]
+    vscode: bool,
 }
 
 fn main() {
-    if let Err(error) = check_args() {
-        eprintln!("{}", error);
-        std::process::exit(1);
-    }
-    run()
+    let args = Args::from_args();
+    run(&args)
 }
 
-fn run() {
+fn run(args: &Args) {
     i3_msg("layout tabbed");
     wait_for_change("exec firefox");
     i3_msg("move left");
@@ -80,7 +75,12 @@ fn run() {
     i3_msg("focus left");
     i3_msg("split toggle");
     i3_msg("layout splith");
-    wait_for_change(&i3_terminal_command(Some("e")));
+    wait_for_change(&if args.vscode {
+        let StdoutTrimmed(pwd) = run_output!("pwd");
+        format!("exec code -n {}", pwd)
+    } else {
+        i3_terminal_command(Some("e"))
+    });
     i3_msg("move left");
     i3_msg("resize set 60 ppt 0");
     i3_msg("focus right");
