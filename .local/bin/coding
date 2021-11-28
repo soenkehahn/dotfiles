@@ -10,6 +10,11 @@ use std::thread::sleep;
 use std::time::Duration;
 use structopt::StructOpt;
 
+fn abort(message: &str) {
+    eprintln!("{}", message);
+    std::process::exit(1);
+}
+
 fn wait_for<F>(f: F)
 where
     F: Fn() -> bool,
@@ -21,10 +26,10 @@ where
     }
 }
 
-fn wait_for_change(i3_command: &str) {
+fn wait_for_change(sway_command: &str) {
     let old = get_active_window();
-    i3_msg(i3_command);
-    println!("waiting for {}...", i3_command);
+    swaymsg(sway_command);
+    println!("waiting for {}...", sway_command);
     wait_for(|| {
         let new = get_active_window();
         new != old
@@ -33,14 +38,20 @@ fn wait_for_change(i3_command: &str) {
 }
 
 fn get_active_window() -> String {
-    let StdoutTrimmed(window) = run_output!(%"xdotool getactivewindow");
-    window
+    let StdoutUntrimmed(tree) = run_output!(%"swaymsg -t get_tree");
+    let StdoutTrimmed(id) = run_output!(
+        Stdin(tree),
+        "jq",
+        ".. | (.nodes? // empty)[] | select(.focused==true) | .id"
+    );
+    id
 }
 
-fn i3_msg(command: &str) {
-    let StdoutTrimmed(result) = run_output!("i3-msg", command);
-    if result != "[{\"success\":true}]" {
-        panic!("{:#?}", result);
+fn swaymsg(sway_command: &str) {
+    let StdoutTrimmed(result) = run_output!("swaymsg", sway_command);
+    let expected = "[\n  {\n    \"success\": true\n  }\n]";
+    if result != expected {
+        abort(&format!("{:?} != {:?}", result, expected));
     }
 }
 
@@ -52,54 +63,50 @@ struct Args {
 
 fn main() {
     let args = Args::from_args();
-    run(&args)
-}
-
-fn run(args: &Args) {
-    i3_msg("layout tabbed");
+    swaymsg("layout tabbed");
     wait_for_change("exec firefox");
-    i3_msg("move left");
-    i3_msg("split toggle");
-    i3_msg("layout tabbed");
-    i3_msg("focus right");
-    wait_for_change(&i3_terminal_command(None));
-    i3_msg("split toggle");
-    i3_msg("layout splith");
-    wait_for_change(&i3_terminal_command(Some("git-watch-tree")));
-    i3_msg("split toggle");
-    i3_msg("layout splitv");
-    wait_for_change(&i3_terminal_command(Some(
+    swaymsg("move left");
+    swaymsg("split toggle");
+    swaymsg("layout tabbed");
+    swaymsg("focus right");
+    wait_for_change(&sway_terminal_command(None));
+    swaymsg("split toggle");
+    swaymsg("layout splith");
+    wait_for_change(&sway_terminal_command(Some("git-watch-tree")));
+    swaymsg("split toggle");
+    swaymsg("layout splitv");
+    wait_for_change(&sway_terminal_command(Some(
         "/usr/bin/watch --color git -c color.ui=always status",
     )));
-    i3_msg("focus left");
-    i3_msg("focus left");
-    i3_msg("split toggle");
-    i3_msg("layout splith");
+    swaymsg("focus left");
+    swaymsg("focus left");
+    swaymsg("split toggle");
+    swaymsg("layout splith");
     wait_for_change(&if args.vscode {
         let StdoutTrimmed(pwd) = run_output!("pwd");
         format!("exec code -n {}", pwd)
     } else {
-        i3_terminal_command(Some("e"))
+        sway_terminal_command(Some("e"))
     });
-    i3_msg("move left");
-    i3_msg("resize set 60 ppt 0");
-    i3_msg("focus right");
-    i3_msg("split toggle");
-    i3_msg("layout splitv");
-    wait_for_change(&i3_terminal_command(None));
-    i3_msg("focus left");
-    i3_msg("split toggle");
-    i3_msg("layout stacked");
-    wait_for_change(&i3_terminal_command(None));
-    i3_msg("move up");
-    i3_msg("focus down");
+    swaymsg("move left");
+    swaymsg("resize set 60 ppt 0");
+    swaymsg("focus right");
+    swaymsg("split toggle");
+    swaymsg("layout splitv");
+    wait_for_change(&sway_terminal_command(None));
+    swaymsg("focus left");
+    swaymsg("split toggle");
+    swaymsg("layout stacking");
+    wait_for_change(&sway_terminal_command(None));
+    swaymsg("move up");
+    swaymsg("focus down");
     // to make git-watch-tree rerender in resized terminal window
     run!(%"touch .git/HEAD");
 }
 
 const TERMINAL_COMMAND: &str = "alacritty";
 
-fn i3_terminal_command(command: Option<&str>) -> String {
+fn sway_terminal_command(command: Option<&str>) -> String {
     let StdoutTrimmed(pwd) = run_output!("pwd");
     let mut result = format!("exec {} --working-directory {}", TERMINAL_COMMAND, pwd);
     if let Some(command) = command {
