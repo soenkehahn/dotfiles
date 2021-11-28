@@ -1,8 +1,8 @@
 general {
-  colors = false
   interval = 5
 }
 
+order += "memory"
 order += "cpu_usage"
 order += "wireless _first_"
 order += "battery all"
@@ -27,4 +27,10 @@ cpu_usage {
 
 disk "/" {
   format = "%avail"
+}
+
+memory {
+  format = "Free RAM: %available"
+  threshold_degraded = 10%
+  threshold_critical = 5%
 }
