@@ -17,9 +17,6 @@
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[rust]": {
-    "editor.defaultFormatter": "matklad.rust-analyzer"
-  },
   "breadcrumbs.enabled": true,
   "editor.autoClosingBrackets": "never",
   "editor.autoClosingOvertype": "never",
@@ -42,7 +39,7 @@
   "editor.renderWhitespace": "boundary",
   "editor.selectionHighlight": false,
   "editor.suggest.showTypeParameters": false,
-  "editor.tabSize": 8,
+  "editor.tabSize": 2,
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrap": "off",
   "files.insertFinalNewline": true,
@@ -85,8 +82,6 @@
   "rust-analyzer.server.extraEnv": {
     "CARGO_TARGET_DIR": "rust-analyzer"
   },
-  "telemetry.enableCrashReporter": false,
-  "telemetry.enableTelemetry": false,
   "terminal.integrated.fontSize": 10,
   "vim.leader": "h",
   "vim.normalModeKeyBindingsNonRecursive": [
@@ -167,10 +162,24 @@
     }
   ],
   "window.menuBarVisibility": "toggle",
-  "workbench.colorTheme": "Sorcerer",
+  "workbench.colorTheme": "Base16 Darktooth",
   "workbench.editor.enablePreview": false,
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
   },
-  "workbench.startupEditor": "newUntitledFile"
+  "workbench.startupEditor": "newUntitledFile",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "js/ts.implicitProjectConfig.strictNullChecks": true,
+  "telemetry.telemetryLevel": "off",
+  "zentabs.maximumOpenedTabs": 5,
+  "go.alternateTools": { "go": "gotip" },
+  "go.lintTool": "golint",
+  "gopls": {
+    "ui.semanticTokens": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
