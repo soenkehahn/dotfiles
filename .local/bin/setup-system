@@ -159,6 +159,7 @@ installAptPackages = do
       "sox" :
       "sshfs" :
       "stellarium" :
+      "swaybg" :
       "tig" :
       "tmux" :
       "tree" :
