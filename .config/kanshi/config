@@ -1,0 +1,8 @@
+profile {
+  output eDP-1 scale 2 position 0,360
+  output "Philips Consumer Electronics Company PHL 276E8V 0x00000565" scale 2 position 1280,0
+}
+
+profile {
+  output eDP-1 scale 2
+}

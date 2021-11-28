@@ -102,6 +102,7 @@ installAptPackages = do
       "iotop" :
       "jnettop" :
       "jq" :
+      "kanshi" :
       "kcolorchooser" :
       "kig" :
       "kmag" :
