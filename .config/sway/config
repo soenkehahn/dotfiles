@@ -118,7 +118,7 @@ hide_edge_borders smart
 # class                 border  bground text    indicator child_border
 client.focused          $base08 $base00 $base08 $base0C   $base00
 client.unfocused        $base0D $base00 $base0D $base00   $base00
-client.focused_inactive $base0D $base00 $base0D $base00   $base00
+client.focused_inactive $base08 $base00 $base0D $base00   $base00
 
 # bar
 bar {
@@ -127,10 +127,10 @@ bar {
   colors {
     background $base00
     statusline $base0D
-    separator  $base0D
-    focused_workspace  $base08 $base00 $base08
+    separator $base0D
+    focused_workspace $base08 $base00 $base08
     inactive_workspace $base0D $base00 $base0D
-    active_workspace   $base0D $base00 $base08
+    active_workspace $base0D $base00 $base08
   }
 }
 
