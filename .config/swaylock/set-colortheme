@@ -1,0 +1,68 @@
+#!/usr/bin/env -S rust-script --cargo-output --toolchain-version stable --
+//! ```cargo
+//! [dependencies]
+//! cradle = "=0.2.0"
+//! dirs = "=3.0.2"
+//! unindent = "=0.1.7"
+//! ```
+
+use cradle::*;
+use std::collections::BTreeMap;
+use std::fs;
+use unindent::Unindent;
+
+fn main() {
+    let colorscheme = std::env::args().skip(1).next().unwrap();
+    let StdoutUntrimmed(i3_config) = (
+        ("curl", "--fail", "--silent"),
+        format!(
+            "https://raw.githubusercontent.com/khamer/base16-i3/master/themes/base16-{}.config",
+            colorscheme
+        ),
+    )
+        .run_output();
+    let colors: BTreeMap<i32, String> = i3_config
+        .lines()
+        .filter_map(|line| line.strip_prefix("set $base"))
+        .map(|line| {
+            let mut words = line.split(' ');
+            let i = i32::from_str_radix(words.next().unwrap(), 16).unwrap();
+            let color = words.next().unwrap();
+            (i, color.to_owned())
+        })
+        .collect();
+    let config = format!(
+        "
+            indicator-radius=100
+            indicator-thickness=40
+
+            color={background}
+            ring-color=00000000
+            inside-color=00000000
+            line-color=00000000
+            separator-color=00000000
+            key-hl-color={foreground}
+
+            inside-ver-color=00000000
+            ring-ver-color={foreground}
+            line-ver-color=00000000
+            text-ver-color={foreground}
+
+            inside-clear-color=00000000
+            ring-clear-color={foreground}
+            line-clear-color=00000000
+            text-clear-color={foreground}
+
+            inside-wrong-color=00000000
+            ring-wrong-color={error}
+            line-wrong-color=00000000
+            text-wrong-color={error}
+        ",
+        background = colors[&0],
+        foreground = colors[&13],
+        error = colors[&8],
+    )
+    .unindent();
+    let dir = dirs::home_dir().unwrap().join(".config/swaylock");
+    fs::write(dir.join("config"), config).unwrap();
+}
