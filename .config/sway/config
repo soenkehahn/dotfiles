@@ -90,7 +90,7 @@ bindsym $mod+Ctrl+0 move container to workspace $ws10 ; workspace $ws10
 # Logging out and reloading
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+x exec "swaynag -t warning -m 'log out?' -b 'yes' 'swaymsg exit'"
-# bindsym $mod+Shift+l exec lock-and-suspend
+bindsym $mod+Shift+l exec lock-and-suspend
 
 # special applications
 
