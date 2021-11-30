@@ -50,6 +50,9 @@ bindsym $mod+q floating toggle
 bindsym $mod+z move scratchpad
 bindsym $mod+b scratchpad show
 
+# waybar
+bindsym $mod+dead_grave exec toggle-waybar
+
 # Workspaces
 set $ws1 "1"
 set $ws2 "2"
