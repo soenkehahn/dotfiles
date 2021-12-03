@@ -76,12 +76,6 @@ alias yell="kdialog --msgbox 'YELL!!!'"
 
 alias isrunning='pgrep -a'
 alias mp='mplayer -af scaletempo -ao jack -volume 80'
-inkscape() {
-  /usr/bin/inkscape $@ \&
-}
-okular() {
-  /usr/bin/okular $@ \&
-}
 
 export N_PREFIX=$HOME/.local
 REPORTTIME=60

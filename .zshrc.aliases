@@ -16,6 +16,19 @@ alias gn='git checkout -b'
 alias gp='git push'
 alias gs='git status'
 
+
+inkscape() {
+  /usr/bin/inkscape $@ \&
+}
+
+okular() {
+  /usr/bin/okular $@ \&
+}
+
+libreoffice() {
+  /usr/bin/libreoffice $@ \&
+}
+
 # local aliases
 if [[ -f .zshrc.aliases.local ]]
 then
