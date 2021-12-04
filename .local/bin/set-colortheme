@@ -10,7 +10,15 @@ use std::thread;
 
 fn main() {
     let colortheme = std::env::args().skip(1).next().unwrap();
-    let apps = &["alacritty", "firefox", "nvim", "rofi", "sway", "swaylock"];
+    let apps = &[
+        "alacritty",
+        "firefox",
+        "nvim",
+        "rofi",
+        "sway",
+        "swaylock",
+        "Code",
+    ];
     let mut threads = Vec::new();
     for i in apps {
         let colortheme_clone = colortheme.clone();

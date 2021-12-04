@@ -137,7 +137,7 @@
     }
   ],
   "window.menuBarVisibility": "toggle",
-  "workbench.colorTheme": "Base16 Darktooth",
+  "workbench.colorTheme": "Base16 Summerfruit Dark",
   "workbench.editor.enablePreview": false,
   "workbench.editorAssociations": { "*.ipynb": "jupyter.notebook.ipynb" },
   "workbench.startupEditor": "newUntitledFile",

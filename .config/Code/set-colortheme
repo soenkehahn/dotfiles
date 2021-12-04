@@ -1,0 +1,46 @@
+#!/usr/bin/env -S rust-script --cargo-output --
+//! ```cargo
+//! [dependencies]
+//! cradle = "=0.2.0"
+//! dirs = "=3.0.2"
+//! anyhow = "1.0.51"
+//! serde_json = "1.0.72"
+//! ```
+
+use anyhow::Result;
+use cradle::prelude::*;
+use serde_json::Value;
+use std::fs;
+
+fn main() -> Result<()> {
+    let dir = dirs::home_dir().unwrap().join(".config/Code");
+    let colorscheme = std::env::args().skip(1).next().unwrap();
+    let settings = String::from_utf8(fs::read(dir.join("User/settings.json"))?)?;
+    let mut settings: Value = serde_json::from_str(&settings)?;
+    settings.as_object_mut().unwrap().insert(
+        "workbench.colorTheme".to_owned(),
+        Value::String(to_vscode_colortheme(&colorscheme)),
+    );
+    let StdoutUntrimmed(settings) = (
+        "prettier",
+        "--stdin-filepath",
+        "settings.json",
+        Stdin(serde_json::to_string(&settings)?),
+    )
+        .run_output();
+    fs::write(dir.join("User/settings.json"), settings).unwrap();
+    Ok(())
+}
+
+fn to_vscode_colortheme(colorscheme: &str) -> String {
+    let colorscheme = colorscheme
+        .split('-')
+        .map(|word| {
+            let mut word: String = word.to_owned();
+            word.get_mut(0..1).unwrap().make_ascii_uppercase();
+            word
+        })
+        .collect::<Vec<_>>()
+        .join(" ");
+    format!("Base16 {}", colorscheme)
+}
