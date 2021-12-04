@@ -1,4 +1,4 @@
-#!/usr/bin/env -S rust-script --cargo-output --
+#!/usr/bin/env -S rust-script --toolchain-version stable --
 //! ```cargo
 //! [dependencies]
 //! cradle = "=0.0.11"
@@ -17,7 +17,6 @@ fn main() {
         format!("vim.cmd(\"colorscheme base16-{}\")\n", colorscheme),
     )
     .unwrap();
-    eprintln!("sourcing lua/colors.lua...");
     source_colors();
 }
 

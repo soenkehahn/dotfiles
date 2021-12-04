@@ -1,4 +1,4 @@
-#!/usr/bin/env -S rust-script --cargo-output --
+#!/usr/bin/env -S rust-script --toolchain-version stable --
 //! ```cargo
 //! [dependencies]
 //! cradle = "=0.0.11"
