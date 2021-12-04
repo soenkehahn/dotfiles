@@ -1,22 +1,12 @@
 {
-  "[haskell]": {
-    "editor.defaultFormatter": "haskell.haskell"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  "[haskell]": { "editor.defaultFormatter": "haskell.haskell" },
+  "[html]": { "editor.defaultFormatter": "vscode.html-language-features" },
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "breadcrumbs.enabled": true,
   "editor.autoClosingBrackets": "never",
   "editor.autoClosingOvertype": "never",
@@ -54,7 +44,11 @@
     "**/target/**": true
   },
   "git.ignoreMissingGitWarning": true,
+  "go.alternateTools": { "go": "gotip" },
+  "go.lintTool": "golint",
+  "gopls": { "ui.semanticTokens": true },
   "haskell.plugin.hlint.globalOn": false,
+  "js/ts.implicitProjectConfig.strictNullChecks": true,
   "keyboard.dispatch": "keyCode",
   "python.formatting.blackPath": "/usr/bin/black",
   "python.formatting.provider": "black",
@@ -79,24 +73,14 @@
   "rust-analyzer.lens.enable": false,
   "rust-analyzer.lens.implementations": false,
   "rust-analyzer.lens.run": false,
-  "rust-analyzer.server.extraEnv": {
-    "CARGO_TARGET_DIR": "rust-analyzer"
-  },
+  "rust-analyzer.server.extraEnv": { "CARGO_TARGET_DIR": "rust-analyzer" },
+  "telemetry.telemetryLevel": "off",
   "terminal.integrated.fontSize": 10,
   "vim.leader": "h",
   "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<leader>", "."],
-      "commands": ["breadcrumbs.focusAndSelect"]
-    },
-    {
-      "before": ["<leader>", ","],
-      "commands": ["breadcrumbs.focus"]
-    },
-    {
-      "before": ["<leader>", "k"],
-      "commands": ["editor.action.commentLine"]
-    },
+    { "before": ["<leader>", "."], "commands": ["breadcrumbs.focusAndSelect"] },
+    { "before": ["<leader>", ","], "commands": ["breadcrumbs.focus"] },
+    { "before": ["<leader>", "k"], "commands": ["editor.action.commentLine"] },
     {
       "before": ["<leader>", "h"],
       "commands": ["editor.action.marker.nextInFiles"]
@@ -105,10 +89,7 @@
       "before": ["<leader>", "g"],
       "commands": ["editor.action.revealDefinition"]
     },
-    {
-      "before": ["<leader>", "n"],
-      "commands": ["explorer.newFile"]
-    },
+    { "before": ["<leader>", "n"], "commands": ["explorer.newFile"] },
     {
       "before": ["<leader>", "w"],
       "commands": ["workbench.action.closeActiveEditor"]
@@ -129,10 +110,7 @@
       "before": ["<leader>", "l"],
       "commands": ["workbench.action.previousEditor"]
     },
-    {
-      "before": ["<leader>", "o"],
-      "commands": ["workbench.action.quickOpen"]
-    },
+    { "before": ["<leader>", "o"], "commands": ["workbench.action.quickOpen"] },
     {
       "before": ["<leader>", "p"],
       "commands": ["workbench.action.showCommands"]
@@ -140,10 +118,7 @@
   ],
   "vim.useSystemClipboard": true,
   "vim.visualModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<leader>", "k"],
-      "commands": ["editor.action.commentLine"]
-    },
+    { "before": ["<leader>", "k"], "commands": ["editor.action.commentLine"] },
     {
       "before": ["<leader>", "h"],
       "commands": ["editor.action.marker.nextInFiles"]
@@ -164,22 +139,7 @@
   "window.menuBarVisibility": "toggle",
   "workbench.colorTheme": "Base16 Darktooth",
   "workbench.editor.enablePreview": false,
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb"
-  },
+  "workbench.editorAssociations": { "*.ipynb": "jupyter.notebook.ipynb" },
   "workbench.startupEditor": "newUntitledFile",
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "js/ts.implicitProjectConfig.strictNullChecks": true,
-  "telemetry.telemetryLevel": "off",
-  "zentabs.maximumOpenedTabs": 5,
-  "go.alternateTools": { "go": "gotip" },
-  "go.lintTool": "golint",
-  "gopls": {
-    "ui.semanticTokens": true
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "zentabs.maximumOpenedTabs": 5
 }
