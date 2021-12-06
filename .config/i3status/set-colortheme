@@ -58,6 +58,8 @@ fn main() {
 
             battery all {{
               format = '%status %percentage'
+              low_threshold = 10
+              threshold_type = 'percentage'
             }}
 
             tztime local {{
