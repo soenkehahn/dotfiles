@@ -45,6 +45,7 @@
   },
   "git.ignoreMissingGitWarning": true,
   "go.alternateTools": { "go": "gotip" },
+  "go.lintOnSave": "off",
   "go.lintTool": "golint",
   "gopls": { "ui.semanticTokens": true },
   "haskell.plugin.hlint.globalOn": false,
@@ -140,6 +141,5 @@
   "workbench.colorTheme": "Base16 Summerfruit Dark",
   "workbench.editor.enablePreview": false,
   "workbench.editorAssociations": { "*.ipynb": "jupyter.notebook.ipynb" },
-  "workbench.startupEditor": "newUntitledFile",
-  "zentabs.maximumOpenedTabs": 5
+  "workbench.startupEditor": "newUntitledFile"
 }
