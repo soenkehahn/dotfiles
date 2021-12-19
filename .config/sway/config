@@ -8,6 +8,9 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 # dynamically apply screen configurations
 exec_always pkill kanshi; exec kanshi
 
+# notifications
+exec dunst
+
 # start and stop programs
 bindsym $mod+n exec rofi -show drun
 bindsym $mod+r exec alacritty
