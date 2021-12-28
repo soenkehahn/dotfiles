@@ -11,14 +11,18 @@ stable.buildEnv {
       fd
       ipfs
       ngrok
-      nix-query-tree-viewer
+      ormolu
+      pandoc
+      terraform
+      (pkgs.writeShellScriptBin "nix" ''
+        exec ${pkgs.nixFlakes}/bin/nix --experimental-features "nix-command flakes" "$@"
+      '')
+    ]) ++
+    (with (np "1692997153e4b8300ce708ae20d37e268804a0fb" "19baj7ykzb26yv808xnv6w45fbx1hs6x8w5awfg8q85w9zh3rcsc"); [
       nodejs
       nodePackages.js-beautify
       nodePackages.parcel-bundler
       nodePackages.prettier
-      ormolu
-      pandoc
-      terraform
       yarn
     ]) ++
     [
