@@ -207,42 +207,33 @@ getInstalledPackages = do
 
 installRustExecutables :: IO ()
 installRustExecutables = do
-  forM_ rustExecutables $ \(executable, features) -> do
+  forM_ rustExecutables $ \executable -> do
     putStrLn ("installing " ++ executable ++ "...")
-    unit $ cmd "cargo install" executable (toFeatureFlags features)
-  where
-    toFeatureFlags featureMaybe = case featureMaybe of
-      Nothing -> ""
-      Just feature -> "--features " ++ feature
+    unit $ cmd "cargo install" executable
 
-rustExecutables :: [(String, Maybe String)]
+rustExecutables :: [String]
 rustExecutables =
-  map (\ crate -> (crate, Nothing)) withoutFeatures ++
-  ("nu", Just "extra") :
+  "alacritty" :
+  "bottom" :
+  "cargo-audit" :
+  "cargo-deps" :
+  "cargo-edit" :
+  "cargo-expand" :
+  "cargo-geiger" :
+  "cargo-lichking" :
+  "cargo-outdated" :
+  "cargo-udeps" :
+  "cargo-watch" :
+  "cargo-whatfeatures" :
+  "choose" :
+  "clog-cli" :
+  "du-dust":
+  "just" :
+  "lsd" :
+  "rust-script" :
+  "sd" :
+  "tracetree" :
   []
-  where
-    withoutFeatures =
-      "alacritty" :
-      "bottom" :
-      "cargo-audit" :
-      "cargo-deps" :
-      "cargo-edit" :
-      "cargo-expand" :
-      "cargo-geiger" :
-      "cargo-lichking" :
-      "cargo-outdated" :
-      "cargo-udeps" :
-      "cargo-watch" :
-      "cargo-whatfeatures" :
-      "choose" :
-      "clog-cli" :
-      "du-dust":
-      "just" :
-      "lsd" :
-      "rust-script" :
-      "sd" :
-      "tracetree" :
-      []
 
 installPythonExecutables :: IO ()
 installPythonExecutables = do
