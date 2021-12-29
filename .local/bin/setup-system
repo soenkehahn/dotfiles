@@ -4,6 +4,7 @@ stack script
 --resolver lts-13.29 --install-ghc
   --package directory
   --package filepath
+  --package getopt-generics
   --package logging-facade
   --package MissingH
   --package mockery
@@ -11,6 +12,7 @@ stack script
   --package shake
   --package split
 -}
+{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE ViewPatterns #-}
 {-# OPTIONS_GHC -Wall -Werror #-}
@@ -28,9 +30,15 @@ import System.Exit
 import System.FilePath
 import qualified System.Logging.Facade as Log
 import Test.Mockery.Directory
+import WithCli
+
+data Args = Args
+  deriving (Generic)
+
+instance HasArguments Args
 
 main :: IO ()
-main = do
+main = withCli $ \ Args -> do
   homeDir <- getEnv "HOME"
   setCurrentDirectory homeDir
   buildNixExecutables homeDir
