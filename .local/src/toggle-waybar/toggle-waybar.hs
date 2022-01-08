@@ -2,6 +2,7 @@
 {-
 stack script
   --resolver lts-18.16 --install-ghc
+  --compile
   --package getopt-generics
   --package shake
 -}
