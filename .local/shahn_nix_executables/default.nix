@@ -24,6 +24,7 @@ stable.buildEnv {
       nodePackages.parcel-bundler
       nodePackages.prettier
       yarn
+      bandwhich
     ]) ++
     [
       (import ./cargo-bump.nix)
