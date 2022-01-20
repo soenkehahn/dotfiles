@@ -84,7 +84,6 @@ installAptPackages = do
       "deborphan" :
       "dos2unix" :
       "dosbox" :
-      "dunst" :
       "entr" :
       "epiphany-browser" :
       "fatsort" :

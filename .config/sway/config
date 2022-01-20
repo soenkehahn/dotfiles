@@ -9,7 +9,7 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 exec_always pkill kanshi; exec kanshi
 
 # notifications
-exec dunst
+exec mako
 
 # start and stop programs
 bindsym $mod+n exec rofi -show drun

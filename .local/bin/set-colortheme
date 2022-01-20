@@ -12,12 +12,13 @@ fn main() {
     let apps = &[
         "alacritty",
         "Code",
-        "firefox",
         "i3status",
+        "mako",
         "nvim",
         "rofi",
         "sway",
         "swaylock",
+        "firefox",
     ];
     for i in apps {
         let colortheme_clone = colortheme.clone();

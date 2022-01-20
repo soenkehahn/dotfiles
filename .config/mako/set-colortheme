@@ -1,0 +1,60 @@
+#!/usr/bin/env -S rust-script --toolchain-version stable --
+//! ```cargo
+//! [dependencies]
+//! cradle = "=0.2.0"
+//! dirs = "=3.0.2"
+//! unindent = "=0.1.7"
+//! ```
+
+use cradle::*;
+use std::collections::BTreeMap;
+use std::fs;
+use unindent::Unindent;
+
+fn main() {
+    let colorscheme = std::env::args().skip(1).next().unwrap();
+    let StdoutUntrimmed(i3_config) = (
+        ("curl", "--fail", "--silent"),
+        format!(
+            "https://raw.githubusercontent.com/khamer/base16-i3/master/themes/base16-{}.config",
+            colorscheme
+        ),
+    )
+        .run_output();
+    let colors: BTreeMap<i32, String> = i3_config
+        .lines()
+        .filter_map(|line| line.strip_prefix("set $base"))
+        .map(|line| {
+            let mut words = line.split(' ');
+            let i = i32::from_str_radix(words.next().unwrap(), 16).unwrap();
+            let color = words.next().unwrap();
+            (i, color.to_owned())
+        })
+        .collect();
+    let background = colors[&0].to_owned();
+    let foreground = colors[&13].to_owned();
+    let _error = colors[&8].to_owned();
+    let config = format!(
+        "
+            anchor=bottom-right
+            max-visible=-1
+            default-timeout=20000
+            sort=+time
+
+            # colors
+            text-color={foreground}
+            background-color={background}
+            border-color={foreground}
+            border-size=2
+            margin=2
+            padding=2
+        ",
+    )
+    .unindent();
+    fs::write(
+        dirs::home_dir().unwrap().join(".config/mako/config"),
+        config,
+    )
+    .unwrap();
+    ("makoctl", "reload").run();
+}
