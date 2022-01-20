@@ -13,7 +13,6 @@ stable.buildEnv {
       ngrok
       ormolu
       pandoc
-      terraform
       (pkgs.writeShellScriptBin "nix" ''
         exec ${pkgs.nixFlakes}/bin/nix --experimental-features "nix-command flakes" "$@"
       '')
@@ -25,6 +24,9 @@ stable.buildEnv {
       nodePackages.prettier
       yarn
       bandwhich
+    ]) ++
+    (with (np "c53014a0529cc4c7b30a72ee9f29a96b0cec7e65" "1hsix26wg3dd3r57dc9b8hk0vhs316gyq8fmwq44817yj49zc0pf"); [
+      terraform
     ]) ++
     [
       (import ./cargo-bump.nix)
