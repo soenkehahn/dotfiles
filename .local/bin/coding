@@ -63,16 +63,13 @@ fn check_firefox() {
 }
 
 #[derive(StructOpt)]
-struct Args {
-    #[structopt(long)]
-    vscode: bool,
-}
+struct Args {}
 
 fn main() {
-    let args = Args::from_args();
+    let _args = Args::from_args();
     check_firefox();
     swaymsg("layout tabbed");
-    wait_for_change("exec firefox");
+    wait_for_change("exec firefox github.com/notifications");
     swaymsg("move left");
     swaymsg("split toggle");
     swaymsg("layout tabbed");
@@ -90,12 +87,7 @@ fn main() {
     swaymsg("focus left");
     swaymsg("split toggle");
     swaymsg("layout splith");
-    wait_for_change(&if args.vscode {
-        let StdoutTrimmed(pwd) = run_output!("pwd");
-        format!("exec code -n {}", pwd)
-    } else {
-        sway_terminal_command(Some("e"))
-    });
+    wait_for_change(&sway_terminal_command(None));
     swaymsg("move left");
     swaymsg("resize set 60 ppt 0");
     swaymsg("focus right");
@@ -105,10 +97,6 @@ fn main() {
     swaymsg("focus left");
     swaymsg("split toggle");
     swaymsg("layout stacking");
-    wait_for_change(&sway_terminal_command(None));
-    swaymsg("move up");
-    swaymsg("focus down");
-    // to make git-watch-tree rerender in resized terminal window
     run!(%"touch .git/HEAD");
 }
 
