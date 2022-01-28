@@ -15,7 +15,7 @@ alias gd='git diff'
 alias gn='git checkout -b'
 alias gp='git push'
 alias gs='git status'
-
+alias glp='git log --oneline --graph --decorate --remotes --branches'
 
 inkscape() {
   /usr/bin/inkscape $@ \&
