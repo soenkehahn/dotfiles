@@ -41,7 +41,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- style
-require("colors")
+pcall(require, "colors")
 cmd([[
 augroup on_change_colorschema
   autocmd!
