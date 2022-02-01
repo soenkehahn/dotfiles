@@ -12,7 +12,7 @@ exec_always pkill kanshi; exec kanshi
 exec mako
 
 # start and stop programs
-bindsym $mod+n exec rofi -show run
+bindsym $mod+n exec rofi -show drun
 bindsym $mod+r exec alacritty
 bindsym $mod+t exec firefox
 bindsym $mod+x kill
