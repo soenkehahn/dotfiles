@@ -1,5 +1,13 @@
 # keyboard layout
-input 1:1:AT_Translated_Set_2_keyboard xkb_layout neo-shahn
+input 1:1:AT_Translated_Set_2_keyboard {
+  xkb_layout neo-shahn
+}
+
+# Enable umlauts and ß on moonlander
+input 12951:6505:ZSA_Technology_Labs_Moonlander_Mark_I {
+  xkb_options compose:ralt
+}
+
 set $mod Mod4
 
 # needed for xdg-desktop-portal for screen sharing
