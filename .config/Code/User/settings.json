@@ -1,6 +1,6 @@
 {
   "[haskell]": { "editor.defaultFormatter": "haskell.haskell" },
-  "[html]": { "editor.defaultFormatter": "vscode.html-language-features" },
+  "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
