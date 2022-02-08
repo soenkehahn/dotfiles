@@ -5,8 +5,11 @@
 //! ```
 
 use cradle::*;
+use std::io;
+use std::process::Command;
+use std::process::Stdio;
 
-fn main() {
+fn main() -> Result<(), io::Error> {
     let colorscheme = std::env::args().skip(1).next().unwrap();
     let StdoutUntrimmed(readme) = cmd!(
         %"curl --fail --silent",
@@ -28,5 +31,11 @@ fn main() {
         .unwrap()
         .strip_suffix(")")
         .unwrap();
-    cmd_unit!("firefox", url);
+    Command::new("firefox")
+        .arg(url)
+        .stdin(Stdio::null())
+        .stdout(Stdio::null())
+        .stderr(Stdio::null())
+        .spawn()?;
+    Ok(())
 }

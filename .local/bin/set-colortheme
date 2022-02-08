@@ -27,6 +27,6 @@ fn main() {
             CurrentDir(dirs::home_dir().unwrap()),
             format!("./.config/{}/set-colortheme", i),
             colortheme_clone,
-        )
+        );
     }
 }
