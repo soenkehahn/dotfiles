@@ -149,7 +149,6 @@ installAptPackages = do
       "pavucontrol" :
       "pdftk-java" :
       "php-cli" :
-      "pm-utils" :
       "postgresql-client" :
       "powertop" :
       "pv" :
