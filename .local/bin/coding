@@ -74,6 +74,7 @@ fn main() {
     swaymsg("split toggle");
     swaymsg("layout tabbed");
     swaymsg("focus right");
+    // right shell for git
     wait_for_change(&sway_terminal_command(None));
     swaymsg("split toggle");
     swaymsg("layout splith");
@@ -85,18 +86,19 @@ fn main() {
     )));
     swaymsg("focus left");
     swaymsg("focus left");
+    // middle tab
     swaymsg("split toggle");
     swaymsg("layout splith");
+    // shell top right
     wait_for_change(&sway_terminal_command(None));
-    swaymsg("move left");
-    swaymsg("resize set 60 ppt 0");
-    swaymsg("focus right");
     swaymsg("split toggle");
     swaymsg("layout splitv");
+    // shell bottom right
     wait_for_change(&sway_terminal_command(None));
     swaymsg("focus left");
     swaymsg("split toggle");
     swaymsg("layout stacking");
+    swaymsg("resize set 60 ppt 0");
     run!(%"touch .git/HEAD");
 }
 
