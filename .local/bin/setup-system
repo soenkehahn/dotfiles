@@ -120,10 +120,14 @@ installAptPackages = do
       "krusader" :
       "libiw-dev" :
       "librsvg2-bin" :
+      "libssl-dev" :
       "libtool-bin" :
       "libx11-dev" :
       "libx11-protocol-other-perl" :
       "libx11-windowhierarchy-perl" :
+      "libxcb-render0-dev" :
+      "libxcb-shape0-dev" :
+      "libxcb-xfixes0-dev" :
       "libxext-dev" :
       "libxft-dev" :
       "libxinerama-dev" :
@@ -132,6 +136,7 @@ installAptPackages = do
       "libxss-dev" :
       "lxde" :
       "m4" :
+      "mako-notifier" :
       "meld" :
       "mercurial" :
       "mhwaveedit" :
@@ -180,6 +185,7 @@ installAptPackages = do
       "virtualbox" :
       "vlc" :
       "wajig" :
+      "waybar" :
       "whois" :
       "wl-clipboard" :
       "xclip" :
