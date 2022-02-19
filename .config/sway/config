@@ -134,32 +134,7 @@ mode "resize" {
 }
 
 # style
-
-include colors
-
-default_border normal 1
-hide_edge_borders smart
-
-output * background $base00 solid_color
-
-# class                 border  bground text    indicator child_border
-client.focused          $base08 $base00 $base08 $base0C   $base00
-client.unfocused        $base0D $base00 $base0D $base00   $base00
-client.focused_inactive $base0D $base00 $base08 $base00   $base00
-
-# bar
-bar {
-  status_command i3status
-  tray_output primary
-  colors {
-    background $base00
-    statusline $base0D
-    separator $base0D
-    focused_workspace $base08 $base00 $base08
-    inactive_workspace $base0D $base00 $base0D
-    active_workspace $base0D $base00 $base08
-  }
-}
+include colors_and_style
 
 # brightness
 bindsym XF86MonBrightnessDown exec sudo brightnessctl set 20%-

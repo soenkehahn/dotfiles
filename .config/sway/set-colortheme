@@ -1,23 +1,62 @@
 #!/usr/bin/env -S rust-script --toolchain-version stable --
 //! ```cargo
 //! [dependencies]
-//! cradle = "=0.2.0"
+//! cradle = "=0.2.1"
 //! dirs = "=3.0.2"
+//! unindent = "=0.1.8"
 //! ```
 
-use cradle::*;
+use cradle::prelude::*;
 use std::fs;
+use unindent::Unindent;
 
 fn main() {
     let dir = dirs::home_dir().unwrap().join(".config/sway");
-    let colorscheme = std::env::args().skip(1).next().unwrap();
+    let colortheme = std::env::args().skip(1).next().unwrap();
+    let directives = directives(&colortheme);
+    fs::write(dir.join("colors_and_style"), directives.join("\n")).unwrap();
+    for directive in directives {
+        let StdoutUntrimmed(_) =
+            ("swaymsg", directive.split_whitespace().collect::<Vec<_>>()).run_output();
+    }
+}
+
+fn directives(colortheme: &str) -> Vec<String> {
     let StdoutUntrimmed(colors) = run_output!(
         %"curl --fail --silent",
         format!(
             "https://raw.githubusercontent.com/khamer/base16-i3/master/colors/base16-{}.config",
-            colorscheme
+            colortheme
         )
     );
-    fs::write(dir.join("colors"), colors).unwrap();
-    let StdoutUntrimmed(_) = run_output!(%"swaymsg reload");
+    let color_directives = colors.lines();
+    let style_directives = vec![
+        "default_border normal 1",
+        "hide_edge_borders smart",
+        "output * background $base00 solid_color",
+        // class                 border  bground text    indicator child_border
+        "client.focused          $base08 $base00 $base08 $base0C   $base00",
+        "client.unfocused        $base0D $base00 $base0D $base00   $base00",
+        "client.focused_inactive $base0D $base00 $base08 $base00   $base00",
+        "
+            bar {
+                status_command i3status
+                tray_output primary
+                colors {
+                    background $base00
+                    statusline $base0D
+                    separator $base0D
+                    focused_workspace $base08 $base00 $base08
+                    inactive_workspace $base0D $base00 $base0D
+                    active_workspace $base0D $base00 $base08
+                }
+            }
+        ",
+    ];
+    let style_directives: Vec<String> = color_directives
+        .chain(style_directives)
+        .filter(|str| !str.starts_with("#"))
+        .map(Unindent::unindent)
+        .collect();
+    style_directives
 }
