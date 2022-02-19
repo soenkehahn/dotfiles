@@ -41,6 +41,11 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # moving windows
+bindsym $mod+Ctrl+i move left
+bindsym $mod+Ctrl+a move down
+bindsym $mod+Ctrl+l move up
+bindsym $mod+Ctrl+e move right
+
 bindsym $mod+Ctrl+Left move left
 bindsym $mod+Ctrl+Down move down
 bindsym $mod+Ctrl+Up move up
