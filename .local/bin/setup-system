@@ -232,6 +232,7 @@ rustExecutables =
   "choose" :
   "clog-cli" :
   "du-dust":
+  "jless" :
   "just" :
   "lsd" :
   "rust-script" :
