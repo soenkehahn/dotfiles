@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -ux
+
+docker stop $(docker ps -qa)
+docker rm $(docker ps -qa)
+docker volume rm $(docker volume list -q)
+echo delete images?
+read
+docker rmi $(docker images -aq) -f
