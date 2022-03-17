@@ -99,7 +99,6 @@ fn main() {
     swaymsg("split toggle");
     swaymsg("layout stacking");
     swaymsg("resize set 60 ppt 0");
-    run!(%"touch .git/HEAD");
 }
 
 const TERMINAL_COMMAND: &str = "alacritty";
