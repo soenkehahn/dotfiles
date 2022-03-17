@@ -47,6 +47,7 @@
   },
   "git.ignoreMissingGitWarning": true,
   "go.alternateTools": { "go": "gotip" },
+  "go.enableCodeLens": { "runtest": false },
   "go.lintOnSave": "off",
   "go.lintTool": "golint",
   "gopls": { "ui.semanticTokens": true },
