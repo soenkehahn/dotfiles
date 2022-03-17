@@ -24,6 +24,7 @@ fn main() {
         rofi.modi: run,drun
         rofi.kb-row-tab: Control+Tab
         rofi.kb-mode-next: Tab
+        rofi.dpi: 200
     "
     .unindent();
     let config = format!("{colors}\n{config}");
