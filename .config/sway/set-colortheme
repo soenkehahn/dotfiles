@@ -20,5 +20,5 @@ fn main() {
     );
     fs::write(dir.join("colors"), colors).unwrap();
     let StdoutUntrimmed(_) = run_output!(%"swaymsg reload");
-    run!("swaymsg", "output * background $base00 solid_color");
+    let StdoutUntrimmed(_) = run_output!("swaymsg", "output * background $base00 solid_color");
 }
