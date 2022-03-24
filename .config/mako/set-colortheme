@@ -40,14 +40,15 @@ fn main() {
             max-visible=-1
             default-timeout=20000
             sort=+time
+            font=Ubuntu 20
 
             # colors
             text-color={foreground}
             background-color={background}
             border-color={foreground}
-            border-size=2
-            margin=2
-            padding=2
+            border-size=4
+            margin=4
+            padding=4
         ",
     )
     .unindent();
