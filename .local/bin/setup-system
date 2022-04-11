@@ -160,6 +160,7 @@ installAptPackages = do
       "pwgen" :
       "python3-pip" :
       "rar" :
+      "redis" :
       "redshift" :
       "renameutils" :
       "ri-li" :

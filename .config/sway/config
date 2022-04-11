@@ -133,6 +133,8 @@ mode "resize" {
   bindsym Right resize grow width $delta px or $delta ppt
 }
 
+bindsym $mod+F7 exec switch-colortheme
+
 # style
 
 font pango:UbuntuMono NF 20

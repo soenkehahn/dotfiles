@@ -1,0 +1,35 @@
+#!/usr/bin/env -S rust-script --toolchain-version stable --
+//! ```cargo
+//! [dependencies]
+//! anyhow = "=1.0.56"
+//! cradle = "=0.2.1"
+//! redis = "=0.21.5"
+//! structopt = "=0.3.26"
+//! ```
+
+use anyhow::Result;
+use cradle::prelude::*;
+use redis::{Commands, Connection};
+use structopt::StructOpt;
+
+#[derive(StructOpt)]
+struct Args {}
+
+fn main() -> Result<()> {
+    let _args = Args::from_args();
+    let mut redis = connect()?;
+    let current: Option<String> = redis.get("shahn/colortheme")?;
+    let next = match current.as_deref() {
+        Some("summerfruit-dark") => "summerfruit-light",
+        _ => "summerfruit-dark",
+    };
+    ("notify-send", format!("colortheme: {}", next)).run_result()?;
+    redis.set("shahn/colortheme", next)?;
+    ("set-colortheme", next).run_result()?;
+    Ok(())
+}
+
+fn connect() -> Result<Connection> {
+    let client = redis::Client::open("redis://127.0.0.1/")?;
+    Ok(client.get_connection()?)
+}
