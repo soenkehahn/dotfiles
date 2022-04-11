@@ -68,7 +68,10 @@ vicmd_symbol = '[:](bold green)'
 truncate_to_repo = false
 
 [env_var.HOSTNAME]
-format = "[HOSTNAME=$env_value](bold red)"
+format = "[HOSTNAME=$env_value](bold red) "
+
+[env_var.STACK_YAML]
+format = "[STACK_YAML=$env_value](bold red) "
 
 [git_commit]
 only_detached = false
