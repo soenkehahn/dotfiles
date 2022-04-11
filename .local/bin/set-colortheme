@@ -6,27 +6,38 @@
 //! ```
 
 use cradle::*;
+use std::thread;
 
 fn main() {
     let colortheme = std::env::args().skip(1).next().unwrap();
     let apps = &[
         "alacritty",
         "Code",
+        "firefox",
         "i3status",
         "mako",
         "nvim",
         "rofi",
-        "sway",
         "swaylock",
-        "firefox",
     ];
-    for i in apps {
+    let mut threads = Vec::new();
+    for app in apps {
         let colortheme_clone = colortheme.clone();
-        cmd_unit!(
-            LogCommand,
-            CurrentDir(dirs::home_dir().unwrap()),
-            format!("./.config/{}/set-colortheme", i),
-            colortheme_clone,
-        );
+        threads.push(thread::spawn(move || {
+            set_colortheme_for_config(&colortheme_clone, app)
+        }));
     }
+    for thread in threads {
+        thread.join().unwrap();
+    }
+    set_colortheme_for_config(&colortheme, "sway");
+}
+
+fn set_colortheme_for_config(colortheme: &str, app: &str) {
+    cmd_unit!(
+        LogCommand,
+        CurrentDir(dirs::home_dir().unwrap()),
+        format!("./.config/{}/set-colortheme", app),
+        colortheme,
+    );
 }
