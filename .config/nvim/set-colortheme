@@ -1,7 +1,7 @@
 #!/usr/bin/env -S rust-script --toolchain-version stable --
 //! ```cargo
 //! [dependencies]
-//! cradle = "=0.0.11"
+//! cradle = "=0.2.1"
 //! dirs = "=3.0.2"
 //! ```
 
@@ -42,14 +42,15 @@ fn source_colors() {
             }
         });
     sockets.for_each(|socket| {
-        let Exit(_) = cmd!(
+        let Status(_) = (
             LogCommand,
             "nvr",
             "--nostart",
             "--servername",
             socket,
             "--remote-send",
-            ":source ~/.config/nvim/lua/colors.lua<CR>"
-        );
+            ":source ~/.config/nvim/lua/colors.lua<CR>",
+        )
+            .run_output();
     });
 }

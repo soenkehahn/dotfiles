@@ -1,25 +1,25 @@
 #!/usr/bin/env -S rust-script --toolchain-version stable --
 //! ```cargo
 //! [dependencies]
-//! cradle = "=0.0.11"
 //! dirs = "=3.0.2"
 //! unindent = "=0.1.7"
+//!
+//! [dependencies.cache]
+//! path = "../cache"
 //! ```
 
-use cradle::*;
+use cache::curl;
 use std::fs;
 use unindent::Unindent;
 
 fn main() {
     let dir = dirs::home_dir().unwrap().join(".config/rofi");
     let colorscheme = std::env::args().skip(1).next().unwrap();
-    let StdoutUntrimmed(colors) = cmd!(
-        %"curl --fail --silent",
-        format!(
-            "https://gitlab.com/jordiorlando/base16-rofi/-/raw/master/themes/base16-{}.config?inline=false",
-            colorscheme
-        )
+    let url = format!(
+        "https://gitlab.com/jordiorlando/base16-rofi/-/raw/master/themes/base16-{}.config?inline=false",
+        colorscheme
     );
+    let colors = curl(&url);
     let config = "
         rofi.modi: run,drun
         rofi.kb-row-tab: Control+Tab

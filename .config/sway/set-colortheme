@@ -1,23 +1,24 @@
 #!/usr/bin/env -S rust-script --toolchain-version stable --
 //! ```cargo
 //! [dependencies]
-//! cradle = "=0.2.0"
+//! cradle = "=0.2.1"
 //! dirs = "=3.0.2"
+//!
+//! [dependencies.cache]
+//! path = "../cache"
 //! ```
 
+use cache::curl;
 use cradle::*;
 use std::fs;
 
 fn main() {
     let dir = dirs::home_dir().unwrap().join(".config/sway");
     let colorscheme = std::env::args().skip(1).next().unwrap();
-    let StdoutUntrimmed(colors) = run_output!(
-        %"curl --fail --silent",
-        format!(
-            "https://raw.githubusercontent.com/khamer/base16-i3/master/colors/base16-{}.config",
-            colorscheme
-        )
-    );
+    let colors = curl(&format!(
+        "https://raw.githubusercontent.com/khamer/base16-i3/master/colors/base16-{}.config",
+        colorscheme
+    ));
     fs::write(dir.join("colors"), colors).unwrap();
     let StdoutUntrimmed(_) = run_output!(%"swaymsg reload");
     let StdoutUntrimmed(_) = run_output!("swaymsg", "output * background $base00 solid_color");

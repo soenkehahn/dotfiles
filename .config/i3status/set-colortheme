@@ -1,26 +1,24 @@
 #!/usr/bin/env -S rust-script --toolchain-version stable --
 //! ```cargo
 //! [dependencies]
-//! cradle = "=0.2.0"
 //! dirs = "=3.0.2"
 //! unindent = "=0.1.7"
+//!
+//! [dependencies.cache]
+//! path = "../cache"
 //! ```
 
-use cradle::*;
+use cache::curl;
 use std::collections::BTreeMap;
 use std::fs;
 use unindent::Unindent;
 
 fn main() {
     let colorscheme = std::env::args().skip(1).next().unwrap();
-    let StdoutUntrimmed(i3_config) = (
-        ("curl", "--fail", "--silent"),
-        format!(
-            "https://raw.githubusercontent.com/khamer/base16-i3/master/themes/base16-{}.config",
-            colorscheme
-        ),
-    )
-        .run_output();
+    let i3_config = curl(&format!(
+        "https://raw.githubusercontent.com/khamer/base16-i3/master/themes/base16-{}.config",
+        colorscheme
+    ));
     let colors: BTreeMap<i32, String> = i3_config
         .lines()
         .filter_map(|line| line.strip_prefix("set $base"))
@@ -31,10 +29,6 @@ fn main() {
             (i, color.to_owned())
         })
         .collect();
-    // let config = format!(
-    //     "
-
-    //     ",
     let config = format!(
         "
             general {{
