@@ -1,0 +1,10 @@
+{
+    "height": 60,
+    "spacing": 8,
+    "modules-center": ["tray"],
+    "tray": {
+        "icon-size": 42,
+        "spacing": 10
+    }
+}
+

@@ -1,0 +1,23 @@
+* {
+  font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+}
+
+window#waybar {
+  background-color: rgba(0, 0, 0, 0);
+  border-bottom: 0px solid rgba(100, 114, 125, 0.5);
+  color: #ffffff;
+}
+
+#tray {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
+}
