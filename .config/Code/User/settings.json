@@ -141,7 +141,6 @@
     }
   ],
   "window.menuBarVisibility": "toggle",
-  "window.zoomLevel": 4,
   "workbench.colorTheme": "Base16 Summerfruit Dark",
   "workbench.editor.enablePreview": false,
   "workbench.editorAssociations": { "*.ipynb": "jupyter.notebook.ipynb" },
