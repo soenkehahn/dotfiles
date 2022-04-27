@@ -137,10 +137,19 @@ bindsym $mod+F7 exec switch-colortheme
 
 # style
 
+font pango:UbuntuMono NF 20
+
+for_window [title=".*"] title_format ゜%title゜
+
+seat * {
+  xcursor_theme default 50
+}
+
 include colors
 
 default_border normal 1
 hide_edge_borders smart
+titlebar_padding 8
 
 output * background $base00 solid_color
 
@@ -152,7 +161,9 @@ client.focused_inactive $base0D $base00 $base08 $base00   $base00
 # bar
 bar {
   status_command i3status
-  tray_output primary
+  status_padding 8
+  status_edge_padding 8
+  workspace_min_width 45
   colors {
     background $base00
     statusline $base0D

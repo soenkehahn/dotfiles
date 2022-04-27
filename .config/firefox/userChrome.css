@@ -11,3 +11,7 @@
 #webrtcIndicator {
   display: none !important;
 }
+
+* {
+  font-size: 15px !important;
+}
