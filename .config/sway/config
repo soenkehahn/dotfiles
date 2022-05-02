@@ -157,6 +157,7 @@ output * background $base00 solid_color
 client.focused          $base08 $base00 $base08 $base0C   $base00
 client.unfocused        $base0D $base00 $base0D $base00   $base00
 client.focused_inactive $base0D $base00 $base08 $base00   $base00
+client.urgent           $base08 $base08 $base00
 
 # bar
 bar {
@@ -171,6 +172,7 @@ bar {
     focused_workspace $base08 $base00 $base08
     inactive_workspace $base0D $base00 $base0D
     active_workspace $base0D $base00 $base08
+    urgent_workspace $base08 $base08 $base00
   }
 }
 
