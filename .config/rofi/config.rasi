@@ -1,0 +1,8 @@
+configuration {
+  modi: "run,drun";
+  kb-mode-next: "Tab";
+  kb-row-tab: "Control+Tab";
+  dpi: 200;
+}
+
+@import "colors"

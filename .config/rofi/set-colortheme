@@ -2,7 +2,6 @@
 //! ```cargo
 //! [dependencies]
 //! dirs = "=3.0.2"
-//! unindent = "=0.1.7"
 //!
 //! [dependencies.cache]
 //! path = "../cache"
@@ -10,23 +9,14 @@
 
 use cache::curl;
 use std::fs;
-use unindent::Unindent;
 
 fn main() {
     let dir = dirs::home_dir().unwrap().join(".config/rofi");
     let colorscheme = std::env::args().skip(1).next().unwrap();
     let url = format!(
-        "https://gitlab.com/jordiorlando/base16-rofi/-/raw/master/themes/base16-{}.config?inline=false",
+        "https://gitlab.com/jordiorlando/base16-rofi/-/raw/master/themes/base16-{}.rasi?inline=false",
         colorscheme
     );
     let colors = curl(&url);
-    let config = "
-        rofi.modi: run,drun
-        rofi.kb-row-tab: Control+Tab
-        rofi.kb-mode-next: Tab
-        rofi.dpi: 200
-    "
-    .unindent();
-    let config = format!("{colors}\n{config}");
-    fs::write(dir.join("config"), config).unwrap();
+    fs::write(dir.join("colors.rasi"), colors).unwrap();
 }
