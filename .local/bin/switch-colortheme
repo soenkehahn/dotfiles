@@ -23,7 +23,6 @@ fn main() -> Result<()> {
         Some("summerfruit-dark") => "summerfruit-light",
         _ => "summerfruit-dark",
     };
-    ("notify-send", format!("colortheme: {}", next)).run_result()?;
     redis.set("shahn/colortheme", next)?;
     ("set-colortheme", next).run_result()?;
     Ok(())

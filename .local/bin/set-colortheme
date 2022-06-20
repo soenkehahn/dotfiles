@@ -1,11 +1,11 @@
 #!/usr/bin/env -S rust-script --toolchain-version stable --
 //! ```cargo
 //! [dependencies]
-//! cradle = "=0.0.11"
+//! cradle = "=0.2.2"
 //! dirs = "=3.0.2"
 //! ```
 
-use cradle::*;
+use cradle::prelude::*;
 use std::thread;
 
 fn main() {
@@ -31,13 +31,15 @@ fn main() {
         thread.join().unwrap();
     }
     set_colortheme_for_config(&colortheme, "sway");
+    ("notify-send", format!("colortheme: {colortheme}")).run();
 }
 
 fn set_colortheme_for_config(colortheme: &str, app: &str) {
-    cmd_unit!(
+    (
         LogCommand,
         CurrentDir(dirs::home_dir().unwrap()),
         format!("./.config/{}/set-colortheme", app),
         colortheme,
-    );
+    )
+        .run();
 }
