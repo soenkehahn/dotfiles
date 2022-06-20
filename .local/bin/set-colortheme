@@ -13,7 +13,6 @@ fn main() {
     let apps = &[
         "alacritty",
         "Code",
-        "firefox",
         "i3status",
         "mako",
         "nvim",

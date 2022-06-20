@@ -22,7 +22,7 @@ exec mako
 # start and stop programs
 bindsym $mod+n exec rofi -show drun
 bindsym $mod+r exec alacritty
-bindsym $mod+t exec firefox
+bindsym $mod+t exec qutebrowser
 bindsym $mod+x kill
 
 # focus
