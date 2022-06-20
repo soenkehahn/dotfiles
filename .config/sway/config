@@ -139,8 +139,6 @@ bindsym $mod+F7 exec switch-colortheme
 
 font pango:UbuntuMono NF 20
 
-for_window [title=".*"] title_format ゜%title゜
-
 seat * {
   xcursor_theme default 50
 }
