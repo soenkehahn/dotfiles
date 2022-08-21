@@ -7,6 +7,7 @@ alias qmv='qmv --options=spaces '
 alias debclean='sudo apt autoclean && sudo apt clean && sudo apt autoremove'
 alias debdailyupgrade='sudo apt update && sudo apt dist-upgrade && debclean'
 alias debhavei="apt list --installed | ag "
+alias dailyupgrade="debdailyupgrade && flatpak update && sudo snap refresh"
 
 # git
 alias ga='git add -p'

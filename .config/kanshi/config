@@ -11,8 +11,8 @@ profile {
 
 # laptop + tv
 profile {
-  output eDP-1 enable mode 2560x1440 position 0,0 scale 2
-  output "VIZIO, Inc D55u-D1 0x00000101" enable mode 3840x2160 position 1280,0 scale 1
+  output eDP-1 enable mode 2560x1440 position 0,0 scale 1
+  output "VIZIO, Inc D55u-D1 0x00000101" enable mode 3840x2160 position 2560,0 scale 1
 }
 
 # desktop monitor
@@ -50,4 +50,9 @@ profile {
 profile {
   output "Unknown Sceptre P30 0000000000000" mode 2560x1080 scale 0.5 position 0,0
   output eDP-1 scale 1 position 0,2160
+}
+
+profile {
+  output "Philips Consumer Electronics Company PHL 279P1" mode 3840x2160 scale 1 position 2560,0
+  output eDP-1 mode 2560x1440 scale 1 position 0,0
 }
