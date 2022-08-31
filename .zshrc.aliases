@@ -31,6 +31,10 @@ libreoffice() {
   /usr/bin/libreoffice $@ \&
 }
 
+intellij() {
+  _JAVA_AWT_WM_NONREPARENTING=1 intellij-idea-community $@ \&
+}
+
 # local aliases
 if [[ -f .zshrc.aliases.local ]]
 then
