@@ -2,6 +2,7 @@ alias ls="ls --color -F"
 alias la="ls -lha"
 alias rtl="ls -rtlh"
 alias qmv='qmv --options=spaces '
+alias pm='pulsemixer'
 
 # apt stuff
 alias debclean='sudo apt autoclean && sudo apt clean && sudo apt autoremove'
