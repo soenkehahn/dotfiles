@@ -6,3 +6,4 @@
 .ignore
 .vscode/
 rust-analyzer/
+.idea/
