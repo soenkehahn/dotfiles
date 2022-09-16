@@ -148,7 +148,7 @@ installAptPackages = do
       "numlockx" :
       "okteta" :
       "okular" :
-      "openjdk-8-jdk" :
+      "openjdk-18-jdk" :
       "openssh-server" :
       "openvpn" :
       "pavucontrol" :
