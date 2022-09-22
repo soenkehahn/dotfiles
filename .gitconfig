@@ -1,0 +1,23 @@
+[user]
+  email = soenkehahn@gmail.com
+  name = Sönke Hahn
+[push]
+  default = current
+[pull]
+  ff = only
+[core]
+  excludesfile = /home/shahn/.gitignore_global
+  editor = nvim
+[diff]
+  tool = vscode
+[difftool "vscode"]
+  cmd = code --wait --diff
+[merge]
+  tool = kdiff3
+  conflictstyle = diff3
+[mergetool "vscode"]
+  cmd = code --wait $MERGED
+[init]
+  defaultBranch = main
+[alias]
+  thank = blame
