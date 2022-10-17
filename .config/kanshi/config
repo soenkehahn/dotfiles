@@ -22,8 +22,8 @@ profile {
 
 # laptop + touchscreen
 profile {
-  output eDP-1 enable mode 2560x1440 position 0,0 scale 1
-  output "Unknown Onlap1503 8888" scale 1 position 2560,0
+  output eDP-1 mode 2240x1400 scale 1 position 0,0
+  output "Unknown Onlap1503 8888" mode 1920x1080 scale 0.75 position 2240,0
 }
 
 # random offices
