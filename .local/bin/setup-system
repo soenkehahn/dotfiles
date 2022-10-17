@@ -77,6 +77,7 @@ installAptPackages = do
       "atool" :
       "automake" :
       "beets" :
+      "brightnessctl" :
       "build-essential" :
       "chromium-browser" :
       "cmake" :
@@ -88,6 +89,7 @@ installAptPackages = do
       "epiphany-browser" :
       "fatsort" :
       "firefox" :
+      "flatpak" :
       "fzf" :
       "gdebi" :
       "geeqie" :
@@ -148,14 +150,15 @@ installAptPackages = do
       "numlockx" :
       "okteta" :
       "okular" :
-      "openjdk-18-jdk" :
       "openssh-server" :
       "openvpn" :
+      "parallel" :
       "pavucontrol" :
       "pdftk-java" :
       "php-cli" :
       "postgresql-client" :
       "powertop" :
+      "pulsemixer" :
       "pv" :
       "pwgen" :
       "python3-pip" :
@@ -175,7 +178,9 @@ installAptPackages = do
       "sox" :
       "sshfs" :
       "stellarium" :
+      "sway" :
       "swaybg" :
+      "swaylock" :
       "tig" :
       "tmux" :
       "tree" :
