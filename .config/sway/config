@@ -8,6 +8,11 @@ input 12951:6505:ZSA_Technology_Labs_Moonlander_Mark_I {
   xkb_options compose:ralt
 }
 
+input 2:10:TPPS/2_Elan_TrackPoint {
+  accel_profile "adaptive"
+  pointer_accel -0.2
+}
+
 set $mod Mod4
 
 # needed for xdg-desktop-portal for screen sharing
