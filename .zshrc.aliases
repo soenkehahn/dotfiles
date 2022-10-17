@@ -3,6 +3,7 @@ alias la="ls -lha"
 alias rtl="ls -rtlh"
 alias qmv='qmv --options=spaces '
 alias pm='pulsemixer'
+alias hp='htop-pgrep'
 
 # apt stuff
 alias debclean='sudo apt autoclean && sudo apt clean && sudo apt autoremove'
