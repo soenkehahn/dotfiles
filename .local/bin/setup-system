@@ -238,6 +238,7 @@ rustExecutables =
   "choose" :
   "clog-cli" :
   "du-dust":
+  "exa" :
   "jless" :
   "just" :
   "lsd" :
