@@ -162,6 +162,7 @@ installAptPackages = do
       "pv" :
       "pwgen" :
       "python3-pip" :
+      "ranger" :
       "rar" :
       "redis" :
       "redshift" :
@@ -244,6 +245,7 @@ rustExecutables =
   "lsd" :
   "rust-script" :
   "sd" :
+  "sfz" :
   "tracetree" :
   []
 
