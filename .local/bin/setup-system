@@ -171,7 +171,6 @@ installAptPackages = do
       "rofi" :
       "rtorrent" :
       "screen" :
-      "sgt-puzzles" :
       "sloccount" :
       "slurp" :
       "smplayer" :
