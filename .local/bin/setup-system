@@ -2,12 +2,11 @@
 {-
 stack script
 --resolver lts-18.23 --install-ghc
+  --package base
   --package directory
   --package filepath
   --package getopt-generics
   --package logging-facade
-  --package MissingH
-  --package mockery
   --package safe
   --package shake
   --package split
@@ -18,7 +17,6 @@ stack script
 {-# OPTIONS_GHC -Wall -Werror #-}
 
 import Control.Arrow
-import Control.Monad
 import Data.List
 import Data.List.Split
 import Data.Maybe
@@ -26,10 +24,8 @@ import Development.Shake hiding (doesFileExist, getEnv)
 import Safe
 import System.Directory (setCurrentDirectory)
 import System.Environment
-import System.Exit
 import System.FilePath
 import qualified System.Logging.Facade as Log
-import Test.Mockery.Directory
 import WithCli
 
 data Args = Args
@@ -42,13 +38,7 @@ main = withCli $ \ Args -> do
   homeDir <- getEnv "HOME"
   setCurrentDirectory homeDir
   buildNixExecutables homeDir
-  upgradeStack
   installAptPackages
-  installRustExecutables
-  installPythonExecutables
-  installStarship
-  installAsTree
-  updateFlatpak
 
 buildNixExecutables :: FilePath -> IO ()
 buildNixExecutables homeDir = do
@@ -56,10 +46,6 @@ buildNixExecutables homeDir = do
     cmd
       (Cwd (homeDir </> ".local/shahn_nix_executables"))
       "./build.sh"
-
-upgradeStack :: IO ()
-upgradeStack = do
-  unit $ cmd "stack upgrade"
 
 installAptPackages :: IO ()
 installAptPackages = do
@@ -213,68 +199,3 @@ getInstalledPackages = do
         >>> catMaybes
         >>> map (splitOneOf " :" >>> headMay)
         >>> catMaybes
-
-installRustExecutables :: IO ()
-installRustExecutables = do
-  forM_ rustExecutables $ \executable -> do
-    putStrLn ("installing " ++ executable ++ "...")
-    unit $ cmd "cargo install" executable
-
-rustExecutables :: [String]
-rustExecutables =
-  "alacritty" :
-  "bottom" :
-  "cargo-audit" :
-  "cargo-deps" :
-  "cargo-edit" :
-  "cargo-expand" :
-  "cargo-geiger" :
-  "cargo-lichking" :
-  "cargo-outdated" :
-  "cargo-udeps" :
-  "cargo-watch" :
-  "cargo-whatfeatures" :
-  "choose" :
-  "clog-cli" :
-  "du-dust":
-  "exa" :
-  "jless" :
-  "just" :
-  "lsd" :
-  "rust-script" :
-  "sd" :
-  "sfz" :
-  "tracetree" :
-  []
-
-installPythonExecutables :: IO ()
-installPythonExecutables = do
-  (Stderr(_ :: String), Exit(_)) <- cmd "python3 -m keyring --disable"
-  forM_ packages $ \ package -> do
-    unit $ cmd "pip3 install --user" package
-  where
-    packages =
-      -- "base16-shell-preview" :
-      "neovim-remote" :
-      "yq" :
-      []
-
-installStarship :: IO ()
-installStarship = do
-  Exit exitCode <- cmd "which starship"
-  when (exitCode /= ExitSuccess) $ do
-    Stdout(script) <- cmd "curl -fsSL https://starship.rs/install.sh"
-    cmd "sh -s -- --yes" (Stdin script)
-
-installAsTree :: IO ()
-installAsTree = do
-  Exit status <- cmd "which as-tree"
-  when (status /= ExitSuccess) $ do
-    inTempDirectory $ do
-      cmd_ "wget" "https://github.com/jez/as-tree/releases/download/0.12.0/as-tree-0.12.0-linux.zip"
-      cmd_ "aunpack" "as-tree-0.12.0-linux.zip"
-      cmd_ "cp as-tree ~/.local/bin/as-tree" Shell
-
-updateFlatpak :: IO ()
-updateFlatpak = do
-  cmd_ "flatpak update"
