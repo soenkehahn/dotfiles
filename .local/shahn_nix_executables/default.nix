@@ -3,7 +3,6 @@ stable.buildEnv {
   name = "shahn_nix_executables";
   paths = (
     (with (np "4dc1154e" "1vr38m1nzwmad2r76i9rh1ccjrfzhyvbbzc10c2j4ys0m3yrr9qg"); [
-      ag
       age
       blackbox
       cabal2nix

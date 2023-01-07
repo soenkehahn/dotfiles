@@ -156,6 +156,7 @@ installAptPackages = do
       "rofi" :
       "rtorrent" :
       "screen" :
+      "silversearcher-ag" :
       "sloccount" :
       "slurp" :
       "smplayer" :
