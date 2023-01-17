@@ -112,5 +112,19 @@ in  { packages =
       , cargo.simple "starship"
       , cargo.simple "tracetree"
       , cargo.fromGithub "soenkehahn" "si"
+      ,     def
+        //  { name = "vscode"
+            , install =
+                bash
+                  ''
+                  wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-x64' -O vscode.tar.gz
+                  tar -xvf vscode.tar.gz --no-same-owner
+                  cd VSCode-linux-x64
+                  mkdir -p ~/.local/opt/vscode
+                  cp -rv * ~/.local/opt/vscode/
+                  cd ~/.local/bin/
+                  ln -s ../opt/vscode/bin/code code
+                  ''
+            }
       ]
     }
