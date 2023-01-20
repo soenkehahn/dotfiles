@@ -1,5 +1,7 @@
-\ (script : Text) ->
-  Text/replace "$script" script
+\(script : Text) ->
+  Text/replace
+    "\$script"
+    script
     ''
     #!/usr/bin/env bash
 
