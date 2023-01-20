@@ -26,7 +26,6 @@ stable.buildEnv {
     [
       (import ./cargo-bump.nix)
       (import ./cargo-script.nix)
-      (import ./i3-lock-and-suspend.nix)
       (import ./i3-pretty-tree.nix)
     ]
   );
