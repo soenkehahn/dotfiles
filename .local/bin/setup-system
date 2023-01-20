@@ -149,7 +149,6 @@ installAptPackages = do
       "sox" :
       "sshfs" :
       "stellarium" :
-      "sway" :
       "swaybg" :
       "swaylock" :
       "tig" :
