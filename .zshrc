@@ -1,5 +1,3 @@
-source ~/.zshrc.old
-
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' '+r:|[._-]=* r:|=*' '+l:|=* r:|=*'
 zstyle ':completion:*' special-dirs true
 
@@ -14,6 +12,11 @@ setopt HIST_IGNORE_SPACE HIST_IGNORE_ALL_DUPS APPEND_HISTORY
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 
 eval "$(starship init zsh)"
+
+autoload -U +X bashcompinit && bashcompinit
+eval "$(stack --bash-completion-script stack)"
+
+export EDITOR=$(which nvim)
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

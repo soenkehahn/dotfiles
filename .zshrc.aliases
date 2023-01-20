@@ -1,15 +1,30 @@
-alias ls="ls --color -F"
-alias la="ls -lha"
-alias rtl="ls -rtlh"
-alias qmv='qmv --options=spaces '
-alias pm='pulsemixer'
+# process management
+alias -g "\&"="&>/dev/null&|"
+alias isrunning='pgrep -a'
+htop-pgrep() {
+  local pattern="$1"
+  local pids="$(pgrep -f "$pattern" | tr '\n' ',' | sed 's/.$//')"
+  if [[ -n "$pids" ]]; then
+    htop -p "$pids"
+  else
+    echo no process matching: "$pattern"
+    return 1
+  fi
+}
 alias hp='htop-pgrep'
 
+# file listing
+alias ls="ls --color -F"
+alias l="ls -lh"
+alias la="ls -lha"
+alias rtl="ls -rtlh"
+alias tree="exa --tree --git-ignore"
+
 # apt stuff
-alias debclean='sudo apt autoclean && sudo apt clean && sudo apt autoremove'
-alias debdailyupgrade='sudo apt update && sudo apt dist-upgrade && debclean'
-alias debhavei="apt list --installed | ag "
 alias dailyupgrade="debdailyupgrade && flatpak update && sudo snap refresh"
+alias debdailyupgrade='sudo apt update && sudo apt dist-upgrade && debclean'
+alias debclean='sudo apt autoclean && sudo apt clean && sudo apt autoremove'
+alias debhavei="apt list --installed | ag "
 
 # git
 alias ga='git add -p'
@@ -18,23 +33,22 @@ alias gd='git diff'
 alias gn='git checkout -b'
 alias gp='git push'
 alias gs='git status'
+alias gl='git log'
 alias glp='git log --oneline --graph --decorate --remotes --branches'
+alias gma='git commit --amend'
+alias gmas='git commit --amend --reuse-message HEAD'
 
-inkscape() {
-  /usr/bin/inkscape $@ \&
-}
-
-okular() {
-  /usr/bin/okular $@ \&
-}
-
-libreoffice() {
-  /usr/bin/libreoffice $@ \&
-}
-
-intellij() {
-  _JAVA_AWT_WM_NONREPARENTING=1 intellij-idea-community $@ \&
-}
+# misc
+geeqie() { /usr/bin/geeqie $@ \& }
+inkscape() { /usr/bin/inkscape $@ \& }
+intellij() { _JAVA_AWT_WM_NONREPARENTING=1 intellij-idea-community $@ \& }
+libreoffice() { /usr/bin/libreoffice $@ \& }
+okular() { /usr/bin/okular $@ \& }
+alias nvlc="nvlc --recursive=expand"
+alias qmv='qmv --options=spaces '
+alias pm='pulsemixer'
+alias view-dot='dot -Tpdf | okular - \&'
+alias vd='dot -Tpdf | okular - \&'
 
 # local aliases
 if [[ -f .zshrc.aliases.local ]]
