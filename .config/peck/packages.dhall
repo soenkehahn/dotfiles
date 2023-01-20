@@ -20,13 +20,13 @@ let stack =
 
 in  { packages =
       [     def
-        //  { name = "packager-test-executable"
+        //  { name = "peck-test-executable"
             , install =
                 bash
                   ''
                   mkdir -p ~/.local/bin/
-                  echo "echo huhu" > ~/.local/bin/packager-test-executable
-                  chmod +x ~/.local/bin/packager-test-executable
+                  echo "echo huhu" > ~/.local/bin/peck-test-executable
+                  chmod +x ~/.local/bin/peck-test-executable
                   ''
             }
       ,     def
@@ -113,20 +113,20 @@ in  { packages =
       , cargo.simple "starship"
       , cargo.simple "tracetree"
       , cargo.fromGithub "soenkehahn" "si" "master"
-      , { name = "vscode"
-        , skip = [ "~/.wget-hsts" ]
-        , install =
-            bash
-              ''
-              wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-x64' -O vscode.tar.gz
-              tar -xvf vscode.tar.gz --no-same-owner
-              cd VSCode-linux-x64
-              mkdir -p ~/.local/opt/vscode
-              cp -rv * ~/.local/opt/vscode/
-              cd ~/.local/bin/
-              ln -s ../opt/vscode/bin/code code
-              ''
-        }
+      ,     def
+        //  { name = "vscode"
+            , install =
+                bash
+                  ''
+                  curl 'https://code.visualstudio.com/sha/download?build=stable&os=linux-x64' -Lo vscode.tar.gz
+                  tar -xf vscode.tar.gz --no-same-owner
+                  cd VSCode-linux-x64
+                  mkdir -p ~/.local/opt/vscode
+                  cp -r * ~/.local/opt/vscode/
+                  cd ~/.local/bin/
+                  ln -s ../opt/vscode/bin/code code
+                  ''
+            }
       ,     def
         //  { name = "ipfs"
             , install =
