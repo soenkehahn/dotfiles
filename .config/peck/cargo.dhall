@@ -13,13 +13,9 @@ let simple =
         , skip = cargoSkips
         , install =
             bash
-              ( Text/replace
-                  "\$package"
-                  name
-                  ''
-                  cargo install $package --root ~/.local
-                  ''
-              )
+              ''
+              cargo install ${name} --root ~/.local
+              ''
         }
 
 let fromGithub =
@@ -28,16 +24,14 @@ let fromGithub =
         { name = user ++ "/" ++ repo
         , skip = cargoSkips
         , install =
-            bash
-              ( Text/replace
-                  "\$url"
-                  ("https://github.com/" ++ user ++ "/" ++ repo)
+            let url = "https://github.com/" ++ user ++ "/" ++ repo
+
+            in  bash
                   ''
-                  git clone $url checkout
+                  git clone ${url} checkout
                   cd checkout
                   cargo install --path . --root ~/.local
                   ''
-              )
         }
 
 in  { simple, fromGithub }

@@ -1,11 +1,8 @@
 \(script : Text) ->
-  Text/replace
-    "\$script"
-    script
-    ''
-    #!/usr/bin/env bash
+  ''
+  #!/usr/bin/env bash
 
-    set -eux
+  set -eux
 
-    $script
-    ''
+  ${script}
+  ''

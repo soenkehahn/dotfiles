@@ -13,17 +13,9 @@ let stack =
         , skip = [ "~/.stack" ]
         , install =
             bash
-              ( Text/replace
-                  "\$name"
-                  name
-                  ( Text/replace
-                      "\$resolver"
-                      resolver
-                      ''
-                      stack install --resolver=$resolver $name
-                      ''
-                  )
-              )
+              ''
+              stack install --resolver=${resolver} ${name}
+              ''
         }
 
 in  { packages =
