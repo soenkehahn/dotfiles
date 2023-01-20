@@ -11,9 +11,8 @@ stack script
   --package shake
   --package split
 -}
+
 {-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE ScopedTypeVariables #-}
-{-# LANGUAGE ViewPatterns #-}
 {-# OPTIONS_GHC -Wall -Werror #-}
 
 import Control.Arrow
@@ -22,9 +21,6 @@ import Data.List.Split
 import Data.Maybe
 import Development.Shake hiding (doesFileExist, getEnv)
 import Safe
-import System.Directory (setCurrentDirectory)
-import System.Environment
-import System.FilePath
 import qualified System.Logging.Facade as Log
 import WithCli
 
@@ -34,18 +30,7 @@ data Args = Args
 instance HasArguments Args
 
 main :: IO ()
-main = withCli $ \ Args -> do
-  homeDir <- getEnv "HOME"
-  setCurrentDirectory homeDir
-  buildNixExecutables homeDir
-  installAptPackages
-
-buildNixExecutables :: FilePath -> IO ()
-buildNixExecutables homeDir = do
-  unit $
-    cmd
-      (Cwd (homeDir </> ".local/shahn_nix_executables"))
-      "./build.sh"
+main = withCli $ \ Args -> installAptPackages
 
 installAptPackages :: IO ()
 installAptPackages = do
