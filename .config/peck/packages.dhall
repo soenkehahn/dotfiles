@@ -127,5 +127,15 @@ in  { packages =
               ln -s ../opt/vscode/bin/code code
               ''
         }
+      ,     def
+        //  { name = "ipfs"
+            , install =
+                bash
+                  ''
+                  curl -LO https://github.com/ipfs/kubo/releases/download/v0.17.0/kubo_v0.17.0_linux-amd64.tar.gz
+                  tar --no-same-owner -xvf kubo_v0.17.0_linux-amd64.tar.gz
+                  cp kubo/ipfs ~/.local/bin/
+                  ''
+            }
       ]
     }
