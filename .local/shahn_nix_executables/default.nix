@@ -16,7 +16,6 @@ stable.buildEnv {
     ]) ++
     (with (np "1692997153e4b8300ce708ae20d37e268804a0fb" "19baj7ykzb26yv808xnv6w45fbx1hs6x8w5awfg8q85w9zh3rcsc"); [
       nodePackages.prettier
-      bandwhich
     ]) ++
     (with (np "c53014a0529cc4c7b30a72ee9f29a96b0cec7e65" "1hsix26wg3dd3r57dc9b8hk0vhs316gyq8fmwq44817yj49zc0pf"); [
       terraform

@@ -96,6 +96,10 @@ in  { packages =
                   ''
             }
       , cargo.simple "alacritty"
+      , cargo.fromGithub
+          "imsnif"
+          "bandwhich"
+          "45503a01a687208cdc61be3fda25b1603d008653"
       , cargo.simple "bottom"
       , cargo.simple "cargo-edit"
       , cargo.simple "cargo-expand"
@@ -108,7 +112,7 @@ in  { packages =
       , cargo.simple "sd"
       , cargo.simple "starship"
       , cargo.simple "tracetree"
-      , cargo.fromGithub "soenkehahn" "si"
+      , cargo.fromGithub "soenkehahn" "si" "master"
       , { name = "vscode"
         , skip = [ "~/.wget-hsts" ]
         , install =

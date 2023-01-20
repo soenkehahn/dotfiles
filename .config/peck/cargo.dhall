@@ -21,6 +21,7 @@ let simple =
 let fromGithub =
       \(user : Text) ->
       \(repo : Text) ->
+      \(ref : Text) ->
         { name = user ++ "/" ++ repo
         , skip = cargoSkips
         , install =
@@ -28,8 +29,9 @@ let fromGithub =
 
             in  bash
                   ''
-                  git clone ${url} checkout
-                  cd checkout
+                  git clone ${url} src
+                  cd src
+                  git checkout ${ref}
                   cargo install --path . --root ~/.local
                   ''
         }
