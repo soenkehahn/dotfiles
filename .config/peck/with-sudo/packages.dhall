@@ -1,6 +1,12 @@
-let simple = ../simple.dhall
-
 let bash = ../bash.dhall
+
+let skipPython =
+      \(name : Text) ->
+      \(install : Text) ->
+        { name
+        , skip = [ "/usr/local/lib/python3.10" ] : List Text
+        , install = bash install
+        }
 
 let fetchRepo =
       \(repo : Text) ->
@@ -11,12 +17,12 @@ let fetchRepo =
         ''
 
 in  { packages =
-      [ simple
+      [ ../simple.dhall
           "meson"
           ''
           pip3 install meson ninja
           ''
-      , simple
+      , skipPython
           "seatd"
           ''
           ${fetchRepo "https://git.sr.ht/~kennylevinsen/seatd" "0.7.0"}
@@ -24,7 +30,7 @@ in  { packages =
           ninja -C build
           ninja -C build install
           ''
-      , simple
+      , skipPython
           "wayland-protocols"
           ''
           ${fetchRepo
@@ -34,7 +40,7 @@ in  { packages =
           ninja -C build
           ninja -C build install
           ''
-      , simple
+      , skipPython
           "wlroots"
           ''
           ${fetchRepo "https://gitlab.freedesktop.org/wlroots/wlroots" "0.16.1"}
@@ -44,7 +50,7 @@ in  { packages =
           ''
       , let version = "1.8"
 
-        in  simple
+        in  skipPython
               "sway"
               ''
               ${fetchRepo "https://github.com/swaywm/sway" "${version}"}
