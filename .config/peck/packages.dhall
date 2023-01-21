@@ -118,13 +118,10 @@ in  { packages =
             , install =
                 bash
                   ''
-                  curl 'https://code.visualstudio.com/sha/download?build=stable&os=linux-x64' -Lo vscode.tar.gz
-                  tar -xf vscode.tar.gz --no-same-owner
-                  cd VSCode-linux-x64
-                  mkdir -p ~/.local/opt/vscode
-                  cp -r * ~/.local/opt/vscode/
-                  cd ~/.local/bin/
-                  ln -s ../opt/vscode/bin/code code
+                  curl 'https://code.visualstudio.com/sha/download?build=stable&os=linux-x64' -Lo VSCode-linux-x64.tar.gz
+                  tar --no-same-owner -xf VSCode-linux-x64.tar.gz
+                  cp -r VSCode-linux-x64 ~/.local/opt/
+                  ln -s ../opt/VSCode-linux-x64/bin/code ~/.local/bin/code
                   ''
             }
       ,     def
@@ -135,6 +132,17 @@ in  { packages =
                   curl -LO https://github.com/ipfs/kubo/releases/download/v0.17.0/kubo_v0.17.0_linux-amd64.tar.gz
                   tar --no-same-owner -xvf kubo_v0.17.0_linux-amd64.tar.gz
                   cp kubo/ipfs ~/.local/bin/
+                  ''
+            }
+      ,     def
+        //  { name = "nvim"
+            , install =
+                bash
+                  ''
+                  curl -LO https://github.com/neovim/neovim/releases/download/v0.8.2/nvim-linux64.tar.gz
+                  tar --no-same-owner -xf nvim-linux64.tar.gz
+                  cp -r nvim-linux64 ~/.local/opt/
+                  ln -s ../opt/nvim-linux64/bin/nvim ~/.local/bin/nvim
                   ''
             }
       ]
