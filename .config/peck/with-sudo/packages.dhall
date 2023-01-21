@@ -1,5 +1,7 @@
 let simple = ../simple.dhall
 
+let bash = ../bash.dhall
+
 let fetchRepo =
       \(repo : Text) ->
       \(ref : Text) ->
@@ -55,15 +57,16 @@ in  { packages =
       , { name = "prettier"
         , skip = [ "/tmp", "/usr/local/share/.cache" ]
         , install =
-            ''
-            mkdir -p /usr/local/opt
-            cd /usr/local/opt
-            git clone https://github.com/prettier/prettier.git --branch 2.8.3 --single-branch
-            cd prettier
-            yarnpkg
-            yarnpkg build
-            ln -s ../opt/prettier/dist/bin-prettier.js /usr/local/bin/prettier
-            ''
+            bash
+              ''
+              mkdir -p /usr/local/opt
+              cd /usr/local/opt
+              git clone https://github.com/prettier/prettier.git --branch 2.8.3 --single-branch
+              cd prettier
+              yarnpkg
+              yarnpkg build
+              ln -s ../opt/prettier/dist/bin-prettier.js /usr/local/bin/prettier
+              ''
         }
       ]
     }
