@@ -1,5 +1,7 @@
 let bash = ../bash.dhall
 
+let simple = ../simple.dhall
+
 let skipPython =
       \(name : Text) ->
       \(install : Text) ->
@@ -17,7 +19,7 @@ let fetchRepo =
         ''
 
 in  { packages =
-      [ ../simple.dhall
+      [ simple
           "meson"
           ''
           pip3 install meson ninja
@@ -60,6 +62,20 @@ in  { packages =
               ninja -C build
               ninja -C build install
               ''
+      , simple
+          "node"
+          ''
+
+          curl 'https://nodejs.org/dist/v18.13.0/node-v18.13.0-linux-x64.tar.xz' -LO
+          tar --no-same-owner -xf node-v18.13.0-linux-x64.tar.xz
+          ls -la node-v18.13.0-linux-x64
+          for dir in bin include lib share ; do
+            echo $dir
+            ls -la node-v18.13.0-linux-x64/$dir
+            cp -rv node-v18.13.0-linux-x64/$dir/* /usr/local/$dir
+          done
+          npm install -g yarn
+          ''
       , { name = "prettier"
         , skip = [ "/tmp", "/usr/local/share/.cache" ]
         , install =
@@ -74,7 +90,7 @@ in  { packages =
               ln -s ../opt/prettier/dist/bin-prettier.js /usr/local/bin/prettier
               ''
         }
-      , ../simple.dhall
+      , simple
           "libssl-1.1.1s (for unity)"
           ''
           ${fetchRepo "https://github.com/openssl/openssl.git" "OpenSSL_1_1_1s"}
