@@ -114,5 +114,14 @@ in  { packages =
           cp -r nvim-linux64 ~/.local/opt/
           ln -s ../opt/nvim-linux64/bin/nvim ~/.local/bin/nvim
           ''
+      , { name = "toggle-waybar"
+        , skip = [ "~/.stack" ]
+        , install =
+            ''
+            cp -v ~/.local/src/toggle-waybar/* .
+            stack --resolver lts-18.18 ghc toggle-waybar.hs
+            cp -v toggle-waybar ~/.local/bin/
+            ''
+        }
       ]
     }
