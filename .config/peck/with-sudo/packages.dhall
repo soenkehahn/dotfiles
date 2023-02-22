@@ -50,7 +50,7 @@ in  { packages =
           ninja -C build
           ninja -C build install
           ''
-      , let version = "1.8"
+      , let version = "1.8.1"
 
         in  skipPython
               "sway"
