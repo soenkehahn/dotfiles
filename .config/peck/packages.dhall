@@ -81,6 +81,7 @@ in  { packages =
       , cargo.simple "du-dust"
       , cargo.simple "exa"
       , cargo.simple "fd-find"
+      , cargo.simple "flavours"
       , cargo.simple "just"
       , cargo.simple "rust-script"
       , cargo.simple "sd"
