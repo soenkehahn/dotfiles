@@ -99,7 +99,7 @@ in  { packages =
       , simple
           "vscode"
           ''
-          curl 'https://update.code.visualstudio.com/1.75.1/linux-x64/stable' -Lo VSCode-linux-x64.tar.gz
+          curl 'https://update.code.visualstudio.com/1.76.0/linux-x64/stable' -Lo VSCode-linux-x64.tar.gz
           tar --no-same-owner -xf VSCode-linux-x64.tar.gz
           cp -r VSCode-linux-x64 ~/.local/opt/
           ln -s ../opt/VSCode-linux-x64/bin/code ~/.local/bin/code
