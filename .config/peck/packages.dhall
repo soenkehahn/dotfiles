@@ -128,5 +128,15 @@ in  { packages =
             cp -v toggle-waybar ~/.local/bin/
             ''
         }
+      , { name = "bitcoind"
+        , skip = [] : List Text
+        , install =
+            ''
+            curl -LO https://bitcoincore.org/bin/bitcoin-core-24.0.1/bitcoin-24.0.1-x86_64-linux-gnu.tar.gz
+            tar --no-same-owner -xf bitcoin-24.0.1-x86_64-linux-gnu.tar.gz
+            cd bitcoin-24.0.1
+            cp -r bin include lib share $HOME/.local/
+            ''
+        }
       ]
     }
