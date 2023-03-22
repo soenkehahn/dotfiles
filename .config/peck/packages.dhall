@@ -86,6 +86,7 @@ in  { packages =
       , cargo.simple "just"
       , cargo.simple "mdbook"
       , cargo.simple "mdbook-linkcheck"
+      , cargo.simple "rage"
       , cargo.simple "rust-script"
       , cargo.simple "sd"
       , cargo.simple "sfz"
@@ -124,21 +125,22 @@ in  { packages =
       , { name = "toggle-waybar"
         , skip = [ "~/.stack" ]
         , install =
-            ''
-            cp -v ~/.local/src/toggle-waybar/* .
-            stack --resolver lts-18.18 ghc toggle-waybar.hs
-            cp -v toggle-waybar ~/.local/bin/
-            ''
+            bash
+              ''
+              cp -v ~/.local/src/toggle-waybar/* .
+              stack --resolver lts-18.18 ghc toggle-waybar.hs
+              cp -v toggle-waybar ~/.local/bin/
+              ''
         }
-      , { name = "bitcoind"
-        , skip = [] : List Text
-        , install =
-            ''
-            curl -LO https://bitcoincore.org/bin/bitcoin-core-24.0.1/bitcoin-24.0.1-x86_64-linux-gnu.tar.gz
-            tar --no-same-owner -xf bitcoin-24.0.1-x86_64-linux-gnu.tar.gz
-            cd bitcoin-24.0.1
-            cp -r bin include lib share $HOME/.local/
-            ''
-        }
+      , simple
+          "bitcoind"
+          ''
+          curl -LO https://bitcoincore.org/bin/bitcoin-core-24.0.1/bitcoin-24.0.1-x86_64-linux-gnu.tar.gz
+          tar --no-same-owner -xf bitcoin-24.0.1-x86_64-linux-gnu.tar.gz
+          cd bitcoin-24.0.1
+          cp -r bin include lib share $HOME/.local/
+          mkdir -p $HOME/.local/opt/bitcoind/
+          cp bitcoin.conf $HOME/.local/opt/bitcoind/
+          ''
       ]
     }
