@@ -37,6 +37,7 @@ alias gl='git log'
 alias glp='git log --oneline --graph --decorate --remotes --branches'
 alias gma='git commit --amend'
 alias gmas='git commit --amend --reuse-message HEAD'
+alias gforce='git push --force-with-lease'
 
 # misc
 geeqie() { /usr/bin/geeqie $@ \& }
