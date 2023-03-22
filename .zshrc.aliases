@@ -40,6 +40,7 @@ alias gmas='git commit --amend --reuse-message HEAD'
 alias gforce='git push --force-with-lease'
 
 # misc
+dolphin() { /usr/bin/dolphin $@ \& }
 geeqie() { /usr/bin/geeqie $@ \& }
 inkscape() { /usr/bin/inkscape $@ \& }
 intellij() { _JAVA_AWT_WM_NONREPARENTING=1 intellij-idea-community $@ \& }
