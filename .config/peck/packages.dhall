@@ -96,14 +96,16 @@ in  { packages =
           "bandwhich"
           "45503a01a687208cdc61be3fda25b1603d008653"
       , cargo.fromGithub "soenkehahn" "si" "master"
-      , simple
-          "vscode"
-          ''
-          curl 'https://update.code.visualstudio.com/1.76.0/linux-x64/stable' -Lo VSCode-linux-x64.tar.gz
-          tar --no-same-owner -xf VSCode-linux-x64.tar.gz
-          cp -r VSCode-linux-x64 ~/.local/opt/
-          ln -s ../opt/VSCode-linux-x64/bin/code ~/.local/bin/code
-          ''
+      , let version = "1.76.2"
+
+        in  simple
+              "vscode"
+              ''
+              curl 'https://update.code.visualstudio.com/${version}/linux-x64/stable' -Lo VSCode-linux-x64.tar.gz
+              tar --no-same-owner -xf VSCode-linux-x64.tar.gz
+              cp -r VSCode-linux-x64 ~/.local/opt/
+              ln -s ../opt/VSCode-linux-x64/bin/code ~/.local/bin/code
+              ''
       , simple
           "ipfs"
           ''
