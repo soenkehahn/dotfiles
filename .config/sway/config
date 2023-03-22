@@ -21,6 +21,8 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 # dynamically apply screen configurations
 exec_always pkill kanshi; exec kanshi
 
+exec redshift -l 40.71427:-74.00597
+
 # notifications
 exec mako
 
