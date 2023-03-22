@@ -18,3 +18,6 @@ done
 if [[ -d /usr/local/go/bin ]]; then
   PATH="/usr/local/go/bin:$PATH"
 fi
+
+export GDK_DPI_SCALE=2
+export QT_SCALE_FACTOR=2
