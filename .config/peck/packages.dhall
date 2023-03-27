@@ -77,6 +77,7 @@ in  { packages =
       , cargo.simple "bottom"
       , cargo.simple "cargo-edit"
       , cargo.simple "cargo-expand"
+      , cargo.simple "cargo-limit"
       , cargo.simple "cargo-watch"
       , cargo.simple "choose"
       , cargo.simple "du-dust"
