@@ -143,5 +143,19 @@ in  { packages =
           mkdir -p $HOME/.local/opt/bitcoind/
           cp bitcoin.conf $HOME/.local/opt/bitcoind/
           ''
+      , { name = "discord"
+        , skip = [ "~/.lesshst" ]
+        , install =
+            ''
+            curl -LO 'https://dl.discordapp.net/apps/linux/0.0.26/discord-0.0.26.tar.gz'
+            tar --no-same-owner -xf discord-0.0.26.tar.gz
+            cp -rv Discord ~/.local/opt/
+            ln -s ../opt/Discord/Discord ~/.local/bin/Discord
+            ln -s ../../opt/Discord/discord.desktop ~/.local/share/applications/discord.desktop
+            si ~/.local/share/applications/discord.desktop
+            sd 'Exec=/usr/share/discord/Discord' "Exec=$HOME/.local/bin/Discord" ~/.local/share/applications/discord.desktop
+            si ~/.local/share/applications/discord.desktop
+            ''
+        }
       ]
     }
