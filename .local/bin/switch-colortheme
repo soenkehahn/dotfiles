@@ -15,7 +15,7 @@ use structopt::StructOpt;
 #[derive(StructOpt)]
 struct Args {}
 
-const LIGHT: &str = "summerfruit-light";
+const LIGHT: &str = "solarized-light";
 const DARK: &str = "dracula";
 
 fn main() -> Result<()> {
