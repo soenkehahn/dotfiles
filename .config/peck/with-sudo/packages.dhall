@@ -62,10 +62,19 @@ in  { packages =
               ninja -C build
               ninja -C build install
               ''
+      , skipPython
+          "swaync"
+          ''
+          ${fetchRepo
+              "https://github.com/ErikReider/SwayNotificationCenter"
+              "v0.8.0"}
+          meson build
+          ninja -C build
+          ninja -C build install
+          ''
       , simple
           "node"
           ''
-
           curl 'https://nodejs.org/dist/v18.13.0/node-v18.13.0-linux-x64.tar.xz' -LO
           tar --no-same-owner -xf node-v18.13.0-linux-x64.tar.xz
           ls -la node-v18.13.0-linux-x64

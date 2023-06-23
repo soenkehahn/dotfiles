@@ -24,7 +24,8 @@ exec_always pkill kanshi; exec kanshi
 exec redshift -l 40.71427:-74.00597
 
 # notifications
-exec mako
+exec swaync
+bindsym $mod+minus exec swaync-client -t -sw
 
 # start and stop programs
 bindsym $mod+n exec rofi -show drun
