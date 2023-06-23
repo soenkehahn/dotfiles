@@ -7,3 +7,7 @@
 .vscode/
 rust-analyzer/
 .idea/
+.envrc
+.direnv/
+.hspec
+.hspec-failures
