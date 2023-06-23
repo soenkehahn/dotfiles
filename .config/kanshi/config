@@ -59,3 +59,8 @@ profile {
   output "Goldstar Company Ltd M2432 0x00000101" mode 1920x1080 scale 1 position 0,0
   output eDP-1 mode 2560x1440 scale 1 position 0,1080
 }
+
+profile Basel {
+  output "Dell Inc. DELL U2518D 3C4YP95L631L" mode 2560x1440 scale 1 position 0,0
+  output eDP-1 mode 2240x1400 scale 1 position 0,1440
+}
