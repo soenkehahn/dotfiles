@@ -99,14 +99,5 @@ in  { packages =
               ln -s ../opt/prettier/dist/bin-prettier.js /usr/local/bin/prettier
               ''
         }
-      , simple
-          "libssl-1.1.1s (for unity)"
-          ''
-          ${fetchRepo "https://github.com/openssl/openssl.git" "OpenSSL_1_1_1s"}
-          ./config
-          make
-          make test
-          make install
-          ''
       ]
     }
