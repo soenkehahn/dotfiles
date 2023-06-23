@@ -28,7 +28,7 @@ exec swaync
 bindsym $mod+minus exec swaync-client -t -sw
 
 # start and stop programs
-bindsym $mod+n exec rofi -show drun
+bindsym $mod+n exec rofi -show run
 bindsym $mod+r exec alacritty
 bindsym $mod+t exec firefox
 bindsym $mod+x kill
