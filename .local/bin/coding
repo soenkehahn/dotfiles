@@ -55,19 +55,11 @@ fn swaymsg(sway_command: &str) {
     }
 }
 
-fn check_firefox() {
-    let StdoutUntrimmed(output) = run_output!(%"ps aux");
-    if !output.contains("firefox") {
-        abort("coding assumes that firefox is running");
-    }
-}
-
 #[derive(StructOpt)]
 struct Args {}
 
 fn main() {
     let _args = Args::from_args();
-    check_firefox();
     swaymsg("layout tabbed");
     wait_for_change("exec firefox github.com/notifications");
     swaymsg("move left");
