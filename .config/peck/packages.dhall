@@ -84,6 +84,7 @@ in  { packages =
       , cargo.simple "exa"
       , cargo.simple "fd-find"
       , cargo.simple "flavours"
+      , cargo.simple "jless"
       , cargo.simple "just"
       , cargo.simple "mdbook"
       , cargo.simple "mdbook-linkcheck"
