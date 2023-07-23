@@ -17,3 +17,5 @@ autoload -U +X bashcompinit && bashcompinit
 eval "$(stack --bash-completion-script stack)"
 
 export EDITOR=$(which nvim)
+
+eval "$(direnv hook zsh)"
