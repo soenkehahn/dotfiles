@@ -99,7 +99,7 @@ in  { packages =
           "bandwhich"
           "45503a01a687208cdc61be3fda25b1603d008653"
       , cargo.fromGithub "soenkehahn" "si" "master"
-      , let version = "1.79.2"
+      , let version = "1.80.1"
 
         in  simple
               "vscode"
