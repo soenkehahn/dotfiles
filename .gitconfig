@@ -21,3 +21,5 @@
   defaultBranch = main
 [alias]
   thank = blame
+[commit]
+	verbose = true
