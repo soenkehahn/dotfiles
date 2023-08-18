@@ -18,5 +18,6 @@
   home.packages = [
     pkgs.nil
     pkgs.nixpkgs-fmt
+    pkgs.just
   ];
 }
