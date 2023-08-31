@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, system, jj, ... }:
 
 {
   programs.home-manager.enable = false;
@@ -19,5 +19,6 @@
     pkgs.nil
     pkgs.nixpkgs-fmt
     pkgs.just
+    jj.packages.${system}.default
   ];
 }
