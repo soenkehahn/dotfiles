@@ -16,9 +16,11 @@
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
   home.packages = [
+    pkgs.clementine
+    pkgs.just
     pkgs.nil
     pkgs.nixpkgs-fmt
-    pkgs.just
+    pkgs.nodejs
     jj.packages.${system}.default
   ];
 }
