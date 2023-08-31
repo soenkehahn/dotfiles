@@ -15,9 +15,11 @@ for dir in .local/bin .cabal/bin .cargo/bin .ghcup/bin go/bin; do
   fi
 done
 
-if [[ -d /usr/local/go/bin ]]; then
-  PATH="/usr/local/go/bin:$PATH"
-fi
+for dir in /usr/local/go/bin /nix/var/nix/profiles/default/bin /home/shahn/.nix-profile/bin; do
+  if [[ -d "$dir" ]]; then
+    PATH="$dir:$PATH"
+  fi
+done
 
 # For nix
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
