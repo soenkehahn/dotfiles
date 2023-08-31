@@ -33,6 +33,8 @@ bindsym $mod+r exec alacritty
 bindsym $mod+t exec firefox
 bindsym $mod+x kill
 
+bindsym $mod+m exec "i3-pretty-tree | dot -Tpdf | okular -"
+
 # focus
 
 focus_wrapping no
