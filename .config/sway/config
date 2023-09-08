@@ -146,17 +146,18 @@ bindsym $mod+F7 exec switch-colortheme
 
 # style
 
-font pango:UbuntuMono NF 20
+font pango:UbuntuMono NF 18
 
 seat * {
-  xcursor_theme default 50
+  xcursor_theme default 80
 }
+exec gsettings set org.gnome.desktop.interface cursor-size 80
 
 include colors
 
 default_border normal 1
 hide_edge_borders smart
-titlebar_padding 8
+titlebar_padding 16 4
 
 output * background $base00 solid_color
 
