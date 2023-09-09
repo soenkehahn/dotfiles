@@ -21,6 +21,7 @@
     pkgs.nil
     pkgs.nixpkgs-fmt
     pkgs.nodejs
+    pkgs.vscodium
     jj.packages.${system}.default
   ];
 }

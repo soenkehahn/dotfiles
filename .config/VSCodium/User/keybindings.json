@@ -1,0 +1,12 @@
+[
+  {
+    "key": "l",
+    "command": "breadcrumbs.focusPreviousWithPicker",
+    "when": "breadcrumbsActive && breadcrumbsVisible && listFocus && !inputFocus"
+  },
+  {
+    "key": "c",
+    "command": "breadcrumbs.focusNextWithPicker",
+    "when": "breadcrumbsActive && breadcrumbsVisible && listFocus && !inputFocus"
+  }
+]
