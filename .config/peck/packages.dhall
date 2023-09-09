@@ -157,7 +157,7 @@ in  { packages =
                 sd 'Exec=/usr/share/discord/Discord' "Exec=$HOME/.local/bin/Discord" ~/.local/share/applications/discord.desktop
                 ''
             }
-      , let version = "12.5.2"
+      , let version = "12.5.3"
 
         in  simple
               "tor-browser"
