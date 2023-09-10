@@ -15,7 +15,6 @@ fn main() {
         "Code",
         "firefox",
         "i3status",
-        "mako",
         "nvim",
         "rofi",
         "swaylock",
