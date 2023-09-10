@@ -54,7 +54,7 @@ alias view-dot='dot -Tpdf | okular - \&'
 alias vd='dot -Tpdf | okular - \&'
 
 # local aliases
-if [[ -f .zshrc.aliases.local ]]
+if [[ -f ~/.zshrc.aliases.local ]]
 then
-  source .zshrc.aliases.local
+  source ~/.zshrc.aliases.local
 fi
