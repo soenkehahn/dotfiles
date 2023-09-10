@@ -16,12 +16,20 @@
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
   home.packages = [
+    jj.packages.${system}.default
+    pkgs.chromium
     pkgs.clementine
+    pkgs.d2
+    pkgs.element-desktop
     pkgs.just
+    pkgs.nethogs
     pkgs.nil
+    pkgs.nix-direnv
     pkgs.nixpkgs-fmt
     pkgs.nodejs
+    pkgs.potrace
+    pkgs.remmina
+    pkgs.signal-desktop
     pkgs.vscodium
-    jj.packages.${system}.default
   ];
 }
