@@ -9,6 +9,7 @@ dependencies:
   - conduit
   - containers
   - directory
+  - filepath
   - foundation
   - generics-eot
   - getopt-generics
