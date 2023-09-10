@@ -9,13 +9,13 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-for dir in .local/bin .cabal/bin .cargo/bin .ghcup/bin go/bin; do
+for dir in .local/bin .cabal/bin .cargo/bin .ghcup/bin go/bin .nix-profile/bin; do
   if [[ -d "$HOME/$dir" ]]; then
     PATH="$HOME/$dir:$PATH"
   fi
 done
 
-for dir in /usr/local/go/bin /nix/var/nix/profiles/default/bin /home/shahn/.nix-profile/bin; do
+for dir in /usr/local/go/bin /nix/var/nix/profiles/default/bin; do
   if [[ -d "$dir" ]]; then
     PATH="$dir:$PATH"
   fi
