@@ -21,6 +21,8 @@ for dir in /usr/local/go/bin /nix/var/nix/profiles/default/bin; do
   fi
 done
 
+export BROWSER=~/.nix-profile/bin/firefox
+
 # For nix
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 
