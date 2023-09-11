@@ -22,7 +22,14 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        inherit system; config = {
+        allowUnfreePredicate = pkg:
+          builtins.elem (nixpkgs.lib.getName pkg) [
+            "vscode-extension-ms-vsliveshare-vsliveshare"
+          ];
+      };
+      };
     in
     {
       homeConfigurations."shahn" = home-manager.lib.homeManagerConfiguration {
