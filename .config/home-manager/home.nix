@@ -1,4 +1,4 @@
-{ pkgs, system, jj, ... }:
+{ pkgs, system, inputs, ... }:
 
 {
   programs.home-manager.enable = false;
@@ -16,14 +16,14 @@
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
   home.packages = [
-    jj.packages.${system}.default
+    inputs.jj.packages.${system}.default
+    inputs.nil.packages.${system}.default
     pkgs.chromium
     pkgs.clementine
     pkgs.d2
     pkgs.element-desktop
     pkgs.just
     pkgs.nethogs
-    pkgs.nil
     pkgs.nix-direnv
     pkgs.nixpkgs-fmt
     pkgs.nodejs

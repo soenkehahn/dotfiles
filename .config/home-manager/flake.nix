@@ -13,9 +13,15 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+    nil = {
+      url = "github:oxalica/nil";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, jj }:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -25,10 +31,8 @@
         inherit pkgs;
         modules = [ ./home.nix ];
         extraSpecialArgs = {
-          inherit jj system;
+          inherit system inputs;
         };
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
       };
     };
 }
