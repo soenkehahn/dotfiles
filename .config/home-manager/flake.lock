@@ -77,7 +77,9 @@
     "i3-pretty-tree": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1694431875,
@@ -140,20 +142,6 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1686377527,
-        "narHash": "sha256-kNmHI3RvbWj+ntPP+O+nOTnOcBRNPjcMiUwO8TNt0/Q=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "47c9ecbac352ce4a90f0ceca2c0f801500febfd7",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
         "lastModified": 1692264070,
         "narHash": "sha256-WepAkIL2UcHOj7JJiaFS/vxrA9lklQHv8p+xGL+7oQ0=",
         "owner": "nixos",
@@ -174,7 +162,7 @@
         "i3-pretty-tree": "i3-pretty-tree",
         "jj": "jj",
         "nil": "nil",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs"
       }
     },
     "rust-overlay": {
