@@ -82,11 +82,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1694431875,
-        "narHash": "sha256-1gGCxMeGlselRaT0FaqRaOCxS4dkv1KBg6jthchXfxY=",
+        "lastModified": 1694441725,
+        "narHash": "sha256-+cbsbR2H2oEAPmwvFW/+YTt4Cj/RL/PhDnRkEfrnbUU=",
         "owner": "soenkehahn",
         "repo": "i3-pretty-tree",
-        "rev": "664a9be0a074f539cd9cbc3bb0fa14dc1898e500",
+        "rev": "2ae9478b76890acc79ca51695ee169e3816aa7f5",
         "type": "github"
       },
       "original": {
