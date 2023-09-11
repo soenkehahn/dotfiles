@@ -19,6 +19,9 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+    i3-pretty-tree = {
+      url = "github:soenkehahn/i3-pretty-tree/sway";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:

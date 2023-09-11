@@ -16,6 +16,7 @@
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
   home.packages = [
+    inputs.i3-pretty-tree.packages.${system}.default
     inputs.jj.packages.${system}.default
     inputs.nil.packages.${system}.default
     pkgs.chromium
