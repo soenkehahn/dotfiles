@@ -19,6 +19,7 @@
     inputs.i3-pretty-tree.packages.${system}.default
     inputs.jj.packages.${system}.default
     inputs.nil.packages.${system}.default
+    (import inputs.firefox-nixpkgs { inherit system; }).firefox
     pkgs.chromium
     pkgs.clementine
     pkgs.d2
