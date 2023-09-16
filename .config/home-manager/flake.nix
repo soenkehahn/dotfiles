@@ -15,7 +15,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     i3-pretty-tree = {
-      url = "github:soenkehahn/i3-pretty-tree/sway";
+      url = "github:soenkehahn/i3-pretty-tree";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
