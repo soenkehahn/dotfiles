@@ -143,7 +143,7 @@ in  { packages =
           mkdir -p $HOME/.local/opt/bitcoind/
           cp bitcoin.conf $HOME/.local/opt/bitcoind/
           ''
-      , let version = "0.0.29"
+      , let version = "0.0.30"
 
         in  { name = "discord"
             , skip = [ "~/.lesshst" ]
@@ -153,8 +153,6 @@ in  { packages =
                 tar --no-same-owner -xf discord-${version}.tar.gz
                 cp -r Discord ~/.local/opt/
                 ln -s ../opt/Discord/Discord ~/.local/bin/Discord
-                ln -s ../../opt/Discord/discord.desktop ~/.local/share/applications/discord.desktop
-                sd 'Exec=/usr/share/discord/Discord' "Exec=$HOME/.local/bin/Discord" ~/.local/share/applications/discord.desktop
                 ''
             }
       , let version = "12.5.3"
