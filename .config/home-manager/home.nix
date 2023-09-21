@@ -23,6 +23,7 @@
     pkgs.chromium
     pkgs.clementine
     pkgs.d2
+    pkgs.direnv
     pkgs.element-desktop
     pkgs.just
     pkgs.nethogs
