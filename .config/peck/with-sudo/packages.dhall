@@ -72,19 +72,6 @@ in  { packages =
           ninja -C build
           ninja -C build install
           ''
-      , simple
-          "node"
-          ''
-          curl 'https://nodejs.org/dist/v18.13.0/node-v18.13.0-linux-x64.tar.xz' -LO
-          tar --no-same-owner -xf node-v18.13.0-linux-x64.tar.xz
-          ls -la node-v18.13.0-linux-x64
-          for dir in bin include lib share ; do
-            echo $dir
-            ls -la node-v18.13.0-linux-x64/$dir
-            cp -rv node-v18.13.0-linux-x64/$dir/* /usr/local/$dir
-          done
-          npm install -g yarn
-          ''
       , { name = "prettier"
         , skip = [ "/tmp", "/usr/local/share/.cache" ]
         , install =
