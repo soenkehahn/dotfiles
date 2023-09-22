@@ -11,3 +11,4 @@ rust-analyzer/
 .direnv/
 .hspec
 .hspec-failures
+result
