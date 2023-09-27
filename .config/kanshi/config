@@ -5,7 +5,7 @@ profile {
 
 profile "laptop + desktop" {
   output "Philips Consumer Electronics Company PHL 276E8V 0x00000565" enable mode 3840x2160 position 0,0 scale 1
-  output eDP-1 enable mode 2560x1440 position 3840,720 scale 1
+  output eDP-1 enable mode 2240x1400 position 3840,720 scale 1
 }
 
 profile "laptop + tv" {
