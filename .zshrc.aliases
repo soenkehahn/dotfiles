@@ -52,6 +52,7 @@ alias qmv='qmv --options=spaces '
 alias pm='pulsemixer'
 alias view-dot='dot -Tpdf | okular - \&'
 alias vd='dot -Tpdf | okular - \&'
+alias nsn='nix search nixpkgs'
 
 # local aliases
 if [[ -f ~/.zshrc.aliases.local ]]
