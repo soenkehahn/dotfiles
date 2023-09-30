@@ -18,6 +18,7 @@
       url = "github:soenkehahn/i3-pretty-tree";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sway-switch-outputs.url = "github:soenkehahn/sway-switch-outputs";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -38,6 +39,12 @@
         modules = [ ./home.nix ];
         extraSpecialArgs = {
           inherit system inputs;
+          extraFlakesToInstall = pkgs.lib.lists.map (flake: flake.packages.${system}.default) [
+            inputs.i3-pretty-tree
+            inputs.jj
+            inputs.nil
+            inputs.sway-switch-outputs
+          ];
         };
       };
     };

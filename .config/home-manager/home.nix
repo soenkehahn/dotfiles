@@ -1,4 +1,4 @@
-{ pkgs, system, inputs, ... }:
+{ pkgs, system, inputs, extraFlakesToInstall, ... }:
 
 {
   programs.home-manager.enable = true;
@@ -16,9 +16,6 @@
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
   home.packages = [
-    inputs.i3-pretty-tree.packages.${system}.default
-    inputs.jj.packages.${system}.default
-    inputs.nil.packages.${system}.default
     (import inputs.firefox-nixpkgs { inherit system; }).firefox
     pkgs.chromium
     pkgs.clementine
@@ -34,7 +31,8 @@
     pkgs.potrace
     pkgs.remmina
     pkgs.signal-desktop
-  ];
+    pkgs.swaynotificationcenter
+  ] ++ extraFlakesToInstall;
 
   programs.vscode = {
     enable = true;
