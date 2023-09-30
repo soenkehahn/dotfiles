@@ -108,7 +108,6 @@ installAptPackages = do
       "libxss-dev" :
       "lxde" :
       "m4" :
-      "mako-notifier" :
       "meld" :
       "mercurial" :
       "mhwaveedit" :
