@@ -1,7 +1,7 @@
 { pkgs, system, inputs, extraFlakesToInstall, ... }:
 
 {
-  programs.home-manager.enable = true;
+  programs.home-manager.enable = false;
 
   home.username = "shahn";
   home.homeDirectory = "/home/shahn";
