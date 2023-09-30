@@ -147,7 +147,6 @@ installAptPackages = do
       "sonata" :
       "sox" :
       "sshfs" :
-      "stellarium" :
       "swaybg" :
       "swaylock" :
       "tig" :
