@@ -21,7 +21,7 @@
   "editor.formatOnSave": true,
   "editor.guides.highlightActiveIndentation": false,
   "editor.guides.indentation": false,
-  "editor.hover.enabled": false,
+  "editor.hover.enabled": true,
   "editor.hover.sticky": false,
   "editor.lightbulb.enabled": false,
   "editor.lineNumbers": "on",
