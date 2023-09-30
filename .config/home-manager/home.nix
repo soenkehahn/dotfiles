@@ -27,6 +27,7 @@
     pkgs.element-desktop
     pkgs.just
     pkgs.nethogs
+    pkgs.nix
     pkgs.nix-direnv
     pkgs.nixpkgs-fmt
     pkgs.nodejs
