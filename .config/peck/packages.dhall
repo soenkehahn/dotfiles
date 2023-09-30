@@ -155,7 +155,7 @@ in  { packages =
                 ln -s ../opt/Discord/Discord ~/.local/bin/Discord
                 ''
             }
-      , let version = "12.5.3"
+      , let version = "12.5.6"
 
         in  simple
               "tor-browser"
