@@ -73,6 +73,9 @@ format = "[HOSTNAME=$env_value](bold red) "
 [hostname]
 ssh_only = false
 
+[shlvl]
+disabled = false
+
 [env_var.STACK_YAML]
 format = "[STACK_YAML=$env_value](bold red) "
 
