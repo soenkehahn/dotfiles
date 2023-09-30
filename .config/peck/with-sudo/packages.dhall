@@ -62,16 +62,6 @@ in  { packages =
               ninja -C build
               ninja -C build install
               ''
-      , skipPython
-          "swaync"
-          ''
-          ${fetchRepo
-              "https://github.com/ErikReider/SwayNotificationCenter"
-              "v0.8.0"}
-          meson build
-          ninja -C build
-          ninja -C build install
-          ''
       , { name = "prettier"
         , skip = [ "/tmp", "/usr/local/share/.cache" ]
         , install =
