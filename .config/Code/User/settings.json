@@ -152,6 +152,6 @@
   "workbench.editor.enablePreview": false,
   "workbench.editor.limit.enabled": true,
   "workbench.editor.limit.excludeDirty": true,
-  "workbench.editor.limit.value": 3,
+  "workbench.editor.limit.value": 5,
   "workbench.startupEditor": "newUntitledFile"
 }
