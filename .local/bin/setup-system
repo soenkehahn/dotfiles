@@ -70,7 +70,6 @@ installAptPackages = do
       "gitg" :
       "gitk" :
       "gnome-terminal" :
-      "golang" :
       "gparted" :
       "graphviz" :
       "grim" :
