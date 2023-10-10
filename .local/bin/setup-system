@@ -82,7 +82,6 @@ installAptPackages = do
       "inotify-tools" :
       "iotop" :
       "jnettop" :
-      "jq" :
       "kanshi" :
       "kcolorchooser" :
       "kig" :
