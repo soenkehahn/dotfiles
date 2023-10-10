@@ -37,7 +37,6 @@ in  { packages =
         }
       , stack "lts-19.30" "dhall-lsp-server"
       , stack "lts-19.30" "dhall"
-      , stack "lts-19.30" "hpack"
       , stack "lts-19.30" "markdown-unlit"
       , simple
           "rustup-init"
