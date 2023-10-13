@@ -17,6 +17,7 @@
 
   home.packages = [
     (import inputs.firefox-nixpkgs { inherit system; }).firefox
+    pkgs.bottom
     pkgs.chromium
     pkgs.clementine
     pkgs.d2

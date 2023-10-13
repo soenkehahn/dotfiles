@@ -65,7 +65,6 @@ in  { packages =
               ''
         }
       , cargo.simple "alacritty"
-      , cargo.simple "bottom"
       , cargo.simple "cargo-edit"
       , cargo.simple "cargo-expand"
       , cargo.simple "cargo-limit"
