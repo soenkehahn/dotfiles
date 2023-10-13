@@ -28,6 +28,7 @@
         inherit system; config = {
         allowUnfreePredicate = pkg:
           builtins.elem (nixpkgs.lib.getName pkg) [
+            "vscode-extension-github-copilot"
             "vscode-extension-ms-vsliveshare-vsliveshare"
           ];
       };

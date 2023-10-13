@@ -45,12 +45,13 @@
     package = pkgs.vscodium;
     extensions = with pkgs.vscode-extensions;
       [
+        github.copilot
         haskell.haskell
+        jnoortheen.nix-ide
         justusadam.language-haskell
         ms-vsliveshare.vsliveshare
         skellock.just
         vscodevim.vim
-        jnoortheen.nix-ide
       ] ++
       (pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
