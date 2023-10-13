@@ -30,7 +30,11 @@ data Args = Args
 instance HasArguments Args
 
 main :: IO ()
-main = withCli $ \ Args -> installAptPackages
+main = withCli $ \ Args -> do
+  installAptPackages
+  cmd_ "home-manager -L build"
+  cmd_ "home-manager -L switch"
+  cmd_ "peck"
 
 installAptPackages :: IO ()
 installAptPackages = do
