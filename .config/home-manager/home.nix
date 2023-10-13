@@ -28,6 +28,7 @@
     pkgs.nix
     pkgs.nix-direnv
     pkgs.nixpkgs-fmt
+    pkgs.nix-tree
     pkgs.nodejs
     pkgs.potrace
     pkgs.remmina
