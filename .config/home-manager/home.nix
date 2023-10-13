@@ -34,6 +34,7 @@
     pkgs.remmina
     pkgs.signal-desktop
     pkgs.swaynotificationcenter
+    pkgs.yq
   ] ++ extraFlakesToInstall;
 
   programs.vscode = {

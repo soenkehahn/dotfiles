@@ -56,14 +56,6 @@ in  { packages =
               cp as-tree ~/.local/bin/as-tree
               ''
         }
-      , { name = "yq"
-        , skip = [ "~/.cache" ]
-        , install =
-            bash
-              ''
-              pip3 install --user yq
-              ''
-        }
       , { name = "neovim-remote"
         , skip = [ "~/.cache" ]
         , install =
