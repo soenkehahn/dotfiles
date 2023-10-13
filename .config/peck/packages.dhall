@@ -80,7 +80,6 @@ in  { packages =
       , cargo.simple "rust-script"
       , cargo.simple "sd"
       , cargo.simple "sfz"
-      , cargo.simple "starship"
       , cargo.simple "tracetree"
       , cargo.fromGithub
           "imsnif"

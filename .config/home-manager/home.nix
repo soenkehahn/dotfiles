@@ -35,6 +35,7 @@
     pkgs.potrace
     pkgs.remmina
     pkgs.signal-desktop
+    pkgs.starship
     pkgs.swaynotificationcenter
     pkgs.yq
   ] ++ extraFlakesToInstall;
