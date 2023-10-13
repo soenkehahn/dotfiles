@@ -22,6 +22,7 @@
     pkgs.d2
     pkgs.direnv
     pkgs.element-desktop
+    pkgs.jless
     pkgs.jq
     pkgs.just
     pkgs.nethogs
