@@ -156,7 +156,6 @@ installAptPackages = do
       "tree" :
       "unison-gtk" :
       "upx-ucl" :
-      "vagrant" :
       "vim" :
       "virtualbox" :
       "vlc" :
