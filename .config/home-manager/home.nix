@@ -35,6 +35,7 @@
     pkgs.nodejs
     pkgs.potrace
     pkgs.remmina
+    pkgs.sd
     pkgs.signal-desktop
     pkgs.starship
     pkgs.swaynotificationcenter

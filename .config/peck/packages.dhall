@@ -78,7 +78,6 @@ in  { packages =
       , cargo.simple "mdbook-linkcheck"
       , cargo.simple "rage"
       , cargo.simple "rust-script"
-      , cargo.simple "sd"
       , cargo.simple "sfz"
       , cargo.simple "tracetree"
       , cargo.fromGithub
