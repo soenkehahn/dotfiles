@@ -131,7 +131,7 @@ in  { packages =
           mkdir -p $HOME/.local/opt/bitcoind/
           cp bitcoin.conf $HOME/.local/opt/bitcoind/
           ''
-      , let version = "0.0.31"
+      , let version = "0.0.32"
 
         in  { name = "discord"
             , skip = [ "~/.lesshst" ]
