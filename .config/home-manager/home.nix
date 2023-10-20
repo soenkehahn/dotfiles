@@ -16,7 +16,6 @@
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
   home.packages = [
-    (import inputs.firefox-nixpkgs { inherit system; }).firefox
     pkgs.bat
     pkgs.bottom
     pkgs.chromium
@@ -24,6 +23,7 @@
     pkgs.d2
     pkgs.direnv
     pkgs.element-desktop
+    pkgs.firefox
     pkgs.jless
     pkgs.jq
     pkgs.just

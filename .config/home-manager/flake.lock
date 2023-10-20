@@ -1,20 +1,5 @@
 {
   "nodes": {
-    "firefox-nixpkgs": {
-      "locked": {
-        "lastModified": 1695845032,
-        "narHash": "sha256-5K3THHkhVzjLapeKkXKrgus4iwfZhAMGT3GJVVfPl+k=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "d442f8a3fc9d2f27542f0d21095d411c7e9d595f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -219,7 +204,6 @@
     },
     "root": {
       "inputs": {
-        "firefox-nixpkgs": "firefox-nixpkgs",
         "home-manager": "home-manager",
         "i3-pretty-tree": "i3-pretty-tree",
         "jj": "jj",
