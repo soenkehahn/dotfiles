@@ -94,15 +94,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1695224363,
-        "narHash": "sha256-+hfjJLUMck5G92RVFDZA7LWkR3kOxs5zQ7RPW9t3eM8=",
+        "lastModified": 1695108154,
+        "narHash": "sha256-gSg7UTVtls2yO9lKtP0yb66XBHT1Fx5qZSZbGMpSn2c=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "408ba13188ff9ce309fa2bdd2f81287d79773b00",
+        "rev": "07682fff75d41f18327a871088d20af2710d4744",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
+        "ref": "release-23.05",
         "repo": "home-manager",
         "type": "github"
       }
@@ -153,9 +154,7 @@
     "nil": {
       "inputs": {
         "flake-utils": "flake-utils_3",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
+        "nixpkgs": "nixpkgs",
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
@@ -183,12 +182,28 @@
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-unstable",
         "repo": "nixpkgs",
+        "rev": "5ba549eafcf3e33405e5f66decd1a72356632b96",
         "type": "github"
       }
     },
     "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1697655685,
+        "narHash": "sha256-79Kuv+QdgsVc+rkibuAgWHnh8IXrLBTOKg5nM0Qvux0=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "80c1aab725151632ddc2a20caeb914e76dd0673c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-23.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1692557222,
         "narHash": "sha256-TCOtZaioLf/jTEgfa+nyg0Nwq5Uc610Z+OFV75yUgGw=",
@@ -209,7 +224,7 @@
         "i3-pretty-tree": "i3-pretty-tree",
         "jj": "jj",
         "nil": "nil",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "sway-switch-outputs": "sway-switch-outputs"
       }
     },
@@ -266,7 +281,7 @@
     "sway-switch-outputs": {
       "inputs": {
         "flake-utils": "flake-utils_4",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1693159647,

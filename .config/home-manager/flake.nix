@@ -1,9 +1,9 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
     firefox-nixpkgs.url = "github:nixos/nixpkgs";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     jj = {
@@ -12,7 +12,7 @@
     };
     nil = {
       url = "github:oxalica/nil";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.url = "github:nixos/nixpkgs/5ba549eafcf3e33405e5f66decd1a72356632b96";
     };
     i3-pretty-tree = {
       url = "github:soenkehahn/i3-pretty-tree";
