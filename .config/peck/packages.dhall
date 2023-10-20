@@ -76,7 +76,6 @@ in  { packages =
       , cargo.simple "flavours"
       , cargo.simple "mdbook"
       , cargo.simple "mdbook-linkcheck"
-      , cargo.simple "rage"
       , cargo.simple "rust-script"
       , cargo.simple "sfz"
       , cargo.simple "tracetree"

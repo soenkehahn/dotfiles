@@ -35,6 +35,7 @@
     pkgs.nodejs
     pkgs.nushell
     pkgs.potrace
+    pkgs.rage
     pkgs.remmina
     pkgs.sd
     pkgs.signal-desktop
