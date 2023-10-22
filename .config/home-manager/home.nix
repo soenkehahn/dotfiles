@@ -33,6 +33,7 @@
     pkgs.nixpkgs-fmt
     pkgs.nix-tree
     pkgs.nodejs
+    pkgs.nushell
     pkgs.potrace
     pkgs.remmina
     pkgs.sd
