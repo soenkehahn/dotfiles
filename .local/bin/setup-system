@@ -31,9 +31,12 @@ instance HasArguments Args
 
 main :: IO ()
 main = withCli $ \ Args -> do
+  putStrLn "apt..."
   installAptPackages
+  putStrLn "home-manager..."
   cmd_ "home-manager -L build"
   cmd_ "home-manager -L switch"
+  putStrLn "peck..."
   cmd_ "peck"
 
 installAptPackages :: IO ()
