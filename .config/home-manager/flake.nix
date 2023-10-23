@@ -5,6 +5,10 @@
       url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix = {
+      url = "github:NixOS/nix/2.17.1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     jj = {
       url = "github:martinvonz/jj";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,6 +48,7 @@
             inputs.jj
             inputs.nil
             inputs.sway-switch-outputs
+            inputs.nix
           ];
         };
       };
