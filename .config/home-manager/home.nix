@@ -22,6 +22,7 @@
     pkgs.clementine
     pkgs.d2
     pkgs.direnv
+    pkgs.du-dust
     pkgs.element-desktop
     pkgs.firefox
     pkgs.jless

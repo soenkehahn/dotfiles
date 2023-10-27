@@ -70,7 +70,6 @@ in  { packages =
       , cargo.simple "cargo-limit"
       , cargo.simple "cargo-watch"
       , cargo.simple "choose"
-      , cargo.simple "du-dust"
       , cargo.simple "exa"
       , cargo.simple "fd-find"
       , cargo.simple "flavours"
