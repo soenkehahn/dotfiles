@@ -35,8 +35,6 @@ in  { packages =
               stack install
               ''
         }
-      , stack "lts-19.30" "dhall-lsp-server"
-      , stack "lts-19.30" "dhall"
       , stack "lts-19.30" "markdown-unlit"
       , simple
           "rustup-init"
@@ -46,16 +44,6 @@ in  { packages =
           mkdir -p ~/.local/bin/
           mv rustup-init ~/.local/bin/
           ''
-      , { name = "as-tree"
-        , skip = [ "~/.wget-hsts" ]
-        , install =
-            bash
-              ''
-              wget 'https://github.com/jez/as-tree/releases/download/0.12.0/as-tree-0.12.0-linux.zip'
-              aunpack as-tree-0.12.0-linux.zip
-              cp as-tree ~/.local/bin/as-tree
-              ''
-        }
       , { name = "neovim-remote"
         , skip = [ "~/.cache" ]
         , install =
@@ -64,14 +52,11 @@ in  { packages =
               pip3 install --user neovim-remote
               ''
         }
-      , cargo.simple "alacritty"
       , cargo.simple "cargo-edit"
       , cargo.simple "cargo-expand"
       , cargo.simple "cargo-limit"
       , cargo.simple "cargo-watch"
-      , cargo.simple "choose"
       , cargo.simple "exa"
-      , cargo.simple "fd-find"
       , cargo.simple "flavours"
       , cargo.simple "mdbook"
       , cargo.simple "mdbook-linkcheck"
@@ -99,14 +84,6 @@ in  { packages =
           curl -LO https://github.com/ipfs/kubo/releases/download/v0.17.0/kubo_v0.17.0_linux-amd64.tar.gz
           tar --no-same-owner -xvf kubo_v0.17.0_linux-amd64.tar.gz
           cp kubo/ipfs ~/.local/bin/
-          ''
-      , simple
-          "nvim"
-          ''
-          curl -LO https://github.com/neovim/neovim/releases/download/v0.8.2/nvim-linux64.tar.gz
-          tar --no-same-owner -xf nvim-linux64.tar.gz
-          cp -r nvim-linux64 ~/.local/opt/
-          ln -s ../opt/nvim-linux64/bin/nvim ~/.local/bin/nvim
           ''
       , { name = "toggle-waybar"
         , skip = [ "~/.stack" ]

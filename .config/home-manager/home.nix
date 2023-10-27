@@ -16,18 +16,25 @@
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
   home.packages = [
+    pkgs.alacritty
+    pkgs.as-tree
     pkgs.bat
     pkgs.bottom
+    pkgs.choose
     pkgs.chromium
     pkgs.clementine
     pkgs.d2
+    pkgs.dhall
+    pkgs.dhall-lsp-server
     pkgs.direnv
     pkgs.du-dust
     pkgs.element-desktop
     pkgs.firefox
+    pkgs.fd
     pkgs.jless
     pkgs.jq
     pkgs.just
+    pkgs.neovim
     pkgs.nethogs
     pkgs.nix-direnv
     pkgs.nixpkgs-fmt
