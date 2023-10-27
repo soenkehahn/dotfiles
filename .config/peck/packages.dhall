@@ -52,6 +52,7 @@ in  { packages =
               pip3 install --user neovim-remote
               ''
         }
+      , cargo.simple "alacritty"
       , cargo.simple "cargo-edit"
       , cargo.simple "cargo-expand"
       , cargo.simple "cargo-limit"

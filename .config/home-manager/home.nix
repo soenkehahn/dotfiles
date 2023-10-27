@@ -16,7 +16,6 @@
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
   home.packages = [
-    pkgs.alacritty
     pkgs.as-tree
     pkgs.bat
     pkgs.bottom
