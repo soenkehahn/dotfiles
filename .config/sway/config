@@ -161,7 +161,8 @@ include colors
 
 default_border normal 1
 hide_edge_borders smart
-titlebar_padding 16 4
+titlebar_padding 16 6
+titlebar_border_thickness 4
 
 output * background $base00 solid_color
 
