@@ -1,6 +1,10 @@
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' '+r:|[._-]=* r:|=*' '+l:|=* r:|=*'
 zstyle ':completion:*' special-dirs true
 
+fpath=(~/.zsh/completions $fpath)
+autoload -U compinit
+compinit
+
 source ~/.zshrc.aliases
 
 # history
