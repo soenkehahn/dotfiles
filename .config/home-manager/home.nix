@@ -38,7 +38,6 @@
     pkgs.nix-direnv
     pkgs.nixpkgs-fmt
     pkgs.nix-tree
-    pkgs.nodejs
     pkgs.nushell
     pkgs.potrace
     pkgs.rage
@@ -48,6 +47,18 @@
     pkgs.starship
     pkgs.swaynotificationcenter
     pkgs.yq
+    (
+      pkgs.writeScriptBin "switch-colortheme" ''
+        set -eu
+
+        export PATH="${pkgs.nodejs}/bin:$PATH"
+        export PATH="${pkgs.nodePackages.prettier}/bin:$PATH"
+
+        node --version
+        prettier --version
+        ${./switch-colortheme}
+      ''
+    )
   ] ++ extraFlakesToInstall;
 
   programs.vscode = {
