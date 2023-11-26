@@ -22,6 +22,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sway-switch-outputs.url = "github:soenkehahn/sway-switch-outputs";
+    debug-tools.url = "github:garnix-io/debug-tools";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -47,8 +48,10 @@
             inputs.i3-pretty-tree
             inputs.jj
             inputs.nil
-            inputs.sway-switch-outputs
             inputs.nix
+            inputs.sway-switch-outputs
+          ] ++ [
+            inputs.debug-tools.packages.${system}.main_pkg
           ];
         };
       };

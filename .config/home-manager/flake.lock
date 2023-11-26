@@ -1,5 +1,23 @@
 {
   "nodes": {
+    "debug-tools": {
+      "inputs": {
+        "nixpkgs-repo": "nixpkgs-repo"
+      },
+      "locked": {
+        "lastModified": 1699470454,
+        "narHash": "sha256-RKoBzwUDC9ZP5w6vNm7jXXIQ0mTVwU7a8GpOzDgQ+IQ=",
+        "owner": "garnix-io",
+        "repo": "debug-tools",
+        "rev": "8a4026fa6ccbfec070f96d458ffa96e7fb6112e8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "garnix-io",
+        "repo": "debug-tools",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -244,6 +262,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-repo": {
+      "locked": {
+        "lastModified": 1698376214,
+        "narHash": "sha256-8UC0cK/cT600ug+8RVc6a1sE66+U1dfsileTo65zPCg=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "6fc7203e423bbf1c8f84cccf1c4818d097612566",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "6fc7203e423bbf1c8f84cccf1c4818d097612566",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1697655685,
@@ -276,6 +310,7 @@
     },
     "root": {
       "inputs": {
+        "debug-tools": "debug-tools",
         "home-manager": "home-manager",
         "i3-pretty-tree": "i3-pretty-tree",
         "jj": "jj",
