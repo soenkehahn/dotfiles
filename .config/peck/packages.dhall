@@ -69,7 +69,7 @@ in  { packages =
           "bandwhich"
           "45503a01a687208cdc61be3fda25b1603d008653"
       , cargo.fromGithub "soenkehahn" "si" "master"
-      , let version = "1.84.0"
+      , let version = "1.84.2"
 
         in  simple
               "vscode"
@@ -106,7 +106,7 @@ in  { packages =
           mkdir -p $HOME/.local/opt/bitcoind/
           cp bitcoin.conf $HOME/.local/opt/bitcoind/
           ''
-      , let version = "0.0.33"
+      , let version = "0.0.35"
 
         in  { name = "discord"
             , skip = [ "~/.lesshst" ]
