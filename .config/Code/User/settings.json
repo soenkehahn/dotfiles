@@ -84,6 +84,7 @@
   "rust-analyzer.inlayHints.typeHints.enable": false,
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.fontSize": 10,
+  "vim.joinspaces": false,
   "vim.leader": "h",
   "vim.normalModeKeyBindingsNonRecursive": [
     { "before": ["<leader>", "."], "commands": ["breadcrumbs.focusAndSelect"] },
