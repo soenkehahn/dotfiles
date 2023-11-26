@@ -28,7 +28,6 @@
     pkgs.direnv
     pkgs.du-dust
     pkgs.element-desktop
-    pkgs.firefox
     pkgs.fd
     pkgs.jless
     pkgs.jq
@@ -57,6 +56,20 @@
         node --version
         prettier --version
         ${./switch-colortheme}
+      ''
+    )
+    (
+      pkgs.writeScriptBin "firefox" ''
+        #!/usr/bin/env bash
+
+        set -eu
+
+        if which nixGL ; then
+          exec nixGL ${pkgs.firefox}/bin/firefox "$@"
+        else
+          notify-send "nixGL not installed"
+          exec ${pkgs.firefox}/bin/firefox "$@"
+        fi
       ''
     )
   ] ++ extraFlakesToInstall;
