@@ -53,8 +53,6 @@
         export PATH="${pkgs.nodejs}/bin:$PATH"
         export PATH="${pkgs.nodePackages.prettier}/bin:$PATH"
 
-        node --version
-        prettier --version
         ${./switch-colortheme}
       ''
     )
