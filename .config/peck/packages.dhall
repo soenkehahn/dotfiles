@@ -96,16 +96,6 @@ in  { packages =
               cp -v toggle-waybar ~/.local/bin/
               ''
         }
-      , simple
-          "bitcoind"
-          ''
-          curl -LO https://bitcoincore.org/bin/bitcoin-core-24.0.1/bitcoin-24.0.1-x86_64-linux-gnu.tar.gz
-          tar --no-same-owner -xf bitcoin-24.0.1-x86_64-linux-gnu.tar.gz
-          cd bitcoin-24.0.1
-          cp -r bin include lib share $HOME/.local/
-          mkdir -p $HOME/.local/opt/bitcoind/
-          cp bitcoin.conf $HOME/.local/opt/bitcoind/
-          ''
       , let version = "0.0.39"
 
         in  { name = "discord-${version}"
