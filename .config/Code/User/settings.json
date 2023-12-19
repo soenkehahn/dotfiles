@@ -127,6 +127,10 @@
     {
       "before": ["<leader>", "t"],
       "commands": ["workbench.action.editor.nextChange"]
+    },
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["editor.action.formatDocument"]
     }
   ],
   "vim.useSystemClipboard": true,
@@ -147,6 +151,10 @@
     {
       "before": ["<leader>", "l"],
       "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["editor.action.formatDocument"]
     }
   ],
   "window.menuBarVisibility": "toggle",
