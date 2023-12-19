@@ -69,10 +69,10 @@ in  { packages =
           "bandwhich"
           "45503a01a687208cdc61be3fda25b1603d008653"
       , cargo.fromGithub "soenkehahn" "si" "master"
-      , let version = "1.84.2"
+      , let version = "1.85.0"
 
         in  simple
-              "vscode"
+              "vscode-${version}"
               ''
               curl 'https://update.code.visualstudio.com/${version}/linux-x64/stable' -Lo VSCode-linux-x64.tar.gz
               tar --no-same-owner -xf VSCode-linux-x64.tar.gz
@@ -106,9 +106,9 @@ in  { packages =
           mkdir -p $HOME/.local/opt/bitcoind/
           cp bitcoin.conf $HOME/.local/opt/bitcoind/
           ''
-      , let version = "0.0.35"
+      , let version = "0.0.39"
 
-        in  { name = "discord"
+        in  { name = "discord-${version}"
             , skip = [ "~/.lesshst" ]
             , install =
                 ''
