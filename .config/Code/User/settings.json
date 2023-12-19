@@ -28,7 +28,7 @@
   "editor.lineNumbers": "on",
   "editor.minimap.enabled": false,
   "editor.multiCursorModifier": "ctrlCmd",
-  "editor.occurrencesHighlight": false,
+  "editor.occurrencesHighlight": "off",
   "editor.parameterHints.enabled": false,
   "editor.renderLineHighlight": "none",
   "editor.renderWhitespace": "trailing",
