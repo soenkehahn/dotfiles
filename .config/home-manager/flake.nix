@@ -1,12 +1,8 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix = {
-      url = "github:NixOS/nix/2.17.1";
+      url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     jj = {
@@ -48,7 +44,6 @@
             inputs.i3-pretty-tree
             inputs.jj
             inputs.nil
-            inputs.nix
             inputs.sway-switch-outputs
           ] ++ [
             inputs.debug-tools.packages.${system}.main_pkg
