@@ -1,4 +1,4 @@
-{ pkgs, system, inputs, extraFlakesToInstall, ... }:
+{ pkgs, extraFlakesToInstall, ... }:
 
 {
   programs.home-manager.enable = true;
@@ -42,6 +42,7 @@
     pkgs.potrace
     pkgs.rage
     pkgs.remmina
+    pkgs.ripgrep
     pkgs.sd
     pkgs.signal-desktop
     pkgs.starship
