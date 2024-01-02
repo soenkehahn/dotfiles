@@ -10,7 +10,7 @@ then
 
   while true ; do
     export lines=$(tput lines)
-    find .git/ | ag -v '^.git/objects/' | \
+    find .git/ | rg -v '^.git/objects/' | \
       entr -rcds 'git -c color.ui=always log --oneline --graph --decorate --remotes --branches | head -n $(expr $lines - 1)'
   done
 else
