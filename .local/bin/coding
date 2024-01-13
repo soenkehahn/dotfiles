@@ -85,8 +85,6 @@ fn main() {
     wait_for_change(&sway_terminal_command(None));
     swaymsg("split toggle");
     swaymsg("layout splitv");
-    // shell bottom right
-    wait_for_change(&sway_terminal_command(None));
     swaymsg("focus left");
     swaymsg("split toggle");
     swaymsg("layout stacking");
