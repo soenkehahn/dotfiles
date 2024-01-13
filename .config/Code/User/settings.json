@@ -131,7 +131,8 @@
     {
       "before": ["<leader>", "f"],
       "commands": ["editor.action.formatDocument"]
-    }
+    },
+    { "before": ["<leader>", "d"], "commands": ["editor.action.showHover"] }
   ],
   "vim.useSystemClipboard": true,
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -155,7 +156,8 @@
     {
       "before": ["<leader>", "f"],
       "commands": ["editor.action.formatDocument"]
-    }
+    },
+    { "before": ["<leader>", "d"], "commands": ["editor.action.showHover"] }
   ],
   "window.menuBarVisibility": "toggle",
   "workbench.colorTheme": "Base16 Dracula",
