@@ -20,6 +20,7 @@
     };
     sway-switch-outputs.url = "github:soenkehahn/sway-switch-outputs";
     debug-tools.url = "github:garnix-io/debug-tools";
+    shellac.url = "github:soenkehahn/shellac";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -45,6 +46,7 @@
             inputs.i3-pretty-tree
             inputs.jj
             inputs.nil
+            inputs.shellac
             inputs.sway-switch-outputs
           ] ++ [
             inputs.debug-tools.packages.${system}.main_pkg
