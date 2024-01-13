@@ -467,11 +467,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1704938756,
-        "narHash": "sha256-/K6HwHLknT6ihiFPvdrCrU+tIz+0HvSjekLCpHJTdBY=",
+        "lastModified": 1705113349,
+        "narHash": "sha256-D7eVhpO9Y46v0gY+6juGJMhu37YoRi2F4ViJuzfW11k=",
         "owner": "soenkehahn",
         "repo": "porc",
-        "rev": "e63986d3a1a9c37dce112ee117e112b2b48f3a17",
+        "rev": "e0140a7050bddfbf4f50334fa212c8932746d276",
         "type": "github"
       },
       "original": {
