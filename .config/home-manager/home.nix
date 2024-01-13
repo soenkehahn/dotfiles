@@ -45,6 +45,7 @@
     pkgs.ripgrep
     pkgs.sd
     pkgs.signal-desktop
+    pkgs.simple-http-server
     pkgs.starship
     pkgs.swaynotificationcenter
     pkgs.yq
