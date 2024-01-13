@@ -1,0 +1,2 @@
+Problem: Cannot open DFU device 342d:dfa0 found on devnum 8 (LIBUSB_ERROR_ACCESS)
+Fix: https://www.reddit.com/r/olkb/comments/18sv0b5/comment/kfd4dwx/?utm_source=reddit&utm_medium=web2x&context=3

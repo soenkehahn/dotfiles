@@ -1,4 +1,4 @@
-{ pkgs, extraFlakesToInstall, ... }:
+{ pkgs, extraFlakesToInstall, inputs, system, ... }:
 
 {
   programs.home-manager.enable = true;
@@ -48,6 +48,10 @@
     pkgs.starship
     pkgs.swaynotificationcenter
     pkgs.yq
+    (
+      let pkgs = import inputs.nixpkgs_older { inherit system; };
+      in pkgs.qmk
+    )
     (
       pkgs.writeScriptBin "switch-colortheme" ''
         set -eu
