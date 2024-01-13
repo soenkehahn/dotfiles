@@ -53,6 +53,8 @@ alias pm='pulsemixer'
 alias view-dot='dot -Tpdf | okular - \&'
 alias vd='dot -Tpdf | okular - \&'
 alias nsn='nix search nixpkgs'
+alias nd='nix develop -Lc $SHELL'
+alias rg='rg --smart-case --sort path'
 
 # local aliases
 if [[ -f ~/.zshrc.aliases.local ]]
