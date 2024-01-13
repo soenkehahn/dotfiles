@@ -96,18 +96,6 @@ in  { packages =
               cp -v toggle-waybar ~/.local/bin/
               ''
         }
-      , let version = "0.0.39"
-
-        in  { name = "discord-${version}"
-            , skip = [ "~/.lesshst" ]
-            , install =
-                ''
-                curl -LO 'https://dl.discordapp.net/apps/linux/${version}/discord-${version}.tar.gz'
-                tar --no-same-owner -xf discord-${version}.tar.gz
-                cp -r Discord ~/.local/opt/
-                ln -s ../opt/Discord/Discord ~/.local/bin/Discord
-                ''
-            }
       , let version = "12.5.6"
 
         in  simple
