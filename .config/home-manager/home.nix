@@ -16,6 +16,7 @@
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   home.packages = [
+    pkgs.age
     pkgs.as-tree
     pkgs.bat
     pkgs.bottom
