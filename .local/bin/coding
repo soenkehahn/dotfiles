@@ -29,7 +29,7 @@ where
 fn wait_for_change(sway_command: &str) {
     let old = get_active_window();
     swaymsg(sway_command);
-    println!("waiting for {}...", sway_command);
+    eprintln!("waiting for {}...", sway_command);
     wait_for(|| {
         let new = get_active_window();
         new != old
@@ -89,6 +89,7 @@ fn main() {
     swaymsg("split toggle");
     swaymsg("layout stacking");
     swaymsg("resize set 60 ppt 0");
+    eprintln!("Done.");
 }
 
 const TERMINAL_COMMAND: &str = "alacritty";
