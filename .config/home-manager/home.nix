@@ -64,6 +64,7 @@ in
     pkgs.simple-http-server
     pkgs.starship
     pkgs.swaynotificationcenter
+    pkgs.tor-browser
     pkgs.yq
     (
       let pkgs = import inputs.nixpkgs_older { inherit system; };

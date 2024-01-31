@@ -95,16 +95,5 @@ in  { packages =
               cp -v toggle-waybar ~/.local/bin/
               ''
         }
-      , let version = "12.5.6"
-
-        in  simple
-              "tor-browser"
-              ''
-              curl 'https://dist.torproject.org/torbrowser/${version}/tor-browser-linux64-${version}_ALL.tar.xz' -LO
-              tar --no-same-owner -xf tor-browser-linux64-${version}_ALL.tar.xz
-              cp -r tor-browser ~/.local/opt/
-              echo 'cd ~/.local/opt/tor-browser ; ./start-tor-browser.desktop "$@"' > ~/.local/bin/tor-browser
-              chmod +x ~/.local/bin/tor-browser
-              ''
       ]
     }
