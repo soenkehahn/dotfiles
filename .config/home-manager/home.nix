@@ -1,5 +1,20 @@
 { pkgs, extraFlakesToInstall, inputs, system, ... }:
+let
+  wrapInNixGL = exe:
+    pkgs.writeScriptBin exe ''
+      #!/usr/bin/env bash
 
+      set -eu
+
+      if which nixGL ; then
+        exec nixGL ${pkgs.${exe}}/bin/${exe} "$@"
+      else
+        notify-send "nixGL not installed"
+        exec ${pkgs.${exe}}/bin/${exe} "$@"
+      fi
+    ''
+  ;
+in
 {
   programs.home-manager.enable = true;
 
@@ -64,20 +79,8 @@
         ${./switch-colortheme}
       ''
     )
-    (
-      pkgs.writeScriptBin "firefox" ''
-        #!/usr/bin/env bash
-
-        set -eu
-
-        if which nixGL ; then
-          exec nixGL ${pkgs.firefox}/bin/firefox "$@"
-        else
-          notify-send "nixGL not installed"
-          exec ${pkgs.firefox}/bin/firefox "$@"
-        fi
-      ''
-    )
+    (wrapInNixGL "alacritty")
+    (wrapInNixGL "firefox")
   ] ++ extraFlakesToInstall;
 
   programs.vscode = {
