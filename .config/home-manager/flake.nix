@@ -22,6 +22,8 @@
     debug-tools.url = "github:garnix-io/debug-tools";
     shellac.url = "github:soenkehahn/shellac";
     porc.url = "github:soenkehahn/porc";
+    nix.url = "github:nixos/nix/2.20.1";
+    nix-tree.url = "github:utdemir/nix-tree";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -47,11 +49,13 @@
             inputs.i3-pretty-tree
             inputs.jj
             inputs.nil
+            inputs.nix
             inputs.porc
             inputs.shellac
             inputs.sway-switch-outputs
           ] ++ [
             inputs.debug-tools.packages.${system}.main_pkg
+            inputs.nix-tree.defaultPackage.${system}
           ];
         };
       };

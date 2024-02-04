@@ -50,10 +50,8 @@ in
     pkgs.just
     pkgs.neovim
     pkgs.nethogs
-    pkgs.nix
     pkgs.nix-direnv
     pkgs.nixpkgs-fmt
-    pkgs.nix-tree
     pkgs.nushell
     pkgs.potrace
     pkgs.rage
