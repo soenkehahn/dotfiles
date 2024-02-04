@@ -625,11 +625,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1706072526,
-        "narHash": "sha256-/tQS82WewyGMcfJko2urLXPk3KZ90Y35zGaOMIS8jpE=",
+        "lastModified": 1707079047,
+        "narHash": "sha256-krZXTY/APPtyjRtF/4j7auMA2AELzvk5udpapENtl6s=",
         "owner": "soenkehahn",
         "repo": "porc",
-        "rev": "9ce8fc62b9499f2173ac1a8c8a33db516525851c",
+        "rev": "5ab10b13b65293811817b29af83b863bac7b4b6d",
         "type": "github"
       },
       "original": {
