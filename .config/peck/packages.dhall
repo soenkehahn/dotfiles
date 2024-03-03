@@ -68,7 +68,7 @@ in  { packages =
           "bandwhich"
           "45503a01a687208cdc61be3fda25b1603d008653"
       , cargo.fromGithub "soenkehahn" "si" "master"
-      , let version = "1.86.1"
+      , let version = "1.86.2"
 
         in  simple
               "vscode-${version}"
