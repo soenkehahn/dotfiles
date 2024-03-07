@@ -46,6 +46,8 @@ in
     pkgs.du-dust
     pkgs.element-desktop
     pkgs.fd
+    pkgs.gittyup
+    pkgs.helix
     pkgs.jless
     pkgs.jq
     pkgs.just
