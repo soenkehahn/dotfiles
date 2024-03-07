@@ -1,0 +1,21 @@
+update_check = false
+
+search_mode = "skim"
+
+filter_mode = "global"
+
+enter_accept = false
+
+filter_mode_shell_up_key_binding = "session"
+
+style = "compact"
+
+inline_height = 10
+
+ctrl_n_shortcuts = true
+
+history_filter = [
+  "^ "
+]
+
+show_help = false

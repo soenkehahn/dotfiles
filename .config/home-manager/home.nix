@@ -33,6 +33,7 @@ in
   home.packages = [
     pkgs.age
     pkgs.as-tree
+    pkgs.atuin
     pkgs.bat
     pkgs.bottom
     pkgs.choose
