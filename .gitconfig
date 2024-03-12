@@ -22,4 +22,4 @@
 [alias]
   thank = blame
 [commit]
-	verbose = true
+  verbose = true
