@@ -84,6 +84,9 @@ only_detached = false
 tag_disabled = false
 commit_hash_length = 8
 
+[git_status]
+stashed = ""
+
 [status]
 disabled = false
 format = '[\($status\)](bold red) '
