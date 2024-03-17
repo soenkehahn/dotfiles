@@ -54,6 +54,7 @@ in
     pkgs.neovim
     pkgs.nethogs
     pkgs.nix-direnv
+    pkgs.nix-output-monitor
     pkgs.nixpkgs-fmt
     pkgs.nushell
     pkgs.potrace
