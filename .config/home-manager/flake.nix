@@ -2,6 +2,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs_older.url = "github:nixos/nixpkgs/nixos-23.05";
+    flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,6 +21,11 @@
     porc.url = "github:soenkehahn/porc";
     nix.url = "github:nixos/nix/2.20.1";
     nix-tree.url = "github:utdemir/nix-tree";
+    cradle = {
+      url = "github:garnix-io/cradle";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:

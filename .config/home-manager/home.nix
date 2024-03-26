@@ -85,7 +85,7 @@ in
     (wrapInNixGL "alacritty")
     (wrapInNixGL "firefox")
   ] ++ extraFlakesToInstall
-  ++ import ./commands.nix { inherit pkgs; };
+  ++ import ./commands.nix { inherit system pkgs inputs; };
 
   programs.vscode = {
     enable = true;

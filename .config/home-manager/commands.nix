@@ -1,4 +1,33 @@
-{ pkgs }: [
+{ system, pkgs, inputs }:
+let
+  haskellScript =
+    let
+      haskellPackages = pkgs.haskellPackages.override {
+        overrides = final: prev: {
+          cradle = (inputs.cradle.lib.${system}.mkCradle final);
+        };
+      };
+    in
+    { name, text }: pkgs.runCommand
+      "haskellScript"
+      {
+        buildInputs = [
+          (haskellPackages.ghc.withPackages (p: [
+            p.cradle
+          ]))
+        ];
+      }
+      ''
+        ghc -threaded \
+          -Wall -Werror \
+          -Wno-name-shadowing \
+          ${pkgs.writeText "Main.hs" text} \
+          -o ${name}
+        mkdir -p $out/bin
+        cp ./${name} $out/bin/
+      '';
+in
+[
   (pkgs.writeShellApplication {
     name = "git-gone";
     text = ''
@@ -13,6 +42,22 @@
     text = ''
       export SDL_VIDEODRIVER=wayland
       wf-recorder -c rawvideo -m sdl -f pipe:wayland-mirror --output eDP-1
+    '';
+  })
+  (haskellScript {
+    name = "gm";
+    text = ''
+      import Cradle
+      import System.Environment
+
+      main :: IO ()
+      main = do
+        args <- getArgs
+        case args of
+          [] -> run $ cmd "git" &
+            addArgs ["commit", "-v"]
+          args -> run $ cmd "git" &
+            addArgs ["commit", "--message", unwords args]
     '';
   })
   (pkgs.writeScriptBin
