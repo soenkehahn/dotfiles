@@ -48,6 +48,7 @@ in
     pkgs.fd
     pkgs.gittyup
     pkgs.helix
+    pkgs.hexyl
     pkgs.jless
     pkgs.jq
     pkgs.just
