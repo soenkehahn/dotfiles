@@ -602,11 +602,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1707927410,
-        "narHash": "sha256-eoTKaycq4nfnRguHQfzWZXszFMUNYiws3z9Ucs/X4OU=",
+        "lastModified": 1711473697,
+        "narHash": "sha256-XMp+Weme8U3UHMvDDz5bCHDgf4PrVeQPaJj8l/j+ReU=",
         "owner": "soenkehahn",
         "repo": "porc",
-        "rev": "8a452ac9d4011dcbc68416db030849e7bea71f30",
+        "rev": "ec02b2f95ddb47d68b6e8c5f7e282dab0b7a5504",
         "type": "github"
       },
       "original": {
