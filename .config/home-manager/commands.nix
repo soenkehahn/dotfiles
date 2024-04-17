@@ -67,12 +67,12 @@ in
     text = ''
       import Control.Monad
       import Cradle
+      import Data.List
       import Data.String.Conversions
       import System.Directory
+      import System.Exit
       import System.FilePath
       import System.IO
-      import System.Exit
-      import Data.List
 
       gcRootsDir :: FilePath
       gcRootsDir = "/nix/var/nix/gcroots/auto"
