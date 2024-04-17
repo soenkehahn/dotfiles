@@ -9,18 +9,20 @@ let
       };
     in
     { name, text }: pkgs.runCommand
-      "haskellScript"
+      name
       {
         buildInputs = [
           (haskellPackages.ghc.withPackages (p: [
             p.cradle
           ]))
         ];
+        meta.mainProgram = name;
       }
       ''
         ghc -threaded \
           -Wall -Werror \
           -Wno-name-shadowing \
+          -XViewPatterns \
           ${pkgs.writeText "Main.hs" text} \
           -o ${name}
         mkdir -p $out/bin
@@ -58,6 +60,37 @@ in
             addArgs ["commit", "-v"]
           args -> run $ cmd "git" &
             addArgs ["commit", "--message", unwords args]
+    '';
+  })
+  (haskellScript {
+    name = "cleanup-nix-store-roots";
+    text = ''
+      import Control.Monad
+      import Cradle
+      import Data.String.Conversions
+      import System.Directory
+      import System.FilePath
+      import System.IO
+      import System.Exit
+      import Data.List
+
+      gcRootsDir :: FilePath
+      gcRootsDir = "/nix/var/nix/gcroots/auto"
+
+      main :: IO ()
+      main = do
+        links <- listDirectory gcRootsDir
+        forM_ links $ \ link -> do
+          StdoutTrimmed (cs -> root) <- run $ cmd "readlink" & addArgs [(gcRootsDir </> link)]
+          when ("/home/shahn" `isPrefixOf` root) $ do
+            putStr $ "Delete " <> root <> "? [y/n/q] "
+            hFlush stdout
+            reply <- getLine
+            when (reply == "q") $ do
+              exitWith ExitSuccess
+            when (reply == "y") $ do
+              removeFile root
+              putStrLn $ "Deleted " <> root
     '';
   })
   (pkgs.writeScriptBin

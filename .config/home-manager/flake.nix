@@ -60,5 +60,18 @@
           ];
         };
       };
+      apps.x86_64-linux = (
+        let
+          f = acc: derivation:
+            acc
+            // {
+              "${derivation.name}" = {
+                type = "app";
+                program = pkgs.lib.getExe derivation;
+              };
+            };
+        in
+        pkgs.lib.foldl f { } (import ./commands.nix { inherit system pkgs inputs; })
+      );
     };
 }
