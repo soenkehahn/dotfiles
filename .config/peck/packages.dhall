@@ -16,15 +16,6 @@ in  { packages =
           echo "echo huhu" > ~/.local/bin/peck-test-executable
           chmod +x ~/.local/bin/peck-test-executable
           ''
-      , simple
-          "sl"
-          ''
-          git clone https://github.com/mtoyoda/sl.git
-          cd sl
-          make
-          mkdir -p ~/.local/bin/
-          cp sl ~/.local/bin/sl
-          ''
       , { name = "el"
         , skip = [ "~/.stack" ]
         , install =
