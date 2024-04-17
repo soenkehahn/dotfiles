@@ -15,8 +15,8 @@ use structopt::StructOpt;
 #[derive(StructOpt)]
 struct Args {}
 
-const LIGHT: &str = "summerfruit-light";
-const DARK: &str = "dracula";
+const LIGHT: &str = "google-light";
+const DARK: &str = "google-dark";
 
 fn main() -> Result<()> {
     let _args = Args::from_args();
