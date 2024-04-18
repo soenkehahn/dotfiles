@@ -69,6 +69,7 @@ in
     pkgs.swaynotificationcenter
     pkgs.tor-browser
     pkgs.yq
+    pkgs.zellij
     (
       let pkgs = import inputs.nixpkgs_older { inherit system; };
       in pkgs.qmk
