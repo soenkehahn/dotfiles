@@ -46,6 +46,7 @@ in
     pkgs.du-dust
     pkgs.element-desktop
     pkgs.fd
+    pkgs.fzf
     pkgs.gittyup
     pkgs.helix
     pkgs.hexyl
