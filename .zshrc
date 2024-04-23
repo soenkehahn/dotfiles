@@ -5,6 +5,8 @@ fpath=(~/.zsh/completions $fpath)
 autoload -U compinit
 compinit
 
+stty -ixon
+
 source ~/.zshrc.aliases
 
 # history
