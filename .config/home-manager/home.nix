@@ -55,6 +55,7 @@ in
     pkgs.just
     pkgs.neovim
     pkgs.nethogs
+    pkgs.nodejs
     pkgs.nix-direnv
     pkgs.nix-output-monitor
     pkgs.nixpkgs-fmt

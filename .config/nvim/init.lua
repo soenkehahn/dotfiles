@@ -12,10 +12,11 @@ require "paq" {
   "chriskempson/base16-vim";
   "junegunn/fzf";
   "junegunn/fzf.vim";
+  "neovim/nvim-lspconfig";
   "NoahTheDuke/vim-just";
-  "tpope/vim-commentary";
   "savq/paq-nvim";
   "sbdchd/neoformat";
+  "tpope/vim-commentary";
 }
 
 -- options
@@ -59,7 +60,6 @@ require("bufferline").setup{
 map("", "<leader>l", ":BufferLineCyclePrev<CR>")
 map("", "<leader>c", ":BufferLineCycleNext<CR>")
 map("", "<leader>w", ":bd<CR>")
-map("", "<leader>h", ":w<CR>")
 map("", "<leader>a", ":wa<CR>")
 map("", "<C-S>", ":w<CR>")
 
@@ -90,3 +90,57 @@ cmd("autocmd BufRead,BufNewFile *.justfile set filetype=just")
 
 -- remove search highlighting
 map("", "<leader>i", ":noh<CR>")
+
+-- lsp stuff
+
+local lspconfig = require('lspconfig')
+lspconfig.rust_analyzer.setup {}
+lspconfig.hls.setup {}
+lspconfig.tsserver.setup {}
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', '<leader>g', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', '<leader>d', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', '<leader>e', ":cclose<CR>", opts)
+    vim.keymap.set('n', '<leader>h', function()
+      if isQfOpen() then
+        vim.cmd("cnext")
+      else
+        vim.diagnostic.setqflist({
+          severity = vim.diagnostic.severity.ERROR
+        })
+        vim.cmd("exec \"normal \\<CR>\"")
+      end
+    end, opts)
+  end,
+})
+
+function isQfOpen()
+  local openWindows = vim.call('getwininfo')
+  for i,v in ipairs(openWindows) do
+    if v.quickfix == 1 then
+      return true
+    end
+  end
+  return false
+end
+
+function dbg(o)
+  print(dump(o))
+end
+
+function dump(o)
+   if type(o) == 'table' then
+      local s = '{ '
+      for k,v in pairs(o) do
+         if type(k) ~= 'number' then k = '"'..k..'"' end
+         s = s .. '['..k..'] = ' .. dump(v) .. ','
+      end
+      return s .. '} '
+   else
+      return tostring(o)
+   end
+end
