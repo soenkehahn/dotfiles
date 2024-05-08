@@ -14,6 +14,8 @@ let
         buildInputs = [
           (haskellPackages.ghc.withPackages (p: [
             p.cradle
+            p.getopt-generics
+            p.temporary
           ]))
         ];
         meta.mainProgram = name;
@@ -113,4 +115,32 @@ in
         done
       fi
     '')
+  (haskellScript {
+    name = "temp-checkout";
+    text = ''
+      import Control.Monad
+      import Cradle
+      import System.Directory
+      import System.FilePath
+      import System.IO.Temp
+      import WithCli
+
+      main :: IO ()
+      main = withCli $ \ (repo :: String, pr :: Maybe Int) -> do
+        tempDir <- do
+          parent <- getCanonicalTemporaryDirectory
+          createTempDirectory parent "temp-checkout"
+        run_ $ cmd "git"
+          & addArgs ["clone", "git@github.com:" <> repo]
+          & setWorkingDir tempDir
+        [repo] <- listDirectory tempDir
+        let repoDir = tempDir </> repo
+        forM_ pr $ \ pr -> do
+          run_ $ cmd "gh"
+            & addArgs ["pr", "checkout", show pr]
+            & setWorkingDir repoDir
+        run_ $ cmd "zsh"
+          & setWorkingDir (tempDir </> repo)
+    '';
+  })
 ]
