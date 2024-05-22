@@ -59,22 +59,17 @@ require("bufferline").setup {
 }
 map("", "<leader>l", ":BufferLineCyclePrev<CR>")
 map("", "<leader>c", ":BufferLineCycleNext<CR>")
+map("", "<leader>3", ":BufferLineMovePrev<CR>")
+map("", "<leader>4", ":BufferLineMoveNext<CR>")
 map("", "<leader>w", ":bd<CR>")
 map("", "<leader>a", ":wa<CR>")
-map("", "<C-S>", ":w<CR>")
+map("", "<C-S>", ":call CocAction('format')<CR>:w<CR>")
 
 -- opening files
 map("", "<leader>o", ":GFiles<CR>")
-map("", "<leader>z", ":Ag<CR>")
+-- map("", "<leader>z", ":Ag<CR>")
 
--- autoformatting
-g.autoformat_autoindent = false
-cmd([[
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * Neoformat
-augroup END
-]])
+map("", "<leader>m", ":/\\v^[<=>\\|]{7}.*$<CR>")
 
 -- command palette
 map("", "<leader>p", ":Commands<CR>")
@@ -84,63 +79,25 @@ map("", "<leader>r", ":History:<CR>")
 cmd("filetype plugin on")
 map("", "<leader>k", ":Commentary<CR>")
 
--- filetypes
-cmd("autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby")
-cmd("autocmd BufRead,BufNewFile *.justfile set filetype=just")
-
 -- remove search highlighting
 map("", "<leader>i", ":noh<CR>")
 
--- lsp stuff
+-- coc stuff
 
-local lspconfig = require('lspconfig')
-lspconfig.rust_analyzer.setup {}
-lspconfig.hls.setup {}
-lspconfig.tsserver.setup {}
-
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-  callback = function(ev)
-    local opts = { buffer = ev.buf }
-    vim.keymap.set('n', '<leader>g', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', '<leader>d', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', '<leader>e', ":cclose<CR>", opts)
-    vim.keymap.set('n', '<leader>h', function()
-      if isQfOpen() then
-        vim.cmd("cnext")
-      else
-        vim.diagnostic.setqflist({
-          severity = vim.diagnostic.severity.ERROR
-        })
-        vim.cmd("exec \"normal \\<CR>\"")
-      end
-    end, opts)
-  end,
-})
-
-function isQfOpen()
-  local openWindows = vim.call('getwininfo')
-  for i,v in ipairs(openWindows) do
-    if v.quickfix == 1 then
-      return true
-    end
+map("", "<leader>h", "<Plug>(coc-diagnostic-next)")
+map("", "<leader>g", "<Plug>(coc-definition)")
+map("", "<leader>f", "<Plug>(coc-references)")
+function _G.show_docs()
+  local cw = vim.fn.expand('<cword>')
+  if vim.fn.index({ 'vim', 'help' }, vim.bo.filetype) >= 0 then
+    vim.api.nvim_command('h ' .. cw)
+  elseif vim.api.nvim_eval('coc#rpc#ready()') then
+    vim.fn.CocActionAsync('doHover')
+  else
+    vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
   end
-  return false
 end
 
-function dbg(o)
-  print(dump(o))
-end
-
-function dump(o)
-   if type(o) == 'table' then
-      local s = '{ '
-      for k,v in pairs(o) do
-         if type(k) ~= 'number' then k = '"'..k..'"' end
-         s = s .. '['..k..'] = ' .. dump(v) .. ','
-      end
-      return s .. '} '
-   else
-      return tostring(o)
-   end
-end
+map("", "<leader>d", "<CMD>lua _G.show_docs()<CR>")
+map("", "<leader>.", "<Plug>(coc-codeaction)")
+map("", "<leader>t", "<Plug>(coc-git-nextchunk)")
