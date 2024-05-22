@@ -1,0 +1,35 @@
+{
+  "coc.preferences.formatOnSave": false,
+  "diagnostic.enableMessage": "jump",
+  "diagnostic.messageTarget": "float",
+  "languageserver": {
+    "haskell": {
+      "command": "haskell-language-server-wrapper",
+      "args": ["--lsp"],
+      "rootPatterns": [
+        "*.cabal",
+        "stack.yaml",
+        "cabal.project",
+        "package.yaml",
+        "hie.yaml"
+      ],
+      "filetypes": ["haskell", "lhaskell"],
+      "settings": {
+        "formatOnSave": false,
+        "haskell": {
+          "plugin": {
+            "hlint": {
+              "globalOn": true
+            },
+            "ormolu": {
+              "config": {
+                "external": true
+              }
+            }
+          },
+          "formattingProvider": "ormolu"
+        }
+      }
+    }
+  }
+}

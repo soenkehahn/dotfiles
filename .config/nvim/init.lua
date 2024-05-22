@@ -1,42 +1,42 @@
 local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
-local fn = vim.fn -- to call Vim functions e.g. fn.bufnr()
-local g = vim.g -- a table to access global variables
+local fn = vim.fn   -- to call Vim functions e.g. fn.bufnr()
+local g = vim.g     -- a table to access global variables
 local opt = vim.opt -- to set options
 
 -- plugins
 cmd('packadd paq-nvim')
 require "paq" {
-  "akinsho/nvim-bufferline.lua";
-  "bogado/file-line";
-  "cespare/vim-toml";
-  "chriskempson/base16-vim";
-  "junegunn/fzf";
-  "junegunn/fzf.vim";
-  "neovim/nvim-lspconfig";
-  "NoahTheDuke/vim-just";
-  "savq/paq-nvim";
-  "sbdchd/neoformat";
-  "tpope/vim-commentary";
+  "akinsho/nvim-bufferline.lua",
+  -- "bogado/file-line",
+  -- "cespare/vim-toml",
+  "chriskempson/base16-vim",
+  "junegunn/fzf",
+  "junegunn/fzf.vim",
+  -- "neovim/nvim-lspconfig",
+  "savq/paq-nvim",
+  -- "nvim-tree/nvim-web-devicons",
+  "tpope/vim-commentary",
+  { "neoclide/coc.nvim", branch = "release" },
 }
 
 -- options
 opt.clipboard = "unnamedplus"
-opt.cursorline = true
+-- opt.cursorline = true
 opt.expandtab = true
-opt.hidden = true
+-- opt.hidden = true
 opt.ignorecase = true
 opt.list = true
 opt.number = true
-opt.scrolloff = 10
+-- opt.scrolloff = 10
 opt.shiftwidth = 2
 opt.smartcase = true
 opt.termguicolors = true
-g.rust_recommended_style = false
+-- g.rust_recommended_style = false
 
 -- leader
 g.mapleader = "h"
 local function map(mode, lhs, rhs, opts)
-  local options = {noremap = true}
+  local options = { noremap = true }
   if opts then options = vim.tbl_extend('force', options, opts) end
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
@@ -51,7 +51,7 @@ augroup END
 ]])
 
 -- tabs
-require("bufferline").setup{
+require("bufferline").setup {
   options = {
     show_buffer_icons = false,
     show_buffer_close_icons = false,
