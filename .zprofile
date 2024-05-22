@@ -26,5 +26,4 @@ export BROWSER=~/.nix-profile/bin/firefox
 # For nix
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 
-export GDK_DPI_SCALE=2
 export QT_SCALE_FACTOR=2
