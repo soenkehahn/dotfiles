@@ -67,6 +67,7 @@ in
     pkgs.sd
     pkgs.signal-desktop
     pkgs.simple-http-server
+    pkgs.spotdl
     pkgs.starship
     pkgs.swaynotificationcenter
     pkgs.tor-browser
