@@ -33,6 +33,7 @@
   "editor.renderWhitespace": "trailing",
   "editor.selectionHighlight": false,
   "editor.showFoldingControls": "never",
+  "editor.stickyScroll.enabled": false,
   "editor.suggest.matchOnWordStartOnly": false,
   "editor.suggest.showTypeParameters": false,
   "editor.tabSize": 2,
