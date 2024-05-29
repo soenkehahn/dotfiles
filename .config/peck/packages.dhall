@@ -48,7 +48,6 @@ in  { packages =
       , cargo.simple "cargo-limit"
       , cargo.simple "cargo-watch"
       , cargo.simple "exa"
-      , cargo.simple "flavours"
       , cargo.simple "mdbook"
       , cargo.simple "mdbook-linkcheck"
       , cargo.simple "rust-script"
