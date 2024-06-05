@@ -31,15 +31,7 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system; config = {
-        allowUnfreePredicate = pkg:
-          builtins.elem (nixpkgs.lib.getName pkg) [
-            "vscode-extension-github-copilot"
-            "vscode-extension-ms-vsliveshare-vsliveshare"
-          ];
-      };
-      };
+      pkgs = import nixpkgs { inherit system; };
     in
     {
       homeConfigurations."shahn" = home-manager.lib.homeManagerConfiguration {

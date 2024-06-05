@@ -92,40 +92,4 @@ in
     (wrapInNixGL "firefox")
   ] ++ extraFlakesToInstall
   ++ import ./commands.nix { inherit system pkgs inputs; };
-
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscodium;
-    extensions = with pkgs.vscode-extensions;
-      [
-        github.copilot
-        haskell.haskell
-        jnoortheen.nix-ide
-        justusadam.language-haskell
-        ms-vsliveshare.vsliveshare
-        skellock.just
-        vscodevim.vim
-      ] ++
-      (pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "abracadabra";
-          publisher = "nicoespeon";
-          version = "8.1.4";
-          sha256 = "sha256-WYGd6ZxKAcE+xQBB+MWj+66eBgYGaY2LgdBVwrXdcFg=";
-        }
-        {
-          name = "base16";
-          publisher = "technosophos";
-          version = "0.1.3";
-          sha256 = "sha256-w6OLxpbR3Ql0CKm76UIgjWCSpkv+sf9b36YauzPVAzk=";
-        }
-        {
-          name = "nix";
-          publisher = "martinring";
-          version = "0.0.1";
-          sha256 = "sha256-s+Gcr65T2S58SOtUhUdcHqei7qmCU0lGS3hIwagpTO0=";
-        }
-      ])
-    ;
-  };
 }
