@@ -1,3 +1,5 @@
+session_serialization false
+
 keybinds {
     unbind "Ctrl s"
 }
