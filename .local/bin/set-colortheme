@@ -11,7 +11,6 @@ fn main() {
     let colortheme = std::env::args().skip(1).next().unwrap();
     let apps = &[
         "alacritty",
-        "Code",
         "firefox",
         "i3status",
         "nvim",
