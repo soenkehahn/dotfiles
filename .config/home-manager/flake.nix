@@ -26,6 +26,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
+    crate2nix.url = "github:nix-community/crate2nix";
+    tinty = {
+      url = "github:tinted-theming/tinty";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:

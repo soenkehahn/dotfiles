@@ -90,6 +90,12 @@ in
     )
     (wrapInNixGL "alacritty")
     (wrapInNixGL "firefox")
+    (let
+       cargoNix = inputs.crate2nix.tools.${system}.appliedCargoNix {
+         name = "tinty";
+         src = "${inputs.tinty}";
+       };
+     in cargoNix.rootCrate.build)
   ] ++ extraFlakesToInstall
   ++ import ./commands.nix { inherit system pkgs inputs; };
 }
