@@ -53,6 +53,7 @@ in
     pkgs.jless
     pkgs.jq
     pkgs.just
+    pkgs.musikcube
     pkgs.neovim
     pkgs.nethogs
     pkgs.nix-direnv
