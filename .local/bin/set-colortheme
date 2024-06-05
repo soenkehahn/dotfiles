@@ -6,7 +6,6 @@
 //! ```
 
 use cradle::prelude::*;
-use std::thread;
 
 fn main() {
     let colortheme = std::env::args().skip(1).next().unwrap();
@@ -18,18 +17,11 @@ fn main() {
         "nvim",
         "rofi",
         "swaylock",
+        "sway",
     ];
-    let mut threads = Vec::new();
     for app in apps {
-        let colortheme_clone = colortheme.clone();
-        threads.push(thread::spawn(move || {
-            set_colortheme_for_config(&colortheme_clone, app)
-        }));
+        set_colortheme_for_config(&colortheme, app);
     }
-    for thread in threads {
-        thread.join().unwrap();
-    }
-    set_colortheme_for_config(&colortheme, "sway");
     ("notify-send", format!("colortheme: {colortheme}")).run();
 }
 
@@ -37,7 +29,7 @@ fn set_colortheme_for_config(colortheme: &str, app: &str) {
     (
         LogCommand,
         CurrentDir(dirs::home_dir().unwrap()),
-        format!("./.config/{}/set-colortheme", app),
+        format!("./.config/{app}/set-colortheme"),
         colortheme,
     )
         .run();
