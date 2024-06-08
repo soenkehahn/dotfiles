@@ -31,6 +31,7 @@
       url = "github:tinted-theming/tinty";
       flake = false;
     };
+    set-colortheme.url = "github:soenkehahn/set-colortheme";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -49,6 +50,7 @@
             inputs.nil
             inputs.nix
             inputs.porc
+            inputs.set-colortheme
             inputs.shellac
             inputs.sway-switch-outputs
           ] ++ [
