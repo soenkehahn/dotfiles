@@ -3,7 +3,7 @@ zstyle ':completion:*' special-dirs true
 
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit
-compinit
+compinit -C
 
 stty -ixon
 
