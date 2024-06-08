@@ -9,16 +9,18 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-for dir in .local/bin .cabal/bin .cargo/bin .ghcup/bin go/bin .nix-profile/bin; do
-  if [[ -d "$HOME/$dir" ]]; then
-    PATH="$HOME/$dir:$PATH"
+pathadd() {
+  if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+    PATH="$1${PATH:+":$PATH"}"
   fi
-done
+}
 
 for dir in /usr/local/go/bin /nix/var/nix/profiles/default/bin; do
-  if [[ -d "$dir" ]]; then
-    PATH="$dir:$PATH"
-  fi
+  pathadd "$dir"
+done
+
+for dir in .local/bin .cabal/bin .cargo/bin .ghcup/bin go/bin .nix-profile/bin; do
+  pathadd "$HOME/$dir"
 done
 
 export BROWSER=~/.nix-profile/bin/firefox
