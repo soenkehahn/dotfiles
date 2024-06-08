@@ -30,6 +30,16 @@
           "formattingProvider": "ormolu"
         }
       }
+    },
+    "nix": {
+      "command": "nil",
+      "filetypes": ["nix"],
+      "rootPatterns": ["flake.nix"],
+      "settings": {
+        "nil": {
+          "formatting": { "command": ["nixpkgs-fmt"] }
+        }
+      }
     }
   }
 }
