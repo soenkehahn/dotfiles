@@ -1113,11 +1113,11 @@
         "nixpkgs": "nixpkgs_8"
       },
       "locked": {
-        "lastModified": 1717819951,
-        "narHash": "sha256-8V2dChT7sumP5AyhTlHRFph85R9srdATIpvWOKOhIUs=",
+        "lastModified": 1717849279,
+        "narHash": "sha256-AeyJD4c326QOtfechwC1g1z3z+O1cRCCQKj30IWHqIA=",
         "owner": "soenkehahn",
         "repo": "set-colortheme",
-        "rev": "10ae41a1847701d30081ff883067c48db64afec9",
+        "rev": "22732a9328d367c755d04db5b477b20dd9090fb9",
         "type": "github"
       },
       "original": {

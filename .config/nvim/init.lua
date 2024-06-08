@@ -49,6 +49,7 @@ augroup on_change_colorschema
   autocmd ColorScheme * highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
 augroup END
 ]])
+cmd(":source ~/.config/nvim/colors.vim")
 
 -- tabs
 require("bufferline").setup {
