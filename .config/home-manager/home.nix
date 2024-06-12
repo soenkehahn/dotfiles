@@ -1,20 +1,4 @@
 { pkgs, extraFlakesToInstall, inputs, system, ... }:
-let
-  wrapInNixGL = exe:
-    pkgs.writeScriptBin exe ''
-      #!/usr/bin/env bash
-
-      set -eu
-
-      if which nixGL ; then
-        exec nixGL ${pkgs.${exe}}/bin/${exe} "$@"
-      else
-        notify-send "nixGL not installed"
-        exec ${pkgs.${exe}}/bin/${exe} "$@"
-      fi
-    ''
-  ;
-in
 {
   programs.home-manager.enable = true;
 
@@ -70,6 +54,8 @@ in
     pkgs.simple-http-server
     pkgs.spotdl
     pkgs.starship
+    pkgs.xdg-desktop-portal-wlr
+    pkgs.sway
     pkgs.swaynotificationcenter
     pkgs.tor-browser
     pkgs.yq
@@ -88,8 +74,8 @@ in
         ${./switch-colortheme}
       ''
     )
-    (wrapInNixGL "alacritty")
-    (wrapInNixGL "firefox")
+    pkgs.alacritty
+    pkgs.firefox
     (let
        cargoNix = inputs.crate2nix.tools.${system}.appliedCargoNix {
          name = "tinty";
