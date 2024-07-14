@@ -1,7 +1,7 @@
 configuration {
   modi: "run,drun";
+  kb-element-next: "";
   kb-mode-next: "Tab";
-  kb-row-tab: "Control+Tab";
   dpi: 200;
 }
 
