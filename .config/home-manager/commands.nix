@@ -143,4 +143,22 @@ in
           & setWorkingDir (tempDir </> repo)
     '';
   })
+  (pkgs.writeShellApplication {
+    name = "pick-colortheme";
+    text =
+      let
+        script = pkgs.lib.getExe (pkgs.writeShellApplication
+          {
+            name = "script";
+            text = ''
+              set-colortheme "$(set-colortheme-new list | fzf --ansi | choose -1)"
+              press any key...
+              read -r
+            '';
+          });
+      in
+      ''
+        alacritty --command ${script}
+      '';
+  })
 ]
