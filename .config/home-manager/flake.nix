@@ -31,7 +31,7 @@
       url = "github:tinted-theming/tinty";
       flake = false;
     };
-    set-colortheme.url = "github:soenkehahn/set-colortheme/25c843b2e080a913a5393eb68b404b5e042bb9d0";
+    set-colortheme.url = "github:soenkehahn/set-colortheme";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:

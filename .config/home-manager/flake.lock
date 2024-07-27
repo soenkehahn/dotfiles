@@ -33,6 +33,22 @@
         "type": "github"
       }
     },
+    "base16-i3": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1719105600,
+        "narHash": "sha256-ccdRDVdUDCdYIpgaFZ7CB6kQMtZLSve0E54bRyH+XLE=",
+        "owner": "tinted-theming",
+        "repo": "base16-i3",
+        "rev": "f08f12eea54fa4d2875f6b828a5ac1aa46e44027",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tinted-theming",
+        "repo": "base16-i3",
+        "type": "github"
+      }
+    },
     "base16-vim": {
       "flake": false,
       "locked": {
@@ -1123,6 +1139,7 @@
       "inputs": {
         "FlatColor": "FlatColor",
         "base16-gtk-flatcolor": "base16-gtk-flatcolor",
+        "base16-i3": "base16-i3",
         "base16-vim": "base16-vim",
         "cradle": "cradle_2",
         "flake-utils": "flake-utils_9",
@@ -1130,17 +1147,16 @@
         "schemes": "schemes"
       },
       "locked": {
-        "lastModified": 1718243289,
-        "narHash": "sha256-pigkJ0vppPAH2pb1FTIe0LyVguegcsIAMgcsXROGdes=",
+        "lastModified": 1722044701,
+        "narHash": "sha256-BB1b+xULgZfx0Qo942RbCz0NiaF0Bp2PsKA5Ik4SBu0=",
         "owner": "soenkehahn",
         "repo": "set-colortheme",
-        "rev": "25c843b2e080a913a5393eb68b404b5e042bb9d0",
+        "rev": "9646dcdee7fd2da3144c192d2b53a213ec7bf6ae",
         "type": "github"
       },
       "original": {
         "owner": "soenkehahn",
         "repo": "set-colortheme",
-        "rev": "25c843b2e080a913a5393eb68b404b5e042bb9d0",
         "type": "github"
       }
     },
