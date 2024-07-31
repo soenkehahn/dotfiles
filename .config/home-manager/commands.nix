@@ -161,4 +161,11 @@ in
         alacritty --command ${script}
       '';
   })
+  (
+    pkgs.writeShellApplication {
+      name = "signal";
+      runtimeInputs = [ pkgs.signal-desktop ];
+      text = "signal-desktop --no-sandbox";
+    }
+  )
 ]
