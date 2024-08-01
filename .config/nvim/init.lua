@@ -79,6 +79,7 @@ map("", "<leader>r", ":History:<CR>")
 -- commenting
 cmd("filetype plugin on")
 map("", "<leader>k", ":Commentary<CR>")
+cmd("autocmd FileType nix setlocal commentstring=#\\ %s")
 
 -- remove search highlighting
 map("", "<leader>i", ":noh<CR>")
