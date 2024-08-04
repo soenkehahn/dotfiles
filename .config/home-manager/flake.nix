@@ -32,6 +32,7 @@
       flake = false;
     };
     set-colortheme.url = "github:soenkehahn/set-colortheme";
+    is-cached.url = "github:soenkehahn/is_cached";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -55,6 +56,7 @@
             inputs.sway-switch-outputs
           ] ++ [
             inputs.debug-tools.packages.${system}.main_pkg
+            inputs.is-cached.packages.${system}.main_pkg
             inputs.nix-tree.defaultPackage.${system}
           ];
         };
