@@ -19,7 +19,6 @@
     debug-tools.url = "github:garnix-io/debug-tools";
     shellac.url = "github:soenkehahn/shellac";
     porc.url = "github:soenkehahn/porc";
-    nix.url = "github:nixos/nix/2.20.1";
     nix-tree.url = "github:utdemir/nix-tree";
     cradle = {
       url = "github:garnix-io/cradle";
@@ -49,7 +48,6 @@
           extraFlakesToInstall = pkgs.lib.lists.map (flake: flake.packages.${system}.default) [
             inputs.i3-pretty-tree
             inputs.nil
-            inputs.nix
             inputs.porc
             inputs.set-colortheme
             inputs.shellac
