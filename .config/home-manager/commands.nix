@@ -168,4 +168,17 @@ in
       text = "signal-desktop --no-sandbox";
     }
   )
+  (haskellScript {
+    name = "iso-date";
+    text = ''
+      import Cradle
+      import WithCli
+
+      main :: IO ()
+      main = withCli $ do
+        pure () :: IO ()
+        run_ $ cmd "date"
+          & addArgs ["--rfc-3339=seconds"]
+    '';
+  })
 ]
