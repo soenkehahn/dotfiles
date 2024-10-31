@@ -16,6 +16,7 @@
 
   home.packages = [
     pkgs.age
+    pkgs.alacritty
     pkgs.as-tree
     pkgs.atuin
     pkgs.bat
@@ -30,6 +31,7 @@
     pkgs.du-dust
     pkgs.element-desktop
     pkgs.fd
+    pkgs.firefox
     pkgs.fzf
     pkgs.gittyup
     pkgs.helix
@@ -54,10 +56,10 @@
     pkgs.simple-http-server
     pkgs.spotdl
     pkgs.starship
-    pkgs.xdg-desktop-portal-wlr
     pkgs.sway
     pkgs.swaynotificationcenter
     pkgs.tor-browser
+    pkgs.xdg-desktop-portal-wlr
     pkgs.yq
     pkgs.zellij
     (
@@ -74,8 +76,6 @@
         ${./switch-colortheme}
       ''
     )
-    pkgs.alacritty
-    pkgs.firefox
   ] ++ extraFlakesToInstall
   ++ import ./commands.nix { inherit system pkgs inputs; };
 }
