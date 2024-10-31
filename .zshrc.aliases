@@ -24,7 +24,7 @@ alias tree="exa --tree --git-ignore"
 alias dailyupgrade="debdailyupgrade && flatpak update && sudo snap refresh"
 alias debdailyupgrade='sudo apt update && sudo apt dist-upgrade && debclean'
 alias debclean='sudo apt autoclean && sudo apt clean && sudo apt autoremove'
-alias debhavei="apt list --installed | ag "
+alias debhavei="apt list --installed | rg "
 
 # git
 alias ga='git add -p'
