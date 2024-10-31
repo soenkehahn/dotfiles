@@ -1,6 +1,6 @@
 update_check = false
 
-search_mode = "skim"
+search_mode = "fulltext"
 
 filter_mode = "global"
 
