@@ -104,3 +104,5 @@ end
 map("", "<leader>d", "<CMD>lua _G.show_docs()<CR>")
 map("", "<leader>.", "<Plug>(coc-codeaction)")
 map("", "<leader>t", "<Plug>(coc-git-nextchunk)")
+
+map("", "<leader>ü", "<Plug>(coc-cursors-range)")
