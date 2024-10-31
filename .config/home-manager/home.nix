@@ -45,6 +45,7 @@
     pkgs.nixpkgs-fmt
     pkgs.nodejs
     pkgs.nushell
+    pkgs.ormolu
     pkgs.potrace
     pkgs.rage
     pkgs.remmina
@@ -75,12 +76,6 @@
     )
     pkgs.alacritty
     pkgs.firefox
-    (let
-       cargoNix = inputs.crate2nix.tools.${system}.appliedCargoNix {
-         name = "tinty";
-         src = "${inputs.tinty}";
-       };
-     in cargoNix.rootCrate.build)
   ] ++ extraFlakesToInstall
   ++ import ./commands.nix { inherit system pkgs inputs; };
 }

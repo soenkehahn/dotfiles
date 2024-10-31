@@ -17,6 +17,22 @@
         "type": "github"
       }
     },
+    "base16-alacritty": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1727574278,
+        "narHash": "sha256-Z2z7bFOBPauNEMFEA/5F6kdahTTypMt9JFTQ7yZkY6Y=",
+        "owner": "tinted-theming",
+        "repo": "base16-alacritty",
+        "rev": "97cd85d428adb491c6f6cf8b96663b1b4fd98561",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tinted-theming",
+        "repo": "base16-alacritty",
+        "type": "github"
+      }
+    },
     "base16-gtk-flatcolor": {
       "flake": false,
       "locked": {
@@ -1076,8 +1092,7 @@
         "porc": "porc",
         "set-colortheme": "set-colortheme",
         "shellac": "shellac",
-        "sway-switch-outputs": "sway-switch-outputs",
-        "tinty": "tinty"
+        "sway-switch-outputs": "sway-switch-outputs"
       }
     },
     "rust-overlay": {
@@ -1178,6 +1193,7 @@
     "set-colortheme": {
       "inputs": {
         "FlatColor": "FlatColor",
+        "base16-alacritty": "base16-alacritty",
         "base16-gtk-flatcolor": "base16-gtk-flatcolor",
         "base16-i3": "base16-i3",
         "base16-vim": "base16-vim",
@@ -1187,11 +1203,11 @@
         "schemes": "schemes"
       },
       "locked": {
-        "lastModified": 1722044701,
-        "narHash": "sha256-BB1b+xULgZfx0Qo942RbCz0NiaF0Bp2PsKA5Ik4SBu0=",
+        "lastModified": 1730414370,
+        "narHash": "sha256-P9gsiiIoMqFilGrjiRTzLpeChg1wdFnYAz7EyQ0lJ98=",
         "owner": "soenkehahn",
         "repo": "set-colortheme",
-        "rev": "9646dcdee7fd2da3144c192d2b53a213ec7bf6ae",
+        "rev": "8625fce568440d22e53d5bb99ca355c235f0baa3",
         "type": "github"
       },
       "original": {
@@ -1446,22 +1462,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "tinty": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1716572748,
-        "narHash": "sha256-EjvUtw6CfYcwaQ9RA2zkLJuI8MqkOIfnE2yAomuY+nI=",
-        "owner": "tinted-theming",
-        "repo": "tinty",
-        "rev": "8720da6211f08ba2b1c84bec7ffb4d67834df0d3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tinted-theming",
-        "repo": "tinty",
         "type": "github"
       }
     }

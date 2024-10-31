@@ -26,10 +26,6 @@
       inputs.flake-utils.follows = "flake-utils";
     };
     crate2nix.url = "github:nix-community/crate2nix";
-    tinty = {
-      url = "github:tinted-theming/tinty";
-      flake = false;
-    };
     set-colortheme.url = "github:soenkehahn/set-colortheme";
     is-cached.url = "github:soenkehahn/is_cached";
   };
