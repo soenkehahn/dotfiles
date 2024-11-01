@@ -9,7 +9,7 @@ use cradle::prelude::*;
 
 fn main() {
     let colortheme = std::env::args().skip(1).next().unwrap();
-    let apps = &["rofi", "swaylock"];
+    let apps = &["swaylock"];
     for app in apps {
         set_colortheme_for_config(&colortheme, app);
     }
