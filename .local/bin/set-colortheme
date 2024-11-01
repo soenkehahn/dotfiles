@@ -10,5 +10,4 @@ use cradle::prelude::*;
 fn main() {
     let colortheme = std::env::args().skip(1).next().unwrap();
     (LogCommand, "set-colortheme-new", &colortheme).run();
-    ("notify-send", format!("colortheme: {colortheme}")).run();
 }

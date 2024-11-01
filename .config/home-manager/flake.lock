@@ -1220,11 +1220,11 @@
         "schemes": "schemes"
       },
       "locked": {
-        "lastModified": 1730421678,
-        "narHash": "sha256-O5t5xG11LeOuM83OC/iT3bXtLnNHcKTv5IuRE4jOdpU=",
+        "lastModified": 1730422118,
+        "narHash": "sha256-ZEeqi69FXIyYMtJnJrX5DBa7n0Z49Vpg4LCesDZxIR8=",
         "owner": "soenkehahn",
         "repo": "set-colortheme",
-        "rev": "20f95df872b71e380d867fe9a68c0f37eb9f031c",
+        "rev": "a26e4c76cc5958f760d0bb5a4e1e32bc4aadf84c",
         "type": "github"
       },
       "original": {
