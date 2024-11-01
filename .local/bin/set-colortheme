@@ -9,20 +9,6 @@ use cradle::prelude::*;
 
 fn main() {
     let colortheme = std::env::args().skip(1).next().unwrap();
-    let apps = &["swaylock"];
-    for app in apps {
-        set_colortheme_for_config(&colortheme, app);
-    }
     (LogCommand, "set-colortheme-new", &colortheme).run();
     ("notify-send", format!("colortheme: {colortheme}")).run();
-}
-
-fn set_colortheme_for_config(colortheme: &str, app: &str) {
-    (
-        LogCommand,
-        CurrentDir(dirs::home_dir().unwrap()),
-        format!("./.config/{app}/set-colortheme"),
-        colortheme,
-    )
-        .run();
 }
