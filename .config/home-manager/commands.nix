@@ -151,7 +151,7 @@ in
           {
             name = "script";
             text = ''
-              set-colortheme "$(set-colortheme-new list | fzf --ansi | choose -1)"
+              set-colortheme "$(set-colortheme list | fzf --ansi | choose -1)"
               press any key...
               read -r
             '';
