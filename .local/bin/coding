@@ -61,7 +61,7 @@ struct Args {}
 fn main() {
     let _args = Args::from_args();
     swaymsg("layout tabbed");
-    wait_for_change("exec firefox github.com/notifications");
+    wait_for_change("exec firefox --new-window github.com/notifications");
     swaymsg("move left");
     swaymsg("split toggle");
     swaymsg("layout tabbed");
