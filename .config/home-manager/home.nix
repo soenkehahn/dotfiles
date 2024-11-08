@@ -59,6 +59,7 @@
     pkgs.sway
     pkgs.swaynotificationcenter
     pkgs.tor-browser
+    pkgs.uni
     pkgs.xdg-desktop-portal-wlr
     pkgs.yq
     pkgs.zellij
