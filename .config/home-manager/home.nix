@@ -58,6 +58,7 @@
     pkgs.starship
     pkgs.sway
     pkgs.swaynotificationcenter
+    pkgs.sysbench
     pkgs.tor-browser
     pkgs.uni
     pkgs.xdg-desktop-portal-wlr
