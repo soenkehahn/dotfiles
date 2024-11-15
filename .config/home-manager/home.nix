@@ -1,4 +1,20 @@
 { pkgs, extraFlakesToInstall, inputs, system, ... }:
+let
+  wrapInNixGL = exe:
+    pkgs.writeScriptBin exe ''
+      #!/usr/bin/env bash
+
+      set -eu
+
+      if which nixGL ; then
+        exec nixGL ${pkgs.${exe}}/bin/${exe} "$@"
+      else
+        notify-send "nixGL not installed"
+        exec ${pkgs.${exe}}/bin/${exe} "$@"
+      fi
+    ''
+  ;
+in
 {
   programs.home-manager.enable = true;
 
@@ -16,7 +32,6 @@
 
   home.packages = [
     pkgs.age
-    pkgs.alacritty
     pkgs.as-tree
     pkgs.atuin
     pkgs.bat
@@ -31,7 +46,6 @@
     pkgs.du-dust
     pkgs.element-desktop
     pkgs.fd
-    pkgs.firefox
     pkgs.fzf
     pkgs.gittyup
     pkgs.helix
@@ -78,6 +92,8 @@
         ${./switch-colortheme}
       ''
     )
+    (wrapInNixGL "alacritty")
+    (wrapInNixGL "firefox")
   ] ++ extraFlakesToInstall
   ++ import ./commands.nix { inherit system pkgs inputs; };
 }
