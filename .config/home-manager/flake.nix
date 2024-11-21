@@ -28,6 +28,10 @@
     crate2nix.url = "github:nix-community/crate2nix";
     set-colortheme.url = "github:soenkehahn/set-colortheme";
     is-cached.url = "github:soenkehahn/is_cached";
+    jj = {
+      url = "github:martinvonz/jj";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -43,6 +47,7 @@
           inherit system inputs;
           extraFlakesToInstall = pkgs.lib.lists.map (flake: flake.packages.${system}.default) [
             inputs.i3-pretty-tree
+            inputs.jj
             inputs.nil
             inputs.porc
             inputs.set-colortheme

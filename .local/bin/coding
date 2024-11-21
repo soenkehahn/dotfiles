@@ -6,6 +6,7 @@
 //! ```
 
 use cradle::prelude::*;
+use std::path::Path;
 use std::thread::sleep;
 use std::time::Duration;
 use structopt::StructOpt;
@@ -59,6 +60,8 @@ fn swaymsg(sway_command: &str) {
 struct Args {}
 
 fn main() {
+    let vcs_type = VcsType::get();
+    eprintln!("{:?}", vcs_type);
     let _args = Args::from_args();
     swaymsg("layout tabbed");
     wait_for_change("exec firefox --new-window github.com/notifications");
@@ -70,12 +73,18 @@ fn main() {
     wait_for_change(&sway_terminal_command(None));
     swaymsg("split toggle");
     swaymsg("layout splith");
-    wait_for_change(&sway_terminal_command(Some("git-watch-tree")));
+    wait_for_change(&sway_terminal_command(match vcs_type {
+        VcsType::None => None,
+        VcsType::Git => Some("git-watch-tree"),
+        VcsType::Jujutsu => Some("/usr/bin/watch jj log --color always"),
+    }));
     swaymsg("split toggle");
     swaymsg("layout splitv");
-    wait_for_change(&sway_terminal_command(Some(
-        "/usr/bin/watch --color git -c color.ui=always status",
-    )));
+    wait_for_change(&sway_terminal_command(match vcs_type {
+        VcsType::None => None,
+        VcsType::Git => Some("/usr/bin/watch --color git -c color.ui=always status"),
+        VcsType::Jujutsu => Some("/usr/bin/watch jj status --color always"),
+    }));
     swaymsg("focus left");
     swaymsg("focus left");
     // middle tab
@@ -101,4 +110,23 @@ fn sway_terminal_command(command: Option<&str>) -> String {
         result.push_str(&format!(" -e {}", command));
     }
     result
+}
+
+#[derive(Debug)]
+enum VcsType {
+    None,
+    Git,
+    Jujutsu,
+}
+
+impl VcsType {
+    fn get() -> VcsType {
+        if Path::new("./.jj").exists() {
+            VcsType::Jujutsu
+        } else if Path::new("./.git").exists() {
+            VcsType::Git
+        } else {
+            VcsType::None
+        }
+    }
 }

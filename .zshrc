@@ -24,3 +24,5 @@ eval "$(stack --bash-completion-script stack)"
 export EDITOR=$(which nvim)
 
 eval "$(direnv hook zsh)"
+
+source <(jj util completion zsh)
