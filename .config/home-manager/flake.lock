@@ -1056,6 +1056,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_unstable": {
+      "locked": {
+        "lastModified": 1732014248,
+        "narHash": "sha256-y/MEyuJ5oBWrWAic/14LaIr/u5E0wRVzyYsouYY3W6w=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "23e89b7da85c3640bbc2173fe04f4bd114342367",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "npmlock2nix-repo": {
       "flake": false,
       "locked": {
@@ -1146,6 +1162,7 @@
         "nix-tree": "nix-tree",
         "nixpkgs": "nixpkgs_7",
         "nixpkgs_older": "nixpkgs_older",
+        "nixpkgs_unstable": "nixpkgs_unstable",
         "porc": "porc",
         "set-colortheme": "set-colortheme",
         "shellac": "shellac",

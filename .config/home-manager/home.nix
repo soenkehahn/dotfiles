@@ -1,4 +1,4 @@
-{ pkgs, extraFlakesToInstall, inputs, system, ... }:
+{ pkgs, extraFlakesToInstall, inputs, system, pkgs_unstable, ... }:
 let
   wrapInNixGL = exe:
     pkgs.writeScriptBin exe ''
@@ -46,7 +46,7 @@ in
     pkgs.du-dust
     pkgs.element-desktop
     pkgs.fd
-    pkgs.fzf
+    pkgs_unstable.fzf
     pkgs.gittyup
     pkgs.helix
     pkgs.hexyl
