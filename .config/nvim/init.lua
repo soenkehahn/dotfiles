@@ -67,7 +67,7 @@ map("", "<leader>a", ":wa<CR>")
 map("", "<C-S>", ":call CocAction('format')<CR>:w<CR>")
 
 -- opening files
-map("", "<leader>o", ":GFiles<CR>")
+map("", "<leader>o", ":call fzf#run({'source': 'fd', 'sink': 'e'})<CR>")
 -- map("", "<leader>z", ":Ag<CR>")
 
 map("", "<leader>m", ":/\\v^[<=>\\|]{7}.*$<CR>")
