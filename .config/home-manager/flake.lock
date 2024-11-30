@@ -1104,11 +1104,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1730497041,
-        "narHash": "sha256-EWnHQvVROOFbV6XyivSy3wp5z0CH7ichFOEiyW9pO5s=",
+        "lastModified": 1732747531,
+        "narHash": "sha256-oKWctmCdg8v9vW3S/LIMiCjMY+xzI1NSwa3+pnZtj4g=",
         "owner": "soenkehahn",
         "repo": "porc",
-        "rev": "c2cb28a55ccb505940113714205b95446c9e4e3c",
+        "rev": "71c91beb2b6eb955bc8c3cd2a2861b7e7b4ad27e",
         "type": "github"
       },
       "original": {
