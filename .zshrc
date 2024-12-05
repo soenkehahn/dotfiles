@@ -25,4 +25,4 @@ export EDITOR=$(which nvim)
 
 eval "$(direnv hook zsh)"
 
-source <(jj util completion zsh)
+source <(COMPLETE=zsh jj)
