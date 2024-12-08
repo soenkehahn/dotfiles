@@ -30,7 +30,7 @@
     set-colortheme.url = "github:soenkehahn/set-colortheme";
     is-cached.url = "github:soenkehahn/is_cached";
     jj = {
-      url = "github:martinvonz/jj";
+      url = "github:martinvonz/jj/v0.24.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
