@@ -76,14 +76,14 @@ fn main() {
     wait_for_change(&sway_terminal_command(match vcs_type {
         VcsType::None => None,
         VcsType::Git => Some("git-watch-tree"),
-        VcsType::Jujutsu => Some("/usr/bin/watch jj log --color always"),
+        VcsType::Jujutsu => Some("/usr/bin/watch jj --ignore-working-copy log --color always"),
     }));
     swaymsg("split toggle");
     swaymsg("layout splitv");
     wait_for_change(&sway_terminal_command(match vcs_type {
         VcsType::None => None,
         VcsType::Git => Some("/usr/bin/watch --color git -c color.ui=always status"),
-        VcsType::Jujutsu => Some("/usr/bin/watch jj status --color always"),
+        VcsType::Jujutsu => Some("/usr/bin/watch jj --ignore-working-copy status --color always"),
     }));
     swaymsg("focus left");
     swaymsg("focus left");
