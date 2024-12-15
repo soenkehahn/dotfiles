@@ -50,6 +50,7 @@ in
     pkgs.gittyup
     pkgs.helix
     pkgs.hexyl
+    pkgs.hwatch
     pkgs.jless
     pkgs.jq
     pkgs.just
