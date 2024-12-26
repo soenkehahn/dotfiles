@@ -26,7 +26,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
-    crate2nix.url = "github:nix-community/crate2nix";
     set-colortheme.url = "github:soenkehahn/set-colortheme";
     is-cached.url = "github:soenkehahn/is_cached";
     jj = {
