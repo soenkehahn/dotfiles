@@ -29,6 +29,10 @@
       url = "github:martinvonz/jj/v0.24.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    atuin = {
+      url = "github:atuinsh/atuin/v18.4.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgs_unstable, home-manager, ... }@inputs:
@@ -44,6 +48,7 @@
         extraSpecialArgs = {
           inherit system inputs pkgs_unstable;
           extraFlakesToInstall = pkgs.lib.lists.map (flake: flake.packages.${system}.default) [
+            inputs.atuin
             inputs.i3-pretty-tree
             inputs.jj
             inputs.nil
