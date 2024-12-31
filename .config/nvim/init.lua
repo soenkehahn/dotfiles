@@ -70,7 +70,7 @@ map("", "<C-S>", ":call CocAction('format')<CR>:w<CR>")
 map("", "<leader>o", ":call fzf#run({'source': 'fd', 'sink': 'e'})<CR>")
 -- map("", "<leader>z", ":Ag<CR>")
 
-map("", "<leader>m", ":/\\v^[<=>\\|]{7}.*$<CR>")
+map("", "<leader>m", ":/\\v^[<=>\\|%+]{7}.*$<CR>")
 
 -- command palette
 map("", "<leader>p", ":Commands<CR>")

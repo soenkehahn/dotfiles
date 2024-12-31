@@ -34,6 +34,7 @@ in
     pkgs.age
     pkgs.as-tree
     pkgs.bat
+    pkgs.bluetuith
     pkgs.bottom
     pkgs.choose
     pkgs.chromium
