@@ -76,6 +76,7 @@ in
     pkgs.sysbench
     pkgs.tor-browser
     pkgs.uni
+    pkgs.watchexec
     pkgs.xdg-desktop-portal-wlr
     pkgs.yq
     pkgs.zellij
