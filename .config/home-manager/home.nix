@@ -60,6 +60,7 @@ in
     pkgs.nix-output-monitor
     pkgs.nixpkgs-fmt
     pkgs.nodejs
+    pkgs.nomacs
     pkgs.nushell
     pkgs.ormolu
     pkgs.potrace
