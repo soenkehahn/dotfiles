@@ -46,7 +46,6 @@ in
     pkgs.du-dust
     pkgs.element-desktop
     pkgs.fd
-    pkgs_unstable.fzf
     pkgs.gittyup
     pkgs.helix
     pkgs.hexyl
@@ -80,6 +79,10 @@ in
     pkgs.xdg-desktop-portal-wlr
     pkgs.yq
     pkgs.zellij
+    (
+      let pkgs = import inputs.nixpkgs_unstable { inherit system; };
+      in pkgs.fzf
+    )
     (
       let pkgs = import inputs.nixpkgs_older { inherit system; };
       in pkgs.qmk

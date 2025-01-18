@@ -35,18 +35,17 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs_unstable, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
-      pkgs_unstable = import nixpkgs_unstable { inherit system; };
     in
     {
       homeConfigurations."shahn" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./home.nix ];
         extraSpecialArgs = {
-          inherit system inputs pkgs_unstable;
+          inherit system inputs;
           extraFlakesToInstall = pkgs.lib.lists.map (flake: flake.packages.${system}.default) [
             inputs.atuin
             inputs.i3-pretty-tree
