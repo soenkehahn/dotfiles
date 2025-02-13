@@ -46,6 +46,7 @@
         modules = [ ./home.nix ];
         extraSpecialArgs = {
           inherit system inputs;
+          pkgs_unstable = import inputs.nixpkgs_unstable { inherit system; };
           extraFlakesToInstall = pkgs.lib.lists.map (flake: flake.packages.${system}.default) [
             inputs.atuin
             inputs.i3-pretty-tree

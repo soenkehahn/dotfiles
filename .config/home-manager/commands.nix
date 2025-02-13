@@ -1,4 +1,4 @@
-{ system, pkgs, inputs }:
+{ system, inputs, pkgs, pkgs_unstable }:
 let
   haskellScript =
     let
@@ -164,7 +164,7 @@ in
   (
     pkgs.writeShellApplication {
       name = "signal";
-      runtimeInputs = [ pkgs.signal-desktop ];
+      runtimeInputs = [ pkgs_unstable.signal-desktop ];
       text = "signal-desktop --no-sandbox";
     }
   )
