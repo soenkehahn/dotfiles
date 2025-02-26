@@ -33,7 +33,7 @@ history = 100000
 [selection]
 semantic_escape_chars = ",│`|\"' ()[]{}<>\t"
 
-[shell]
+[terminal.shell]
 program = "/usr/bin/zsh"
 
 [window]
