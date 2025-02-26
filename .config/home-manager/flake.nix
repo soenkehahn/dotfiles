@@ -17,7 +17,6 @@
     debug-tools.url = "github:garnix-io/debug-tools";
     shellac.url = "github:soenkehahn/shellac";
     porc.url = "github:soenkehahn/porc";
-    nix-tree.url = "github:utdemir/nix-tree";
     cradle = {
       url = "github:garnix-io/cradle";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -59,7 +58,6 @@
           ] ++ [
             inputs.debug-tools.packages.${system}.main_pkg
             inputs.is-cached.packages.${system}.main_pkg
-            inputs.nix-tree.defaultPackage.${system}
           ];
         };
       };

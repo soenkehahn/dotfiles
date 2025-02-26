@@ -59,6 +59,7 @@ in
     pkgs.nix-direnv
     pkgs.nix-output-monitor
     pkgs.nixpkgs-fmt
+    pkgs.nix-tree
     pkgs.nodejs
     pkgs.nomacs
     pkgs.nushell
