@@ -25,7 +25,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
-    set-colortheme.url = "github:soenkehahn/set-colortheme";
+    set-colortheme = {
+      url = "github:soenkehahn/set-colortheme";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
     is-cached.url = "github:soenkehahn/is_cached";
     jj = {
       url = "github:martinvonz/jj/v0.26.0";
