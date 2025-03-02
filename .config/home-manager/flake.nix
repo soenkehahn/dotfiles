@@ -15,7 +15,6 @@
     };
     sway-switch-outputs.url = "github:soenkehahn/sway-switch-outputs";
     debug-tools.url = "github:garnix-io/debug-tools";
-    shellac.url = "github:soenkehahn/shellac";
     porc.url = "github:soenkehahn/porc";
     cradle = {
       url = "github:garnix-io/cradle";
@@ -53,7 +52,6 @@
             inputs.nil
             inputs.porc
             inputs.set-colortheme
-            inputs.shellac
             inputs.sway-switch-outputs
           ] ++ [
             inputs.debug-tools.packages.${system}.main_pkg

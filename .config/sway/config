@@ -29,9 +29,8 @@ bindsym $mod+minus exec swaync-client -t -sw
 
 # start and stop programs
 bindsym $mod+n exec exec rofi -show run
-bindsym $mod+r exec exec shellac
+bindsym $mod+r exec exec alacritty
 bindsym $mod+t exec exec firefox
-bindsym $mod+d exec exec alacritty
 bindsym $mod+x kill
 
 bindsym $mod+m exec "i3-pretty-tree | dot -Tpdf | okular -"
