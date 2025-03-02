@@ -8,7 +8,11 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nil.url = "github:oxalica/nil";
+    nil = {
+      url = "github:oxalica/nil";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
     i3-pretty-tree = {
       url = "github:soenkehahn/i3-pretty-tree";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,6 +42,7 @@
     atuin = {
       url = "github:atuinsh/atuin/v18.4.0";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
     };
   };
 
