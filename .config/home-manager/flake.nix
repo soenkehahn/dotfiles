@@ -22,7 +22,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
-    debug-tools.url = "github:garnix-io/debug-tools";
+    debug-tools = {
+      url = "github:garnix-io/debug-tools";
+      inputs.nixpkgs-repo.follows = "nixpkgs";
+    };
     porc.url = "github:soenkehahn/porc";
     cradle = {
       url = "github:garnix-io/cradle";
