@@ -13,7 +13,11 @@
       url = "github:soenkehahn/i3-pretty-tree";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sway-switch-outputs.url = "github:soenkehahn/sway-switch-outputs";
+    sway-switch-outputs = {
+      url = "github:soenkehahn/sway-switch-outputs";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
     debug-tools.url = "github:garnix-io/debug-tools";
     porc.url = "github:soenkehahn/porc";
     cradle = {
