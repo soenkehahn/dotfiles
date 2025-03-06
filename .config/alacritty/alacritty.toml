@@ -1,3 +1,4 @@
+[general]
 import = ["/home/shahn/.config/alacritty/colors.toml"]
 
 [font]
