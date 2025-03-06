@@ -16,6 +16,7 @@
     i3-pretty-tree = {
       url = "github:soenkehahn/i3-pretty-tree";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
     };
     sway-switch-outputs = {
       url = "github:soenkehahn/sway-switch-outputs";
