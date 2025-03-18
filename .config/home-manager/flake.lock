@@ -553,6 +553,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_gimp": {
+      "locked": {
+        "lastModified": 1742244245,
+        "narHash": "sha256-NI3fu0kH/G48rJ2eCB1ly/2qixoxCauAW56FqS7VTPA=",
+        "owner": "jtojnar",
+        "repo": "nixpkgs",
+        "rev": "4d27ab0bd2cdff459e4fee884e1ab526002d122d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jtojnar",
+        "ref": "gimp-meson",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_older": {
       "locked": {
         "lastModified": 1704290814,
@@ -642,6 +658,7 @@
         "jj": "jj",
         "nil": "nil",
         "nixpkgs": "nixpkgs_3",
+        "nixpkgs_gimp": "nixpkgs_gimp",
         "nixpkgs_older": "nixpkgs_older",
         "nixpkgs_unstable": "nixpkgs_unstable",
         "porc": "porc",

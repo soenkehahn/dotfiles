@@ -87,6 +87,10 @@ in
       in pkgs.qmk
     )
     (
+      let pkgs = import inputs.nixpkgs_gimp { inherit system; };
+      in pkgs.gimp
+    )
+    (
       pkgs.writeScriptBin "switch-colortheme" ''
         set -eu
 
