@@ -1,5 +1,12 @@
 session_serialization false
 
 keybinds {
-    unbind "Ctrl s"
+  unbind "Ctrl s"
+  shared {
+    bind "Super r" { NewPane; }
+    bind "Super l" { MoveFocus "Up"; }
+    bind "Super i" { MoveFocus "Left"; }
+    bind "Super a" { MoveFocus "Down"; }
+    bind "Super e" { MoveFocus "Right"; }
+  }
 }
