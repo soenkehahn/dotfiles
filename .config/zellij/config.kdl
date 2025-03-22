@@ -8,5 +8,6 @@ keybinds {
     bind "Super i" { MoveFocus "Left"; }
     bind "Super a" { MoveFocus "Down"; }
     bind "Super e" { MoveFocus "Right"; }
+    bind "Super b" { ToggleFloatingPanes; }
   }
 }
