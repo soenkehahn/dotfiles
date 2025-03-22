@@ -9,5 +9,7 @@ keybinds {
     bind "Super a" { MoveFocus "Down"; }
     bind "Super e" { MoveFocus "Right"; }
     bind "Super b" { ToggleFloatingPanes; }
+    bind "Super v" { GoToPreviousTab; }
+    bind "Super c" { GoToNextTab; }
   }
 }
