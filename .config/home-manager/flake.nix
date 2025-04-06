@@ -2,7 +2,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs_older.url = "github:nixos/nixpkgs/nixos-23.05";
-    nixpkgs_unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs_unstable.url = "github:nixos/nixpkgs/64e75cd44acf21c7933d61d7721e812eac1b5a0a";
     nixpkgs_gimp.url = "github:jtojnar/nixpkgs/gimp-meson";
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
@@ -28,7 +28,11 @@
       url = "github:garnix-io/debug-tools";
       inputs.nixpkgs-repo.follows = "nixpkgs";
     };
-    porc.url = "github:soenkehahn/porc";
+    porc = {
+      url = "github:soenkehahn/porc";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
     cradle = {
       url = "github:garnix-io/cradle";
       inputs.nixpkgs.follows = "nixpkgs";
