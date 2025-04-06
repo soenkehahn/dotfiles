@@ -528,22 +528,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_unstable": {
-      "locked": {
-        "lastModified": 1739214665,
-        "narHash": "sha256-26L8VAu3/1YRxS8MHgBOyOM8xALdo6N0I04PgorE7UM=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "64e75cd44acf21c7933d61d7721e812eac1b5a0a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "64e75cd44acf21c7933d61d7721e812eac1b5a0a",
-        "type": "github"
-      }
-    },
     "npmlock2nix-repo": {
       "flake": false,
       "locked": {
@@ -599,7 +583,6 @@
         "nixpkgs": "nixpkgs_3",
         "nixpkgs_gimp": "nixpkgs_gimp",
         "nixpkgs_older": "nixpkgs_older",
-        "nixpkgs_unstable": "nixpkgs_unstable",
         "porc": "porc",
         "set-colortheme": "set-colortheme",
         "sway-switch-outputs": "sway-switch-outputs"

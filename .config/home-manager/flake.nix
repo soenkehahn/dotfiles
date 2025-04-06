@@ -2,7 +2,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs_older.url = "github:nixos/nixpkgs/nixos-23.05";
-    nixpkgs_unstable.url = "github:nixos/nixpkgs/64e75cd44acf21c7933d61d7721e812eac1b5a0a";
     nixpkgs_gimp.url = "github:jtojnar/nixpkgs/gimp-meson";
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
@@ -66,7 +65,6 @@
         modules = [ ./home.nix ];
         extraSpecialArgs = {
           inherit system inputs;
-          pkgs_unstable = import inputs.nixpkgs_unstable { inherit system; };
           extraFlakesToInstall = pkgs.lib.lists.map (flake: flake.packages.${system}.default) [
             inputs.atuin
             inputs.i3-pretty-tree

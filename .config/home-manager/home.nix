@@ -1,4 +1,4 @@
-{ pkgs, pkgs_unstable, extraFlakesToInstall, inputs, system, ... }:
+{ pkgs, extraFlakesToInstall, inputs, system, ... }:
 let
   wrapInNixGL = exe:
     pkgs.writeScriptBin exe ''
@@ -46,6 +46,7 @@ in
     pkgs.du-dust
     pkgs.element-desktop
     pkgs.fd
+    pkgs.fzf
     pkgs.gittyup
     pkgs.helix
     pkgs.hexyl
@@ -81,7 +82,6 @@ in
     pkgs.xdg-desktop-portal-wlr
     pkgs.yq
     pkgs.zellij
-    pkgs_unstable.fzf
     (
       let pkgs = import inputs.nixpkgs_older { inherit system; };
       in pkgs.qmk
@@ -103,5 +103,5 @@ in
     (wrapInNixGL "alacritty")
     (wrapInNixGL "firefox")
   ] ++ extraFlakesToInstall
-  ++ import ./commands.nix { inherit system pkgs pkgs_unstable inputs; };
+  ++ import ./commands.nix { inherit system pkgs inputs; };
 }

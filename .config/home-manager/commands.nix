@@ -1,4 +1,4 @@
-{ system, inputs, pkgs, pkgs_unstable }:
+{ system, inputs, pkgs }:
 let
   haskellScript =
     let
@@ -164,8 +164,12 @@ in
   (
     pkgs.writeShellApplication {
       name = "signal";
-      runtimeInputs = [ pkgs_unstable.signal-desktop ];
-      text = "signal-desktop --no-sandbox";
+      runtimeInputs = [ pkgs.signal-desktop ];
+      text = ''
+        export ELECTRON_ENABLE_HIGH_DPI_SCALE_FACTOR=1
+        export GDK_SCALE=2
+        signal-desktop --no-sandbox
+      '';
     }
   )
   (haskellScript {
