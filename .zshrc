@@ -2,8 +2,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' '+r:|[._-]=* r:|=*' '+l:|
 zstyle ':completion:*' special-dirs true
 
 fpath=(~/.zsh/completions $fpath)
-autoload -U compinit
-compinit -C
+autoload -Uz compinit
+compinit
 
 stty -ixon
 
