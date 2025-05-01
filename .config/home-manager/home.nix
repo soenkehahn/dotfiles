@@ -47,6 +47,7 @@ in
     pkgs.element-desktop
     pkgs.fd
     pkgs.fzf
+    pkgs.gimp
     pkgs.gittyup
     pkgs.helix
     pkgs.hexyl
@@ -85,10 +86,6 @@ in
     (
       let pkgs = import inputs.nixpkgs_older { inherit system; };
       in pkgs.qmk
-    )
-    (
-      let pkgs = import inputs.nixpkgs_gimp { inherit system; };
-      in pkgs.gimp
     )
     (
       pkgs.writeScriptBin "switch-colortheme" ''
