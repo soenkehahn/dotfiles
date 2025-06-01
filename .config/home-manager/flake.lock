@@ -123,6 +123,30 @@
         "type": "github"
       }
     },
+    "coding": {
+      "inputs": {
+        "crane": "crane",
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1748795626,
+        "narHash": "sha256-rs+If39CFO7rKWWOkmmmVK7KuzDcRMJDdK9cGH7gCt0=",
+        "owner": "soenkehahn",
+        "repo": "coding",
+        "rev": "8e886be41ba41613099ccd70888a8cdf49e6ac8a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "soenkehahn",
+        "repo": "coding",
+        "type": "github"
+      }
+    },
     "cradle": {
       "inputs": {
         "flake-utils": [
@@ -172,6 +196,21 @@
       }
     },
     "crane": {
+      "locked": {
+        "lastModified": 1748047550,
+        "narHash": "sha256-t0qLLqb4C1rdtiY8IFRH5KIapTY/n3Lqt57AmxEv9mk=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "b718a78696060df6280196a6f992d04c87a16aef",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
+    "crane_2": {
       "locked": {
         "lastModified": 1734324364,
         "narHash": "sha256-omYTR59TdH0AumP1cfh49fBnWZ52HjfdNfaLzCMZBx0=",
@@ -531,7 +570,7 @@
     },
     "porc": {
       "inputs": {
-        "crane": "crane",
+        "crane": "crane_2",
         "flake-utils": [
           "flake-utils"
         ],
@@ -556,6 +595,7 @@
     "root": {
       "inputs": {
         "atuin": "atuin",
+        "coding": "coding",
         "cradle": "cradle",
         "debug-tools": "debug-tools",
         "flake-utils": "flake-utils",
