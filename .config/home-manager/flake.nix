@@ -56,6 +56,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
+    git-shell = {
+      url = "github:soenkehahn/git-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -72,6 +77,7 @@
           extraFlakesToInstall = pkgs.lib.lists.map (flake: flake.packages.${system}.default) [
             inputs.atuin
             inputs.coding
+            inputs.git-shell
             inputs.i3-pretty-tree
             inputs.jj
             inputs.nil
