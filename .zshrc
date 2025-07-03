@@ -21,7 +21,7 @@ eval "$(starship init zsh)"
 autoload -U +X bashcompinit && bashcompinit
 eval "$(stack --bash-completion-script stack)"
 
-export EDITOR=$(which nvim)
+export EDITOR=$(which hx)
 
 eval "$(direnv hook zsh)"
 
