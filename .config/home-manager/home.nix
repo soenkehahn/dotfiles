@@ -84,7 +84,7 @@ in
     pkgs.yq
     pkgs.zellij
     (
-      let pkgs = import inputs.nixpkgs_older { inherit system; };
+      let pkgs = import inputs.nixpkgs_23_05 { inherit system; };
       in pkgs.qmk
     )
     (
