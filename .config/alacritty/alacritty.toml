@@ -45,3 +45,18 @@ title = "terminal"
 [window.padding]
 x = 5
 y = 5
+
+[hints]
+alphabet = "enaritud"
+
+[[hints.enabled]]
+action = "Copy"
+regex = '(https?://|mailto:)[a-zA-Z0-9.-]+(:\d+)?(/[a-zA-Z0-9._/%~#-]*)?'
+binding.key = "U"
+binding.mods = "Control"
+
+[[hints.enabled]]
+action = "Copy"
+regex = "[a-z0-9/.][a-z0-9/._-]+"
+binding.key = "F"
+binding.mods = "Control"
