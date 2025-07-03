@@ -185,4 +185,15 @@ in
           & addArgs ["--rfc-3339=seconds"]
     '';
   })
+  (
+    pkgs.writeShellApplication {
+      name = "shahn-startup";
+      text = ''
+        if ! test -e /run/opengl-driver ; then
+          echo linking ${pkgs.mesa.drivers} to /run/opengl-driver
+          sudo ln -s ${pkgs.mesa.drivers} /run/opengl-driver
+        fi
+      '';
+    }
+  )
 ]
