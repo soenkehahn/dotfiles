@@ -26,8 +26,8 @@
       url = "github:garnix-io/debug-tools";
       inputs.nixpkgs-repo.follows = "nixpkgs";
     };
-    porc = {
-      url = "github:soenkehahn/porc";
+    treetop = {
+      url = "github:soenkehahn/porc/sh/rename2";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
@@ -81,7 +81,7 @@
             inputs.i3-pretty-tree
             inputs.jj
             inputs.nil
-            inputs.porc
+            inputs.treetop
             inputs.set-colortheme
             inputs.sway-switch-outputs
           ] ++ [
