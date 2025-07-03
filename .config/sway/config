@@ -146,6 +146,13 @@ mode "resize" {
   bindsym Right resize grow width $delta px or $delta ppt
 }
 
+# lock mode
+bindsym $mod+Escape fullscreen enable ; mode "lock"
+mode "lock" {
+  bindsym $mod+Escape mode "default" ; fullscreen disable
+}
+
+# colortheme
 bindsym $mod+F7 exec switch-colortheme
 
 # style
