@@ -44,6 +44,7 @@
     pkgs.musikcube
     pkgs.neovim
     pkgs.nethogs
+    pkgs.niri
     pkgs.nix-direnv
     pkgs.nix-output-monitor
     pkgs.nixpkgs-fmt
@@ -67,6 +68,7 @@
     pkgs.uni
     pkgs.watchexec
     pkgs.xdg-desktop-portal-wlr
+    pkgs.xwayland-satellite
     pkgs.yq
     pkgs.zellij
     (
