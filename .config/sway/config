@@ -197,8 +197,8 @@ bar {
 }
 
 # brightness
-bindsym XF86MonBrightnessDown exec sudo brightnessctl set 20%-
-bindsym XF86MonBrightnessUp exec sudo brightnessctl set 20%+
+bindsym XF86MonBrightnessDown exec sudo brightnessctl --exponent=4 set 10%-
+bindsym XF86MonBrightnessUp exec sudo brightnessctl --exponent=4 set 10%+
 
 # volume
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
