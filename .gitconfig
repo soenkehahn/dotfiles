@@ -7,7 +7,6 @@
   ff = only
 [core]
   excludesfile = /home/shahn/.gitignore_global
-  editor = nvim
 [diff]
   tool = vscode
 [difftool "vscode"]
