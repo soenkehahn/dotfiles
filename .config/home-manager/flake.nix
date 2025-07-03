@@ -52,7 +52,7 @@
       inputs.flake-utils.follows = "flake-utils";
     };
     coding = {
-      url = "github:soenkehahn/coding";
+      url = "github:soenkehahn/coding/sh/niri";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
