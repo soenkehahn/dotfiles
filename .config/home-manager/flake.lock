@@ -134,15 +134,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1748795626,
-        "narHash": "sha256-rs+If39CFO7rKWWOkmmmVK7KuzDcRMJDdK9cGH7gCt0=",
+        "lastModified": 1750133456,
+        "narHash": "sha256-nlYaqc7Se+JkzXqKdfGPBB3xcOauSTfI40kHECeFgco=",
         "owner": "soenkehahn",
         "repo": "coding",
-        "rev": "8e886be41ba41613099ccd70888a8cdf49e6ac8a",
+        "rev": "665130af5b7ef8224aabfc427e2cf1480e6dfbb2",
         "type": "github"
       },
       "original": {
         "owner": "soenkehahn",
+        "ref": "sh/niri",
         "repo": "coding",
         "type": "github"
       }
@@ -211,6 +212,21 @@
       }
     },
     "crane_2": {
+      "locked": {
+        "lastModified": 1748970125,
+        "narHash": "sha256-UDyigbDGv8fvs9aS95yzFfOKkEjx1LO3PL3DsKopohA=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "323b5746d89e04b22554b061522dfce9e4c49b18",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
+    "crane_3": {
       "locked": {
         "lastModified": 1734324364,
         "narHash": "sha256-omYTR59TdH0AumP1cfh49fBnWZ52HjfdNfaLzCMZBx0=",
@@ -355,6 +371,30 @@
         "type": "github"
       }
     },
+    "git-shell": {
+      "inputs": {
+        "crane": "crane_2",
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1749228956,
+        "narHash": "sha256-kWYLEpiG/snUJPVntbjYsZpsXxEdyFdna4ZCJIXAbQM=",
+        "owner": "soenkehahn",
+        "repo": "git-shell",
+        "rev": "1fa9ab9364a995cba47156d2ad9c2ed12d0ef6e1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "soenkehahn",
+        "repo": "git-shell",
+        "type": "github"
+      }
+    },
     "gomod2nix-repo": {
       "inputs": {
         "flake-utils": "flake-utils_3",
@@ -449,16 +489,16 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1749045673,
-        "narHash": "sha256-l+E3os5At/PV4zKvUDSv4Aez9Bg0M+BZDvwVOHX+h9s=",
+        "lastModified": 1751485270,
+        "narHash": "sha256-4zDHSpi7Kk7rramrWFOlBelZnOxt0zgXIrHucYQUOz0=",
         "owner": "martinvonz",
         "repo": "jj",
-        "rev": "34b0961c940e1ad3be5cd9c5f5e608b0aa0ba859",
+        "rev": "312c610c592b41ec81f0661e124fd660cb510ab0",
         "type": "github"
       },
       "original": {
         "owner": "martinvonz",
-        "ref": "v0.30.0",
+        "ref": "v0.31.0",
         "repo": "jj",
         "type": "github"
       }
@@ -519,23 +559,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1747953325,
-        "narHash": "sha256-y2ZtlIlNTuVJUZCqzZAhIw5rrKP4DOSklev6c8PyCkQ=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "55d1f923c480dadce40f5231feb472e81b0bab48",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-25.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_older": {
+    "nixpkgs_23_05": {
       "locked": {
         "lastModified": 1704290814,
         "narHash": "sha256-LWvKHp7kGxk/GEtlrGYV68qIvPHkU9iToomNFGagixU=",
@@ -547,6 +571,22 @@
       "original": {
         "owner": "nixos",
         "ref": "nixos-23.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1751211869,
+        "narHash": "sha256-1Cu92i1KSPbhPCKxoiVG5qnoRiKTgR5CcGSRyLpOd7Y=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "b43c397f6c213918d6cfe6e3550abfe79b5d1c51",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-25.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -568,30 +608,6 @@
         "type": "github"
       }
     },
-    "porc": {
-      "inputs": {
-        "crane": "crane_2",
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1741034740,
-        "narHash": "sha256-byNJ12Zn0WiDFT5ua2CTn5AH18G8jnQn/tatNZeaiWM=",
-        "owner": "soenkehahn",
-        "repo": "porc",
-        "rev": "3f14963edbcd220095f75617b51d19b63a380330",
-        "type": "github"
-      },
-      "original": {
-        "owner": "soenkehahn",
-        "repo": "porc",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "atuin": "atuin",
@@ -599,16 +615,17 @@
         "cradle": "cradle",
         "debug-tools": "debug-tools",
         "flake-utils": "flake-utils",
+        "git-shell": "git-shell",
         "home-manager": "home-manager",
         "i3-pretty-tree": "i3-pretty-tree",
         "is-cached": "is-cached",
         "jj": "jj",
         "nil": "nil",
         "nixpkgs": "nixpkgs_3",
-        "nixpkgs_older": "nixpkgs_older",
-        "porc": "porc",
+        "nixpkgs_23_05": "nixpkgs_23_05",
         "set-colortheme": "set-colortheme",
-        "sway-switch-outputs": "sway-switch-outputs"
+        "sway-switch-outputs": "sway-switch-outputs",
+        "treetop": "treetop"
       }
     },
     "rust-analyzer-src": {
@@ -797,6 +814,31 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "treetop": {
+      "inputs": {
+        "crane": "crane_3",
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1751498636,
+        "narHash": "sha256-t6J6jJy/YlIDio+MvBw1zUPXP/ZUNtWHQHgqYmPjwWc=",
+        "owner": "soenkehahn",
+        "repo": "porc",
+        "rev": "7d35d3a0accab1590cf4dfe7ba6cd1a99e08c8e0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "soenkehahn",
+        "ref": "sh/rename2",
+        "repo": "porc",
         "type": "github"
       }
     }
