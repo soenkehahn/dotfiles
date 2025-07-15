@@ -27,7 +27,7 @@
       inputs.nixpkgs-repo.follows = "nixpkgs";
     };
     treetop = {
-      url = "github:soenkehahn/porc/sh/rename2";
+      url = "github:soenkehahn/treetop";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };

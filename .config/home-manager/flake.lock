@@ -577,11 +577,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1751211869,
-        "narHash": "sha256-1Cu92i1KSPbhPCKxoiVG5qnoRiKTgR5CcGSRyLpOd7Y=",
+        "lastModified": 1751582995,
+        "narHash": "sha256-u7ubvtxdTnFPpV27AHpgoKn7qHuE7sgWgza/1oj5nzA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "b43c397f6c213918d6cfe6e3550abfe79b5d1c51",
+        "rev": "7a732ed41ca0dd64b4b71b563ab9805a80a7d693",
         "type": "github"
       },
       "original": {
@@ -828,17 +828,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1751498636,
-        "narHash": "sha256-t6J6jJy/YlIDio+MvBw1zUPXP/ZUNtWHQHgqYmPjwWc=",
+        "lastModified": 1752163604,
+        "narHash": "sha256-RGRiKpxdZtaUhZvFq1U8zPE/Cj3kaZmveunHh4X0W1k=",
         "owner": "soenkehahn",
-        "repo": "porc",
-        "rev": "7d35d3a0accab1590cf4dfe7ba6cd1a99e08c8e0",
+        "repo": "treetop",
+        "rev": "c142e77d0c14474cf52d7d71700efb288299b137",
         "type": "github"
       },
       "original": {
         "owner": "soenkehahn",
-        "ref": "sh/rename2",
-        "repo": "porc",
+        "repo": "treetop",
         "type": "github"
       }
     }
