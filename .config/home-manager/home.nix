@@ -43,6 +43,7 @@
     pkgs.just
     pkgs.mpd
     pkgs.musikcube
+    pkgs.mympd
     pkgs.neovim
     pkgs.nethogs
     pkgs.niri

@@ -1,0 +1,10 @@
+[Unit]
+Description=Music Player Daemon Web Frontend
+After=network.target sound.target
+
+[Service]
+Type=simple
+ExecStart=/home/shahn/.nix-profile/bin/mympd --workdir %h/.local/share/mympd --cachedir %h/.local/share/mympd
+
+[Install]
+WantedBy=default.target
