@@ -41,6 +41,7 @@
     pkgs.jless
     pkgs.jq
     pkgs.just
+    pkgs.mpd
     pkgs.musikcube
     pkgs.neovim
     pkgs.nethogs
