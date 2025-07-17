@@ -61,6 +61,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
+    helix = {
+      url = "github:helix-editor/helix/25.07";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -78,12 +82,13 @@
             inputs.atuin
             inputs.coding
             inputs.git-shell
+            inputs.helix
             inputs.i3-pretty-tree
             inputs.jj
             inputs.nil
-            inputs.treetop
             inputs.set-colortheme
             inputs.sway-switch-outputs
+            inputs.treetop
           ] ++ [
             inputs.debug-tools.packages.${system}.main_pkg
             inputs.is-cached.packages.${system}.main_pkg

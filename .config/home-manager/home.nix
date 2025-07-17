@@ -35,7 +35,6 @@
     pkgs.fzf
     pkgs.gimp
     pkgs.gittyup
-    pkgs.helix
     pkgs.hexyl
     pkgs.hwatch
     pkgs.jless
