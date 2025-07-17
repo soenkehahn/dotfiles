@@ -46,11 +46,6 @@
       url = "github:martinvonz/jj/v0.31.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    atuin = {
-      url = "github:atuinsh/atuin/v18.4.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-    };
     coding = {
       url = "github:soenkehahn/coding/sh/niri";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -79,7 +74,6 @@
         extraSpecialArgs = {
           inherit system inputs;
           extraFlakesToInstall = pkgs.lib.lists.map (flake: flake.packages.${system}.default) [
-            inputs.atuin
             inputs.coding
             inputs.git-shell
             inputs.helix

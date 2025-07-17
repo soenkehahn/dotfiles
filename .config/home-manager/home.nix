@@ -18,6 +18,7 @@
     pkgs.age
     pkgs.alacritty
     pkgs.as-tree
+    pkgs.atuin
     pkgs.bat
     pkgs.bluetuith
     pkgs.bottom

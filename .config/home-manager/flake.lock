@@ -17,32 +17,6 @@
         "type": "github"
       }
     },
-    "atuin": {
-      "inputs": {
-        "fenix": "fenix",
-        "flake-compat": "flake-compat",
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1735314878,
-        "narHash": "sha256-P/q4XYhpXo9kwiltA0F+rQNSlqI+s8TSi5v5lFJWJ/4=",
-        "owner": "atuinsh",
-        "repo": "atuin",
-        "rev": "dc7c26a640b1a134528caa894b3339c443b917b4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "atuinsh",
-        "ref": "v18.4.0",
-        "repo": "atuin",
-        "type": "github"
-      }
-    },
     "base16-alacritty": {
       "flake": false,
       "locked": {
@@ -258,44 +232,6 @@
       "original": {
         "owner": "garnix-io",
         "repo": "debug-tools",
-        "type": "github"
-      }
-    },
-    "fenix": {
-      "inputs": {
-        "nixpkgs": [
-          "atuin",
-          "nixpkgs"
-        ],
-        "rust-analyzer-src": "rust-analyzer-src"
-      },
-      "locked": {
-        "lastModified": 1730356297,
-        "narHash": "sha256-pMW/yx6urzUimYdMHLGKRWxu2wmWMd7Dqz9oiGHBi8o=",
-        "owner": "nix-community",
-        "repo": "fenix",
-        "rev": "3a35e2c06a31ff4420639a454eeca4ccdfe69f13",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "fenix",
-        "type": "github"
-      }
-    },
-    "flake-compat": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1696426674,
-        "narHash": "sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U=",
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "rev": "0f9255e01c2351cc7d116c072cb317785dd33b33",
-        "type": "github"
-      },
-      "original": {
-        "owner": "edolstra",
-        "repo": "flake-compat",
         "type": "github"
       }
     },
@@ -632,7 +568,6 @@
     },
     "root": {
       "inputs": {
-        "atuin": "atuin",
         "coding": "coding",
         "cradle": "cradle",
         "debug-tools": "debug-tools",
@@ -649,23 +584,6 @@
         "set-colortheme": "set-colortheme",
         "sway-switch-outputs": "sway-switch-outputs",
         "treetop": "treetop"
-      }
-    },
-    "rust-analyzer-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1730315096,
-        "narHash": "sha256-Kvve0NSLliNl1cv7qLSPdVWqLUEeAq0aZGsMeV632Cg=",
-        "owner": "rust-lang",
-        "repo": "rust-analyzer",
-        "rev": "8244f30eff828355f5ec92b2307c216d10caa25b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rust-lang",
-        "ref": "nightly",
-        "repo": "rust-analyzer",
-        "type": "github"
       }
     },
     "rust-overlay": {
