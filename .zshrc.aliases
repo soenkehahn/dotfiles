@@ -55,6 +55,7 @@ alias vd='dot -Tpdf | okular - \&'
 alias nsn='nix search nixpkgs'
 alias nd='nix develop -Lc bash -c "export SHELL=$SHELL ; exec $SHELL"'
 alias rg='rg --smart-case --sort path'
+alias tt=treetop
 
 # local aliases
 if [[ -f ~/.zshrc.aliases.local ]]
