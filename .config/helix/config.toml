@@ -1,0 +1,58 @@
+theme = "base16_default"
+
+[editor]
+auto-pairs = false
+bufferline = "multiple"
+auto-format = true
+insert-final-newline = true
+trim-final-newlines = true
+trim-trailing-whitespace = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+render = true
+
+[editor.statusline]
+# ["diagnostics", "selections", "register", "position", "file-encoding"]
+right = ["workspace-diagnostics", "separator", "selections", "separator", "register", "separator", "position", "separator", "file-encoding"]
+# workspace-diagnostics = ["error"]
+mode.normal = "normal"
+mode.select = "select"
+mode.insert = "insert"
+
+
+[editor.whitespace.render]
+# space = "all"
+
+[keys.normal]
+C-s = ":w"
+"}" = "goto_next_paragraph"
+"{" = "goto_prev_paragraph"
+"del" = "delete_selection"
+# p = "paste_clipboard_after"
+# P = "paste_clipboard_before"
+# y = "yank_to_clipboard"
+L = "expand_selection"
+A = "shrink_selection"
+I = "select_prev_sibling"
+E = "select_next_sibling"
+O = "insert_at_line_end"
+
+[keys.normal.h]
+h = "goto_next_diag"
+k = "toggle_comments"
+e = ":format"
+w = ":buffer-close"
+c = "goto_next_buffer"
+l = "goto_previous_buffer"
+o = "file_picker"
+i = "collapse_selection"
+a = ":wa"
+s = "split_selection_on_newline"
+
+[keys.select.h]
+"," = "remove_primary_selection"
