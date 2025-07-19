@@ -1,7 +1,7 @@
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' '+r:|[._-]=* r:|=*' '+l:|=* r:|=*'
 zstyle ':completion:*' special-dirs true
 
-fpath=(~/.zsh/completions $fpath)
+fpath=(~/.nix-profile/share/zsh/site-functions ~/.nix-profile/share/zsh/vendor-completions ~/.zsh/completions $fpath)
 autoload -Uz compinit
 compinit
 
