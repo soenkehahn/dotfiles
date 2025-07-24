@@ -97,6 +97,30 @@
         "type": "github"
       }
     },
+    "cantata": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1745564215,
+        "narHash": "sha256-4lkfY+87lEE2A863JogG5PtO5SyGn7Hb8shQljSqq3Q=",
+        "owner": "nullobsi",
+        "repo": "cantata",
+        "rev": "e5df8a52df7345380fa189bd0bb3be1dfd2c831e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nullobsi",
+        "ref": "v3.3.1",
+        "repo": "cantata",
+        "type": "github"
+      }
+    },
     "coding": {
       "inputs": {
         "crane": "crane",
@@ -568,6 +592,7 @@
     },
     "root": {
       "inputs": {
+        "cantata": "cantata",
         "coding": "coding",
         "cradle": "cradle",
         "debug-tools": "debug-tools",

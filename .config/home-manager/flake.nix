@@ -60,6 +60,11 @@
       url = "github:helix-editor/helix/25.07";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    cantata = {
+      url = "github:nullobsi/cantata/v3.3.1";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -74,6 +79,7 @@
         extraSpecialArgs = {
           inherit system inputs;
           extraFlakesToInstall = pkgs.lib.lists.map (flake: flake.packages.${system}.default) [
+            inputs.cantata
             inputs.coding
             inputs.git-shell
             inputs.helix
