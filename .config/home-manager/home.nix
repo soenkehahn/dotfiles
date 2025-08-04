@@ -77,16 +77,6 @@
       let pkgs = import inputs.nixpkgs_23_05 { inherit system; };
       in pkgs.qmk
     )
-    (
-      pkgs.writeScriptBin "switch-colortheme" ''
-        set -eu
-
-        export PATH="${pkgs.nodejs}/bin:$PATH"
-        export PATH="${pkgs.nodePackages.prettier}/bin:$PATH"
-
-        ${./switch-colortheme}
-      ''
-    )
   ] ++ extraFlakesToInstall
   ++ import ./commands.nix { inherit system pkgs inputs; };
 }

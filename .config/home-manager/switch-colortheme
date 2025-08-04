@@ -15,8 +15,8 @@ use structopt::StructOpt;
 #[derive(StructOpt)]
 struct Args {}
 
-const LIGHT: &str = "google-light";
-const DARK: &str = "google-dark";
+const LIGHT: &str = "atelier-heath-light";
+const DARK: &str = "dracula";
 
 fn main() -> Result<()> {
     let _args = Args::from_args();
@@ -27,8 +27,8 @@ fn main() -> Result<()> {
     } else {
         DARK
     };
-    redis.set("shahn/colortheme", next)?;
-    ("set-colortheme", next).run_result()?;
+    redis.set::<_, _, ()>("shahn/colortheme", next)?;
+    ("set-colortheme", next).run_result::<()>()?;
     Ok(())
 }
 

@@ -196,4 +196,12 @@ in
       '';
     }
   )
+  (
+    pkgs.writeShellApplication {
+      name = "switch-colortheme";
+      text = ''
+        ${./switch-colortheme}
+      '';
+    }
+  )
 ]
