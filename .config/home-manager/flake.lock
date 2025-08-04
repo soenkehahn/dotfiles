@@ -1,37 +1,5 @@
 {
   "nodes": {
-    "FlatColor": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1717814357,
-        "narHash": "sha256-GGxXtVszVGR8Ows8K9+0FpQ/kjXHsEy2maEqgOVKCwc=",
-        "owner": "soenkehahn",
-        "repo": "FlatColor",
-        "rev": "e7663abab18fc159f1306b0fd9862333c503a326",
-        "type": "github"
-      },
-      "original": {
-        "owner": "soenkehahn",
-        "repo": "FlatColor",
-        "type": "github"
-      }
-    },
-    "base16-gtk-flatcolor": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1751160442,
-        "narHash": "sha256-Vg3wxhpaJ62RPnxB4TA+fCxYHuB1btel/oWJMP3EFAA=",
-        "owner": "tinted-theming",
-        "repo": "base16-gtk-flatcolor",
-        "rev": "f2867b21b7f10b212e740231f6d41002c8a055cc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tinted-theming",
-        "repo": "base16-gtk-flatcolor",
-        "type": "github"
-      }
-    },
     "base16-helix": {
       "flake": false,
       "locked": {
@@ -691,8 +659,6 @@
     },
     "set-colortheme": {
       "inputs": {
-        "FlatColor": "FlatColor",
-        "base16-gtk-flatcolor": "base16-gtk-flatcolor",
         "base16-helix": "base16-helix",
         "base16-i3": "base16-i3",
         "base16-rofi": "base16-rofi",
@@ -708,11 +674,11 @@
         "tinted-terminal": "tinted-terminal"
       },
       "locked": {
-        "lastModified": 1754176964,
-        "narHash": "sha256-Ic+NV9T7Y/F31VKqlWOVGq6j55jdX894jnfPfmxnvBc=",
+        "lastModified": 1754267932,
+        "narHash": "sha256-C35oeznCu3Oe0apVqylb+Cn5VSsL5ydqj8FxfAU4Rdk=",
         "owner": "soenkehahn",
         "repo": "set-colortheme",
-        "rev": "d35df2176c6772655c0ba366eac35056bec409fb",
+        "rev": "6744343d363210d84a5b437d396fb5f20274f43b",
         "type": "github"
       },
       "original": {
