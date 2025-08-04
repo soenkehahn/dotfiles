@@ -38,6 +38,7 @@
     pkgs.gittyup
     pkgs.hexyl
     pkgs.hwatch
+    pkgs.hyprpicker
     pkgs.jless
     pkgs.jq
     pkgs.just
