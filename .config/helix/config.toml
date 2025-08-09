@@ -2,7 +2,7 @@ theme = "mine"
 
 [editor]
 auto-pairs = false
-bufferline = "multiple"
+bufferline = "always"
 auto-format = true
 insert-final-newline = true
 trim-final-newlines = true
@@ -53,6 +53,19 @@ o = "file_picker"
 i = "collapse_selection"
 a = ":wa"
 s = "split_selection_on_newline"
+p = "command_palette"
+
+[keys.select]
+C-s = ":w"
+
+[keys.insert]
+C-s = ":w"
 
 [keys.select.h]
 "," = "remove_primary_selection"
+
+[keys.normal.m]
+f = "flip_selections"
+
+[keys.select.m]
+f = "flip_selections"
