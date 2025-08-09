@@ -53,6 +53,7 @@
     pkgs.nixpkgs-fmt
     pkgs.nix-tree
     pkgs.nodejs
+    pkgs.nodePackages.prettier
     pkgs.nomacs
     pkgs.nushell
     pkgs.ormolu
