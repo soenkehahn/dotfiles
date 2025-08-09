@@ -2,10 +2,11 @@
   "coc.preferences.formatOnSave": false,
   "diagnostic.enableMessage": "jump",
   "diagnostic.messageTarget": "float",
+  "inlayHint.enable": false,
   "languageserver": {
     "haskell": {
       "command": "haskell-language-server-wrapper",
-      "args": ["--lsp"],
+      "args": ["--logfile", "/home/shahn/hls.log", "--lsp"],
       "rootPatterns": [
         "*.cabal",
         "stack.yaml",
@@ -17,17 +18,12 @@
       "settings": {
         "formatOnSave": false,
         "haskell": {
+          // "checkProject": true,
           "plugin": {
             "hlint": {
               "globalOn": true
-            },
-            "ormolu": {
-              "config": {
-                "external": true
-              }
             }
-          },
-          "formattingProvider": "ormolu"
+          }
         }
       }
     },
@@ -37,7 +33,12 @@
       "rootPatterns": ["flake.nix"],
       "settings": {
         "nil": {
-          "formatting": { "command": ["nixpkgs-fmt"] }
+          "formatting": { "command": ["nixpkgs-fmt"] },
+          "nix": {
+            "flake": {
+              "autoArchive": true
+            }
+          }
         }
       }
     }
