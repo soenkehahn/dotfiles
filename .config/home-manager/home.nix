@@ -36,6 +36,7 @@
     pkgs.fzf
     pkgs.gimp
     pkgs.gittyup
+    pkgs.haskellPackages.nix-derivation
     pkgs.hexyl
     pkgs.hwatch
     pkgs.hyprpicker
