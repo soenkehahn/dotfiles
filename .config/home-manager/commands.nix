@@ -8,7 +8,7 @@ let
         };
       };
     in
-    { name, text }: pkgs.runCommand
+    { name, runtimeInputs ? [ ], text }: pkgs.runCommand
       name
       {
         buildInputs = [
@@ -18,6 +18,7 @@ let
             p.temporary
           ]))
         ];
+        nativeBuildInputs = [ pkgs.makeWrapper ];
         meta.mainProgram = name;
       }
       ''
@@ -29,6 +30,8 @@ let
           -o ${name}
         mkdir -p $out/bin
         cp ./${name} $out/bin/
+        wrapProgram "$out/bin/${name}" \
+          --prefix PATH : ${pkgs.lib.makeBinPath runtimeInputs}
       '';
 in
 [
@@ -204,4 +207,20 @@ in
       '';
     }
   )
+  (haskellScript {
+    name = "clementine";
+    runtimeInputs = [ pkgs.clementine ];
+    text = ''
+      import Cradle
+      import System.Environment
+
+      main :: IO ()
+      main = do
+        args <- getArgs
+        run_ $
+          cmd "clementine"
+            & addArgs args
+            & modifyEnvVar "QT_SCALE_FACTOR" (const $ Just "2")
+    '';
+  })
 ]

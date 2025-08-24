@@ -24,7 +24,6 @@
     pkgs.bottom
     pkgs.choose
     pkgs.chromium
-    pkgs.clementine
     pkgs.d2
     pkgs.dhall
     pkgs.dhall-lsp-server
