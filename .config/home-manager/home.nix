@@ -81,6 +81,15 @@
       let pkgs = import inputs.nixpkgs_23_05 { inherit system; };
       in pkgs.qmk
     )
+    (pkgs.rustPlatform.buildRustPackage rec {
+      pname = "tinted-builder-rust";
+      version = "0.13.1";
+      src = inputs.tinted-builder-rust;
+      cargoLock = {
+        lockFile = "${src}/Cargo.lock";
+      };
+      doCheck = false;
+    })
   ] ++ extraFlakesToInstall
   ++ import ./commands.nix { inherit system pkgs inputs; };
 }

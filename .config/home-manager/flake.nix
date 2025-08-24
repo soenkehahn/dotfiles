@@ -65,6 +65,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
+    tinted-builder-rust = {
+      url = "github:tinted-theming/tinted-builder-rust/v0.13.1";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
