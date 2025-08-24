@@ -174,7 +174,7 @@ titlebar_border_thickness 4
 output * background $base00 solid_color
 
 # class                 border  bground text    indicator child_border
-client.focused          $base08 $base00 $base08 $base0C   $base00
+client.focused          $base08 $base00 $base08 $base00   $base00
 client.unfocused        $base0D $base00 $base0D $base00   $base00
 client.focused_inactive $base0D $base00 $base08 $base00   $base00
 client.urgent           $base08 $base08 $base00
