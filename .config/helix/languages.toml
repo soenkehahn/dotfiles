@@ -3,9 +3,9 @@ name = "nix"
 auto-format = true
 formatter = { command = "nixpkgs-fmt" }
 
-# [[language]]
-# name = "markdown"
-# formatter = { command = 'prettier', args = ["--parser", "markdown"] }
+[[language]]
+name = "markdown"
+formatter = { command = 'prettier', args = ["--parser", "markdown"] }
 
 [[language]]
 name = "haskell"
