@@ -32,6 +32,22 @@
         "type": "github"
       }
     },
+    "base16-quickshell": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1755133605,
+        "narHash": "sha256-tLgIz8Gm4Ul5rps5wHJz/eiNaxa43i9zTFe9pWvBmB4=",
+        "owner": "soenkehahn",
+        "repo": "base16-quickshell",
+        "rev": "c534dbd91f5b0cc1afc36490ac52acb93da0e6ba",
+        "type": "github"
+      },
+      "original": {
+        "owner": "soenkehahn",
+        "repo": "base16-quickshell",
+        "type": "github"
+      }
+    },
     "base16-rofi": {
       "flake": false,
       "locked": {
@@ -662,6 +678,7 @@
       "inputs": {
         "base16-helix": "base16-helix",
         "base16-i3": "base16-i3",
+        "base16-quickshell": "base16-quickshell",
         "base16-rofi": "base16-rofi",
         "base16-vim": "base16-vim",
         "cradle": "cradle_2",
@@ -675,11 +692,11 @@
         "tinted-terminal": "tinted-terminal"
       },
       "locked": {
-        "lastModified": 1754356393,
-        "narHash": "sha256-5LEx+pcuw6IBpmBxKY7+JH+C7q8MCx52ic0J/IdbWaw=",
+        "lastModified": 1755133658,
+        "narHash": "sha256-4FKiSGVAgclEQk//HFaYakdL8Lphm1/Wf6T1aJ+CyTQ=",
         "owner": "soenkehahn",
         "repo": "set-colortheme",
-        "rev": "e0fb9a99398a0eb997e7f7f40d5b93ae11ad7b81",
+        "rev": "70d7ac133490e48bfb41a99802ee0f8fda3ea481",
         "type": "github"
       },
       "original": {
