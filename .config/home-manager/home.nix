@@ -72,6 +72,7 @@
     pkgs.tor-browser
     pkgs.uni
     pkgs.watchexec
+    pkgs.wl-mirror
     pkgs.xdg-desktop-portal-wlr
     pkgs.xwayland-satellite
     pkgs.yq
