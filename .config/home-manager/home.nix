@@ -1,4 +1,4 @@
-{ pkgs, extraFlakesToInstall, inputs, system, ... }:
+{ pkgs, extraFlakesToInstall, inputs, system, jail, ... }:
 {
   programs.home-manager.enable = true;
 
@@ -55,7 +55,6 @@
     pkgs.nix-tree
     pkgs.nodejs
     pkgs.nodePackages.prettier
-    pkgs.nomacs
     pkgs.nushell
     pkgs.ormolu
     pkgs.potrace
@@ -91,5 +90,5 @@
       doCheck = false;
     })
   ] ++ extraFlakesToInstall
-  ++ import ./commands.nix { inherit system pkgs inputs; };
+  ++ import ./commands.nix { inherit system pkgs inputs jail; };
 }

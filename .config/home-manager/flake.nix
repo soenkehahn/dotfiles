@@ -69,9 +69,10 @@
       url = "github:tinted-theming/tinted-builder-rust/v0.13.1";
       flake = false;
     };
+    jail-nix.url = "sourcehut:~alexdavid/jail.nix/eef4fbec290fb5953277eae05c92e2f267000e4f";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, jail-nix, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
@@ -82,6 +83,7 @@
         modules = [ ./home.nix ];
         extraSpecialArgs = {
           inherit system inputs;
+          jail = jail-nix.lib.init pkgs;
           extraFlakesToInstall = pkgs.lib.lists.map (flake: flake.packages.${system}.default) [
             inputs.cantata
             inputs.coding
@@ -110,7 +112,10 @@
               };
             };
         in
-        pkgs.lib.foldl f { } (import ./commands.nix { inherit system pkgs inputs; })
+        pkgs.lib.foldl f { } (import ./commands.nix {
+          inherit system pkgs inputs;
+          jail = jail-nix.lib.init pkgs;
+        })
       );
     };
 }
