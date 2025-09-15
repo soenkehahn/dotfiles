@@ -709,11 +709,11 @@
         "tinted-terminal": "tinted-terminal"
       },
       "locked": {
-        "lastModified": 1755133658,
-        "narHash": "sha256-4FKiSGVAgclEQk//HFaYakdL8Lphm1/Wf6T1aJ+CyTQ=",
+        "lastModified": 1757526659,
+        "narHash": "sha256-YWY+KTdSdru2k8W4LrdtfcoZsZ82BFQSE1xJrJbQaUU=",
         "owner": "soenkehahn",
         "repo": "set-colortheme",
-        "rev": "70d7ac133490e48bfb41a99802ee0f8fda3ea481",
+        "rev": "eb183a8901c1df1e437f52d07d61bc5cec4c59da",
         "type": "github"
       },
       "original": {
