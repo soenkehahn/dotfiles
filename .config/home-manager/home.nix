@@ -75,6 +75,7 @@
     pkgs.xdg-desktop-portal-wlr
     pkgs.xwayland-satellite
     pkgs.yq
+    pkgs.zeal
     pkgs.zellij
     (
       let pkgs = import inputs.nixpkgs_23_05 { inherit system; };
