@@ -43,7 +43,7 @@
     };
     is-cached.url = "github:soenkehahn/is_cached";
     jj = {
-      url = "github:martinvonz/jj/v0.33.0";
+      url = "github:martinvonz/jj/v0.34.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     coding = {
