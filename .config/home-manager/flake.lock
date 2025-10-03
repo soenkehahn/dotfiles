@@ -115,16 +115,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1750133456,
-        "narHash": "sha256-nlYaqc7Se+JkzXqKdfGPBB3xcOauSTfI40kHECeFgco=",
+        "lastModified": 1758294909,
+        "narHash": "sha256-Okty5FhVSnzwAkwA0JKJVugYVFSdWOvlUD6IULrc2i8=",
         "owner": "soenkehahn",
         "repo": "coding",
-        "rev": "665130af5b7ef8224aabfc427e2cf1480e6dfbb2",
+        "rev": "9cf4d576649b2a99499a81fb6af5b906b605c82f",
         "type": "github"
       },
       "original": {
         "owner": "soenkehahn",
-        "ref": "sh/niri",
         "repo": "coding",
         "type": "github"
       }

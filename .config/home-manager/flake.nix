@@ -47,7 +47,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     coding = {
-      url = "github:soenkehahn/coding/sh/niri";
+      url = "github:soenkehahn/coding";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
