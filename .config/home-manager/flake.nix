@@ -69,7 +69,7 @@
       url = "github:tinted-theming/tinted-builder-rust/v0.13.1";
       flake = false;
     };
-    jail-nix.url = "sourcehut:~alexdavid/jail.nix/eef4fbec290fb5953277eae05c92e2f267000e4f";
+    jail-nix.url = "sourcehut:~alexdavid/jail.nix";
   };
 
   outputs = { self, nixpkgs, home-manager, jail-nix, ... }@inputs:
