@@ -40,6 +40,9 @@ alias gmas='git commit --amend --reuse-message HEAD'
 alias gforce='git push --force-with-lease'
 alias gai='git add --intent-to-add'
 
+# jj
+alias js='jj status'
+
 # misc
 dolphin() { /usr/bin/dolphin $@ \& }
 geeqie() { /usr/bin/geeqie $@ \& }
