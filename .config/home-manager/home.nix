@@ -68,7 +68,6 @@
     pkgs.sway
     pkgs.swaynotificationcenter
     pkgs.sysbench
-    pkgs.tor-browser
     pkgs.uni
     pkgs.watchexec
     pkgs.wl-mirror
