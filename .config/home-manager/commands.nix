@@ -161,8 +161,6 @@ in
       name = "signal";
       runtimeInputs = [ pkgs.signal-desktop ];
       text = ''
-        export ELECTRON_ENABLE_HIGH_DPI_SCALE_FACTOR=1
-        export GDK_SCALE=2
         signal-desktop --no-sandbox
       '';
     }
