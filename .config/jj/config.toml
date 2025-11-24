@@ -1,0 +1,15 @@
+[user]
+name = "Sönke Hahn"
+email = "soenkehahn@gmail.com"
+
+[revset-aliases]
+'closest_bookmark(to)' = 'heads(::to & bookmarks())'
+
+[aliases]
+tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
+
+[ui]
+default-command = "diff"
+
+[templates]
+git_push_bookmark = '"soenkehahn/" ++ change_id.short()'
