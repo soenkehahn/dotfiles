@@ -63,7 +63,6 @@
     pkgs.ripgrep
     pkgs.sd
     pkgs.simple-http-server
-    pkgs.spotdl
     pkgs.starship
     pkgs.sway
     pkgs.swaynotificationcenter
@@ -89,6 +88,13 @@
       };
       doCheck = false;
     })
-  ] ++ extraFlakesToInstall
+  ] ++
+  (
+    let pkgs = import inputs.nixpkgs-unstable { inherit system; };
+    in [
+      pkgs.spotdl
+      pkgs.yt-dlp
+    ]
+  ) ++ extraFlakesToInstall
   ++ import ./commands.nix { inherit system pkgs inputs jail; };
 }
