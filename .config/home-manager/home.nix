@@ -34,6 +34,7 @@
     pkgs.firefox
     pkgs.fzf
     pkgs.gimp
+    pkgs.github-cli
     pkgs.gittyup
     pkgs.haskellPackages.nix-derivation
     pkgs.hexyl
@@ -51,10 +52,10 @@
     pkgs.niri
     pkgs.nix-direnv
     pkgs.nix-output-monitor
-    pkgs.nixpkgs-fmt
     pkgs.nix-tree
-    pkgs.nodejs
+    pkgs.nixpkgs-fmt
     pkgs.nodePackages.prettier
+    pkgs.nodejs
     pkgs.nushell
     pkgs.ormolu
     pkgs.potrace
