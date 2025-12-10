@@ -31,6 +31,7 @@ bindsym $mod+minus exec swaync-client -t -sw
 bindsym $mod+n exec exec rofi -show run
 bindsym $mod+r exec exec alacritty
 bindsym $mod+t exec exec firefox
+bindsym $mod+comma exec exec alacritty --command prag
 bindsym $mod+x kill
 
 bindsym $mod+m exec "i3-pretty-tree | dot -Tpdf | okular -"

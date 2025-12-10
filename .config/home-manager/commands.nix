@@ -218,4 +218,23 @@ in
     gpu
     gui
   ]))
+  (haskellScript {
+    name = "prag";
+    text = ''
+      import Cradle
+
+      main :: IO ()
+      main = do
+        run_ $
+          cmd "ssh"
+            & addArgs [
+              "prag.goat-noodlefish.ts.net",
+              "-t",
+              "zellij",
+              "attach",
+              "-c",
+              "gary"
+            ]
+    '';
+  })
 ]
