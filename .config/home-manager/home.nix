@@ -20,7 +20,7 @@
     pkgs.as-tree
     pkgs.atuin
     pkgs.bat
-    pkgs.bluetuith
+    pkgs.bluetui
     pkgs.bottom
     pkgs.choose
     pkgs.chromium
