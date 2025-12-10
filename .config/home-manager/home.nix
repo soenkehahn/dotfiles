@@ -28,7 +28,7 @@
     pkgs.dhall
     pkgs.dhall-lsp-server
     pkgs.direnv
-    pkgs.du-dust
+    pkgs.dust
     pkgs.element-desktop
     pkgs.fd
     pkgs.firefox

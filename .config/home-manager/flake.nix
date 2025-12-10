@@ -1,11 +1,11 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs";
     nixpkgs_23_05.url = "github:nixos/nixpkgs/nixos-23.05";
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nil = {
@@ -61,11 +61,6 @@
       url = "github:helix-editor/helix/25.07";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    cantata = {
-      url = "github:nullobsi/cantata/v3.3.1";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-    };
     tinted-builder-rust = {
       url = "github:tinted-theming/tinted-builder-rust/v0.13.1";
       flake = false;
@@ -86,7 +81,6 @@
           inherit system inputs;
           jail = jail-nix.lib.init pkgs;
           extraFlakesToInstall = pkgs.lib.lists.map (flake: flake.packages.${system}.default) [
-            inputs.cantata
             inputs.coding
             inputs.git-shell
             inputs.helix

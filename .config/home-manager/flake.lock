@@ -80,30 +80,6 @@
         "type": "github"
       }
     },
-    "cantata": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1745564215,
-        "narHash": "sha256-4lkfY+87lEE2A863JogG5PtO5SyGn7Hb8shQljSqq3Q=",
-        "owner": "nullobsi",
-        "repo": "cantata",
-        "rev": "e5df8a52df7345380fa189bd0bb3be1dfd2c831e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nullobsi",
-        "ref": "v3.3.1",
-        "repo": "cantata",
-        "type": "github"
-      }
-    },
     "coding": {
       "inputs": {
         "crane": "crane",
@@ -386,16 +362,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1747556831,
-        "narHash": "sha256-Qb84nbYFFk0DzFeqVoHltS2RodAYY5/HZQKE8WnBDsc=",
+        "lastModified": 1765384171,
+        "narHash": "sha256-FuFtkJrW1Z7u+3lhzPRau69E0CNjADku1mLQQflUORo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d0bbd221482c2713cccb80220f3c9d16a6e20a33",
+        "rev": "44777152652bc9eacf8876976fa72cc77ca8b9d8",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-25.05",
+        "ref": "release-25.11",
         "repo": "home-manager",
         "type": "github"
       }
@@ -571,16 +547,16 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1763622513,
-        "narHash": "sha256-1jQnuyu82FpiSxowrF/iFK6Toh9BYprfDqfs4BB+19M=",
+        "lastModified": 1765311797,
+        "narHash": "sha256-mSD5Ob7a+T2RNjvPvOA1dkJHGVrNVl8ZOrAwBjKBDQo=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "c58bc7f5459328e4afac201c5c4feb7c818d604b",
+        "rev": "09eb77e94fa25202af8f3e81ddc7353d9970ac1b",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-25.05",
+        "ref": "nixos-25.11",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -604,7 +580,6 @@
     },
     "root": {
       "inputs": {
-        "cantata": "cantata",
         "coding": "coding",
         "cradle": "cradle",
         "debug-tools": "debug-tools",
