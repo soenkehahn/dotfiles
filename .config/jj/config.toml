@@ -13,3 +13,16 @@ default-command = "diff"
 
 [templates]
 git_push_bookmark = '"soenkehahn/" ++ change_id.short()'
+draft_commit_description = '''
+concat(
+  description,
+  "\n",
+  "JJ: This commit contains the following changes:\n",
+  indent("JJ:    ", diff.stat(72)),
+  "JJ: ignore-rest\n",
+  diff.git(),
+)
+'''
+
+[remotes.origin]
+auto-track-bookmarks = "glob:*"
