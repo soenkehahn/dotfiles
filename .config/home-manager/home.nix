@@ -23,7 +23,6 @@
     pkgs.bluetui
     pkgs.bottom
     pkgs.choose
-    pkgs.chromium
     pkgs.d2
     pkgs.dhall
     pkgs.dhall-lsp-server
