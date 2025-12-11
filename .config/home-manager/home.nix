@@ -39,6 +39,7 @@
     pkgs.hexyl
     pkgs.hwatch
     pkgs.hyprpicker
+    pkgs.jjui
     pkgs.jless
     pkgs.jq
     pkgs.just
