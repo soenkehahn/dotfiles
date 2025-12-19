@@ -1,4 +1,4 @@
-{ pkgs, extraFlakesToInstall, inputs, system, jail, ... }:
+{ pkgs, extraFlakesToInstall, inputs, system, jail, lazy-nix, ... }:
 {
   programs.home-manager.enable = true;
 
@@ -14,88 +14,100 @@
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
-  home.packages = [
-    pkgs.age
-    pkgs.alacritty
-    pkgs.as-tree
-    pkgs.atuin
-    pkgs.bat
-    pkgs.bluetui
-    pkgs.bottom
-    pkgs.choose
-    pkgs.d2
-    pkgs.dhall
-    pkgs.dhall-lsp-server
-    pkgs.direnv
-    pkgs.dust
-    pkgs.element-desktop
-    pkgs.fd
-    pkgs.firefox
-    pkgs.fzf
-    pkgs.gimp
-    pkgs.github-cli
-    pkgs.gittyup
-    pkgs.haskellPackages.nix-derivation
-    pkgs.hexyl
-    pkgs.hwatch
-    pkgs.hyprpicker
-    pkgs.jjui
-    pkgs.jless
-    pkgs.jq
-    pkgs.just
-    pkgs.lazyjj
-    pkgs.mpd
-    pkgs.musikcube
-    pkgs.mympd
-    pkgs.neovim
-    pkgs.nethogs
-    pkgs.niri
-    pkgs.nix-direnv
-    pkgs.nix-output-monitor
-    pkgs.nix-tree
-    pkgs.nixpkgs-fmt
-    pkgs.nodePackages.prettier
-    pkgs.nodejs
-    pkgs.nushell
-    pkgs.ormolu
-    pkgs.potrace
-    pkgs.rage
-    pkgs.remmina
-    pkgs.ripgrep
-    pkgs.sd
-    pkgs.simple-http-server
-    pkgs.starship
-    pkgs.sway
-    pkgs.swaynotificationcenter
-    pkgs.sysbench
-    pkgs.uni
-    pkgs.watchexec
-    pkgs.wl-mirror
-    pkgs.xdg-desktop-portal-wlr
-    pkgs.xwayland-satellite
-    pkgs.yq
-    pkgs.zeal
-    pkgs.zellij
-    (
-      let pkgs = import inputs.nixpkgs_23_05 { inherit system; };
-      in pkgs.qmk
-    )
-    (pkgs.rustPlatform.buildRustPackage rec {
-      pname = "tinted-builder-rust";
-      version = "0.13.1";
-      src = inputs.tinted-builder-rust;
-      cargoLock = {
-        lockFile = "${src}/Cargo.lock";
+  home.packages =
+    let
+      lazy = lazy-nix.lib.init {
+        inherit pkgs;
+        wrapper = pkgs.writeShellScript "lazy-nix-popup-terminal-wrapper" ''
+          alacritty --command "$@"
+        '';
       };
-      doCheck = false;
-    })
-  ] ++
-  (
-    let pkgs = import inputs.nixpkgs-unstable { inherit system; };
-    in [
-      pkgs.spotdl
-      pkgs.yt-dlp
-    ]
-  ) ++ extraFlakesToInstall
-  ++ import ./commands.nix { inherit system pkgs inputs jail; };
+    in
+    [
+      pkgs.age
+      pkgs.alacritty
+      pkgs.as-tree
+      pkgs.atuin
+      pkgs.bat
+      pkgs.bluetui
+      pkgs.bottom
+      pkgs.choose
+      pkgs.d2
+      pkgs.dhall
+      pkgs.dhall-lsp-server
+      pkgs.direnv
+      pkgs.dust
+      pkgs.element-desktop
+      pkgs.fd
+      pkgs.firefox
+      pkgs.fzf
+      pkgs.github-cli
+      pkgs.gittyup
+      pkgs.haskellPackages.nix-derivation
+      pkgs.hexyl
+      pkgs.hwatch
+      pkgs.hyprpicker
+      pkgs.i3status
+      pkgs.jjui
+      pkgs.jless
+      pkgs.jq
+      pkgs.just
+      pkgs.lazyjj
+      pkgs.mpd
+      pkgs.musikcube
+      pkgs.mympd
+      pkgs.neovim
+      pkgs.nethogs
+      pkgs.niri
+      pkgs.nix-direnv
+      pkgs.nix-output-monitor
+      pkgs.nix-tree
+      pkgs.nixpkgs-fmt
+      pkgs.nodePackages.prettier
+      pkgs.nodejs
+      pkgs.nushell
+      pkgs.ormolu
+      pkgs.potrace
+      pkgs.rage
+      pkgs.remmina
+      pkgs.ripgrep
+      pkgs.sd
+      pkgs.simple-http-server
+      pkgs.starship
+      pkgs.sway
+      pkgs.swaynotificationcenter
+      pkgs.sysbench
+      pkgs.uni
+      pkgs.watchexec
+      pkgs.wl-clipboard
+      pkgs.wl-mirror
+      pkgs.xdg-desktop-portal-wlr
+      pkgs.xwayland-satellite
+      pkgs.yq
+      pkgs.zellij
+      (lazy pkgs.gimp)
+      (lazy pkgs.inkscape)
+      (lazy pkgs.zeal)
+      (
+        let pkgs = import inputs.nixpkgs_23_05 { inherit system; };
+        in pkgs.qmk
+      )
+      (pkgs.rustPlatform.buildRustPackage rec {
+        pname = "tinted-builder-rust";
+        version = "0.13.1";
+        src = inputs.tinted-builder-rust;
+        cargoLock = {
+          lockFile = "${src}/Cargo.lock";
+        };
+        doCheck = false;
+      })
+    ] ++
+    (
+      let pkgs = import inputs.nixpkgs-unstable { inherit system; };
+      in [
+        pkgs.spotdl
+        pkgs.yt-dlp
+      ]
+    ) ++ extraFlakesToInstall
+    ++ import ./commands.nix { inherit system pkgs inputs jail; };
 }

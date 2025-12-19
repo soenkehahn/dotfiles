@@ -66,9 +66,10 @@
       flake = false;
     };
     jail-nix.url = "sourcehut:~alexdavid/jail.nix";
+    lazy-nix.url = "sourcehut:~alexdavid/lazy.nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, jail-nix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, jail-nix, lazy-nix, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
@@ -80,6 +81,7 @@
         extraSpecialArgs = {
           inherit system inputs;
           jail = jail-nix.lib.init pkgs;
+          inherit lazy-nix;
           extraFlakesToInstall = pkgs.lib.lists.map (flake: flake.packages.${system}.default) [
             inputs.coding
             inputs.git-shell
