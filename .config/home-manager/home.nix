@@ -88,6 +88,7 @@
       (lazy pkgs.gimp)
       (lazy pkgs.inkscape)
       (lazy pkgs.zeal)
+      (lazy pkgs.kdePackages.okular)
       (
         let pkgs = import inputs.nixpkgs_23_05 { inherit system; };
         in pkgs.qmk
