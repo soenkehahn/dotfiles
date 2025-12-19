@@ -44,12 +44,6 @@ alias gai='git add --intent-to-add'
 alias js='jj status'
 
 # misc
-dolphin() { /usr/bin/dolphin $@ \& }
-geeqie() { /usr/bin/geeqie $@ \& }
-inkscape() { /usr/bin/inkscape $@ \& }
-intellij() { _JAVA_AWT_WM_NONREPARENTING=1 intellij-idea-community $@ \& }
-libreoffice() { /usr/bin/libreoffice $@ \& }
-okular() { /usr/bin/okular $@ \& }
 alias nvlc="nvlc --recursive=expand"
 alias qmv='qmv --options=spaces '
 alias pm='pulsemixer'
