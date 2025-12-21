@@ -48,7 +48,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     coding = {
-      url = "github:soenkehahn/coding";
+      url = "github:soenkehahn/coding/sh/jjui";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
