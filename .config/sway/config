@@ -120,7 +120,7 @@ bindsym $mod+Ctrl+8 move container to workspace $ws8 ; workspace $ws8
 bindsym $mod+Ctrl+9 move container to workspace $ws9 ; workspace $ws9
 bindsym $mod+Ctrl+0 move container to workspace $ws10 ; workspace $ws10
 
-bindsym $mod+Ctrl+dead_grave exec nix run 'github:soenkehahn/sway-switch-outputs?rev=bc6fc3cb52cf7c7cbee442dfcd9d4d8866fa820b'
+bindsym $mod+dead_circumflex exec sway-switch-outputs
 
 # Logging out and reloading
 bindsym $mod+Shift+x exec "swaynag -t warning -m 'log out?' -b 'yes' 'swaymsg exit'"
