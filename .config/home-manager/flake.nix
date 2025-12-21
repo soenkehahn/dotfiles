@@ -58,7 +58,7 @@
       inputs.flake-utils.follows = "flake-utils";
     };
     helix = {
-      url = "github:helix-editor/helix/25.07";
+      url = "github:helix-editor/helix/filesentry";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     tinted-builder-rust = {
