@@ -7,6 +7,7 @@ auto-format = true
 insert-final-newline = true
 trim-final-newlines = true
 trim-trailing-whitespace = true
+end-of-line-diagnostics = "disable"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -24,6 +25,8 @@ mode.normal = "normal"
 mode.select = "select"
 mode.insert = "insert"
 
+[editor.inline-diagnostics]
+cursor-line = "hint"
 
 [editor.whitespace.render]
 # space = "all"
