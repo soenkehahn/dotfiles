@@ -71,6 +71,7 @@
       pkgs.rage
       pkgs.remmina
       pkgs.ripgrep
+      pkgs.rofi
       pkgs.sd
       pkgs.simple-http-server
       pkgs.starship
