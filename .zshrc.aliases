@@ -18,7 +18,7 @@ alias ls="ls --color -F"
 alias l="ls -lh"
 alias la="ls -lha"
 alias rtl="ls -rtlh"
-alias tree="exa --tree --git-ignore"
+alias tree="tree --gitignore"
 
 # apt stuff
 alias dailyupgrade="debdailyupgrade && sudo snap refresh"
