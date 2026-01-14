@@ -78,7 +78,10 @@ bindsym $mod+q floating toggle
 
 # scratchpad
 bindsym $mod+z move scratchpad
-bindsym $mod+b scratchpad show
+bindsym $mod+b scratchpad show ; mode "scratchpad"
+mode "scratchpad" {
+  bindsym $mod+b mode "default" ; scratchpad show
+}
 
 # waybar
 bindsym $mod+dead_grave exec toggle-waybar
