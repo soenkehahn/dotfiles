@@ -70,7 +70,7 @@ bindsym $mod+o focus child
 # layout
 workspace_layout tabbed
 bindsym $mod+f fullscreen toggle
-bindsym $mod+h layout toggle tabbed splitv splith
+bindsym $mod+h layout toggle tabbed splitv splith stacking
 
 # floating
 floating_modifier $mod
