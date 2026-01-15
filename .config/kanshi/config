@@ -13,18 +13,22 @@ profile "laptop + tv" {
   output "VIZIO, Inc D55u-D1 0x00000101" enable mode 3840x2160 position 2560,0 scale 1
 }
 
-# desktop monitor
-profile {
+profile "desktop monitor" {
   output "Philips Consumer Electronics Company PHL 276E8V 0x00000565" enable mode 3840x2160 position 0,0 scale 2
 }
 
-# laptop + touchscreen
-profile {
+profile "desktop + touchscreen" {
+  output "Philips Consumer Electronics Company PHL 276E8V 0x00000565" enable mode 3840x2160 position 0,0 scale 1
+  output "Gechic Corporation Onlap1503 8888" mode 1920x1080 scale 0.6 position 3840,360
+}
+
+profile "laptop + touchscreen" {
   output eDP-1 mode 2240x1400 scale 1 position 0,0
   output "Unknown Onlap1503 8888" mode 1920x1080 scale 0.75 position 2240,0
 }
 
-# random offices
+# * random offices
+
 profile {
   output eDP-1 scale 1 position 0,360
   output "Goldstar Company Ltd LG HDR 4K 0x00001594" scale 1 position 2560,0

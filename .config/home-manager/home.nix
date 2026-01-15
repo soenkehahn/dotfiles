@@ -52,6 +52,7 @@
       pkgs.jless
       pkgs.jq
       pkgs.just
+      pkgs.kanshi
       pkgs.lazyjj
       pkgs.mpd
       pkgs.musikcube
