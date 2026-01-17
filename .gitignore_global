@@ -12,3 +12,4 @@ rust-analyzer/
 .hspec
 .hspec-failures
 result
+skratch.*
