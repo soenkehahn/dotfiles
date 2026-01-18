@@ -31,6 +31,10 @@ cursor-line = "hint"
 [editor.whitespace.render]
 # space = "all"
 
+[editor.soft-wrap]
+enable = true
+wrap-indicator = " ↪  "
+
 [keys.normal]
 C-s = ":w"
 "}" = "goto_next_paragraph"
