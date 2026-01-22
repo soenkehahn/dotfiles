@@ -3,13 +3,11 @@ session_serialization false
 keybinds {
   unbind "Ctrl s"
   shared {
+    bind "Super n" { NewTab; }
     bind "Super r" { NewPane; }
     bind "Super l" { MoveFocus "Up"; }
-    bind "Super i" { MoveFocus "Left"; }
+    bind "Super i" { MoveFocusOrTab "Left"; }
     bind "Super a" { MoveFocus "Down"; }
-    bind "Super e" { MoveFocus "Right"; }
-    bind "Super b" { ToggleFloatingPanes; }
-    bind "Super v" { GoToPreviousTab; }
-    bind "Super c" { GoToNextTab; }
+    bind "Super e" { MoveFocusOrTab "Right"; }
   }
 }
