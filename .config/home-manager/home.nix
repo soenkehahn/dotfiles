@@ -71,6 +71,7 @@
       pkgs.potrace
       pkgs.rage
       pkgs.remmina
+      pkgs.renameutils
       pkgs.ripgrep
       pkgs.rofi
       pkgs.sd

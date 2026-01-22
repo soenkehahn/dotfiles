@@ -213,11 +213,6 @@ in
             & modifyEnvVar "QT_SCALE_FACTOR" (const $ Just "2")
     '';
   })
-  (jail "imv" pkgs.imv (with jail.combinators; [
-    readonly-runtime-args
-    gpu
-    gui
-  ]))
   (haskellScript {
     name = "prag";
     text = ''
