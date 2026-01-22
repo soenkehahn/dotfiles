@@ -81,6 +81,7 @@
       pkgs.swaynotificationcenter
       pkgs.sysbench
       pkgs.uni
+      pkgs.vlc
       pkgs.watchexec
       pkgs.wl-clipboard
       pkgs.wl-mirror
