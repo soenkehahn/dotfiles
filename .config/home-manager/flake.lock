@@ -459,21 +459,6 @@
         "type": "github"
       }
     },
-    "lazy-nix": {
-      "locked": {
-        "lastModified": 1762735572,
-        "narHash": "sha256-M4qkfBugW3KD3pAljEyGlld5F+A2yKZgeH8rac3Pbqw=",
-        "owner": "~alexdavid",
-        "repo": "lazy.nix",
-        "rev": "3f171a48ea7946a12f4fca6d6cf6ac01c8ecf019",
-        "type": "sourcehut"
-      },
-      "original": {
-        "owner": "~alexdavid",
-        "repo": "lazy.nix",
-        "type": "sourcehut"
-      }
-    },
     "nil": {
       "inputs": {
         "flake-utils": [
@@ -607,7 +592,6 @@
         "is-cached": "is-cached",
         "jail-nix": "jail-nix",
         "jj": "jj",
-        "lazy-nix": "lazy-nix",
         "nil": "nil",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable",

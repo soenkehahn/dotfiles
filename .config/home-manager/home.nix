@@ -1,4 +1,4 @@
-{ pkgs, extraFlakesToInstall, inputs, system, jail, lazy-nix, ... }:
+{ pkgs, extraFlakesToInstall, inputs, system, jail, ... }:
 {
   programs.home-manager.enable = true;
 
@@ -15,14 +15,6 @@
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   home.packages =
-    let
-      lazy = lazy-nix.lib.init {
-        inherit pkgs;
-        wrapper = pkgs.writeShellScript "lazy-nix-popup-terminal-wrapper" ''
-          alacritty --command "$@"
-        '';
-      };
-    in
     [
       pkgs.age
       pkgs.alacritty
@@ -41,6 +33,7 @@
       pkgs.fd
       pkgs.firefox
       pkgs.fzf
+      pkgs.gimp
       pkgs.github-cli
       pkgs.gittyup
       pkgs.haskellPackages.nix-derivation
@@ -48,11 +41,13 @@
       pkgs.hwatch
       pkgs.hyprpicker
       pkgs.i3status
+      pkgs.inkscape
       pkgs.jjui
       pkgs.jless
       pkgs.jq
       pkgs.just
       pkgs.kanshi
+      pkgs.kdePackages.okular
       pkgs.lazyjj
       pkgs.mpd
       pkgs.musikcube
@@ -88,11 +83,8 @@
       pkgs.xdg-desktop-portal-wlr
       pkgs.xwayland-satellite
       pkgs.yq
+      pkgs.zeal
       pkgs.zellij
-      (lazy pkgs.gimp)
-      (lazy pkgs.inkscape)
-      (lazy pkgs.zeal)
-      (lazy pkgs.kdePackages.okular)
       (
         let pkgs = import inputs.nixpkgs_23_05 { inherit system; };
         in pkgs.qmk
