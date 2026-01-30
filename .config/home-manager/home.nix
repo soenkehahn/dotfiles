@@ -23,6 +23,7 @@
       pkgs.bat
       pkgs.bluetui
       pkgs.bottom
+      pkgs.cargo-limit
       pkgs.choose
       pkgs.d2
       pkgs.dhall

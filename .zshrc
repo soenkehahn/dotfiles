@@ -26,3 +26,6 @@ export EDITOR=$(which hx)
 eval "$(direnv hook zsh)"
 
 source <(COMPLETE=zsh jj)
+
+export CARGO_TARGET_DIR=./target/shahn
+export CARGO_MSG_LIMIT=1

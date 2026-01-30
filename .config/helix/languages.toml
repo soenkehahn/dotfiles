@@ -42,3 +42,6 @@ auto-format = true
 [[language]]
 name = "jsonc"
 formatter = { command = 'prettier', args = ["--parser", "jsonc"] }
+
+[language-server.rust-analyzer.config]
+cargo.targetDir = "target/rust-analyzer"
