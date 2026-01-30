@@ -37,6 +37,7 @@
       pkgs.gimp
       pkgs.github-cli
       pkgs.gittyup
+      pkgs.graphviz
       pkgs.haskellPackages.nix-derivation
       pkgs.hexyl
       pkgs.hwatch
