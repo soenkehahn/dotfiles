@@ -2,6 +2,19 @@
 {
   programs.home-manager.enable = true;
 
+  nix.registry = {
+    nixpkgs = {
+      from = {
+        type = "indirect";
+        id = "nixpkgs";
+      };
+      to = {
+        type = "path";
+        path = toString inputs.nixpkgs;
+      };
+    };
+  };
+
   home.username = "shahn";
   home.homeDirectory = "/home/shahn";
 
