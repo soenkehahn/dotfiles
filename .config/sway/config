@@ -34,7 +34,7 @@ bindsym $mod+t exec exec firefox
 bindsym $mod+comma exec exec alacritty --command prag
 bindsym $mod+x kill
 
-bindsym $mod+m exec "i3-pretty-tree | dot -Tpdf | okular -"
+bindsym $mod+m exec "i3-pretty-tree | dot -Tsvg | imv -"
 
 # focus
 
