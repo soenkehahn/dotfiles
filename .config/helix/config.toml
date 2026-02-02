@@ -48,6 +48,7 @@ A = "shrink_selection"
 I = "select_prev_sibling"
 E = "select_next_sibling"
 O = "insert_at_line_end"
+X = "shrink_to_line_bounds"
 
 [keys.normal.h]
 h = "goto_next_diag"
@@ -64,6 +65,7 @@ p = "command_palette"
 
 [keys.select]
 C-s = ":w"
+X = "shrink_to_line_bounds"
 
 [keys.insert]
 C-s = ":w"
