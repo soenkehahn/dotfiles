@@ -56,6 +56,7 @@
       pkgs.hwatch
       pkgs.hyprpicker
       pkgs.i3status
+      pkgs.imv
       pkgs.inkscape
       pkgs.jjui
       pkgs.jless
@@ -81,7 +82,6 @@
       pkgs.potrace
       pkgs.rage
       pkgs.remmina
-      pkgs.renameutils
       pkgs.ripgrep
       pkgs.rofi
       pkgs.sd
@@ -100,6 +100,11 @@
       pkgs.yq
       pkgs.zeal
       pkgs.zellij
+    ] ++ [
+      (pkgs.runCommand "qmv" { } ''
+        mkdir -p $out/bin
+        ln -s ${pkgs.renameutils}/bin/qmv $out/bin/qmv
+      '')
       (
         let pkgs = import inputs.nixpkgs_23_05 { inherit system; };
         in pkgs.qmk
