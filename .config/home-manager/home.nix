@@ -65,6 +65,7 @@
       pkgs.kanshi
       pkgs.kdePackages.okular
       pkgs.lazyjj
+      pkgs.libreoffice
       pkgs.mpd
       pkgs.musikcube
       pkgs.mympd
