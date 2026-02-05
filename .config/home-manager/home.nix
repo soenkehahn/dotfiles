@@ -1,4 +1,4 @@
-{ pkgs, extraFlakesToInstall, inputs, system, jail, ... }:
+{ pkgs, lib, extraFlakesToInstall, inputs, system, jail, ... }:
 {
   programs.home-manager.enable = true;
 
@@ -45,7 +45,6 @@
       pkgs.dust
       pkgs.element-desktop
       pkgs.fd
-      pkgs.firefox
       pkgs.fzf
       pkgs.gimp
       pkgs.github-cli
@@ -78,7 +77,6 @@
       pkgs.nixpkgs-fmt
       pkgs.nodePackages.prettier
       pkgs.nodejs
-      pkgs.nushell
       pkgs.ormolu
       pkgs.potrace
       pkgs.rage
@@ -101,7 +99,15 @@
       pkgs.yq
       pkgs.zeal
       pkgs.zellij
-    ] ++ [
+    ] ++
+    (
+      let pkgs = import inputs.nixpkgs-unstable { inherit system; };
+      in [
+        pkgs.spotdl
+        pkgs.yt-dlp
+      ]
+    ) ++
+    [
       (pkgs.runCommand "qmv" { } ''
         mkdir -p $out/bin
         ln -s ${pkgs.renameutils}/bin/qmv $out/bin/qmv
@@ -119,13 +125,8 @@
         };
         doCheck = false;
       })
+      (import ./nushell.nix { inherit pkgs lib; }).nushell
     ] ++
-    (
-      let pkgs = import inputs.nixpkgs-unstable { inherit system; };
-      in [
-        pkgs.spotdl
-        pkgs.yt-dlp
-      ]
-    ) ++ extraFlakesToInstall
-    ++ import ./commands.nix { inherit system pkgs inputs jail; };
+    extraFlakesToInstall ++
+    import ./commands.nix { inherit system pkgs lib inputs jail; };
 }

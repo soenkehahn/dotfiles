@@ -1,4 +1,4 @@
-{ system, inputs, pkgs, jail }:
+{ system, inputs, pkgs, lib, jail }:
 let
   haskellScript =
     let
@@ -232,4 +232,52 @@ in
             ]
     '';
   })
+  (
+    let
+      f = pkgs.firefox-esr.override {
+        extraPolicies = {
+          ExtensionSettings = {
+            "uBlock0@raymondhill.net" = {
+              installation_mode = "force_installed";
+              install_url = "file://${inputs.ublock}";
+            };
+            "ext@alexdav.id" = {
+              installation_mode = "force_installed";
+              install_url = "file://${inputs.alex-ff-ext.packages.${system}.extension}";
+            };
+          };
+        };
+        # nativeMessagingHosts = [alex-ff-ext.native-messaging];
+      };
+      cfg =
+        {
+          "xpinstall.signatures.required" = false; # Disable checking signature
+          "extensions.autoDisableScopes" = 14; # Allow use of extensions without user intervention
+          "privacy.clearOnShutdown.cookies" = false;
+          "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
+        };
+      userJs = pkgs.lib.trivial.pipe cfg [
+        (pkgs.lib.attrsets.mapAttrsToList (k: v: "user_pref(${builtins.toJSON k},${builtins.toJSON v});"))
+        (builtins.concatStringsSep "\n")
+        (pkgs.writeText "user.js")
+      ];
+    in
+    pkgs.writeScriptBin "firefox" ''
+      #! ${pkgs.lib.getExe ((import ./nushell.nix {inherit pkgs lib;}).nushell)}
+
+      let firefox_dir = $"($env.HOME)/.mozilla/firefox"
+
+      # Find the profile section where Default=1
+      let default_profile = open $"($firefox_dir)/profiles.ini"
+        | transpose key value
+        | where { $in.key | str starts-with "Profile" }
+        | where { $in.value.Default? == "1" }
+        | first
+        | get value.Path
+      let profile = $"($firefox_dir)/($default_profile)"
+
+      cp -f ${userJs} $"($profile)/user.js"
+      ${pkgs.lib.getExe f}
+    ''
+  )
 ]

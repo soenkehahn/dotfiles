@@ -66,12 +66,22 @@
       flake = false;
     };
     jail-nix.url = "sourcehut:~alexdavid/jail.nix";
+    alex-ff-ext = {
+      url = "sourcehut:~alexdavid/alex-ff-ext";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
+    ublock = {
+      url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, jail-nix, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
+      lib = nixpkgs.lib;
     in
     {
       homeConfigurations."shahn" = home-manager.lib.homeManagerConfiguration {
@@ -108,7 +118,7 @@
             };
         in
         pkgs.lib.foldl f { } (import ./commands.nix {
-          inherit system pkgs inputs;
+          inherit system pkgs lib inputs;
           jail = jail-nix.lib.init pkgs;
         })
       );

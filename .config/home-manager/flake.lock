@@ -1,5 +1,28 @@
 {
   "nodes": {
+    "alex-ff-ext": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1770239576,
+        "narHash": "sha256-rgPKZlGn0UBgCP5dlsi+jW02TScMBwf6cpvkiO3NVos=",
+        "owner": "~alexdavid",
+        "repo": "alex-ff-ext",
+        "rev": "9a30f1cc48c6d21392708649080b1387f49cabd0",
+        "type": "sourcehut"
+      },
+      "original": {
+        "owner": "~alexdavid",
+        "repo": "alex-ff-ext",
+        "type": "sourcehut"
+      }
+    },
     "base16-helix": {
       "flake": false,
       "locked": {
@@ -581,6 +604,7 @@
     },
     "root": {
       "inputs": {
+        "alex-ff-ext": "alex-ff-ext",
         "coding": "coding",
         "cradle": "cradle",
         "debug-tools": "debug-tools",
@@ -599,7 +623,8 @@
         "set-colortheme": "set-colortheme",
         "sway-switch-outputs": "sway-switch-outputs",
         "tinted-builder-rust": "tinted-builder-rust",
-        "treetop": "treetop"
+        "treetop": "treetop",
+        "ublock": "ublock"
       }
     },
     "rust-overlay": {
@@ -850,6 +875,18 @@
         "owner": "soenkehahn",
         "repo": "treetop",
         "type": "github"
+      }
+    },
+    "ublock": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-DEK3wslNudps59+7MsUFe+ThdKqX+6LQqDjfRxooHX0=",
+        "type": "file",
+        "url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
       }
     }
   },
