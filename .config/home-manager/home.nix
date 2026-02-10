@@ -80,6 +80,7 @@
       pkgs.ormolu
       pkgs.potrace
       pkgs.rage
+      pkgs.ranger
       pkgs.remmina
       pkgs.ripgrep
       pkgs.rofi
