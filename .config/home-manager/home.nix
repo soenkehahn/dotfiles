@@ -39,6 +39,7 @@
       pkgs.cargo-limit
       pkgs.choose
       pkgs.d2
+      pkgs.delta
       pkgs.dhall
       pkgs.dhall-lsp-server
       pkgs.direnv
@@ -66,6 +67,7 @@
       pkgs.kdePackages.okular
       pkgs.lazyjj
       pkgs.libreoffice
+      pkgs.meld
       pkgs.mpd
       pkgs.musikcube
       pkgs.mympd
