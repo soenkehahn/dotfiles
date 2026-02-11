@@ -42,6 +42,7 @@
       pkgs.dhall
       pkgs.dhall-lsp-server
       pkgs.direnv
+      pkgs.dive
       pkgs.dust
       pkgs.element-desktop
       pkgs.fd
