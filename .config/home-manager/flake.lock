@@ -227,11 +227,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1699470454,
-        "narHash": "sha256-RKoBzwUDC9ZP5w6vNm7jXXIQ0mTVwU7a8GpOzDgQ+IQ=",
+        "lastModified": 1770994461,
+        "narHash": "sha256-yzIkCYvpxqQT3zxgUFmrBBA5HhpbHXsd/Ny1hjhZRBY=",
         "owner": "garnix-io",
         "repo": "debug-tools",
-        "rev": "8a4026fa6ccbfec070f96d458ffa96e7fb6112e8",
+        "rev": "6767cde151c1b4b7399edd51d6b3d49567e79a8a",
         "type": "github"
       },
       "original": {
