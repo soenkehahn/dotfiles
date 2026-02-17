@@ -63,6 +63,7 @@
       pkgs.jless
       pkgs.jq
       pkgs.just
+      pkgs.jwt-cli
       pkgs.kanshi
       pkgs.kdePackages.okular
       pkgs.lazyjj
