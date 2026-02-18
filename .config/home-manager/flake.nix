@@ -60,10 +60,6 @@
       url = "github:helix-editor/helix/filesentry";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    tinted-builder-rust = {
-      url = "github:tinted-theming/tinted-builder-rust/v0.13.1";
-      flake = false;
-    };
     jail-nix.url = "sourcehut:~alexdavid/jail.nix";
     alex-ff-ext = {
       url = "sourcehut:~alexdavid/alex-ff-ext";

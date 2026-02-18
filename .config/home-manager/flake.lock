@@ -617,7 +617,6 @@
         "nixpkgs_23_05": "nixpkgs_23_05",
         "set-colortheme": "set-colortheme",
         "sway-switch-outputs": "sway-switch-outputs",
-        "tinted-builder-rust": "tinted-builder-rust",
         "treetop": "treetop",
         "ublock": "ublock"
       }
@@ -791,23 +790,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "tinted-builder-rust": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1742829822,
-        "narHash": "sha256-Sb5YNxa00xph0oyIYIXttsdM3z4SWwiM/6SSQU143jU=",
-        "owner": "tinted-theming",
-        "repo": "tinted-builder-rust",
-        "rev": "4b7591ff682aff63e4b49561e0f8b17ee4fa68c6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tinted-theming",
-        "ref": "v0.13.1",
-        "repo": "tinted-builder-rust",
         "type": "github"
       }
     },
