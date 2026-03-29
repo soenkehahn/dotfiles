@@ -13,6 +13,16 @@
         path = toString inputs.nixpkgs;
       };
     };
+    nixpkgs-unstable = {
+      from = {
+        type = "indirect";
+        id = "nixpkgs-unstable";
+      };
+      to = {
+        type = "path";
+        path = toString inputs.nixpkgs-unstable;
+      };
+    };
   };
 
   home.username = "shahn";
