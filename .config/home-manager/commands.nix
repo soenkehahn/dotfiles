@@ -265,19 +265,21 @@ in
     pkgs.writeScriptBin "firefox" ''
       #! ${pkgs.lib.getExe ((import ./nushell.nix {inherit pkgs lib;}).nushell)}
 
-      let firefox_dir = $"($env.HOME)/.mozilla/firefox"
+      def --wrapped main [...args] {
+        let firefox_dir = $"($env.HOME)/.mozilla/firefox"
 
-      # Find the profile section where Default=1
-      let default_profile = open $"($firefox_dir)/profiles.ini"
-        | transpose key value
-        | where { $in.key | str starts-with "Profile" }
-        | where { $in.value.Default? == "1" }
-        | first
-        | get value.Path
-      let profile = $"($firefox_dir)/($default_profile)"
+        # Find the profile section where Default=1
+        let default_profile = open $"($firefox_dir)/profiles.ini"
+          | transpose key value
+          | where { $in.key | str starts-with "Profile" }
+          | where { $in.value.Default? == "1" }
+          | first
+          | get value.Path
+        let profile = $"($firefox_dir)/($default_profile)"
 
-      cp -f ${userJs} $"($profile)/user.js"
-      ${pkgs.lib.getExe f}
+        cp -f ${userJs} $"($profile)/user.js"
+        exec ${pkgs.lib.getExe f} ...$args
+      }
     ''
   )
 ]
