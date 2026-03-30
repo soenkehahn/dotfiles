@@ -820,11 +820,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1772824603,
-        "narHash": "sha256-O0oL5Wc8MaT5nrOpf0Q4lRnkrkETKXLsTPINPbg36QA=",
+        "lastModified": 1774907539,
+        "narHash": "sha256-xNJk03v9yKjPoQIDevZcyX73/0zaONLegOefJta1j8M=",
         "owner": "soenkehahn",
         "repo": "treetop",
-        "rev": "38b6cce46052ecceb3f3806c40ddfe7785e3a337",
+        "rev": "1f8f7bcd531512e8b2bd34c9b17fadef40c92482",
         "type": "github"
       },
       "original": {
