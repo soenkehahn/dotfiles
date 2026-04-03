@@ -65,6 +65,8 @@ p = "command_palette"
 
 [keys.select]
 C-s = ":w"
+"}" = "goto_next_paragraph"
+"{" = "goto_prev_paragraph"
 X = "shrink_to_line_bounds"
 
 [keys.insert]
