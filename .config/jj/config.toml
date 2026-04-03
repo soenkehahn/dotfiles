@@ -25,4 +25,4 @@ concat(
 '''
 
 [remotes.origin]
-auto-track-bookmarks = "glob:*"
+auto-track-created-bookmarks = "*"
