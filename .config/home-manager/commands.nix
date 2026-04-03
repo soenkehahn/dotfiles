@@ -282,4 +282,23 @@ in
       }
     ''
   )
+  (jail "claude" pkgs.claude-code (with jail.combinators;
+  [
+    reset
+    base
+    (readonly "/nix")
+    (readonly "/usr")
+    (readonly "/etc/alternatives")
+    (readonly "/lib")
+    (readonly "/lib64")
+    (fwd-env "PATH")
+    (fwd-env "SHELL")
+    (fwd-env "COLORTERM")
+    network
+    (persist-home "claude-code")
+    mount-cwd
+    no-new-session
+    (add-pkg-deps [ pkgs.claude-code ])
+  ]
+  ))
 ]

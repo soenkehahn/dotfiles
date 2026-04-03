@@ -60,7 +60,7 @@
       url = "github:helix-editor/helix/filesentry";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    jail-nix.url = "sourcehut:~alexdavid/jail.nix";
+    jail-nix.url = "sourcehut:~alexdavid/jail.nix/dev";
     alex-ff-ext = {
       url = "sourcehut:~alexdavid/alex-ff-ext";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -75,7 +75,12 @@
   outputs = { self, nixpkgs, home-manager, jail-nix, ... }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
+      pkgs = import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfreePredicate = pkg: lib.getName pkg == "claude-code";
+        };
+      };
       lib = nixpkgs.lib;
     in
     {
