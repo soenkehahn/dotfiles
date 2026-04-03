@@ -7,6 +7,8 @@ compinit
 
 stty -ixon
 
+ZLE_REMOVE_SUFFIX_CHARS=""
+
 source ~/.zshrc.aliases
 
 # history
