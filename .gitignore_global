@@ -13,3 +13,5 @@ rust-analyzer/
 .hspec-failures
 result
 skratch.*
+skratch/
+/.claude/
