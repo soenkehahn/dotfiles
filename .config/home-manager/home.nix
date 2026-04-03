@@ -69,7 +69,6 @@
       pkgs.i3status
       pkgs.imv
       pkgs.inkscape
-      pkgs.jjui
       pkgs.jless
       pkgs.jq
       pkgs.just
@@ -113,14 +112,15 @@
       pkgs.xwayland-satellite
       pkgs.yq
       pkgs.zeal
-      pkgs.zellij
     ] ++
     (
       let pkgs = import inputs.nixpkgs-unstable { inherit system; };
       in [
+        pkgs.jjui
+        pkgs.jujutsu
         pkgs.spotdl
         pkgs.yt-dlp
-        pkgs.jujutsu
+        pkgs.zellij
       ]
     ) ++
     [
