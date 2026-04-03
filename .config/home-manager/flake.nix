@@ -42,10 +42,6 @@
       inputs.flake-utils.follows = "flake-utils";
     };
     is-cached.url = "github:soenkehahn/is_cached";
-    jj = {
-      url = "github:martinvonz/jj/v0.39.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     coding = {
       url = "github:soenkehahn/coding";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -95,7 +91,6 @@
             inputs.git-shell
             inputs.helix
             inputs.i3-pretty-tree
-            inputs.jj
             inputs.nil
             inputs.set-colortheme
             inputs.sway-switch-outputs

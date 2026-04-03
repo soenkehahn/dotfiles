@@ -120,6 +120,7 @@
       in [
         pkgs.spotdl
         pkgs.yt-dlp
+        pkgs.jujutsu
       ]
     ) ++
     [
