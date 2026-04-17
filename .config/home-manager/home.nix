@@ -119,6 +119,7 @@
         pkgs.jjui
         pkgs.jujutsu
         pkgs.spotdl
+        pkgs.wiremix
         pkgs.yt-dlp
         pkgs.zellij
       ]
