@@ -18,8 +18,8 @@ profile "desktop monitor" {
 }
 
 profile "desktop + touchscreen" {
-  output "Philips Consumer Electronics Company PHL 276E8V 0x00000565" enable mode 3840x2160 position 0,0 scale 1
-  output "Gechic Corporation Onlap1503 8888" mode 1920x1080 scale 0.6 position 3840,360
+  output "Gechic Corporation Onlap1503 8888" mode 1920x1080 scale 0.6 position 0,360
+  output "Philips Consumer Electronics Company PHL 276E8V 0x00000565" enable mode 3840x2160 position 3200,0 scale 1
 }
 
 profile "laptop + touchscreen" {
