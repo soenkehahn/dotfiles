@@ -10,11 +10,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1770239576,
-        "narHash": "sha256-rgPKZlGn0UBgCP5dlsi+jW02TScMBwf6cpvkiO3NVos=",
+        "lastModified": 1775972596,
+        "narHash": "sha256-eBEza6Ub5/aN4Pu99UpNB7ucMs4bUg8MqK+QAY75kV0=",
         "owner": "~alexdavid",
         "repo": "alex-ff-ext",
-        "rev": "9a30f1cc48c6d21392708649080b1387f49cabd0",
+        "rev": "7e1180ec45eae78ba57e3911843d4d78aafcef1e",
         "type": "sourcehut"
       },
       "original": {

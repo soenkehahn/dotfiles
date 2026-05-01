@@ -1,0 +1,6 @@
+{
+  "external_edit": {
+    "command": "alacritty",
+    "args": ["-e", "hx"]
+  }
+}
