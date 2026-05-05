@@ -92,6 +92,7 @@
       pkgs.nodejs
       pkgs.ormolu
       pkgs.potrace
+      pkgs.pwgen
       pkgs.rage
       pkgs.ranger
       pkgs.remmina
