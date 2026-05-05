@@ -40,7 +40,7 @@
   home.packages =
     [
       pkgs.age
-      pkgs.alacritty
+      pkgs.alacritty-graphics
       pkgs.as-tree
       pkgs.atuin
       pkgs.bat
