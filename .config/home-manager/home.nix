@@ -45,7 +45,6 @@
       pkgs.atool
       pkgs.atuin
       pkgs.bat
-      pkgs.bluetui
       pkgs.bottom
       pkgs.cargo-limit
       pkgs.choose
@@ -122,6 +121,7 @@
     (
       let pkgs = import inputs.nixpkgs-unstable { inherit system; };
       in [
+        pkgs.bluetui
         pkgs.jjui
         pkgs.jujutsu
         pkgs.spotdl
