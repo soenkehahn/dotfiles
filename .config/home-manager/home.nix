@@ -42,6 +42,7 @@
       pkgs.age
       pkgs.alacritty-graphics
       pkgs.as-tree
+      pkgs.atool
       pkgs.atuin
       pkgs.bat
       pkgs.bluetui
@@ -56,6 +57,7 @@
       pkgs.dive
       pkgs.dust
       pkgs.element-desktop
+      pkgs.entr
       pkgs.fd
       pkgs.fzf
       pkgs.gimp
@@ -72,6 +74,7 @@
       pkgs.jless
       pkgs.jq
       pkgs.just
+      pkgs.just-lsp
       pkgs.jwt-cli
       pkgs.kanshi
       pkgs.kdePackages.okular
@@ -87,6 +90,7 @@
       pkgs.nix-direnv
       pkgs.nix-output-monitor
       pkgs.nix-tree
+      pkgs.nixfmt
       pkgs.nixpkgs-fmt
       pkgs.nodePackages.prettier
       pkgs.nodejs
@@ -111,6 +115,7 @@
       pkgs.wl-mirror
       pkgs.xdg-desktop-portal-wlr
       pkgs.xwayland-satellite
+      pkgs.yazi
       pkgs.yq
       pkgs.zeal
     ] ++
