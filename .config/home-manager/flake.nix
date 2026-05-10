@@ -24,7 +24,7 @@
     };
     debug-tools = {
       url = "github:garnix-io/debug-tools";
-      inputs.nixpkgs-repo.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     treetop = {
       url = "github:soenkehahn/treetop";
@@ -94,6 +94,7 @@
           extraFlakesToInstall = pkgs.lib.lists.map (flake: flake.packages.${system}.default) [
             inputs.aegis
             inputs.coding
+            inputs.debug-tools
             inputs.git-shell
             inputs.helix
             inputs.i3-pretty-tree
@@ -102,7 +103,6 @@
             inputs.sway-switch-outputs
             inputs.treetop
           ] ++ [
-            inputs.debug-tools.packages.${system}.main_pkg
             inputs.is-cached.packages.${system}.main_pkg
           ];
         };
