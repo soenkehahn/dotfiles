@@ -66,6 +66,11 @@
       url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
       flake = false;
     };
+    aegis = {
+      url = "sourcehut:~alexdavid/aegis";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, jail-nix, ... }@inputs:
@@ -87,6 +92,7 @@
           inherit system inputs;
           jail = jail-nix.lib.init pkgs;
           extraFlakesToInstall = pkgs.lib.lists.map (flake: flake.packages.${system}.default) [
+            inputs.aegis
             inputs.coding
             inputs.git-shell
             inputs.helix

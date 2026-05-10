@@ -1,5 +1,29 @@
 {
   "nodes": {
+    "aegis": {
+      "inputs": {
+        "crane": "crane",
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1774732056,
+        "narHash": "sha256-wk1GDGshWTuQX+U/JFyc47kjcaRLb9izXgmwDelzqUg=",
+        "owner": "~alexdavid",
+        "repo": "aegis",
+        "rev": "ec9164b785741072d7e55ff392f06a5c244323b5",
+        "type": "sourcehut"
+      },
+      "original": {
+        "owner": "~alexdavid",
+        "repo": "aegis",
+        "type": "sourcehut"
+      }
+    },
     "alex-ff-ext": {
       "inputs": {
         "flake-utils": [
@@ -105,7 +129,7 @@
     },
     "coding": {
       "inputs": {
-        "crane": "crane",
+        "crane": "crane_2",
         "flake-utils": [
           "flake-utils"
         ],
@@ -177,6 +201,21 @@
     },
     "crane": {
       "locked": {
+        "lastModified": 1766194365,
+        "narHash": "sha256-4AFsUZ0kl6MXSm4BaQgItD0VGlEKR3iq7gIaL7TjBvc=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "7d8ec2c71771937ab99790b45e6d9b93d15d9379",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
+    "crane_2": {
+      "locked": {
         "lastModified": 1748047550,
         "narHash": "sha256-t0qLLqb4C1rdtiY8IFRH5KIapTY/n3Lqt57AmxEv9mk=",
         "owner": "ipetkov",
@@ -190,7 +229,7 @@
         "type": "github"
       }
     },
-    "crane_2": {
+    "crane_3": {
       "locked": {
         "lastModified": 1748970125,
         "narHash": "sha256-UDyigbDGv8fvs9aS95yzFfOKkEjx1LO3PL3DsKopohA=",
@@ -205,7 +244,7 @@
         "type": "github"
       }
     },
-    "crane_3": {
+    "crane_4": {
       "locked": {
         "lastModified": 1734324364,
         "narHash": "sha256-omYTR59TdH0AumP1cfh49fBnWZ52HjfdNfaLzCMZBx0=",
@@ -296,7 +335,7 @@
     },
     "git-shell": {
       "inputs": {
-        "crane": "crane_2",
+        "crane": "crane_3",
         "flake-utils": [
           "flake-utils"
         ],
@@ -559,6 +598,7 @@
     },
     "root": {
       "inputs": {
+        "aegis": "aegis",
         "alex-ff-ext": "alex-ff-ext",
         "coding": "coding",
         "cradle": "cradle",
@@ -734,7 +774,7 @@
     },
     "treetop": {
       "inputs": {
-        "crane": "crane_3",
+        "crane": "crane_4",
         "flake-utils": [
           "flake-utils"
         ],
