@@ -283,6 +283,12 @@ in
       }
     ''
   )
+  (
+    pkgs.writeScriptBin "claude-unjailed" ''
+      #! ${pkgs.lib.getExe ((import ./nushell.nix {inherit pkgs lib;}).nushell)}
+      exec ${lib.getExe pkgs.claude-code}
+    ''
+  )
   (jail "claude" pkgs.claude-code (with jail.combinators;
   [
     reset
