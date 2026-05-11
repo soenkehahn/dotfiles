@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, system, jail, ... }:
+{ pkgs, lib, inputs, system, ... }:
 {
   programs.home-manager.enable = true;
 
@@ -157,5 +157,5 @@
       inputs.is-cached.packages.${system}.main_pkg
     ]
     ++
-    import ./commands.nix { inherit system pkgs lib inputs jail; };
+    import ./commands.nix { inherit system pkgs lib inputs; };
 }

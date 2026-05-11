@@ -85,7 +85,6 @@
         modules = [ ./home.nix ];
         extraSpecialArgs = {
           inherit system inputs;
-          jail = jail-nix.lib.init pkgs;
         };
       };
       apps.x86_64-linux = (
@@ -101,7 +100,6 @@
         in
         pkgs.lib.foldl f { } (import ./commands.nix {
           inherit system pkgs lib inputs;
-          jail = jail-nix.lib.init pkgs;
         })
       );
     };

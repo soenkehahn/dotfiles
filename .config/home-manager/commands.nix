@@ -1,5 +1,6 @@
-{ system, inputs, pkgs, lib, jail }:
+{ system, inputs, pkgs, lib }:
 let
+  jail = inputs.jail-nix.lib.init pkgs;
   haskellScript =
     let
       haskellPackages = pkgs.haskellPackages.override {
