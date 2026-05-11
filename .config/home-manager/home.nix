@@ -1,4 +1,4 @@
-{ pkgs, lib, extraFlakesToInstall, inputs, system, jail, ... }:
+{ pkgs, lib, inputs, system, jail, ... }:
 {
   programs.home-manager.enable = true;
 
@@ -143,6 +143,19 @@
       )
       (import ./nushell.nix { inherit pkgs lib; }).nushell
     ] ++
-    extraFlakesToInstall ++
+    (pkgs.lib.lists.map (flake: flake.packages.${system}.default) [
+      inputs.aegis
+      inputs.coding
+      inputs.debug-tools
+      inputs.helix
+      inputs.i3-pretty-tree
+      inputs.nil
+      inputs.set-colortheme
+      inputs.sway-switch-outputs
+      inputs.treetop
+    ]) ++ [
+      inputs.is-cached.packages.${system}.main_pkg
+    ]
+    ++
     import ./commands.nix { inherit system pkgs lib inputs jail; };
 }
