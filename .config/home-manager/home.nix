@@ -65,6 +65,7 @@
       pkgs.fd
       pkgs.fzf
       pkgs.gimp
+      pkgs.git
       pkgs.github-cli
       pkgs.gittyup
       pkgs.graphviz
