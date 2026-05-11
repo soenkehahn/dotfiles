@@ -71,12 +71,7 @@
   outputs = { self, nixpkgs, home-manager, jail-nix, ... }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config = {
-          allowUnfreePredicate = pkg: lib.getName pkg == "claude-code";
-        };
-      };
+      pkgs = import nixpkgs { inherit system; };
       lib = nixpkgs.lib;
     in
     {
