@@ -129,6 +129,7 @@
       let pkgs = import inputs.nixpkgs-unstable { inherit system; };
       in [
         pkgs.bluetui
+        pkgs.helix
         pkgs.jjui
         pkgs.jujutsu
         pkgs.spotdl
@@ -152,7 +153,7 @@
       inputs.aegis
       inputs.coding
       inputs.debug-tools
-      inputs.helix
+      # inputs.helix
       inputs.i3-pretty-tree
       inputs.nil
       inputs.set-colortheme

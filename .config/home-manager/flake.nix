@@ -47,10 +47,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
-    helix = {
-      url = "github:helix-editor/helix/filesentry";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # helix = {
+    #   url = "github:helix-editor/helix/filesentry";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     jail-nix.url = "sourcehut:~alexdavid/jail.nix/dev";
     alex-ff-ext = {
       url = "sourcehut:~alexdavid/alex-ff-ext";
