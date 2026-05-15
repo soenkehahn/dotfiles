@@ -77,6 +77,7 @@
       pkgs.jwt-cli
       pkgs.kanshi
       pkgs.kdePackages.okular
+      pkgs.kdlfmt
       pkgs.lazyjj
       pkgs.libreoffice
       pkgs.meld

@@ -1,0 +1,29 @@
+layout {
+    tab_template name="my-tab" {
+        pane size=1 borderless=true {
+            plugin location="tab-bar"
+        }
+        children
+        pane size=1 borderless=true {
+            plugin location="status-bar"
+        }
+    }
+    my-tab name="browsing" {
+        pane borderless=true
+    }
+    my-tab name="editing" focus=true {
+        pane split_direction="vertical" {
+            pane borderless=true
+            pane split_direction="horizontal" {
+                pane borderless=true
+                pane borderless=true
+            }
+        }
+    }
+    my-tab name="vcs" {
+        pane borderless=true {
+
+        }
+    }
+}
+

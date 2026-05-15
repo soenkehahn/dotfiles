@@ -1,0 +1,4 @@
+[[language]]
+name = "kdl"
+formatter = { command = "kdlfmt", args = ["format", "--kdl-version", "v1", "--stdin"] }
+auto-format = true
