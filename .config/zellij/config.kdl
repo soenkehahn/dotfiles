@@ -1,16 +1,31 @@
 session_serialization false
-
+pane_frames false
 keybinds {
-  unbind "Ctrl s"
-  shared {
-    bind "Super n" { NewTab; }
-    bind "Super r" { NewPane; }
-    bind "Super l" { MoveFocus "Up"; }
-    bind "Super i" { MoveFocusOrTab "Left"; }
-    bind "Super a" { MoveFocus "Down"; }
-    bind "Super e" { MoveFocusOrTab "Right"; }
-  }
-  normal {
-    bind "Super s" { SwitchToMode "Scroll"; }
-  }
+    unbind "Ctrl s"
+    shared {
+        bind "Super n" {
+            NewTab
+        }
+        bind "Super r" {
+            NewPane
+        }
+        bind "Super l" {
+            MoveFocus "Up"
+        }
+        bind "Super i" {
+            MoveFocusOrTab "Left"
+        }
+        bind "Super a" {
+            MoveFocus "Down"
+        }
+        bind "Super e" {
+            MoveFocusOrTab "Right"
+        }
+    }
+    normal {
+        bind "Super s" {
+            SwitchToMode "Scroll"
+        }
+    }
 }
+
