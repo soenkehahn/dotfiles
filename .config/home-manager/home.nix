@@ -41,6 +41,7 @@
     [
       pkgs.age
       pkgs.alacritty-graphics
+      pkgs.amarok
       pkgs.as-tree
       pkgs.atool
       pkgs.atuin
