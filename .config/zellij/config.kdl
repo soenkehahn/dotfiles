@@ -10,4 +10,7 @@ keybinds {
     bind "Super a" { MoveFocus "Down"; }
     bind "Super e" { MoveFocusOrTab "Right"; }
   }
+  normal {
+    bind "Super s" { SwitchToMode "Scroll"; }
+  }
 }
