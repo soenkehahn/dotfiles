@@ -47,11 +47,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
-    git-shell = {
-      url = "github:soenkehahn/git-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-    };
     helix = {
       url = "github:helix-editor/helix/filesentry";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -95,7 +90,6 @@
             inputs.aegis
             inputs.coding
             inputs.debug-tools
-            inputs.git-shell
             inputs.helix
             inputs.i3-pretty-tree
             inputs.nil

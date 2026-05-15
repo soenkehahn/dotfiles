@@ -231,21 +231,6 @@
     },
     "crane_3": {
       "locked": {
-        "lastModified": 1748970125,
-        "narHash": "sha256-UDyigbDGv8fvs9aS95yzFfOKkEjx1LO3PL3DsKopohA=",
-        "owner": "ipetkov",
-        "repo": "crane",
-        "rev": "323b5746d89e04b22554b061522dfce9e4c49b18",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ipetkov",
-        "repo": "crane",
-        "type": "github"
-      }
-    },
-    "crane_4": {
-      "locked": {
         "lastModified": 1734324364,
         "narHash": "sha256-omYTR59TdH0AumP1cfh49fBnWZ52HjfdNfaLzCMZBx0=",
         "owner": "ipetkov",
@@ -349,30 +334,6 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "git-shell": {
-      "inputs": {
-        "crane": "crane_3",
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1749228956,
-        "narHash": "sha256-kWYLEpiG/snUJPVntbjYsZpsXxEdyFdna4ZCJIXAbQM=",
-        "owner": "soenkehahn",
-        "repo": "git-shell",
-        "rev": "1fa9ab9364a995cba47156d2ad9c2ed12d0ef6e1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "soenkehahn",
-        "repo": "git-shell",
         "type": "github"
       }
     },
@@ -623,7 +584,6 @@
         "cradle": "cradle",
         "debug-tools": "debug-tools",
         "flake-utils": "flake-utils_2",
-        "git-shell": "git-shell",
         "helix": "helix",
         "home-manager": "home-manager",
         "i3-pretty-tree": "i3-pretty-tree",
@@ -808,7 +768,7 @@
     },
     "treetop": {
       "inputs": {
-        "crane": "crane_4",
+        "crane": "crane_3",
         "flake-utils": [
           "flake-utils"
         ],
