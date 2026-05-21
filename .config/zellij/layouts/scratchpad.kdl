@@ -1,0 +1,18 @@
+layout {
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="tab-bar"
+        }
+        children
+        pane size=1 borderless=true {
+            plugin location="status-bar"
+        }
+    }
+    tab name="bluetui" focus=true {
+        pane borderless=true command="bluetui"
+    }
+    tab name="wiremix" {
+        pane borderless=true command="wiremix"
+    }
+}
+
