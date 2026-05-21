@@ -142,10 +142,6 @@
         mkdir -p $out/bin
         ln -s ${pkgs.renameutils}/bin/qmv $out/bin/qmv
       '')
-      (
-        let pkgs = import inputs.nixpkgs_23_05 { inherit system; };
-        in pkgs.qmk
-      )
       (import ./nushell.nix { inherit pkgs lib; }).nushell
     ] ++
     (pkgs.lib.lists.map (flake: flake.packages.${system}.default) [

@@ -527,22 +527,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_23_05": {
-      "locked": {
-        "lastModified": 1704290814,
-        "narHash": "sha256-LWvKHp7kGxk/GEtlrGYV68qIvPHkU9iToomNFGagixU=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "70bdadeb94ffc8806c0570eb5c2695ad29f0e421",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-23.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs_3": {
       "locked": {
         "lastModified": 1778737229,
@@ -592,7 +576,6 @@
         "nil": "nil",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "nixpkgs_23_05": "nixpkgs_23_05",
         "set-colortheme": "set-colortheme",
         "sway-switch-outputs": "sway-switch-outputs",
         "treetop": "treetop",
