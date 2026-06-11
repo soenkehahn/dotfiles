@@ -637,11 +637,11 @@
         "tinted-terminal": "tinted-terminal"
       },
       "locked": {
-        "lastModified": 1769524414,
-        "narHash": "sha256-VbwCIbYsVhNiHWYUlpo261Gp9vdu2FIwBn4ZF733eLs=",
+        "lastModified": 1781112442,
+        "narHash": "sha256-NVFP5GIk45NvgSePUIrs7w6W0KzAvmP+wTygI2+EkvE=",
         "owner": "soenkehahn",
         "repo": "set-colortheme",
-        "rev": "459827d07378a29b9abcacd7c925a2312e2e7795",
+        "rev": "cc6de7788c17383c95a23f3309721bb7256b84de",
         "type": "github"
       },
       "original": {
