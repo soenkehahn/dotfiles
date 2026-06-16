@@ -6,7 +6,7 @@ let
     in
     pkgs.writeShellScriptBin "nu" ''
       exec ${lib.getExe pkgs.nushell} \
-        --plugins '[${pluginList}]' \
+        --plugins ${pluginList} -- \
         "$@"
     '';
   nushell = nushellWithPlugins [
