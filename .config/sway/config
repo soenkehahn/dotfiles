@@ -79,6 +79,7 @@ bindsym $mod+z move scratchpad
 bindsym $mod+b scratchpad show ; mode "scratchpad"
 mode "scratchpad" {
   bindsym $mod+b mode "default" ; scratchpad show
+  bindsym $mod+q mode "default" ; floating toggle
 }
 
 # waybar
