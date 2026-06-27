@@ -44,7 +44,6 @@
       pkgs.amarok
       pkgs.as-tree
       pkgs.atool
-      pkgs.atuin
       pkgs.bat
       pkgs.bottom
       pkgs.cargo-limit
@@ -124,6 +123,7 @@
     (
       let pkgs = import inputs.nixpkgs-unstable { inherit system; };
       in [
+        pkgs.atuin
         pkgs.bluetui
         pkgs.jjui
         pkgs.jujutsu
