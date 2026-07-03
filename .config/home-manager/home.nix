@@ -93,7 +93,7 @@
       pkgs.nix-tree
       pkgs.nixfmt
       pkgs.nixpkgs-fmt
-      pkgs.nodePackages.prettier
+      pkgs.prettier
       pkgs.nodejs
       pkgs.ormolu
       pkgs.potrace
