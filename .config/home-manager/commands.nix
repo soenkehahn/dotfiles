@@ -289,7 +289,7 @@ in
       exec ${lib.getExe pkgs.claude-code}
     ''
   )
-  (jail "claude" pkgs.claude-code (with jail.combinators;
+  (jail "claude" pkgs.bash (with jail.combinators;
   [
     reset
     base
