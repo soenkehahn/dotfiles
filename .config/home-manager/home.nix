@@ -64,6 +64,7 @@
       pkgs.github-cli
       pkgs.gittyup
       pkgs.graphviz
+      pkgs.grim
       pkgs.haskellPackages.nix-derivation
       pkgs.hexyl
       pkgs.hwatch
