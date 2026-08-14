@@ -90,14 +90,14 @@
       pkgs.nethogs
       pkgs.niri
       pkgs.nix-direnv
-      pkgs.nix-output-monitor
-      pkgs.nix-tree
       pkgs.nixfmt
+      pkgs.nix-output-monitor
       pkgs.nixpkgs-fmt
-      pkgs.prettier
+      pkgs.nix-tree
       pkgs.nodejs
       pkgs.ormolu
       pkgs.potrace
+      pkgs.prettier
       pkgs.pwgen
       pkgs.rage
       pkgs.ranger
