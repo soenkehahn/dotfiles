@@ -88,6 +88,7 @@
       pkgs.mympd
       pkgs.neovim
       pkgs.nethogs
+      pkgs.nil
       pkgs.niri
       pkgs.nix-direnv
       pkgs.nixfmt
@@ -147,7 +148,6 @@
       inputs.debug-tools
       inputs.helix
       inputs.i3-pretty-tree
-      inputs.nil
       inputs.set-colortheme
       inputs.sway-switch-outputs
       inputs.treetop

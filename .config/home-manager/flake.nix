@@ -7,10 +7,6 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nil = {
-      url = "github:oxalica/nil";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     i3-pretty-tree = {
       url = "github:soenkehahn/i3-pretty-tree";
       inputs.nixpkgs.follows = "nixpkgs";
